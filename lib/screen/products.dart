@@ -1,7 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:ciofroum/responsive.dart';
-import 'package:ciofroum/widget/product_page.dart';
-import 'package:ciofroum/widget/productcarousel_slider.dart';
+
+import 'package:ciofroum_web/responsive.dart';
+import 'package:ciofroum_web/widget/product_page.dart';
+import 'package:ciofroum_web/widget/productcarousel_slider.dart';
 import 'package:flutter/material.dart';
 
 class Product extends StatefulWidget {

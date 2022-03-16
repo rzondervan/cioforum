@@ -1,8 +1,9 @@
-import 'package:ciofroum/responsive.dart';
-import 'package:ciofroum/screen/Home.dart';
-import 'package:ciofroum/screen/about.dart';
-import 'package:ciofroum/screen/news.dart';
-import 'package:ciofroum/screen/products.dart';
+
+import 'package:ciofroum_web/responsive.dart';
+import 'package:ciofroum_web/screen/Home.dart';
+import 'package:ciofroum_web/screen/about.dart';
+import 'package:ciofroum_web/screen/news.dart';
+import 'package:ciofroum_web/screen/products.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {

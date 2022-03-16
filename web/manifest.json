@@ -1,6 +1,6 @@
 {
-    "name": "ciofroum",
-    "short_name": "ciofroum",
+    "name": "ciofroum_web",
+    "short_name": "ciofroum_web",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

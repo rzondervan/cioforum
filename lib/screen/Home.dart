@@ -1,6 +1,5 @@
-import 'package:ciofroum/header_view.dart';
-import 'package:ciofroum/responsive.dart';
-import 'package:ciofroum/screen/products.dart';
+
+import 'package:ciofroum_web/responsive.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {

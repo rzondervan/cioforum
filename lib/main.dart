@@ -1,11 +1,10 @@
-import 'package:ciofroum/Homepage.dart';
-import 'package:ciofroum/footer_view.dart';
-import 'package:ciofroum/header_view.dart';
-import 'package:ciofroum/screen/Home.dart';
-import 'package:ciofroum/screen/products.dart';
+
+import 'package:ciofroum_web/Homepage.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-void main(){
+void main()async{
   runApp(MyApp());
 }
 

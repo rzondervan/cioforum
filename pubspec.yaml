@@ -1,4 +1,4 @@
-name: ciofroum
+name: ciofroum_web
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -36,9 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   footer: ^0.0.4
   carousel_slider: ^4.0.0
-
-
-
+  firebase_core:
 
 dev_dependencies:
   flutter_test:
