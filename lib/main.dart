@@ -1,5 +1,6 @@
 
 import 'package:ciofroum_web/Homepage.dart';
+import 'package:ciofroum_web/screen/contact.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue
       ),
       themeMode: ThemeMode.light,
-      home: HomeScreen(),
+      home: Contact(),
 
     );
   }
