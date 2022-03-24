@@ -1,6 +1,7 @@
 import 'package:ciofroum_web/constants/themes.dart';
 import 'package:ciofroum_web/responsive.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class NewPage extends StatefulWidget {
   const NewPage({Key? key}) : super(key: key);
@@ -14,6 +15,8 @@ class _NewPageState extends State<NewPage> {
   String dropdownvalue2 = '2021(1)';
   String dropdownvalue3 = '2020(1)';
   String dropdownvalue4 = '2019(1)';
+  TextEditingController searchController=TextEditingController();
+
 
   var items = [
     "2022(1)",
@@ -66,7 +69,15 @@ class _NewPageState extends State<NewPage> {
                         // height: height,
                         child: Column(
                           children: [
-                            Container(
+                            InkWell(
+                              onTap:()async{
+                                final url="https://timesofindia.indiatimes.com/news";
+                                if(await canLaunch(url)){
+                                  await launch(url);
+                                }else {
+                                  throw 'Could not launch $url';
+                                }
+                              },
                               child: Card(
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10)
@@ -146,7 +157,15 @@ class _NewPageState extends State<NewPage> {
                             SizedBox(
                               height: 20,
                             ),
-                            Container(
+                            InkWell(
+                              onTap:()async{
+                                final url="https://timesofindia.indiatimes.com/news";
+                                if(await canLaunch(url)){
+                                  await launch(url);
+                                }else {
+                                  throw 'Could not launch $url';
+                                }
+                              },
                               child: Card(
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10)
@@ -226,7 +245,15 @@ class _NewPageState extends State<NewPage> {
                             SizedBox(
                               height: 20,
                             ),
-                            Container(
+                            InkWell(
+                                onTap:()async{
+                                final url="https://timesofindia.indiatimes.com/news";
+                                if(await canLaunch(url)){
+                                  await launch(url);
+                                }else {
+                                  throw 'Could not launch $url';
+                                }
+                              },
                               child: Card(
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10)
@@ -306,7 +333,15 @@ class _NewPageState extends State<NewPage> {
                             SizedBox(
                               height: 20,
                             ),
-                            Container(
+                            InkWell(
+                                onTap:()async{
+                                final url="https://timesofindia.indiatimes.com/news";
+                                if(await canLaunch(url)){
+                                  await launch(url);
+                                }else {
+                                  throw 'Could not launch $url';
+                                }
+                              },
                               child: Card(
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10)
@@ -387,7 +422,15 @@ class _NewPageState extends State<NewPage> {
                             SizedBox(
                               height: 20,
                             ),
-                            Container(
+                            InkWell(
+                              onTap:()async{
+                                final url="https://timesofindia.indiatimes.com/news";
+                                if(await canLaunch(url)){
+                                  await launch(url);
+                                }else {
+                                  throw 'Could not launch $url';
+                                }
+                              },
                               child: Card(
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10)
@@ -509,6 +552,12 @@ class _NewPageState extends State<NewPage> {
                                   ),
 
                                   child: TextFormField(
+                                      controller: searchController,
+                                    onChanged: (value){
+                                      setState(() {
+
+                                      });
+                                    },
                                     decoration: InputDecoration(
                                       hintText: "Search",
                                       border: OutlineInputBorder(
@@ -555,128 +604,129 @@ class _NewPageState extends State<NewPage> {
                                         fontFamily: "Cairo"
                                     ),),
                                     SizedBox(height: 20),
-                                    Row(
-                                      // crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        ClipRRect(
-                                          borderRadius: BorderRadius.circular(10),
-                                          child: Image.network(
-                                            "assets/Rectangle 22 (1).png",fit: BoxFit.cover,
-                                            height: 60,
-                                            width: 57,
-                                          ),
-                                        ),
-                                        SizedBox(width: 10),
-                                        Expanded(
-                                          child: Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: [
-                                              Text("Highly available internet ...",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
-                                                fontFamily: "Cairo",
-                                                fontSize: 13.73,
-                                                fontWeight: FontWeight.w400,
-                                                fontStyle: FontStyle.normal
-                                            ),),
-                                              SizedBox(height: 10),
-                                              Text("De kerstvakantieweken waren spannend voor de afdeling ICT, en daarmee voor al...",style: TextStyle(
-                                                  color: AppTheme.primaryBlackColor,
-                                                  fontFamily: "Cairo",
-                                                  fontSize: 9.32,
-                                                  letterSpacing: 1.5,
-                                                  // fontWeight: FontWeight.w600,
-                                                  fontStyle: FontStyle.normal
-                                              ),),
+                                    ListView.builder(
+                                        itemCount: 3,
+                                        shrinkWrap: true,
+                                        itemBuilder: (context,i){
+                                          String name="Highly available internet ...";
+                                          if(searchController.text.isEmpty){
+                                            return Padding(
+                                              padding: const EdgeInsets.only(bottom: 20),
+                                              child: InkWell(
+                                                onTap:()async{
+                                                  final url="https://timesofindia.indiatimes.com/news";
+                                                  if(await canLaunch(url)){
+                                                    await launch(url);
+                                                  }else {
+                                                    throw 'Could not launch $url';
+                                                  }
+                                                },
+                                                child: Row(
+                                                  // crossAxisAlignment: CrossAxisAlignment.start,
+                                                  children: [
+                                                    ClipRRect(
+                                                      borderRadius: BorderRadius.circular(10),
+                                                      child: Image.network(
+                                                        "assets/Rectangle 22 (1).png",fit: BoxFit.cover,
+                                                        height: 60,
+                                                        width: 57,
+                                                      ),
+                                                    ),
+                                                    SizedBox(width: 10),
+                                                    Expanded(
+                                                      child: Column(
+                                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                                        children: [
+                                                          Text("Highly available internet ...",style: TextStyle(
+                                                              color: AppTheme.primaryBlackColor,
+                                                              fontFamily: "Cairo",
+                                                              fontSize: 13.73,
+                                                              fontWeight: FontWeight.w400,
+                                                              fontStyle: FontStyle.normal
+                                                          ),),
+                                                          SizedBox(height: 10),
+                                                          Text("De kerstvakantieweken waren spannend voor de afdeling ICT, en daarmee voor al...",style: TextStyle(
+                                                              color: AppTheme.primaryBlackColor,
+                                                              fontFamily: "Cairo",
+                                                              fontSize: 9.32,
+                                                              letterSpacing: 1.5,
+                                                              // fontWeight: FontWeight.w600,
+                                                              fontStyle: FontStyle.normal
+                                                          ),),
 
 
-                                            ],
-                                          ),
-                                        )
+                                                        ],
+                                                      ),
+                                                    )
 
-                                      ],
+                                                  ],
+                                                ),
+                                              ),
+                                            );
+
+                                          }
+                                          else if(name.toLowerCase().contains(searchController.text.toLowerCase())){
+                                            return Padding(
+                                              padding: const EdgeInsets.only(bottom: 20),
+                                              child: InkWell(
+                                                onTap:()async{
+                                                  final url="https://timesofindia.indiatimes.com/news";
+                                                  if(await canLaunch(url)){
+                                                    await launch(url);
+                                                  }else {
+                                                    throw 'Could not launch $url';
+                                                  }
+                                                },
+                                                child: Row(
+                                                  // crossAxisAlignment: CrossAxisAlignment.start,
+                                                  children: [
+                                                    ClipRRect(
+                                                      borderRadius: BorderRadius.circular(10),
+                                                      child: Image.network(
+                                                        "assets/Rectangle 22 (1).png",fit: BoxFit.cover,
+                                                        height: 60,
+                                                        width: 57,
+                                                      ),
+                                                    ),
+                                                    SizedBox(width: 10),
+                                                    Expanded(
+                                                      child: Column(
+                                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                                        children: [
+                                                          Text("Highly available internet ...",style: TextStyle(
+                                                              color: AppTheme.primaryBlackColor,
+                                                              fontFamily: "Cairo",
+                                                              fontSize: 13.73,
+                                                              fontWeight: FontWeight.w400,
+                                                              fontStyle: FontStyle.normal
+                                                          ),),
+                                                          SizedBox(height: 10),
+                                                          Text("De kerstvakantieweken waren spannend voor de afdeling ICT, en daarmee voor al...",style: TextStyle(
+                                                              color: AppTheme.primaryBlackColor,
+                                                              fontFamily: "Cairo",
+                                                              fontSize: 9.32,
+                                                              letterSpacing: 1.5,
+                                                              // fontWeight: FontWeight.w600,
+                                                              fontStyle: FontStyle.normal
+                                                          ),),
+
+
+                                                        ],
+                                                      ),
+                                                    )
+
+                                                  ],
+                                                ),
+                                              ),
+                                            );
+                                          }else{
+                                            return Container();
+                                          }
+
+                                        },
+
                                     ),
-                                    SizedBox(height: 20),
-                                    Row(
-                                      // crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        ClipRRect(
-                                          borderRadius: BorderRadius.circular(10),
-                                          child: Image.network(
-                                            "assets/Rectangle 22 (1).png",fit: BoxFit.cover,
-                                            height: 60,
-                                            width: 57,
-                                          ),
-                                        ),
-                                        SizedBox(width: 10),
-                                        Expanded(
-                                          child: Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: [
-                                              Text("Highly available internet ...",style: TextStyle(
-                                                  color: AppTheme.primaryBlackColor,
-                                                  fontFamily: "Cairo",
-                                                  fontSize: 13.73,
-                                                  fontWeight: FontWeight.w400,
-                                                  fontStyle: FontStyle.normal
-                                              ),),
-                                              SizedBox(height: 10),
-                                              Text("De kerstvakantieweken waren spannend voor de afdeling ICT, en daarmee voor al...",style: TextStyle(
-                                                  color: AppTheme.primaryBlackColor,
-                                                  fontFamily: "Cairo",
-                                                  fontSize: 9.32,
-                                                  letterSpacing: 1.5,
-                                                  // fontWeight: FontWeight.w600,
-                                                  fontStyle: FontStyle.normal
-                                              ),),
 
-
-                                            ],
-                                          ),
-                                        )
-
-                                      ],
-                                    ),
-                                    SizedBox(height: 20),
-                                    Row(
-                                      // crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        ClipRRect(
-                                          borderRadius: BorderRadius.circular(10),
-                                          child: Image.network(
-                                            "assets/Rectangle 22 (1).png",fit: BoxFit.cover,
-                                            height: 60,
-                                            width: 57,
-                                          ),
-                                        ),
-                                        SizedBox(width: 10),
-                                        Expanded(
-                                          child: Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: [
-                                              Text("Highly available internet ...",style: TextStyle(
-                                                  color: AppTheme.primaryBlackColor,
-                                                  fontFamily: "Cairo",
-                                                  fontSize: 13.73,
-                                                  fontWeight: FontWeight.w400,
-                                                  fontStyle: FontStyle.normal
-                                              ),),
-                                              SizedBox(height: 10),
-                                              Text("De kerstvakantieweken waren spannend voor de afdeling ICT, en daarmee voor al...",style: TextStyle(
-                                                  color: AppTheme.primaryBlackColor,
-                                                  fontFamily: "Cairo",
-                                                  fontSize: 9.32,
-                                                  letterSpacing: 1.5,
-                                                  // fontWeight: FontWeight.w600,
-                                                  fontStyle: FontStyle.normal
-                                              ),),
-
-
-                                            ],
-                                          ),
-                                        )
-
-                                      ],
-                                    )
                                   ],
                                 ),
                               ),
@@ -920,6 +970,12 @@ class _NewPageState extends State<NewPage> {
                                 ),
 
                                 child: TextFormField(
+                                    controller: searchController,
+                                  onChanged: (value){
+                                    setState(() {
+
+                                    });
+                                  },
                                   decoration: InputDecoration(
                                       hintText: "Search",
                                       border: OutlineInputBorder(
@@ -966,128 +1022,129 @@ class _NewPageState extends State<NewPage> {
                                       fontFamily: "Cairo"
                                   ),),
                                   SizedBox(height: 20),
-                                  Row(
-                                    // crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      ClipRRect(
-                                        borderRadius: BorderRadius.circular(10),
-                                        child: Image.asset(
-                                          "assets/Rectangle 22 (1).png",fit: BoxFit.cover,
-                                          height: 50,
-                                          width: 50,
-                                        ),
-                                      ),
-                                      SizedBox(width: 10),
-                                      Expanded(
-                                        child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: [
-                                            Text("Highly available internet ...",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
-                                                fontFamily: "Cairo",
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.w400,
-                                                fontStyle: FontStyle.normal
-                                            ),),
-                                            SizedBox(height: 10),
-                                            Text("De kerstvakantieweken waren spannend voor de afdeling ICT, en daarmee voor al...",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
-                                                fontFamily: "Cairo",
-                                                fontSize: 12,
-                                                letterSpacing: 1.5,
-                                                // fontWeight: FontWeight.w600,
-                                                fontStyle: FontStyle.normal
-                                            ),),
+                                  ListView.builder(
+                                    itemCount: 3,
+                                    shrinkWrap: true,
+                                    itemBuilder: (context,i){
+                                      String name="Highly available internet ...";
+                                      if(searchController.text.isEmpty){
+                                        return Padding(
+                                          padding: const EdgeInsets.only(bottom: 20),
+                                          child: InkWell(
+                                            onTap:()async{
+                                              final url="https://timesofindia.indiatimes.com/news";
+                                              if(await canLaunch(url)){
+                                                await launch(url);
+                                              }else {
+                                                throw 'Could not launch $url';
+                                              }
+                                            },
+                                            child: Row(
+                                              // crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                ClipRRect(
+                                                  borderRadius: BorderRadius.circular(10),
+                                                  child: Image.asset(
+                                                    "assets/Rectangle 22 (1).png",fit: BoxFit.cover,
+                                                    height: 50,
+                                                    width: 50,
+                                                  ),
+                                                ),
+                                                SizedBox(width: 10),
+                                                Expanded(
+                                                  child: Column(
+                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                    children: [
+                                                      Text("Highly available internet ...",style: TextStyle(
+                                                          color: AppTheme.primaryBlackColor,
+                                                          fontFamily: "Cairo",
+                                                          fontSize: 16,
+                                                          fontWeight: FontWeight.w400,
+                                                          fontStyle: FontStyle.normal
+                                                      ),),
+                                                      SizedBox(height: 10),
+                                                      Text("De kerstvakantieweken waren spannend voor de afdeling ICT, en daarmee voor al...",style: TextStyle(
+                                                          color: AppTheme.primaryBlackColor,
+                                                          fontFamily: "Cairo",
+                                                          fontSize: 12,
+                                                          letterSpacing: 1.5,
+                                                          // fontWeight: FontWeight.w600,
+                                                          fontStyle: FontStyle.normal
+                                                      ),),
 
 
-                                          ],
-                                        ),
-                                      )
+                                                    ],
+                                                  ),
+                                                )
 
-                                    ],
+                                              ],
+                                            ),
+                                          ),
+                                        );
+
+                                      }
+                                      else if(name.toLowerCase().contains(searchController.text.toLowerCase())){
+                                        return  Padding(
+                                          padding: const EdgeInsets.only(bottom: 20),
+                                          child: InkWell(
+                                            onTap:()async{
+                                              final url="https://timesofindia.indiatimes.com/news";
+                                              if(await canLaunch(url)){
+                                                await launch(url);
+                                              }else {
+                                                throw 'Could not launch $url';
+                                              }
+                                            },
+                                            child: Row(
+                                              // crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                ClipRRect(
+                                                  borderRadius: BorderRadius.circular(10),
+                                                  child: Image.asset(
+                                                    "assets/Rectangle 22 (1).png",fit: BoxFit.cover,
+                                                    height: 50,
+                                                    width: 50,
+                                                  ),
+                                                ),
+                                                SizedBox(width: 10),
+                                                Expanded(
+                                                  child: Column(
+                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                    children: [
+                                                      Text("Highly available internet ...",style: TextStyle(
+                                                          color: AppTheme.primaryBlackColor,
+                                                          fontFamily: "Cairo",
+                                                          fontSize: 16,
+                                                          fontWeight: FontWeight.w400,
+                                                          fontStyle: FontStyle.normal
+                                                      ),),
+                                                      SizedBox(height: 10),
+                                                      Text("De kerstvakantieweken waren spannend voor de afdeling ICT, en daarmee voor al...",style: TextStyle(
+                                                          color: AppTheme.primaryBlackColor,
+                                                          fontFamily: "Cairo",
+                                                          fontSize: 12,
+                                                          letterSpacing: 1.5,
+                                                          // fontWeight: FontWeight.w600,
+                                                          fontStyle: FontStyle.normal
+                                                      ),),
+
+
+                                                    ],
+                                                  ),
+                                                )
+
+                                              ],
+                                            ),
+                                          ),
+                                        );
+                                      }else{
+                                        return Container();
+                                      }
+
+                                    },
+
                                   ),
-                                  SizedBox(height: 20),
-                                  Row(
-                                    // crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      ClipRRect(
-                                        borderRadius: BorderRadius.circular(10),
-                                        child: Image.asset(
-                                          "assets/Rectangle 22 (1).png",fit: BoxFit.cover,
-                                          height: 50,
-                                          width: 50,
-                                        ),
-                                      ),
-                                      SizedBox(width: 10),
-                                      Expanded(
-                                        child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: [
-                                            Text("Highly available internet ...",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
-                                                fontFamily: "Cairo",
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.w400,
-                                                fontStyle: FontStyle.normal
-                                            ),),
-                                            SizedBox(height: 10),
-                                            Text("De kerstvakantieweken waren spannend voor de afdeling ICT, en daarmee voor al...",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
-                                                fontFamily: "Cairo",
-                                                fontSize: 12,
-                                                letterSpacing: 1.5,
-                                                // fontWeight: FontWeight.w600,
-                                                fontStyle: FontStyle.normal
-                                            ),),
 
-
-                                          ],
-                                        ),
-                                      )
-
-                                    ],
-                                  ),
-                                  SizedBox(height: 20),
-                                  Row(
-                                    // crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      ClipRRect(
-                                        borderRadius: BorderRadius.circular(10),
-                                        child: Image.asset(
-                                          "assets/Rectangle 22 (1).png",fit: BoxFit.cover,
-                                          height: 50,
-                                          width:50,
-                                        ),
-                                      ),
-                                      SizedBox(width: 10),
-                                      Expanded(
-                                        child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: [
-                                            Text("Highly available internet ...",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
-                                                fontFamily: "Cairo",
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.w400,
-                                                fontStyle: FontStyle.normal
-                                            ),),
-                                            SizedBox(height: 10),
-                                            Text("De kerstvakantieweken waren spannend voor de afdeling ICT, en daarmee voor al...",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
-                                                fontFamily: "Cairo",
-                                                fontSize: 12,
-                                                letterSpacing: 1.5,
-                                                // fontWeight: FontWeight.w600,
-                                                fontStyle: FontStyle.normal
-                                            ),),
-
-
-                                          ],
-                                        ),
-                                      )
-
-                                    ],
-                                  )
                                 ],
                               ),
                             ),
@@ -1298,7 +1355,15 @@ class _NewPageState extends State<NewPage> {
                         // height: height,
                         child: Column(
                           children: [
-                            Container(
+                            InkWell(
+                                onTap:()async{
+                                final url="https://timesofindia.indiatimes.com/news";
+                                if(await canLaunch(url)){
+                                  await launch(url);
+                                }else {
+                                  throw 'Could not launch $url';
+                                }
+                              },
                               child: Card(
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10)
@@ -1378,7 +1443,15 @@ class _NewPageState extends State<NewPage> {
                             SizedBox(
                               height: 20,
                             ),
-                            Container(
+                            InkWell(
+                                onTap:()async{
+                                final url="https://timesofindia.indiatimes.com/news";
+                                if(await canLaunch(url)){
+                                  await launch(url);
+                                }else {
+                                  throw 'Could not launch $url';
+                                }
+                              },
                               child: Card(
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10)
@@ -1458,7 +1531,15 @@ class _NewPageState extends State<NewPage> {
                             SizedBox(
                               height: 20,
                             ),
-                            Container(
+                            InkWell(
+                                onTap:()async{
+                                final url="https://timesofindia.indiatimes.com/news";
+                                if(await canLaunch(url)){
+                                  await launch(url);
+                                }else {
+                                  throw 'Could not launch $url';
+                                }
+                              },
                               child: Card(
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10)
@@ -1538,7 +1619,15 @@ class _NewPageState extends State<NewPage> {
                             SizedBox(
                               height: 20,
                             ),
-                            Container(
+                            InkWell(
+                              onTap:()async{
+                                final url="https://timesofindia.indiatimes.com/news";
+                                if(await canLaunch(url)){
+                                  await launch(url);
+                                }else {
+                                  throw 'Could not launch $url';
+                                }
+                              },
                               child: Card(
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10)
@@ -1619,7 +1708,15 @@ class _NewPageState extends State<NewPage> {
                             SizedBox(
                               height: 20,
                             ),
-                            Container(
+                            InkWell(
+                                onTap:()async{
+                                final url="https://timesofindia.indiatimes.com/news";
+                                if(await canLaunch(url)){
+                                  await launch(url);
+                                }else {
+                                  throw 'Could not launch $url';
+                                }
+                              },
                               child: Card(
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10)

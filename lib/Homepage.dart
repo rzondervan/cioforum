@@ -3,8 +3,10 @@ import 'package:ciofroum_web/responsive.dart';
 import 'package:ciofroum_web/screen/Home.dart';
 import 'package:ciofroum_web/screen/about.dart';
 import 'package:ciofroum_web/screen/contact.dart';
+import 'package:ciofroum_web/screen/founder.dart';
 import 'package:ciofroum_web/screen/mission.dart';
 import 'package:ciofroum_web/screen/news.dart';
+import 'package:ciofroum_web/screen/partner.dart';
 import 'package:ciofroum_web/screen/products.dart';
 import 'package:ciofroum_web/screen/reference.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +20,8 @@ class HomeScreen extends StatefulWidget {
 
 bool aboutMission = false;
 bool aboutMission1 = false;
+bool aboutMission2 = false;
+bool aboutMission3 = false;
 
 class _HomePageState extends State<HomeScreen>  implements ClickOpenCallback{
   bool isSwitched = false;
@@ -64,15 +68,18 @@ class _HomePageState extends State<HomeScreen>  implements ClickOpenCallback{
                           });
                           Navigator.pop(context);
                         },
-                        child: Text("Home",
-                            style: TextStyle(
-                                color: homeTabSelected
-                                    ? const Color.fromRGBO(139, 190, 43, 1)
-                                    : const Color.fromRGBO(50, 59, 75, 1),
-                                fontWeight: FontWeight.w400,
-                                fontSize: homeTabSelected ? 15 : 18)),
+                        child: Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: Text("Home",
+                              style: TextStyle(
+                                  color: homeTabSelected
+                                      ? const Color.fromRGBO(139, 190, 43, 1)
+                                      : const Color.fromRGBO(50, 59, 75, 1),
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: homeTabSelected ? 15 : 18)),
+                        ),
                       ),
-                      const SizedBox(height: 30),
+                      // const SizedBox(height: 30),
                       InkWell(
                         onTap: () {
                           // Navigator.push(context,MaterialPageRoute(builder: (context)=>Product()));
@@ -88,15 +95,18 @@ class _HomePageState extends State<HomeScreen>  implements ClickOpenCallback{
                           });
                           Navigator.pop(context);
                         },
-                        child: Text("Products",
-                            style: TextStyle(
-                                color: productTabSelected
-                                    ? const Color.fromRGBO(139, 190, 43, 1)
-                                    : const Color.fromRGBO(50, 59, 75, 1),
-                                fontWeight: FontWeight.w400,
-                                fontSize: productTabSelected ? 15 : 18)),
+                        child: Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: Text("Products",
+                              style: TextStyle(
+                                  color: productTabSelected
+                                      ? const Color.fromRGBO(139, 190, 43, 1)
+                                      : const Color.fromRGBO(50, 59, 75, 1),
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: productTabSelected ? 15 : 18)),
+                        ),
                       ),
-                      const SizedBox(height: 30),
+                      // const SizedBox(height: 30),
                       InkWell(
                         onTap: () {
                           // Navigator.push(context,MaterialPageRoute(builder: (context)=>Product()));
@@ -112,15 +122,18 @@ class _HomePageState extends State<HomeScreen>  implements ClickOpenCallback{
                           });
                           Navigator.pop(context);
                         },
-                        child: Text("News",
-                            style: TextStyle(
-                                color: newsTabSelected
-                                    ? const Color.fromRGBO(139, 190, 43, 1)
-                                    : const Color.fromRGBO(50, 59, 75, 1),
-                                fontWeight: FontWeight.w400,
-                                fontSize: newsTabSelected ? 15 : 18)),
+                        child: Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: Text("News",
+                              style: TextStyle(
+                                  color: newsTabSelected
+                                      ? const Color.fromRGBO(139, 190, 43, 1)
+                                      : const Color.fromRGBO(50, 59, 75, 1),
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: newsTabSelected ? 15 : 18)),
+                        ),
                       ),
-                      const SizedBox(height: 30),
+                      // const SizedBox(height: 30),
                       InkWell(
                         onTap: () {
                           // Navigator.push(context,MaterialPageRoute(builder: (context)=>Product()));
@@ -136,13 +149,16 @@ class _HomePageState extends State<HomeScreen>  implements ClickOpenCallback{
                           });
                           Navigator.pop(context);
                         },
-                        child: Text("About",
-                            style: TextStyle(
-                                color: aboutTabSelected
-                                    ? const Color.fromRGBO(139, 190, 43, 1)
-                                    : const Color.fromRGBO(50, 59, 75, 1),
-                                fontWeight: FontWeight.w400,
-                                fontSize: aboutTabSelected ? 15 : 18)),
+                        child: Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: Text("About",
+                              style: TextStyle(
+                                  color: aboutTabSelected
+                                      ? const Color.fromRGBO(139, 190, 43, 1)
+                                      : const Color.fromRGBO(50, 59, 75, 1),
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: aboutTabSelected ? 15 : 18)),
+                        ),
                       ),
                     ],
                   ),
@@ -294,15 +310,15 @@ class _HomePageState extends State<HomeScreen>  implements ClickOpenCallback{
                       : Container(),
                   Responsive.isDesktop(context)
                       ? InkWell(
-                    onTap: (){
-                      setState(() {
-                        homeTab = false;
-                        productTab = false;
-                        newsTab = false;
-                        aboutTab = false;
-                        contact=true;
-                      });
-                      },
+                    // onTap: (){
+                    //   setState(() {
+                    //     homeTab = false;
+                    //     productTab = false;
+                    //     newsTab = false;
+                    //     aboutTab = false;
+                    //     contact=true;
+                    //   });
+                    //   },
                         child: Container(
                             height: 50,
                             width: 130,
@@ -378,14 +394,14 @@ class _HomePageState extends State<HomeScreen>  implements ClickOpenCallback{
                     : aboutTab
                         ? About(callback: this,)
                         : aboutMission
-                            ?  Mission():aboutMission1?Reference()
+                            ?  Mission():aboutMission1?Founder():aboutMission2?Partner():aboutMission3?Reference()
                             : const IgnorePointer(),
       ),
     );
   }
 
   @override
-  void onPageOpne(bool aboutMis, bool aboutMis1) {
+  void onPageOpne(bool aboutMis, bool aboutMis1,bool aboutMis2,bool aboutMis3) {
 
     setState(() {
       homeTab = false;
@@ -394,11 +410,13 @@ class _HomePageState extends State<HomeScreen>  implements ClickOpenCallback{
       aboutTab = false;
       aboutMission = aboutMis;
       aboutMission1 = aboutMis1;
+      aboutMission2=aboutMis2;
+      aboutMission3=aboutMis3;
     });
 
   }
 }
 
 class ClickOpenCallback{
-  void onPageOpne(bool aboutMission,bool aboutMission1){}
+  void onPageOpne(bool aboutMission,bool aboutMission1,bool aboutMission2,bool aboutMission3){}
 }

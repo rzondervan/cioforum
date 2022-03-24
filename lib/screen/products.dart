@@ -6,6 +6,8 @@ import 'package:ciofroum_web/widget/product_page.dart';
 import 'package:ciofroum_web/widget/productcarousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 
 class Product extends StatefulWidget {
   const Product({Key? key}) : super(key: key);
@@ -86,60 +88,70 @@ class _ProductState extends State<Product> {
                         return Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            Container(
-                              // height: MediaQuery.of(context).size.height*0.45,
-                              // width: MediaQuery.of(context).size.width*0.35,
-                              // height: MediaQuery.of(context).size.width*0.5,
-                              // width: MediaQuery.of(context).size.width*0.6,
-                              decoration: BoxDecoration(
-                                  color: AppTheme.WhiteColor,
-                                // color:Colors.green,
-                                  border: Border.all(
-                                      color: const Color.fromRGBO(196,196,196,1)
-                                  )
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      height: width*0.21,
-                                      width: width*0.21,
-                                      color: const Color.fromRGBO(246,246,246,1),
-                                      child: Image.asset(productlist[i].image,height: width*0.3,width: width*0.3,),
-                                    ),
-                                    const SizedBox(height: 10),
-                                    Text(productlist[i].bookname,style:  TextStyle(
-                                        color: AppTheme.primaryBlackColor,
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: Responsive.isDesktop(context)?20:13,
-                                      fontFamily: "Cairo",
-                                      fontStyle: FontStyle.normal,
-                                    ),),
-                                    const SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(productlist[i].bookdes,style:  TextStyle(
-                                        color: Color.fromRGBO(50,59,75,1),
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: Responsive.isDesktop(context)?14:10,
-                                      fontFamily: "Cairo",
-                                      fontStyle: FontStyle.normal,
-
-                                    ),),
-                                    const SizedBox(height: 5),
-                                    Text(productlist[i].price,style:  TextStyle(
-                                        color: Color.fromRGBO(96,138,16,1),
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: Responsive.isDesktop(context)?18:12,
-                                      fontFamily: "Cairo",
-                                      fontStyle: FontStyle.normal,
-                                    ),),
-
-
-                                  ],
+                            InkWell(
+                              onTap:()async{
+                                final url="https://www.amazon.de/TOGAF-COBIT-Light-investment-success/dp/1534603441/ref=sr_1_2?ie=UTF8&qid=1476121717&sr=8-2&keywords=togaf+cobit";
+                                if(await canLaunch(url)){
+                                      await launch(url);
+                                          }else {
+                                   throw 'Could not launch $url';
+                               }
+                                },
+                              child: Container(
+                                // height: MediaQuery.of(context).size.height*0.45,
+                                // width: MediaQuery.of(context).size.width*0.35,
+                                // height: MediaQuery.of(context).size.width*0.5,
+                                // width: MediaQuery.of(context).size.width*0.6,
+                                decoration: BoxDecoration(
+                                    color: AppTheme.WhiteColor,
+                                  // color:Colors.green,
+                                    border: Border.all(
+                                        color: const Color.fromRGBO(196,196,196,1)
+                                    )
                                 ),
-                              ),)
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        height: width*0.21,
+                                        width: width*0.21,
+                                        color: const Color.fromRGBO(246,246,246,1),
+                                        child: Image.asset(productlist[i].image,height: width*0.3,width: width*0.3,),
+                                      ),
+                                      const SizedBox(height: 10),
+                                      Text(productlist[i].bookname,style:  TextStyle(
+                                          color: AppTheme.primaryBlackColor,
+                                          fontWeight: FontWeight.w700,
+                                          fontSize: Responsive.isDesktop(context)?20:13,
+                                        fontFamily: "Cairo",
+                                        fontStyle: FontStyle.normal,
+                                      ),),
+                                      const SizedBox(
+                                        height: 5,
+                                      ),
+                                      Text(productlist[i].bookdes,style:  TextStyle(
+                                          color: Color.fromRGBO(50,59,75,1),
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: Responsive.isDesktop(context)?14:10,
+                                        fontFamily: "Cairo",
+                                        fontStyle: FontStyle.normal,
+
+                                      ),),
+                                      const SizedBox(height: 5),
+                                      Text(productlist[i].price,style:  TextStyle(
+                                          color: Color.fromRGBO(96,138,16,1),
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: Responsive.isDesktop(context)?18:12,
+                                        fontFamily: "Cairo",
+                                        fontStyle: FontStyle.normal,
+                                      ),),
+
+
+                                    ],
+                                  ),
+                                ),),
+                            )
 
                           ],
                         );

@@ -52,11 +52,11 @@ class _AboutState extends State<About> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               InkWell(
-                                onTap: () {
-                                  setState(() {
-                                    widget.callback.onPageOpne(true,false);
-                                  });
-                                },
+                                // onTap: () {
+                                //   setState(() {
+                                //     widget.callback.onPageOpne(true,false,false,false);
+                                //   });
+                                // },
                                 child: Padding(
                                   padding: const EdgeInsets.only(left: 5),
                                   child: Text(
@@ -75,11 +75,11 @@ class _AboutState extends State<About> {
                                     const Color.fromRGBO(225, 225, 225, 0.29),
                               ),
                               InkWell(
-                                onTap: () {
-                                  setState(() {
-                                    widget.callback.onPageOpne(false,true);
-                                  });
-                                },
+                                // onTap: () {
+                                //   setState(() {
+                                //     widget.callback.onPageOpne(false,true,false,false);
+                                //   });
+                                // },
                                 child: Padding(
                                   padding: const EdgeInsets.only(left: 5),
                                   child: Text(
@@ -96,31 +96,45 @@ class _AboutState extends State<About> {
                               const Divider(
                                 color: Color.fromRGBO(225, 225, 225, 0.29),
                               ),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 5),
-                                child: Text(
-                                  "Partner",
-                                  style: TextStyle(
-                                      color: AppTheme.primaryWhiteColor,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                      fontStyle: FontStyle.normal,
-                                      fontFamily: "Cairo"),
+                              InkWell(
+                                // onTap: () {
+                                //   setState(() {
+                                //     widget.callback.onPageOpne(false,false,true,false);
+                                //   });
+                                // },
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 5),
+                                  child: Text(
+                                    "Partner",
+                                    style: TextStyle(
+                                        color: AppTheme.primaryWhiteColor,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500,
+                                        fontStyle: FontStyle.normal,
+                                        fontFamily: "Cairo"),
+                                  ),
                                 ),
                               ),
                               const Divider(
                                 color: Color.fromRGBO(225, 225, 225, 0.29),
                               ),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 5),
-                                child: Text(
-                                  "Reference",
-                                  style: TextStyle(
-                                      color: AppTheme.primaryWhiteColor,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                      fontStyle: FontStyle.normal,
-                                      fontFamily: "Cairo"),
+                              InkWell(
+                                // onTap: () {
+                                //   setState(() {
+                                //     widget.callback.onPageOpne(false,false,false,true);
+                                //   });
+                                // },
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 5),
+                                  child: Text(
+                                    "Reference",
+                                    style: TextStyle(
+                                        color: AppTheme.primaryWhiteColor,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500,
+                                        fontStyle: FontStyle.normal,
+                                        fontFamily: "Cairo"),
+                                  ),
                                 ),
                               ),
                             ],
