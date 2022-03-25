@@ -1,22 +1,23 @@
 import 'dart:async';
 
+import 'package:ciofroum_web/Homepage.dart';
 import 'package:ciofroum_web/constants/themes.dart';
 import 'package:ciofroum_web/footer_view.dart';
 import 'package:ciofroum_web/responsive.dart';
 import 'package:ciofroum_web/widget/footer1.dart';
 import 'package:ciofroum_web/widget/google_map.dart';
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class Contact extends StatefulWidget {
-  const Contact({Key? key}) : super(key: key);
+  Contact({required this.clickFooterCallback});
 
+  ClickFooterCallback clickFooterCallback;
   @override
   State<Contact> createState() => _ContactState();
 }
 
 class _ContactState extends State<Contact> {
-  Completer<GoogleMapController> _controller = Completer();
+  // Completer<GoogleMapController> _controller = Completer();
   @override
   Widget build(BuildContext context) {
     final height=MediaQuery.of(context).size.height;
@@ -41,7 +42,7 @@ class _ContactState extends State<Contact> {
                 ),
               ),
               Padding(
-                padding:  EdgeInsets.only(left: Responsive.isDesktop(context)?130:20,right: Responsive.isDesktop(context)?100:20,top: 50,bottom: 50),
+                padding:  EdgeInsets.only(left: Responsive.isDesktop(context)?130:20,right: Responsive.isDesktop(context)?130:20,top: 50,bottom: 50),
                 child: Container(
                   width: width,
                   decoration: BoxDecoration(
@@ -54,7 +55,7 @@ class _ContactState extends State<Contact> {
                         height:height*0.5,
                         width: width,
                         color: Colors.red,
-                        child: getMap()
+                        // child: getMap()
                         // child: const GoogleMap(
                         //   mapType: MapType.normal,
                         //   // zoomControlsEnabled: false,
@@ -65,7 +66,9 @@ class _ContactState extends State<Contact> {
                         // ),
                       ),
                       Container(
-                        height:height*0.3,
+                        // height:height*0.3,
+                        width: width,
+
                         child: Padding(
                           padding: const EdgeInsets.all(20.0),
                           child: Column(
@@ -103,7 +106,7 @@ class _ContactState extends State<Contact> {
                                       ],
                                     ),
                                   ),
-                                  SizedBox(width: width*0.05),
+                                  SizedBox(width: Responsive.isDesktop(context)? width*0.05:width*0.02),
                                   Expanded(
                                     child: Column(
                                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -168,7 +171,7 @@ class _ContactState extends State<Contact> {
                 ),
               ),
               SizedBox(height: 20),
-              Footer1(context)
+              Footer1(context,widget.clickFooterCallback)
 
 
             ],

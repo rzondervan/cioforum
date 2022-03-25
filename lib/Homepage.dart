@@ -7,6 +7,7 @@ import 'package:ciofroum_web/screen/founder.dart';
 import 'package:ciofroum_web/screen/mission.dart';
 import 'package:ciofroum_web/screen/news.dart';
 import 'package:ciofroum_web/screen/partner.dart';
+import 'package:ciofroum_web/screen/privacy.dart';
 import 'package:ciofroum_web/screen/products.dart';
 import 'package:ciofroum_web/screen/reference.dart';
 import 'package:flutter/material.dart';
@@ -22,8 +23,10 @@ bool aboutMission = false;
 bool aboutMission1 = false;
 bool aboutMission2 = false;
 bool aboutMission3 = false;
+bool product = false;
 
-class _HomePageState extends State<HomeScreen>  implements ClickOpenCallback{
+
+class _HomePageState extends State<HomeScreen>  implements ClickOpenCallback,ClickFooterCallback,ClickProductCallback{
   bool isSwitched = false;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   bool homeTab = true;
@@ -54,6 +57,8 @@ class _HomePageState extends State<HomeScreen>  implements ClickOpenCallback{
                   child: ListView(
                     children: [
                       InkWell(
+                        hoverColor: Colors.transparent,
+
                         onTap: () {
                           // Navigator.push(context,MaterialPageRoute(builder: (context)=>HomePage()));
                           setState(() {
@@ -65,6 +70,8 @@ class _HomePageState extends State<HomeScreen>  implements ClickOpenCallback{
                             productTab = false;
                             newsTab = false;
                             aboutTab = false;
+                            contact=false;
+
                           });
                           Navigator.pop(context);
                         },
@@ -81,6 +88,8 @@ class _HomePageState extends State<HomeScreen>  implements ClickOpenCallback{
                       ),
                       // const SizedBox(height: 30),
                       InkWell(
+                        hoverColor: Colors.transparent,
+
                         onTap: () {
                           // Navigator.push(context,MaterialPageRoute(builder: (context)=>Product()));
                           setState(() {
@@ -92,6 +101,8 @@ class _HomePageState extends State<HomeScreen>  implements ClickOpenCallback{
                             productTab = true;
                             newsTab = false;
                             aboutTab = false;
+                            contact=false;
+
                           });
                           Navigator.pop(context);
                         },
@@ -108,6 +119,8 @@ class _HomePageState extends State<HomeScreen>  implements ClickOpenCallback{
                       ),
                       // const SizedBox(height: 30),
                       InkWell(
+                        hoverColor: Colors.transparent,
+
                         onTap: () {
                           // Navigator.push(context,MaterialPageRoute(builder: (context)=>Product()));
                           setState(() {
@@ -119,6 +132,8 @@ class _HomePageState extends State<HomeScreen>  implements ClickOpenCallback{
                             productTab = false;
                             newsTab = true;
                             aboutTab = false;
+                            contact=false;
+
                           });
                           Navigator.pop(context);
                         },
@@ -135,6 +150,8 @@ class _HomePageState extends State<HomeScreen>  implements ClickOpenCallback{
                       ),
                       // const SizedBox(height: 30),
                       InkWell(
+                        hoverColor: Colors.transparent,
+
                         onTap: () {
                           // Navigator.push(context,MaterialPageRoute(builder: (context)=>Product()));
                           setState(() {
@@ -146,6 +163,8 @@ class _HomePageState extends State<HomeScreen>  implements ClickOpenCallback{
                             productTab = false;
                             newsTab = false;
                             aboutTab = true;
+                            contact=false;
+
                           });
                           Navigator.pop(context);
                         },
@@ -160,6 +179,32 @@ class _HomePageState extends State<HomeScreen>  implements ClickOpenCallback{
                                   fontSize: aboutTabSelected ? 15 : 18)),
                         ),
                       ),
+                      InkWell(
+                        hoverColor: Colors.transparent,
+
+                        onTap: (){
+                          setState(() {
+                            homeTabSelected=false;
+                            productTabSelected=false;
+                            newsTabSelected=false;
+                            aboutTabSelected=false;
+                            contact=true;
+                          });
+                          Navigator.pop(context);
+
+                        },
+                        child:Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: Text("Contact Us",
+                              style: TextStyle(
+                                  color: contact
+                                      ? const Color.fromRGBO(139, 190, 43, 1)
+                                      : const Color.fromRGBO(50, 59, 75, 1),
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: contact ? 15 : 18)),
+                        ),
+                      )
+
                     ],
                   ),
                 ),
@@ -181,7 +226,7 @@ class _HomePageState extends State<HomeScreen>  implements ClickOpenCallback{
                     width: width * 0.10,
                   ),
                   // : Container(),
-                  Image.asset("assets/image 1.png",
+                  Image.asset("assets/image_1.png",
                       width: Responsive.isDesktop(context) ? 33 : 19,
                       height: Responsive.isDesktop(context) ? 40 : 23),
                   const SizedBox(width: 10),
@@ -204,9 +249,14 @@ class _HomePageState extends State<HomeScreen>  implements ClickOpenCallback{
                   //     : Container(),
                   Responsive.isDesktop(context)
                       ? InkWell(
-                          onTap: () {
+                    hoverColor: Colors.transparent,
+                    onTap: () {
                             // Navigator.push(context,MaterialPageRoute(builder: (context)=>HomePage()));
                             setState(() {
+                              homeTabSelected=true;
+                              productTabSelected=false;
+                              newsTabSelected=false;
+                              aboutTabSelected=false;
                               homeTab = true;
                               productTab = false;
                               newsTab = false;
@@ -217,11 +267,11 @@ class _HomePageState extends State<HomeScreen>  implements ClickOpenCallback{
                           },
                           child: Text("Home",
                               style: TextStyle(
-                                  color: homeTab
+                                  color: homeTabSelected
                                       ? AppTheme.primaryGreenColor
                                       : AppTheme.primaryBlueColor,
                                   fontWeight: FontWeight.w400,
-                                  fontSize: homeTab ? 15 : 18,
+                                  fontSize: homeTabSelected ? 15 : 18,
                                   fontStyle: FontStyle.normal,
                                   fontFamily: "Cairo")),
                         )
@@ -231,9 +281,14 @@ class _HomePageState extends State<HomeScreen>  implements ClickOpenCallback{
                       : Container(),
                   Responsive.isDesktop(context)
                       ? InkWell(
-                          onTap: () {
+                    hoverColor: Colors.transparent,
+                    onTap: () {
                             // Navigator.push(context,MaterialPageRoute(builder: (context)=>Product()));
                             setState(() {
+                              homeTabSelected=false;
+                              productTabSelected=true;
+                              newsTabSelected=false;
+                              aboutTabSelected=false;
                               homeTab = false;
                               productTab = true;
                               newsTab = false;
@@ -244,11 +299,11 @@ class _HomePageState extends State<HomeScreen>  implements ClickOpenCallback{
                           },
                           child: Text("Products",
                               style: TextStyle(
-                                  color: productTab
+                                  color: productTabSelected
                                       ? AppTheme.primaryGreenColor
                                       : AppTheme.primaryBlueColor,
                                   fontWeight: FontWeight.w400,
-                                  fontSize: productTab ? 15 : 18,
+                                  fontSize: productTabSelected ? 15 : 18,
                                   fontStyle: FontStyle.normal,
                                   fontFamily: "Cairo")),
                         )
@@ -258,8 +313,13 @@ class _HomePageState extends State<HomeScreen>  implements ClickOpenCallback{
                       : Container(),
                   Responsive.isDesktop(context)
                       ? InkWell(
-                          onTap: () {
+                    hoverColor: Colors.transparent,
+                    onTap: () {
                             setState(() {
+                              homeTabSelected=false;
+                              productTabSelected=false;
+                              newsTabSelected=true;
+                              aboutTabSelected=false;
                               homeTab = false;
                               productTab = false;
                               newsTab = true;
@@ -270,11 +330,12 @@ class _HomePageState extends State<HomeScreen>  implements ClickOpenCallback{
                           },
                           child: Text("News",
                               style: TextStyle(
-                                  color: newsTab
+
+                                  color: newsTabSelected
                                       ? AppTheme.primaryGreenColor
                                       : AppTheme.primaryBlueColor,
                                   fontWeight: FontWeight.w400,
-                                  fontSize: newsTab ? 15 : 18,
+                                  fontSize: newsTabSelected ? 15 : 18,
                                   fontStyle: FontStyle.normal,
                                   fontFamily: "Cairo")),
                         )
@@ -284,8 +345,13 @@ class _HomePageState extends State<HomeScreen>  implements ClickOpenCallback{
                       : Container(),
                   Responsive.isDesktop(context)
                       ? InkWell(
+                    hoverColor: Colors.transparent,
                           onTap: () {
                             setState(() {
+                              homeTabSelected=false;
+                              productTabSelected=false;
+                              newsTabSelected=false;
+                              aboutTabSelected=true;
                               homeTab = false;
                               productTab = false;
                               newsTab = false;
@@ -296,11 +362,11 @@ class _HomePageState extends State<HomeScreen>  implements ClickOpenCallback{
                           },
                           child: Text("About",
                               style: TextStyle(
-                                  color: aboutTab
+                                  color: aboutTabSelected
                                       ? AppTheme.primaryGreenColor
                                       : AppTheme.primaryBlueColor,
                                   fontWeight: FontWeight.w400,
-                                  fontSize: aboutTab ? 15 : 18,
+                                  fontSize: aboutTabSelected ? 15 : 18,
                                   fontStyle: FontStyle.normal,
                                   fontFamily: "Cairo")),
                         )
@@ -310,12 +376,14 @@ class _HomePageState extends State<HomeScreen>  implements ClickOpenCallback{
                       : Container(),
                   Responsive.isDesktop(context)
                       ? InkWell(
+                    hoverColor: Colors.transparent,
+
                     // onTap: (){
                     //   setState(() {
-                    //     homeTab = false;
-                    //     productTab = false;
-                    //     newsTab = false;
-                    //     aboutTab = false;
+                    //   homeTabSelected=false;
+                    //   productTabSelected=false;
+                    //   newsTabSelected=false;
+                    //   aboutTabSelected=false;
                     //     contact=true;
                     //   });
                     //   },
@@ -343,7 +411,7 @@ class _HomePageState extends State<HomeScreen>  implements ClickOpenCallback{
                       : const SizedBox(width: 60),
                   homeTab
                       ? Image.asset(
-                          "assets/sun 1.png",
+                          "assets/sun_1.png",
                           height: 24,
                           width: 24,
                         )
@@ -385,16 +453,16 @@ class _HomePageState extends State<HomeScreen>  implements ClickOpenCallback{
                 ],
               ),
             )),
-        body: homeTab
-            ? const HomePage()
+        body: contact?Contact(clickFooterCallback: this,):homeTab
+            ? HomePage(clickFooterCallback: this,)
             : productTab
-                ? const Product()
+                ? product?Privacy(clickFooterCallback: this): Product(clickFooterCallback: this, callback: this)
                 : newsTab
-                    ? const NewPage():contact?Contact()
+                    ?  NewPage(clickFooterCallback: this)
                     : aboutTab
-                        ? About(callback: this,)
+                        ? About(callback: this, clickFooterCallback: this)
                         : aboutMission
-                            ?  Mission():aboutMission1?Founder():aboutMission2?Partner():aboutMission3?Reference()
+                            ?  Mission(clickFooterCallback: this):aboutMission1?Founder(clickFooterCallback: this,):aboutMission2?Partner(clickFooterCallback: this):aboutMission3?Reference(clickFooterCallback: this,)
                             : const IgnorePointer(),
       ),
     );
@@ -402,7 +470,6 @@ class _HomePageState extends State<HomeScreen>  implements ClickOpenCallback{
 
   @override
   void onPageOpne(bool aboutMis, bool aboutMis1,bool aboutMis2,bool aboutMis3) {
-
     setState(() {
       homeTab = false;
       productTab = false;
@@ -415,8 +482,72 @@ class _HomePageState extends State<HomeScreen>  implements ClickOpenCallback{
     });
 
   }
-}
 
+  @override
+  void onPageOpen(bool homeT, bool aboutT, bool newsT, bool productT,bool contactT) {
+    print("gmfdvscx");
+    setState(() {
+      homeTab= homeT;
+      if(homeT){
+        homeTabSelected=true;
+        productTabSelected=false;
+        newsTabSelected=false;
+        aboutTabSelected=false;
+      }
+
+      aboutTab=aboutT;
+      if(aboutT){
+        homeTabSelected=false;
+        productTabSelected=false;
+        newsTabSelected=false;
+        aboutTabSelected=true;
+      }
+      newsTab=newsT;
+      if(newsT){
+        homeTabSelected=false;
+        productTabSelected=false;
+        newsTabSelected=true;
+        aboutTabSelected=false;
+      }
+
+      productTab=productT;
+
+      if(productT){
+        homeTabSelected=false;
+        productTabSelected=true;
+        newsTabSelected=false;
+        aboutTabSelected=false;
+      }
+      contact=contactT;
+      if(contactT){
+        homeTabSelected=false;
+        productTabSelected=false;
+        newsTabSelected=false;
+        aboutTabSelected=false;
+      }
+    });
+  }
+  @override
+  void onPageProduct(bool productMis) {
+    setState(() {
+      homeTab = false;
+      productTab = true;
+      newsTab = false;
+      aboutTab = false;
+      product=productMis;
+    });
+
+  }
+}
+class ClickProductCallback{
+  void onPageProduct(bool aboutMission){}
+}
 class ClickOpenCallback{
   void onPageOpne(bool aboutMission,bool aboutMission1,bool aboutMission2,bool aboutMission3){}
 }
+class ClickFooterCallback{
+  void onPageOpen(bool aboutMission,bool aboutMission1,bool aboutMission2,bool aboutMission3,bool contact){}
+}
+
+
+

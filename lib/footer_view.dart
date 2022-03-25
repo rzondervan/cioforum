@@ -34,7 +34,7 @@ class Footer extends StatelessWidget {
                       Row(
                         children: [
                           Image.asset(
-                              "assets/image 1.png",
+                              "assets/image_1.png",
                               width: 33,
                               height: 40),
                           const SizedBox(width: 10),
@@ -126,7 +126,7 @@ class Footer extends StatelessWidget {
                                     0, 0, 0, 0.5),
                                 image: const DecorationImage(
                                     image: NetworkImage(
-                                        "assets/Vector (1).png"),
+                                        "assets/Vector_(1).png"),
                                     scale: 1.5)),
                           ),
                         ],
@@ -446,7 +446,7 @@ class Footer extends StatelessWidget {
                       Row(
                         children: [
                           Image.asset(
-                              "assets/image 1.png",
+                              "assets/image_1.png",
                               width: 33,
                               height: 40),
                           const SizedBox(width: 10),
@@ -539,7 +539,7 @@ class Footer extends StatelessWidget {
                                     0, 0.5),
                                 image: const DecorationImage(
                                     image: AssetImage(
-                                        "assets/Vector (1).png"),
+                                        "assets/Vector_(1).png"),
                                     scale: 1.5)),
                           ),
                         ],

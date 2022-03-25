@@ -1,6 +1,8 @@
 
 import 'package:ciofroum_web/Homepage.dart';
 import 'package:ciofroum_web/screen/contact.dart';
+import 'package:ciofroum_web/screen/partner.dart';
+import 'package:ciofroum_web/screen/privacy.dart';
 import 'package:ciofroum_web/screen/reference.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';

@@ -2,12 +2,16 @@ import 'package:ciofroum_web/Homepage.dart';
 import 'package:ciofroum_web/constants/themes.dart';
 import 'package:ciofroum_web/responsive.dart';
 import 'package:ciofroum_web/screen/mission.dart';
+import 'package:ciofroum_web/widget/footer1.dart';
 import 'package:flutter/material.dart';
 
 class About extends StatefulWidget {
 
+
+  ClickFooterCallback clickFooterCallback;
+
   ClickOpenCallback callback;
-  About({required this.callback});
+  About({required this.callback,required this.clickFooterCallback});
 
   @override
   _AboutState createState() => _AboutState();
@@ -45,18 +49,18 @@ class _AboutState extends State<About> {
                       Padding(
                         padding: const EdgeInsets.only(bottom: 20),
                         child: Container(
-                          height: height,
                           width: 120,
                           color: AppTheme.primaryGreenColor,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               InkWell(
-                                // onTap: () {
-                                //   setState(() {
-                                //     widget.callback.onPageOpne(true,false,false,false);
-                                //   });
-                                // },
+                                onTap: () {
+                                  setState(() {
+                                    widget.callback.onPageOpne(true,false,false,false);
+                                  });
+                                },
                                 child: Padding(
                                   padding: const EdgeInsets.only(left: 5),
                                   child: Text(
@@ -75,11 +79,11 @@ class _AboutState extends State<About> {
                                     const Color.fromRGBO(225, 225, 225, 0.29),
                               ),
                               InkWell(
-                                // onTap: () {
-                                //   setState(() {
-                                //     widget.callback.onPageOpne(false,true,false,false);
-                                //   });
-                                // },
+                                onTap: () {
+                                  setState(() {
+                                    widget.callback.onPageOpne(false,true,false,false);
+                                  });
+                                },
                                 child: Padding(
                                   padding: const EdgeInsets.only(left: 5),
                                   child: Text(
@@ -97,11 +101,11 @@ class _AboutState extends State<About> {
                                 color: Color.fromRGBO(225, 225, 225, 0.29),
                               ),
                               InkWell(
-                                // onTap: () {
-                                //   setState(() {
-                                //     widget.callback.onPageOpne(false,false,true,false);
-                                //   });
-                                // },
+                                onTap: () {
+                                  setState(() {
+                                    widget.callback.onPageOpne(false,false,true,false);
+                                  });
+                                },
                                 child: Padding(
                                   padding: const EdgeInsets.only(left: 5),
                                   child: Text(
@@ -119,11 +123,11 @@ class _AboutState extends State<About> {
                                 color: Color.fromRGBO(225, 225, 225, 0.29),
                               ),
                               InkWell(
-                                // onTap: () {
-                                //   setState(() {
-                                //     widget.callback.onPageOpne(false,false,false,true);
-                                //   });
-                                // },
+                                onTap: () {
+                                  setState(() {
+                                    widget.callback.onPageOpne(false,false,false,true);
+                                  });
+                                },
                                 child: Padding(
                                   padding: const EdgeInsets.only(left: 5),
                                   child: Text(
@@ -158,8 +162,8 @@ class _AboutState extends State<About> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Image.asset(
-                          "assets/image 9 (1).png",
-                          height: height * 0.5,
+                          "assets/image_9_(1).png",
+                          height: Responsive.isDesktop(context)?height * 0.5:height*0.3,
                           width: width * 0.3,
                           fit: BoxFit.cover,
                         ),
@@ -173,7 +177,7 @@ class _AboutState extends State<About> {
                                 style: TextStyle(
                                     color: AppTheme.primaryBlueColor,
                                     fontFamily: "Cairo",
-                                    fontSize: 24,
+                                    fontSize: Responsive.isDesktop(context)?24:18,
                                     letterSpacing: 1,
                                     fontWeight: FontWeight.w500,
                                     fontStyle: FontStyle.normal),
@@ -186,7 +190,7 @@ class _AboutState extends State<About> {
                                 style: TextStyle(
                                     color: AppTheme.primaryBlueColor,
                                     fontFamily: "Cairo",
-                                    fontSize: 24,
+                                    fontSize: Responsive.isDesktop(context)?24:18,
                                     letterSpacing: 1,
                                     fontWeight: FontWeight.w500,
                                     fontStyle: FontStyle.normal),
@@ -202,7 +206,7 @@ class _AboutState extends State<About> {
                       style: TextStyle(
                           color: AppTheme.primaryBlueColor,
                           fontFamily: "Cairo",
-                          fontSize: 24,
+                          fontSize: Responsive.isDesktop(context)?24:18,
                           letterSpacing: 1,
                           fontWeight: FontWeight.w500,
                           fontStyle: FontStyle.normal),
@@ -213,7 +217,7 @@ class _AboutState extends State<About> {
                       style: TextStyle(
                           color: AppTheme.primaryBlueColor,
                           fontFamily: "Cairo",
-                          fontSize: 24,
+                          fontSize: Responsive.isDesktop(context)?24:18,
                           letterSpacing: 1,
                           fontWeight: FontWeight.w500,
                           fontStyle: FontStyle.normal),
@@ -234,7 +238,7 @@ class _AboutState extends State<About> {
                               style: TextStyle(
                                   color: AppTheme.primaryBlueColor,
                                   fontFamily: "Cairo",
-                                  fontSize: 30,
+                                  fontSize: Responsive.isDesktop(context) ?30:24,
                                   letterSpacing: 1,
                                   fontWeight: FontWeight.w400,
                                   fontStyle: FontStyle.normal),
@@ -243,22 +247,22 @@ class _AboutState extends State<About> {
                             RichText(
                               text: TextSpan(
                                   text:
-                                      'CIOforum offers you a shared IT Director, a Chief Information Officer " CIO " , as a service, an IT sounding board',
+                                  'CIOforum offers you a shared IT Director, a Chief Information Officer " CIO " , as a service, an IT sounding board',
                                   style: TextStyle(
                                       color: AppTheme.primaryBlueColor,
                                       fontFamily: "Cairo",
-                                      fontSize: 22,
+                                      fontSize: Responsive.isDesktop(context) ?22:16,
                                       letterSpacing: 1,
                                       fontWeight: FontWeight.w400,
                                       fontStyle: FontStyle.normal),
                                   children: <TextSpan>[
                                     TextSpan(
                                       text:
-                                          ' without the overhead of a salaried person .',
+                                      ' without the overhead of a salaried person .',
                                       style: TextStyle(
                                           color: AppTheme.primaryBlueColor,
                                           fontFamily: "Cairo",
-                                          fontSize: 22,
+                                          fontSize: Responsive.isDesktop(context) ?22:16,
                                           letterSpacing: 1,
                                           fontWeight: FontWeight.w700,
                                           fontStyle: FontStyle.normal),
@@ -271,7 +275,7 @@ class _AboutState extends State<About> {
                               style: TextStyle(
                                   color: AppTheme.primaryBlueColor,
                                   fontFamily: "Cairo",
-                                  fontSize: 24,
+                                  fontSize: Responsive.isDesktop(context) ?24:18,
                                   letterSpacing: 1,
                                   fontWeight: FontWeight.w500,
                                   fontStyle: FontStyle.normal),
@@ -293,7 +297,7 @@ class _AboutState extends State<About> {
                                 style: TextStyle(
                                     color: AppTheme.primaryBlueColor,
                                     fontFamily: "Cairo",
-                                    fontSize: 31,
+                                    fontSize: Responsive.isDesktop(context) ?31:24,
                                     letterSpacing: 1,
                                     fontWeight: FontWeight.w700,
                                     fontStyle: FontStyle.normal),
@@ -304,7 +308,7 @@ class _AboutState extends State<About> {
                                 style: TextStyle(
                                     color: AppTheme.primaryBlueColor,
                                     fontFamily: "Cairo",
-                                    fontSize: 24,
+                                    fontSize: Responsive.isDesktop(context) ?24:18,
                                     letterSpacing: 1,
                                     fontWeight: FontWeight.w500,
                                     fontStyle: FontStyle.normal),
@@ -322,7 +326,7 @@ class _AboutState extends State<About> {
                                 style: TextStyle(
                                     color: AppTheme.primaryBlueColor,
                                     fontFamily: "Cairo",
-                                    fontSize: 31,
+                                    fontSize: Responsive.isDesktop(context)?31:24,
                                     letterSpacing: 1,
                                     fontWeight: FontWeight.w700,
                                     fontStyle: FontStyle.normal),
@@ -333,7 +337,7 @@ class _AboutState extends State<About> {
                                 style: TextStyle(
                                     color: AppTheme.primaryBlueColor,
                                     fontFamily: "Cairo",
-                                    fontSize: 24,
+                                    fontSize: Responsive.isDesktop(context) ?24:18,
                                     letterSpacing: 1,
                                     fontWeight: FontWeight.w500,
                                     fontStyle: FontStyle.normal),
@@ -349,7 +353,7 @@ class _AboutState extends State<About> {
                       style: TextStyle(
                           color: AppTheme.primaryBlueColor,
                           fontFamily: "Cairo",
-                          fontSize: 31,
+                          fontSize: Responsive.isDesktop(context) ?31:24,
                           letterSpacing: 1,
                           fontWeight: FontWeight.w700,
                           fontStyle: FontStyle.normal),
@@ -360,7 +364,7 @@ class _AboutState extends State<About> {
                       style: TextStyle(
                           color: AppTheme.primaryBlueColor,
                           fontFamily: "Cairo",
-                          fontSize: 24,
+                          fontSize: Responsive.isDesktop(context) ?24:18,
                           letterSpacing: 1,
                           fontWeight: FontWeight.w500,
                           fontStyle: FontStyle.normal),
@@ -371,7 +375,7 @@ class _AboutState extends State<About> {
                       style: TextStyle(
                           color: AppTheme.primaryBlueColor,
                           fontFamily: "Cairo",
-                          fontSize: 24,
+                          fontSize: Responsive.isDesktop(context) ?24:18,
                           letterSpacing: 1,
                           fontWeight: FontWeight.w500,
                           fontStyle: FontStyle.normal),
@@ -512,7 +516,7 @@ class _AboutState extends State<About> {
                               Container(
                                 width: width * 0.25,
                                 height: height * 0.25,
-                                child: Image.asset("assets/image 8.png"),
+                                child: Image.asset("assets/image_8.png"),
                               ),
                               Container(
                                 // width: width*0.27,
@@ -648,7 +652,7 @@ class _AboutState extends State<About> {
                                     Row(
                                       children: [
                                         CircleAvatar(
-                                          radius: 20,
+                                          radius: 18,
                                           backgroundColor:
                                               AppTheme.greenlightColor,
                                           child: Text(
@@ -657,7 +661,7 @@ class _AboutState extends State<About> {
                                                 color:
                                                     AppTheme.primaryBlueColor,
                                                 fontFamily: "Cairo",
-                                                fontSize: 34,
+                                                fontSize: 24,
                                                 letterSpacing: 1,
                                                 fontWeight: FontWeight.w600,
                                                 fontStyle: FontStyle.normal),
@@ -672,7 +676,7 @@ class _AboutState extends State<About> {
                                                 color:
                                                     AppTheme.primaryBlueColor,
                                                 fontFamily: "Cairo",
-                                                fontSize: 23,
+                                                fontSize: 18,
                                                 letterSpacing: 1,
                                                 fontWeight: FontWeight.w500,
                                                 fontStyle: FontStyle.normal),
@@ -684,7 +688,7 @@ class _AboutState extends State<About> {
                                     Row(
                                       children: [
                                         CircleAvatar(
-                                          radius: 20,
+                                          radius: 18,
                                           backgroundColor:
                                               AppTheme.greenlightColor,
                                           child: Text(
@@ -693,7 +697,7 @@ class _AboutState extends State<About> {
                                                 color:
                                                     AppTheme.primaryBlueColor,
                                                 fontFamily: "Cairo",
-                                                fontSize: 34,
+                                                fontSize: 24,
                                                 letterSpacing: 1,
                                                 fontWeight: FontWeight.w600,
                                                 fontStyle: FontStyle.normal),
@@ -708,7 +712,7 @@ class _AboutState extends State<About> {
                                                 color:
                                                     AppTheme.primaryBlueColor,
                                                 fontFamily: "Cairo",
-                                                fontSize: 23,
+                                                fontSize: 18,
                                                 letterSpacing: 1,
                                                 fontWeight: FontWeight.w500,
                                                 fontStyle: FontStyle.normal),
@@ -720,7 +724,7 @@ class _AboutState extends State<About> {
                                     Row(
                                       children: [
                                         CircleAvatar(
-                                          radius: 20,
+                                          radius: 18,
                                           backgroundColor:
                                               AppTheme.greenlightColor,
                                           child: Text(
@@ -729,7 +733,7 @@ class _AboutState extends State<About> {
                                                 color:
                                                     AppTheme.primaryBlueColor,
                                                 fontFamily: "Cairo",
-                                                fontSize: 34,
+                                                fontSize: 24,
                                                 letterSpacing: 1,
                                                 fontWeight: FontWeight.w600,
                                                 fontStyle: FontStyle.normal),
@@ -744,7 +748,7 @@ class _AboutState extends State<About> {
                                                 color:
                                                     AppTheme.primaryBlueColor,
                                                 fontFamily: "Cairo",
-                                                fontSize: 23,
+                                                fontSize: 18,
                                                 letterSpacing: 1,
                                                 fontWeight: FontWeight.w500,
                                                 fontStyle: FontStyle.normal),
@@ -758,7 +762,7 @@ class _AboutState extends State<About> {
                               Container(
                                 width: width * 0.45,
                                 height: height * 0.45,
-                                child: Image.asset("assets/image 8.png"),
+                                child: Image.asset("assets/image_8.png"),
                               ),
                               Container(
                                 // width: width*0.27,
@@ -767,7 +771,7 @@ class _AboutState extends State<About> {
                                     Row(
                                       children: [
                                         CircleAvatar(
-                                          radius: 20,
+                                          radius: 18,
                                           backgroundColor:
                                               AppTheme.greenlightColor,
                                           child: Text(
@@ -776,7 +780,7 @@ class _AboutState extends State<About> {
                                                 color:
                                                     AppTheme.primaryBlueColor,
                                                 fontFamily: "Cairo",
-                                                fontSize: 34,
+                                                fontSize: 24,
                                                 letterSpacing: 1,
                                                 fontWeight: FontWeight.w600,
                                                 fontStyle: FontStyle.normal),
@@ -791,7 +795,7 @@ class _AboutState extends State<About> {
                                                 color:
                                                     AppTheme.primaryBlueColor,
                                                 fontFamily: "Cairo",
-                                                fontSize: 23,
+                                                fontSize: 18,
                                                 letterSpacing: 1,
                                                 fontWeight: FontWeight.w500,
                                                 fontStyle: FontStyle.normal),
@@ -803,7 +807,7 @@ class _AboutState extends State<About> {
                                     Row(
                                       children: [
                                         CircleAvatar(
-                                          radius: 20,
+                                          radius: 18,
                                           backgroundColor:
                                               AppTheme.greenlightColor,
                                           child: Text(
@@ -812,7 +816,7 @@ class _AboutState extends State<About> {
                                                 color:
                                                     AppTheme.primaryBlueColor,
                                                 fontFamily: "Cairo",
-                                                fontSize: 34,
+                                                fontSize: 24,
                                                 letterSpacing: 1,
                                                 fontWeight: FontWeight.w600,
                                                 fontStyle: FontStyle.normal),
@@ -827,7 +831,7 @@ class _AboutState extends State<About> {
                                                 color:
                                                     AppTheme.primaryBlueColor,
                                                 fontFamily: "Cairo",
-                                                fontSize: 23,
+                                                fontSize: 18,
                                                 letterSpacing: 1,
                                                 fontWeight: FontWeight.w500,
                                                 fontStyle: FontStyle.normal),
@@ -839,7 +843,7 @@ class _AboutState extends State<About> {
                                     Row(
                                       children: [
                                         CircleAvatar(
-                                          radius: 20,
+                                          radius: 18,
                                           backgroundColor:
                                               AppTheme.greenlightColor,
                                           child: Text(
@@ -848,7 +852,7 @@ class _AboutState extends State<About> {
                                                 color:
                                                     AppTheme.primaryBlueColor,
                                                 fontFamily: "Cairo",
-                                                fontSize: 34,
+                                                fontSize: 24,
                                                 letterSpacing: 1,
                                                 fontWeight: FontWeight.w600,
                                                 fontStyle: FontStyle.normal),
@@ -863,7 +867,7 @@ class _AboutState extends State<About> {
                                                 color:
                                                     AppTheme.primaryBlueColor,
                                                 fontFamily: "Cairo",
-                                                fontSize: 23,
+                                                fontSize: 18,
                                                 letterSpacing: 1,
                                                 fontWeight: FontWeight.w500,
                                                 fontStyle: FontStyle.normal),
@@ -894,13 +898,22 @@ class _AboutState extends State<About> {
                               style: TextStyle(
                                   color: AppTheme.primaryBlackColor,
                                   fontFamily: "Cairo",
-                                  fontSize: 33,
+                                  fontSize: Responsive.isDesktop(context) ?33:24,
                                   letterSpacing: 1,
                                   fontWeight: FontWeight.w700,
                                   fontStyle: FontStyle.normal),
                             ),
                             SizedBox(height: 20),
                             Wrap(
+                              spacing:8.0,
+                              runSpacing: 10.0,
+                              alignment: WrapAlignment.center,
+                              // // crossAxisAlignment: WrapCrossAlignment.center,
+                              // runAlignment:WrapAlignment.center,
+
+
+
+
                               children: [
                                 Container(
                                   height: 52,
@@ -974,375 +987,7 @@ class _AboutState extends State<About> {
                   ],
                 ),
               ),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                color: const Color.fromRGBO(50, 59, 75, 1),
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 40, bottom: 40),
-                  child: Column(
-                    children: [
-                      Center(
-                        child: Wrap(
-                          children: [
-                            Container(
-                              width: 300,
-                              margin: const EdgeInsets.all(20),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    children: [
-                                      Image.asset("assets/image 1.png",
-                                          width: 33, height: 40),
-                                      const SizedBox(width: 10),
-                                      const Text(
-                                        "CIOFORUM",
-                                        style: TextStyle(
-                                            color: Color.fromRGBO(
-                                                225, 225, 225, 1),
-                                            fontWeight: FontWeight.w800,
-                                            fontSize: 34,
-                                            fontStyle: FontStyle.normal,
-                                            fontFamily: "Montserrat"),
-                                      ),
-                                    ],
-                                  ),
-                                  const SizedBox(height: 40),
-                                  const Text(
-                                    "CIOforum offers GDPR services and a\n${"Shared IT Director"}  without the overhead of\na salaried person. Make an appointment \nwithout obligation via",
-                                    // textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                      color: Color.fromRGBO(225, 225, 225, 1),
-                                      fontStyle: FontStyle.normal,
-                                      fontFamily: "Cairo",
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w400,
-                                      letterSpacing: 1.0,
-                                      height: 1.7,
-                                    ),
-                                  ),
-                                  const Text("rzondervan@cioforum.nl ",
-                                      style: TextStyle(
-                                        color: Color.fromRGBO(225, 225, 225, 1),
-                                        fontStyle: FontStyle.normal,
-                                        fontFamily: "Cairo",
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w400,
-                                        letterSpacing: 1.0,
-                                        height: 1.7,
-                                      )),
-                                  const SizedBox(height: 30),
-                                  Row(
-                                    children: [
-                                      Container(
-                                        height: 44,
-                                        width: 44,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(40),
-                                            color: const Color.fromRGBO(
-                                                0, 0, 0, 0.5),
-                                            image: const DecorationImage(
-                                                image: AssetImage(
-                                                    "assets/Vector.png"),
-                                                scale: 1.5)),
-                                      ),
-                                      const SizedBox(width: 10),
-                                      Container(
-                                        height: 44,
-                                        width: 44,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(40),
-                                            color: const Color.fromRGBO(
-                                                0, 0, 0, 0.5),
-                                            image: const DecorationImage(
-                                                image: AssetImage(
-                                                    "assets/Vector.png"),
-                                                scale: 1.5)),
-                                      ),
-                                      const SizedBox(width: 10),
-                                      Container(
-                                        height: 44,
-                                        width: 44,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(40),
-                                            color: const Color.fromRGBO(
-                                                0, 0, 0, 0.5),
-                                            image: const DecorationImage(
-                                                image: AssetImage(
-                                                    "assets/Vector (1).png"),
-                                                scale: 1.5)),
-                                      ),
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ),
-                            // SizedBox(width: 20),
-                            Container(
-                              width: 200,
-                              margin: const EdgeInsets.all(20),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
-                                  Text(
-                                    "QUICK LIKES",
-                                    style: TextStyle(
-                                      fontSize: 19,
-                                      fontFamily: "Cairo",
-                                      fontStyle: FontStyle.normal,
-                                      fontWeight: FontWeight.w600,
-                                      color: Color.fromRGBO(139, 190, 43, 1),
-                                    ),
-                                  ),
-                                  SizedBox(height: 70),
-                                  Text(
-                                    "Home",
-                                    style: TextStyle(
-                                        color: Color.fromRGBO(225, 225, 225, 1),
-                                        fontWeight: FontWeight.w400,
-                                        fontFamily: "Cairo",
-                                        fontStyle: FontStyle.normal,
-                                        fontSize: 16),
-                                  ),
-                                  SizedBox(height: 20),
-                                  Text(
-                                    "Products",
-                                    style: TextStyle(
-                                      color: Color.fromRGBO(225, 225, 225, 1),
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 16,
-                                      fontFamily: "Cairo",
-                                      fontStyle: FontStyle.normal,
-                                    ),
-                                  ),
-                                  SizedBox(height: 20),
-                                  Text(
-                                    "Blog",
-                                    style: TextStyle(
-                                      color: Color.fromRGBO(225, 225, 225, 1),
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 16,
-                                      fontFamily: "Cairo",
-                                      fontStyle: FontStyle.normal,
-                                    ),
-                                  ),
-                                  SizedBox(height: 20),
-                                  Text(
-                                    "About us",
-                                    style: TextStyle(
-                                      color: Color.fromRGBO(225, 225, 225, 1),
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 16,
-                                      fontFamily: "Cairo",
-                                      fontStyle: FontStyle.normal,
-                                    ),
-                                  ),
-                                  SizedBox(height: 20),
-                                  Text(
-                                    "Contact",
-                                    style: TextStyle(
-                                      color: Color.fromRGBO(225, 225, 225, 1),
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 16,
-                                      fontFamily: "Cairo",
-                                      fontStyle: FontStyle.normal,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            // SizedBox(width: 20),
-                            Container(
-                              width: 200,
-                              margin: const EdgeInsets.all(20),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
-                                  Text(
-                                    "OTHERS LIKES",
-                                    style: TextStyle(
-                                      fontSize: 19,
-                                      fontFamily: "Cairo",
-                                      fontStyle: FontStyle.normal,
-                                      fontWeight: FontWeight.w600,
-                                      color: Color.fromRGBO(139, 190, 43, 1),
-                                    ),
-                                  ),
-                                  SizedBox(height: 70),
-                                  Text(
-                                    "Terms and Conditions",
-                                    style: TextStyle(
-                                      color: Color.fromRGBO(225, 225, 225, 1),
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 16,
-                                      fontFamily: "Cairo",
-                                      fontStyle: FontStyle.normal,
-                                    ),
-                                  ),
-                                  SizedBox(height: 20),
-                                  Text(
-                                    "Cookies",
-                                    style: TextStyle(
-                                      color: Color.fromRGBO(225, 225, 225, 1),
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 16,
-                                      fontFamily: "Cairo",
-                                      fontStyle: FontStyle.normal,
-                                    ),
-                                  ),
-                                  SizedBox(height: 20),
-                                  Text(
-                                    "Sitemap",
-                                    style: TextStyle(
-                                      color: Color.fromRGBO(225, 225, 225, 1),
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 16,
-                                      fontFamily: "Cairo",
-                                      fontStyle: FontStyle.normal,
-                                    ),
-                                  ),
-                                  SizedBox(height: 20),
-                                  Text(
-                                    "FAQ",
-                                    style: TextStyle(
-                                      color: Color.fromRGBO(225, 225, 225, 1),
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 16,
-                                      fontFamily: "Cairo",
-                                      fontStyle: FontStyle.normal,
-                                    ),
-                                  ),
-                                  SizedBox(height: 40),
-                                ],
-                              ),
-                            ),
-                            // SizedBox(width: 20),
-                            Container(
-                              width: 300,
-                              margin: const EdgeInsets.all(20),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const Text(
-                                    "GET IN TOUCH",
-                                    style: TextStyle(
-                                      fontSize: 19,
-                                      fontWeight: FontWeight.w600,
-                                      color: Color.fromRGBO(139, 190, 43, 1),
-                                      fontFamily: "Cairo",
-                                      fontStyle: FontStyle.normal,
-                                    ),
-                                  ),
-                                  const SizedBox(height: 80),
-                                  Row(
-                                    children: const [
-                                      Icon(
-                                        Icons.add_location_outlined,
-                                        color: Color.fromRGBO(139, 190, 43, 1),
-                                      ),
-                                      SizedBox(width: 20),
-                                      Text(
-                                        "CIOFORUM",
-                                        style: TextStyle(
-                                          color:
-                                              Color.fromRGBO(225, 225, 225, 1),
-                                          fontWeight: FontWeight.w600,
-                                          fontSize: 19,
-                                          fontFamily: "Cairo",
-                                          fontStyle: FontStyle.normal,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Column(
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    children: [
-                                      const SizedBox(
-                                        height: 10,
-                                      ),
-                                      Row(
-                                        children: const [
-                                          SizedBox(width: 40),
-                                          Text(
-                                            "Buntlaan 11B 3941 MG Doorn\nNederland",
-                                            style: TextStyle(
-                                                color: Color.fromRGBO(
-                                                    225, 225, 225, 1),
-                                                fontWeight: FontWeight.w400,
-                                                fontSize: 16,
-                                                fontFamily: "Cairo",
-                                                fontStyle: FontStyle.normal,
-                                                height: 1.5),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                  const SizedBox(height: 10),
-                                  Row(
-                                    children: const [
-                                      Icon(
-                                        Icons.email_outlined,
-                                        color: Color.fromRGBO(139, 190, 43, 1),
-                                      ),
-                                      SizedBox(width: 20),
-                                      Text(
-                                        "rzondervan@cioforum.nl",
-                                        style: TextStyle(
-                                          color:
-                                              Color.fromRGBO(225, 225, 225, 1),
-                                          fontWeight: FontWeight.w400,
-                                          fontSize: 16,
-                                          fontFamily: "Cairo",
-                                          fontStyle: FontStyle.normal,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  const SizedBox(height: 20),
-                                  Row(
-                                    children: const [
-                                      Icon(
-                                        Icons.call,
-                                        color: Color.fromRGBO(139, 190, 43, 1),
-                                      ),
-                                      SizedBox(width: 20),
-                                      Text(
-                                        "+31 6 20 707 442",
-                                        style: TextStyle(
-                                          color:
-                                              Color.fromRGBO(225, 225, 225, 1),
-                                          fontWeight: FontWeight.w400,
-                                          fontSize: 16,
-                                          fontFamily: "Cairo",
-                                          fontStyle: FontStyle.normal,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  const SizedBox(height: 10),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Text(
-                        "©2022 CIOFORUM | All Rights are Reserved",
-                        style: TextStyle(
-                            color: AppTheme.primaryWhiteColor,
-                            fontFamily: "Cairo",
-                            fontWeight: FontWeight.w400,
-                            fontSize: 14,
-                            fontStyle: FontStyle.normal),
-                      )
-                    ],
-                  ),
-                ),
-              ),
+              Footer1(context,widget.clickFooterCallback)
             ],
           ),
         ),

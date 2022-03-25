@@ -1,11 +1,15 @@
+import 'package:ciofroum_web/Homepage.dart';
 import 'package:ciofroum_web/constants/themes.dart';
 import 'package:ciofroum_web/footer_view.dart';
 import 'package:ciofroum_web/responsive.dart';
+import 'package:ciofroum_web/widget/footer1.dart';
 import 'package:flutter/material.dart';
 import 'package:footer/footer.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  HomePage({required this.clickFooterCallback});
+
+  ClickFooterCallback clickFooterCallback;
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -16,6 +20,8 @@ class _HomePageState extends State<HomePage> {
   bool isSwitched = false;
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   bool ontab = true;
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +45,7 @@ class _HomePageState extends State<HomePage> {
                     width: double.infinity,
                     child: Stack(
                       children: [
-                        Image.asset("assets/Rectangle 2.png"),
+                        Image.asset("assets/Rectangle_2.png"),
                         Positioned(
                           // top: Responsive.isDesktop(context)?150:120,
                           // left: Responsive.isDesktop(context)?150:30,
@@ -52,10 +58,10 @@ class _HomePageState extends State<HomePage> {
                             // width: 582,
                             width: Responsive.isDesktop(context) ? 582 : 370,
                             height: Responsive.isDesktop(context) ? 386 : 250,
-                            decoration: BoxDecoration(
-                              color: const Color.fromRGBO(243, 248, 234, 1),
+                            decoration: const BoxDecoration(
+                              color: Color.fromRGBO(243, 248, 234, 1),
                               //   color:Colors.green,
-                              borderRadius: const BorderRadius.only(
+                              borderRadius: BorderRadius.only(
                                   bottomRight: Radius.circular(150)),
                             ),
                             child: Padding(
@@ -127,7 +133,7 @@ class _HomePageState extends State<HomePage> {
                                               fontFamily: "Cairo",
                                               fontWeight: FontWeight.w600,
                                               fontStyle: FontStyle.normal,
-                                              letterSpacing: 2),
+                                              letterSpacing: 3),
                                         ),
                                       )),
                                 ],
@@ -142,7 +148,7 @@ class _HomePageState extends State<HomePage> {
                   Padding(
                     padding: EdgeInsets.only(
                         left: Responsive.isDesktop(context) ? 150 : 30,
-                        right: Responsive.isDesktop(context) ? 220 : 30),
+                        right: Responsive.isDesktop(context) ? 150 : 30),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisSize: MainAxisSize.min,
@@ -170,6 +176,9 @@ class _HomePageState extends State<HomePage> {
                             : const SizedBox(height: 20),
                         Responsive.isDesktop(context)
                             ? Row(
+                          crossAxisAlignment:
+                          CrossAxisAlignment.start,
+
                                 children: [
                                   Expanded(
                                     child: Column(
@@ -235,7 +244,7 @@ class _HomePageState extends State<HomePage> {
                                     child: Stack(
                                       children: [
                                         Image.asset(
-                                          "assets/Rectangle 5.png",
+                                          "assets/Rectangle_5.png",
                                           width: 339,
                                         ),
                                         Positioned(
@@ -306,10 +315,10 @@ class _HomePageState extends State<HomePage> {
                                       borderRadius: BorderRadius.circular(30),
                                       child: Stack(
                                         children: [
-                                          Image.asset("assets/Rectangle 5.png",
+                                          Image.asset("assets/Rectangle_5.png",
                                               width: 400),
                                           Positioned(
-                                            top: 100,
+                                            top: 90,
                                             left: 160,
                                             child: CircleAvatar(
                                               radius: 30,
@@ -329,11 +338,13 @@ class _HomePageState extends State<HomePage> {
                         const SizedBox(height: 70),
                         Responsive.isDesktop(context)
                             ? Row(
+                          crossAxisAlignment:
+                          CrossAxisAlignment.start,
                                 children: [
                                   ClipRRect(
                                     borderRadius: BorderRadius.circular(30),
-                                    child: Image.network(
-                                      "assets/Rectangle 17.png",
+                                    child: Image.asset(
+                                      "assets/Rectangle_17.png",
                                       width: 339,
                                     ),
                                   ),
@@ -443,8 +454,8 @@ class _HomePageState extends State<HomePage> {
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(30),
                                       child: Image.asset(
-                                        "assets/Rectangle 17.png",
-                                        width: 400,
+                                        "assets/Rectangle_17.png",
+                                        width: 339,
                                       ),
                                     ),
                                   ),
@@ -504,12 +515,12 @@ class _HomePageState extends State<HomePage> {
                                               ),
                                               image: DecorationImage(
                                                   image: AssetImage(
-                                                      "assets/Rectangle 22.png"),
+                                                      "assets/Rectangle_22.png"),
                                                   fit: BoxFit.cover)),
                                         ),
                                         Padding(
                                           padding: const EdgeInsets.only(
-                                              left: 20, right: 20, top: 10),
+                                              left: 20, right: 20, top: 10,bottom: 10),
                                           child: Column(
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
@@ -540,33 +551,68 @@ class _HomePageState extends State<HomePage> {
                                               Responsive.isDesktop(context)
                                                   ? const SizedBox(height: 30)
                                                   : const SizedBox(height: 20),
-                                              Text(
-                                                "De kerstvakantieweken waren spannend voor de afdeling ICT, en daarmee voor al...",
-                                                style: TextStyle(
-                                                    fontWeight: FontWeight.w400,
-                                                    fontSize: 15,
-                                                    fontFamily: "Cairo",
-                                                    fontStyle: FontStyle.normal,
-                                                    letterSpacing:
+                                              RichText(
+                                                text: TextSpan(
+                                                    text:
+                                                    "De kerstvakantieweken waren spannend voor de afdeling ICT, en daarmee voor al...",
+                                                    style: TextStyle(
+                                                        fontWeight: FontWeight.w400,
+                                                        fontSize: 15,
+                                                        fontFamily: "Cairo",
+                                                        color: const Color.fromRGBO(50,59,75,1),
+
+                                                        fontStyle: FontStyle.normal,
+                                                        letterSpacing:
                                                         Responsive.isMobile(
-                                                                context)
+                                                            context)
                                                             ? 0.0
                                                             : 1,
-                                                    height: 1.7
-                                                    // color: const Color.fromRGBO(50,59,75,1),
+                                                        height: 1.7
+
                                                     ),
+                                                    children: <TextSpan>[
+                                                      TextSpan(
+                                                        text:
+                                                        "Read more",
+                                                        style: TextStyle(
+                                                          color: AppTheme
+                                                              .primaryGreenColor,
+                                                          fontWeight: FontWeight.w400,
+                                                          fontSize: 15,
+                                                          fontFamily: "Cairo",
+                                                          fontStyle: FontStyle.normal,
+                                                        ),
+                                                      )
+                                                    ]),
                                               ),
-                                              Text(
-                                                "Read more",
-                                                style: TextStyle(
-                                                  color: AppTheme
-                                                      .primaryGreenColor,
-                                                  fontWeight: FontWeight.w400,
-                                                  fontSize: 15,
-                                                  fontFamily: "Cairo",
-                                                  fontStyle: FontStyle.normal,
-                                                ),
-                                              ),
+                                              // Text(
+                                              //   "De kerstvakantieweken waren spannend voor de afdeling ICT, en daarmee voor al...",
+                                              //   style: TextStyle(
+                                              //       fontWeight: FontWeight.w400,
+                                              //       fontSize: 15,
+                                              //       fontFamily: "Cairo",
+                                              //       fontStyle: FontStyle.normal,
+                                              //       letterSpacing:
+                                              //           Responsive.isMobile(
+                                              //                   context)
+                                              //               ? 0.0
+                                              //               : 1,
+                                              //       height: 1.7
+                                              //
+                                              //       // color: const Color.fromRGBO(50,59,75,1),
+                                              //       ),
+                                              // ),
+                                              // Text(
+                                              //   "Read more",
+                                              //   style: TextStyle(
+                                              //     color: AppTheme
+                                              //         .primaryGreenColor,
+                                              //     fontWeight: FontWeight.w400,
+                                              //     fontSize: 15,
+                                              //     fontFamily: "Cairo",
+                                              //     fontStyle: FontStyle.normal,
+                                              //   ),
+                                              // ),
                                               Responsive.isDesktop(context)
                                                   ? const SizedBox(height: 50)
                                                   : const SizedBox(
@@ -626,14 +672,16 @@ class _HomePageState extends State<HomePage> {
                                                           Radius.circular(10),
                                                     ),
                                                     image: DecorationImage(
-                                                        image: NetworkImage(
-                                                            "assets/Rectangle 25.png"),
+                                                        image: AssetImage(
+                                                            "assets/Rectangle_25.png"),
                                                         fit: BoxFit.cover)),
                                               ),
+
                                               Padding(
                                                 padding: const EdgeInsets.only(
-                                                    left: 10,
-                                                    right: 10,
+                                                    left: 20,
+                                                    right: 20,
+                                                    bottom: 10,
                                                     top: 10),
                                                 child: Column(
                                                   crossAxisAlignment:
@@ -666,36 +714,66 @@ class _HomePageState extends State<HomePage> {
                                                             .primaryBlueColor,
                                                       ),
                                                     ),
-                                                    const SizedBox(height: 40),
-                                                    const Text(
-                                                      "The accompanying animation video of almost 2 minutes tells you what you can do wrong with...",
-                                                      style: TextStyle(
-                                                        fontWeight:
-                                                            FontWeight.w400,
-                                                        fontSize: 15,
-                                                        letterSpacing: 1.0,
-                                                        height: 1.7,
-                                                        fontFamily: "Cairo",
-                                                        fontStyle:
-                                                            FontStyle.normal,
+                                                    const SizedBox(height: 30),
+                                                    RichText(
+                                                      text: TextSpan(
+                                                          text:
+                                                          "The accompanying animation video of almost 2 minutes tells you what you can do wrong with...",
+                                                          style: const TextStyle(
+                                                              fontWeight: FontWeight.w400,
+                                                              fontSize: 15,
+                                                              fontFamily: "Cairo",
+                                                              fontStyle: FontStyle.normal,
+                                                              letterSpacing: 1.0,
+                                                              height: 1.7
 
-                                                        // color: const Color.fromRGBO(50,59,75,1),
-                                                      ),
+                                                            // color: const Color.fromRGBO(50,59,75,1),
+                                                          ),
+                                                          children: <TextSpan>[
+                                                            TextSpan(
+                                                              text:
+                                                              "Read more",
+                                                              style: TextStyle(
+                                                                color: AppTheme
+                                                                    .primaryGreenColor,
+                                                                fontWeight: FontWeight.w400,
+                                                                fontSize: 15,
+                                                                fontFamily: "Cairo",
+                                                                fontStyle: FontStyle.normal,
+                                                              ),
+                                                            )
+                                                          ]),
                                                     ),
-                                                    Text(
-                                                      "Read more",
-                                                      style: TextStyle(
-                                                        color: AppTheme
-                                                            .primaryGreenColor,
-                                                        fontWeight:
-                                                            FontWeight.w400,
-                                                        fontSize: 15,
-                                                        fontFamily: "Cairo",
-                                                        fontStyle:
-                                                            FontStyle.normal,
-                                                      ),
-                                                    ),
-                                                    const SizedBox(height: 20),
+
+                                                    // const Text(
+                                                    //   "The accompanying animation video of almost 2 minutes tells you what you can do wrong with...",
+                                                    //   style: TextStyle(
+                                                    //     fontWeight:
+                                                    //         FontWeight.w400,
+                                                    //     fontSize: 15,
+                                                    //     letterSpacing: 1.0,
+                                                    //     height: 1.7,
+                                                    //     fontFamily: "Cairo",
+                                                    //     fontStyle:
+                                                    //         FontStyle.normal,
+                                                    //
+                                                    //     // color: const Color.fromRGBO(50,59,75,1),
+                                                    //   ),
+                                                    // ),
+                                                    // Text(
+                                                    //   "Read more",
+                                                    //   style: TextStyle(
+                                                    //     color: AppTheme
+                                                    //         .primaryGreenColor,
+                                                    //     fontWeight:
+                                                    //         FontWeight.w400,
+                                                    //     fontSize: 15,
+                                                    //     fontFamily: "Cairo",
+                                                    //     fontStyle:
+                                                    //         FontStyle.normal,
+                                                    //   ),
+                                                    // ),
+                                                    const SizedBox(height: 50),
                                                     const Center(
                                                       child: Text(
                                                         "REFERENCE - SOURCE: PUBLICATION OF CVO 'T GOOI",
@@ -747,15 +825,15 @@ class _HomePageState extends State<HomePage> {
                                                           Radius.circular(10),
                                                     ),
                                                     image: DecorationImage(
-                                                        image: NetworkImage(
-                                                            "assets/Rectangle 27.png"),
+                                                        image: AssetImage(
+                                                            "assets/Rectangle_27.png"),
                                                         fit: BoxFit.cover)),
                                               ),
                                               Padding(
                                                 padding: const EdgeInsets.only(
-                                                    left: 10,
-                                                    right: 10,
-                                                    top: 10),
+                                                    left: 20,
+                                                    right: 20,
+                                                    top: 10,bottom: 10),
                                                 child: Column(
                                                   crossAxisAlignment:
                                                       CrossAxisAlignment.start,
@@ -788,35 +866,65 @@ class _HomePageState extends State<HomePage> {
                                                       ),
                                                     ),
                                                     const SizedBox(height: 20),
-                                                    const Text(
-                                                      "Korte video-uitleg van noodzakelijke basisbegrippen over online werken met de computer, zoals een bestand,...",
-                                                      style: TextStyle(
-                                                        fontWeight:
-                                                            FontWeight.w400,
-                                                        fontSize: 15,
-                                                        letterSpacing: 1.0,
-                                                        height: 1.7,
-                                                        fontFamily: "Cairo",
-                                                        fontStyle:
-                                                            FontStyle.normal,
+                                                    RichText(
+                                                      text: TextSpan(
+                                                          text:
+                                                          "Korte video-uitleg van noodzakelijke basisbegrippen over online werken met de computer, zoals een bestand,...",
+                                                          style: const TextStyle(
+                                                              fontWeight: FontWeight.w400,
+                                                              fontSize: 15,
+                                                              fontFamily: "Cairo",
+                                                              fontStyle: FontStyle.normal,
+                                                              letterSpacing: 1.0,
+                                                              height: 1.7
 
-                                                        // color: const Color.fromRGBO(50,59,75,1),
-                                                      ),
+                                                            // color: const Color.fromRGBO(50,59,75,1),
+                                                          ),
+                                                          children: <TextSpan>[
+                                                            TextSpan(
+                                                              text:
+                                                              "Read more",
+                                                              style: TextStyle(
+                                                                color: AppTheme
+                                                                    .primaryGreenColor,
+                                                                fontWeight: FontWeight.w400,
+                                                                fontSize: 15,
+                                                                fontFamily: "Cairo",
+                                                                fontStyle: FontStyle.normal,
+                                                              ),
+                                                            )
+                                                          ]),
                                                     ),
-                                                    Text(
-                                                      "Read more",
-                                                      style: TextStyle(
-                                                        color: AppTheme
-                                                            .primaryGreenColor,
-                                                        fontWeight:
-                                                            FontWeight.w400,
-                                                        fontSize: 15,
-                                                        fontFamily: "Cairo",
-                                                        fontStyle:
-                                                            FontStyle.normal,
-                                                      ),
-                                                    ),
-                                                    const SizedBox(height: 20),
+
+                                                    // const Text(
+                                                    //   "Korte video-uitleg van noodzakelijke basisbegrippen over online werken met de computer, zoals een bestand,...",
+                                                    //   style: TextStyle(
+                                                    //     fontWeight:
+                                                    //         FontWeight.w400,
+                                                    //     fontSize: 15,
+                                                    //     letterSpacing: 1.0,
+                                                    //     height: 1.7,
+                                                    //     fontFamily: "Cairo",
+                                                    //     fontStyle:
+                                                    //         FontStyle.normal,
+                                                    //
+                                                    //     // color: const Color.fromRGBO(50,59,75,1),
+                                                    //   ),
+                                                    // ),
+                                                    // Text(
+                                                    //   "Read more",
+                                                    //   style: TextStyle(
+                                                    //     color: AppTheme
+                                                    //         .primaryGreenColor,
+                                                    //     fontWeight:
+                                                    //         FontWeight.w400,
+                                                    //     fontSize: 15,
+                                                    //     fontFamily: "Cairo",
+                                                    //     fontStyle:
+                                                    //         FontStyle.normal,
+                                                    //   ),
+                                                    // ),
+                                                    const SizedBox(height: 50),
                                                     const Center(
                                                       child: Text(
                                                         "REFERENCE - SOURCE: PUBLICATION OF CVO 'T GOOI",
@@ -864,1237 +972,7 @@ class _HomePageState extends State<HomePage> {
                               )),
                         ),
                         const SizedBox(height: 20),
-                        Container(
-                          // width: 1440,
-                          //   width:double.infinity,
-                          // height: Responsive.isDesktop(context) ? 444 : 1350,
-                          width: MediaQuery.of(context).size.width,
-                          color: const Color.fromRGBO(50, 59, 75, 1),
-                          child: Padding(
-                            padding: const EdgeInsets.only(top: 40,bottom: 40),
-                            child: Column(
-                              children: [
-                                Center(
-                                  child: Wrap(
-                                    children: [
-                                      Container(
-                                        width: 300,
-                                        margin: const EdgeInsets.all(20),
-                                        child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: [
-                                            Row(
-                                              children: [
-                                                Image.asset("assets/image 1.png",
-                                                    width: 33, height: 40),
-                                                const SizedBox(width: 10),
-                                                const Text(
-                                                  "CIOFORUM",
-                                                  style: TextStyle(
-                                                      color: Color.fromRGBO(
-                                                          225, 225, 225, 1),
-                                                      fontWeight: FontWeight.w800,
-                                                      fontSize: 34,
-                                                      fontStyle: FontStyle.normal,
-                                                      fontFamily: "Montserrat"),
-                                                ),
-                                              ],
-                                            ),
-                                            const SizedBox(height: 40),
-                                            const Text(
-                                              "CIOforum offers GDPR services and a\n${"Shared IT Director"}  without the overhead of\na salaried person. Make an appointment \nwithout obligation via",
-                                              // textAlign: TextAlign.left,
-                                              style: TextStyle(
-                                                color: Color.fromRGBO(225, 225, 225, 1),
-                                                fontStyle: FontStyle.normal,
-                                                fontFamily: "Cairo",
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.w400,
-                                                letterSpacing: 1.0,
-                                                height: 1.7,
-                                              ),
-                                            ),
-                                            const Text("rzondervan@cioforum.nl ",
-                                                style: TextStyle(
-                                                  color:
-                                                      Color.fromRGBO(225, 225, 225, 1),
-                                                  fontStyle: FontStyle.normal,
-                                                  fontFamily: "Cairo",
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.w400,
-                                                  letterSpacing: 1.0,
-                                                  height: 1.7,
-                                                )),
-                                            const SizedBox(height: 30),
-                                            Row(
-                                              children: [
-                                                Container(
-                                                  height: 44,
-                                                  width: 44,
-                                                  decoration: BoxDecoration(
-                                                      borderRadius:
-                                                          BorderRadius.circular(40),
-                                                      color: const Color.fromRGBO(
-                                                          0, 0, 0, 0.5),
-                                                      image: const DecorationImage(
-                                                          image: AssetImage(
-                                                              "assets/Vector.png"),
-                                                          scale: 1.5)),
-                                                ),
-                                                const SizedBox(width: 10),
-                                                Container(
-                                                  height: 44,
-                                                  width: 44,
-                                                  decoration: BoxDecoration(
-                                                      borderRadius:
-                                                          BorderRadius.circular(40),
-                                                      color: const Color.fromRGBO(
-                                                          0, 0, 0, 0.5),
-                                                      image: const DecorationImage(
-                                                          image: AssetImage(
-                                                              "assets/Vector.png"),
-                                                          scale: 1.5)),
-                                                ),
-                                                const SizedBox(width: 10),
-                                                Container(
-                                                  height: 44,
-                                                  width: 44,
-                                                  decoration: BoxDecoration(
-                                                      borderRadius:
-                                                          BorderRadius.circular(40),
-                                                      color: const Color.fromRGBO(
-                                                          0, 0, 0, 0.5),
-                                                      image: const DecorationImage(
-                                                          image: AssetImage(
-                                                              "assets/Vector (1).png"),
-                                                          scale: 1.5)),
-                                                ),
-                                              ],
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                      // SizedBox(width: 20),
-                                      Container(
-                                        width:200,
-                                        margin: const EdgeInsets.all(20),
-                                        child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: const [
-                                            Text(
-                                              "QUICK LIKES",
-                                              style: TextStyle(
-                                                fontSize: 19,
-                                                fontFamily: "Cairo",
-                                                fontStyle: FontStyle.normal,
-                                                fontWeight: FontWeight.w600,
-                                                color: Color.fromRGBO(139, 190, 43, 1),
-                                              ),
-                                            ),
-                                            SizedBox(height: 70),
-                                            Text(
-                                              "Home",
-                                              style: TextStyle(
-                                                  color:
-                                                      Color.fromRGBO(225, 225, 225, 1),
-                                                  fontWeight: FontWeight.w400,
-                                                  fontFamily: "Cairo",
-                                                  fontStyle: FontStyle.normal,
-                                                  fontSize: 16),
-                                            ),
-                                            SizedBox(height: 20),
-                                            Text(
-                                              "Products",
-                                              style: TextStyle(
-                                                color: Color.fromRGBO(225, 225, 225, 1),
-                                                fontWeight: FontWeight.w400,
-                                                fontSize: 16,
-                                                fontFamily: "Cairo",
-                                                fontStyle: FontStyle.normal,
-                                              ),
-                                            ),
-                                            SizedBox(height: 20),
-                                            Text(
-                                              "Blog",
-                                              style: TextStyle(
-                                                color: Color.fromRGBO(225, 225, 225, 1),
-                                                fontWeight: FontWeight.w400,
-                                                fontSize: 16,
-                                                fontFamily: "Cairo",
-                                                fontStyle: FontStyle.normal,
-                                              ),
-                                            ),
-                                            SizedBox(height: 20),
-                                            Text(
-                                              "About us",
-                                              style: TextStyle(
-                                                color: Color.fromRGBO(225, 225, 225, 1),
-                                                fontWeight: FontWeight.w400,
-                                                fontSize: 16,
-                                                fontFamily: "Cairo",
-                                                fontStyle: FontStyle.normal,
-                                              ),
-                                            ),
-                                            SizedBox(height: 20),
-                                            Text(
-                                              "Contact",
-                                              style: TextStyle(
-                                                color: Color.fromRGBO(225, 225, 225, 1),
-                                                fontWeight: FontWeight.w400,
-                                                fontSize: 16,
-                                                fontFamily: "Cairo",
-                                                fontStyle: FontStyle.normal,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      // SizedBox(width: 20),
-                                      Container(
-                                          width:200,
-                                          margin: const EdgeInsets.all(20),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                          children: const [
-                                            Text(
-                                              "OTHERS LIKES",
-                                              style: TextStyle(
-                                                fontSize: 19,
-                                                fontFamily: "Cairo",
-                                                fontStyle:
-                                                FontStyle.normal,
-                                                fontWeight:
-                                                FontWeight.w600,
-                                                color: Color.fromRGBO(
-                                                    139, 190, 43, 1),
-                                              ),
-                                            ),
-                                            SizedBox(height: 70),
-                                            Text(
-                                              "Terms and Conditions",
-                                              style: TextStyle(
-                                                color: Color.fromRGBO(
-                                                    225, 225, 225, 1),
-                                                fontWeight:
-                                                FontWeight.w400,
-                                                fontSize: 16,
-                                                fontFamily: "Cairo",
-                                                fontStyle:
-                                                FontStyle.normal,
-                                              ),
-                                            ),
-                                            SizedBox(height: 20),
-                                            Text(
-                                              "Cookies",
-                                              style: TextStyle(
-                                                color: Color.fromRGBO(
-                                                    225, 225, 225, 1),
-                                                fontWeight:
-                                                FontWeight.w400,
-                                                fontSize: 16,
-                                                fontFamily: "Cairo",
-                                                fontStyle:
-                                                FontStyle.normal,
-                                              ),
-                                            ),
-                                            SizedBox(height: 20),
-                                            Text(
-                                              "Sitemap",
-                                              style: TextStyle(
-                                                color: Color.fromRGBO(
-                                                    225, 225, 225, 1),
-                                                fontWeight:
-                                                FontWeight.w400,
-                                                fontSize: 16,
-                                                fontFamily: "Cairo",
-                                                fontStyle:
-                                                FontStyle.normal,
-                                              ),
-                                            ),
-                                            SizedBox(height: 20),
-                                            Text(
-                                              "FAQ",
-                                              style: TextStyle(
-                                                color: Color.fromRGBO(
-                                                    225, 225, 225, 1),
-                                                fontWeight:
-                                                FontWeight.w400,
-                                                fontSize: 16,
-                                                fontFamily: "Cairo",
-                                                fontStyle:
-                                                FontStyle.normal,
-                                              ),
-                                            ),
-                                            SizedBox(height: 40),
-                                          ],
-                                        ),
-                                      ),
-                                      // SizedBox(width: 20),
-                                      Container(
-                                        width: 300,
-                                        margin: const EdgeInsets.all(20),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                          children: [
-                                            const Text(
-                                              "GET IN TOUCH",
-                                              style: TextStyle(
-                                                fontSize: 19,
-                                                fontWeight:
-                                                FontWeight.w600,
-                                                color: Color.fromRGBO(
-                                                    139, 190, 43, 1),
-                                                fontFamily: "Cairo",
-                                                fontStyle:
-                                                FontStyle.normal,
-                                              ),
-                                            ),
-                                            const SizedBox(height: 80),
-                                            Row(
-                                              children: const [
-                                                Icon(
-                                                  Icons
-                                                      .add_location_outlined,
-                                                  color: Color.fromRGBO(
-                                                      139, 190, 43, 1),
-                                                ),
-                                                SizedBox(width: 20),
-                                                Text(
-                                                  "CIOFORUM",
-                                                  style: TextStyle(
-                                                    color: Color.fromRGBO(
-                                                        225, 225, 225, 1),
-                                                    fontWeight:
-                                                    FontWeight.w600,
-                                                    fontSize: 19,
-                                                    fontFamily: "Cairo",
-                                                    fontStyle:
-                                                    FontStyle.normal,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            Column(
-                                              crossAxisAlignment:
-                                              CrossAxisAlignment.end,
-                                              children: [
-                                                const SizedBox(
-                                                  height: 10,
-                                                ),
-                                                Row(
-                                                  children: const [
-                                                    SizedBox(width: 40),
-                                                    Text(
-                                                      "Buntlaan 11B 3941 MG Doorn\nNederland",
-                                                      style: TextStyle(
-                                                          color: Color
-                                                              .fromRGBO(
-                                                              225,
-                                                              225,
-                                                              225,
-                                                              1),
-                                                          fontWeight:
-                                                          FontWeight
-                                                              .w400,
-                                                          fontSize: 16,
-                                                          fontFamily:
-                                                          "Cairo",
-                                                          fontStyle:
-                                                          FontStyle
-                                                              .normal,
-                                                          height: 1.5),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ],
-                                            ),
-                                            const SizedBox(height: 10),
-                                            Row(
-                                              children: const [
-                                                Icon(
-                                                  Icons.email_outlined,
-                                                  color: Color.fromRGBO(
-                                                      139, 190, 43, 1),
-                                                ),
-                                                SizedBox(width: 20),
-                                                Text(
-                                                  "rzondervan@cioforum.nl",
-                                                  style: TextStyle(
-                                                    color: Color.fromRGBO(
-                                                        225, 225, 225, 1),
-                                                    fontWeight:
-                                                    FontWeight.w400,
-                                                    fontSize: 16,
-                                                    fontFamily: "Cairo",
-                                                    fontStyle:
-                                                    FontStyle.normal,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            const SizedBox(height: 20),
-                                            Row(
-                                              children: const [
-                                                Icon(
-                                                  Icons.call,
-                                                  color: Color.fromRGBO(
-                                                      139, 190, 43, 1),
-                                                ),
-                                                SizedBox(width: 20),
-                                                Text(
-                                                  "+31 6 20 707 442",
-                                                  style: TextStyle(
-                                                    color: Color.fromRGBO(
-                                                        225, 225, 225, 1),
-                                                    fontWeight:
-                                                    FontWeight.w400,
-                                                    fontSize: 16,
-                                                    fontFamily: "Cairo",
-                                                    fontStyle:
-                                                    FontStyle.normal,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            const SizedBox(height: 10),
-                                          ],
-                                        ),
-                                      ),
-
-                                    ],
-                                  ),
-                                ),
-                                Text("©2022 CIOFORUM | All Rights are Reserved",style: TextStyle(
-                                    color: AppTheme.primaryWhiteColor,
-                                    fontFamily: "Cairo",
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 14,
-                                    fontStyle: FontStyle.normal
-
-                                ),)
-                              ],
-                            ),
-                          ),
-
-                          //   child: Padding(
-                          //     padding: const EdgeInsets.only(top: 50, bottom: 50),
-                          //     child: Column(
-                          //       mainAxisSize: MainAxisSize.min,
-                          //       crossAxisAlignment: CrossAxisAlignment.center,
-                          //       children: [
-                          //         Responsive.isDesktop(context)
-                          //             ? Padding(
-                          //               padding: const EdgeInsets.all(20.0),
-                          //               child: Wrap(
-                          //                 // direction: Axis.vertical,
-                          //                 children: [
-                          //                     Column(
-                          //                       crossAxisAlignment:
-                          //                           CrossAxisAlignment.start,
-                          //                       children: [
-                          //                         Row(
-                          //                           children: [
-                          //                             Image.asset(
-                          //                                 "assets/image 1.png",
-                          //                                 width: 33,
-                          //                                 height: 40),
-                          //                             const SizedBox(width: 10),
-                          //                             const Text(
-                          //                               "CIOFORUM",
-                          //                               style: TextStyle(
-                          //                                   color: Color.fromRGBO(
-                          //                                       225, 225, 225, 1),
-                          //                                   fontWeight:
-                          //                                       FontWeight.w800,
-                          //                                   fontSize: 34,
-                          //                                   fontStyle:
-                          //                                       FontStyle.normal,
-                          //                                   fontFamily: "Montserrat"),
-                          //                             ),
-                          //                           ],
-                          //                         ),
-                          //                         const SizedBox(height: 40),
-                          //                         const Text(
-                          //                           "CIOforum offers GDPR services and a\n${"Shared IT Director"}  without the overhead of\na salaried person. Make an appointment \nwithout obligation via",
-                          //                           // textAlign: TextAlign.left,
-                          //                           style: TextStyle(
-                          //                             color: Color.fromRGBO(
-                          //                                 225, 225, 225, 1),
-                          //                             fontStyle: FontStyle.normal,
-                          //                             fontFamily: "Cairo",
-                          //                             fontSize: 14,
-                          //                             fontWeight: FontWeight.w400,
-                          //                             letterSpacing: 1.0,
-                          //                             height: 1.7,
-                          //                           ),
-                          //                         ),
-                          //                         const Text(
-                          //                             "rzondervan@cioforum.nl ",
-                          //                             style: TextStyle(
-                          //                               color: Color.fromRGBO(
-                          //                                   225, 225, 225, 1),
-                          //                               fontStyle: FontStyle.normal,
-                          //                               fontFamily: "Cairo",
-                          //                               fontSize: 14,
-                          //                               fontWeight: FontWeight.w400,
-                          //                               letterSpacing: 1.0,
-                          //                               height: 1.7,
-                          //                             )),
-                          //                         const SizedBox(height: 30),
-                          //                         Row(
-                          //                           children: [
-                          //                             Container(
-                          //                               height: 44,
-                          //                               width: 44,
-                          //                               decoration: BoxDecoration(
-                          //                                   borderRadius:
-                          //                                       BorderRadius.circular(
-                          //                                           40),
-                          //                                   color:
-                          //                                       const Color.fromRGBO(
-                          //                                           0, 0, 0, 0.5),
-                          //                                   image: const DecorationImage(
-                          //                                       image: NetworkImage(
-                          //                                           "assets/Vector.png"),
-                          //                                       scale: 1.5)),
-                          //                             ),
-                          //                             const SizedBox(width: 10),
-                          //                             Container(
-                          //                               height: 44,
-                          //                               width: 44,
-                          //                               decoration: BoxDecoration(
-                          //                                   borderRadius:
-                          //                                       BorderRadius.circular(
-                          //                                           40),
-                          //                                   color:
-                          //                                       const Color.fromRGBO(
-                          //                                           0, 0, 0, 0.5),
-                          //                                   image: const DecorationImage(
-                          //                                       image: NetworkImage(
-                          //                                           "assets/Vector.png"),
-                          //                                       scale: 1.5)),
-                          //                             ),
-                          //                             const SizedBox(width: 10),
-                          //                             Container(
-                          //                               height: 44,
-                          //                               width: 44,
-                          //                               decoration: BoxDecoration(
-                          //                                   borderRadius:
-                          //                                       BorderRadius.circular(
-                          //                                           40),
-                          //                                   color:
-                          //                                       const Color.fromRGBO(
-                          //                                           0, 0, 0, 0.5),
-                          //                                   image: const DecorationImage(
-                          //                                       image: NetworkImage(
-                          //                                           "assets/Vector (1).png"),
-                          //                                       scale: 1.5)),
-                          //                             ),
-                          //                           ],
-                          //                         )
-                          //                       ],
-                          //                     ),
-                          //                     // SizedBox(width: width*0.06),
-                          //                     Column(
-                          //                         crossAxisAlignment:
-                          //                             CrossAxisAlignment.start,
-                          //                         children: const [
-                          //                           Text(
-                          //                             "QUICK LIKES",
-                          //                             style: TextStyle(
-                          //                               fontSize: 19,
-                          //                               fontFamily: "Cairo",
-                          //                               fontStyle:
-                          //                                   FontStyle.normal,
-                          //                               fontWeight:
-                          //                                   FontWeight.w600,
-                          //                               color: Color.fromRGBO(
-                          //                                   139, 190, 43, 1),
-                          //                             ),
-                          //                           ),
-                          //                           SizedBox(height: 70),
-                          //                           Text(
-                          //                             "Home",
-                          //                             style: TextStyle(
-                          //                                 color: Color.fromRGBO(
-                          //                                     225, 225, 225, 1),
-                          //                                 fontWeight:
-                          //                                     FontWeight.w400,
-                          //                                 fontFamily: "Cairo",
-                          //                                 fontStyle:
-                          //                                     FontStyle.normal,
-                          //                                 fontSize: 16),
-                          //                           ),
-                          //                           SizedBox(height: 20),
-                          //                           Text(
-                          //                             "Products",
-                          //                             style: TextStyle(
-                          //                               color: Color.fromRGBO(
-                          //                                   225, 225, 225, 1),
-                          //                               fontWeight:
-                          //                                   FontWeight.w400,
-                          //                               fontSize: 16,
-                          //                               fontFamily: "Cairo",
-                          //                               fontStyle:
-                          //                                   FontStyle.normal,
-                          //                             ),
-                          //                           ),
-                          //                           SizedBox(height: 20),
-                          //                           Text(
-                          //                             "Blog",
-                          //                             style: TextStyle(
-                          //                               color: Color.fromRGBO(
-                          //                                   225, 225, 225, 1),
-                          //                               fontWeight:
-                          //                                   FontWeight.w400,
-                          //                               fontSize: 16,
-                          //                               fontFamily: "Cairo",
-                          //                               fontStyle:
-                          //                                   FontStyle.normal,
-                          //                             ),
-                          //                           ),
-                          //                           SizedBox(height: 20),
-                          //                           Text(
-                          //                             "About us",
-                          //                             style: TextStyle(
-                          //                               color: Color.fromRGBO(
-                          //                                   225, 225, 225, 1),
-                          //                               fontWeight:
-                          //                                   FontWeight.w400,
-                          //                               fontSize: 16,
-                          //                               fontFamily: "Cairo",
-                          //                               fontStyle:
-                          //                                   FontStyle.normal,
-                          //                             ),
-                          //                           ),
-                          //                           SizedBox(height: 20),
-                          //                           Text(
-                          //                             "Contact",
-                          //                             style: TextStyle(
-                          //                               color: Color.fromRGBO(
-                          //                                   225, 225, 225, 1),
-                          //                               fontWeight:
-                          //                                   FontWeight.w400,
-                          //                               fontSize: 16,
-                          //                               fontFamily: "Cairo",
-                          //                               fontStyle:
-                          //                                   FontStyle.normal,
-                          //                             ),
-                          //                           ),
-                          //                         ],
-                          //                       ),
-                          //                     // SizedBox(width: width*0.06),
-                          //                     Column(
-                          //                             crossAxisAlignment:
-                          //                                 CrossAxisAlignment.start,
-                          //                             children: const [
-                          //                               Text(
-                          //                                 "OTHERS LIKES",
-                          //                                 style: TextStyle(
-                          //                                   fontSize: 19,
-                          //                                   fontFamily: "Cairo",
-                          //                                   fontStyle:
-                          //                                       FontStyle.normal,
-                          //                                   fontWeight:
-                          //                                       FontWeight.w600,
-                          //                                   color: Color.fromRGBO(
-                          //                                       139, 190, 43, 1),
-                          //                                 ),
-                          //                               ),
-                          //                               SizedBox(height: 70),
-                          //                               Text(
-                          //                                 "Terms and Conditions",
-                          //                                 style: TextStyle(
-                          //                                   color: Color.fromRGBO(
-                          //                                       225, 225, 225, 1),
-                          //                                   fontWeight:
-                          //                                       FontWeight.w400,
-                          //                                   fontSize: 16,
-                          //                                   fontFamily: "Cairo",
-                          //                                   fontStyle:
-                          //                                       FontStyle.normal,
-                          //                                 ),
-                          //                               ),
-                          //                               SizedBox(height: 20),
-                          //                               Text(
-                          //                                 "Cookies",
-                          //                                 style: TextStyle(
-                          //                                   color: Color.fromRGBO(
-                          //                                       225, 225, 225, 1),
-                          //                                   fontWeight:
-                          //                                       FontWeight.w400,
-                          //                                   fontSize: 16,
-                          //                                   fontFamily: "Cairo",
-                          //                                   fontStyle:
-                          //                                       FontStyle.normal,
-                          //                                 ),
-                          //                               ),
-                          //                               SizedBox(height: 20),
-                          //                               Text(
-                          //                                 "Sitemap",
-                          //                                 style: TextStyle(
-                          //                                   color: Color.fromRGBO(
-                          //                                       225, 225, 225, 1),
-                          //                                   fontWeight:
-                          //                                       FontWeight.w400,
-                          //                                   fontSize: 16,
-                          //                                   fontFamily: "Cairo",
-                          //                                   fontStyle:
-                          //                                       FontStyle.normal,
-                          //                                 ),
-                          //                               ),
-                          //                               SizedBox(height: 20),
-                          //                               Text(
-                          //                                 "FAQ",
-                          //                                 style: TextStyle(
-                          //                                   color: Color.fromRGBO(
-                          //                                       225, 225, 225, 1),
-                          //                                   fontWeight:
-                          //                                       FontWeight.w400,
-                          //                                   fontSize: 16,
-                          //                                   fontFamily: "Cairo",
-                          //                                   fontStyle:
-                          //                                       FontStyle.normal,
-                          //                                 ),
-                          //                               ),
-                          //                               SizedBox(height: 40),
-                          //                             ],
-                          //                           ),
-                          //                     // SizedBox(width: width*0.06),
-                          //                     Column(
-                          //                        crossAxisAlignment:
-                          //                            CrossAxisAlignment.start,
-                          //                        children: [
-                          //                          const Text(
-                          //                            "GET IN TOUCH",
-                          //                            style: TextStyle(
-                          //                              fontSize: 19,
-                          //                              fontWeight:
-                          //                                  FontWeight.w600,
-                          //                              color: Color.fromRGBO(
-                          //                                  139, 190, 43, 1),
-                          //                              fontFamily: "Cairo",
-                          //                              fontStyle:
-                          //                                  FontStyle.normal,
-                          //                            ),
-                          //                          ),
-                          //                          const SizedBox(height: 80),
-                          //                          Row(
-                          //                            children: const [
-                          //                              Icon(
-                          //                                Icons
-                          //                                    .add_location_outlined,
-                          //                                color: Color.fromRGBO(
-                          //                                    139, 190, 43, 1),
-                          //                              ),
-                          //                              SizedBox(width: 20),
-                          //                              Text(
-                          //                                "CIOFORUM",
-                          //                                style: TextStyle(
-                          //                                  color: Color.fromRGBO(
-                          //                                      225, 225, 225, 1),
-                          //                                  fontWeight:
-                          //                                      FontWeight.w600,
-                          //                                  fontSize: 19,
-                          //                                  fontFamily: "Cairo",
-                          //                                  fontStyle:
-                          //                                      FontStyle.normal,
-                          //                                ),
-                          //                              ),
-                          //                            ],
-                          //                          ),
-                          //                          Column(
-                          //                            crossAxisAlignment:
-                          //                                CrossAxisAlignment.end,
-                          //                            children: [
-                          //                              const SizedBox(
-                          //                                height: 10,
-                          //                              ),
-                          //                              Row(
-                          //                                children: const [
-                          //                                  SizedBox(width: 40),
-                          //                                  Text(
-                          //                                    "Buntlaan 11B 3941 MG Doorn\nNederland",
-                          //                                    style: TextStyle(
-                          //                                        color: Color
-                          //                                            .fromRGBO(
-                          //                                                225,
-                          //                                                225,
-                          //                                                225,
-                          //                                                1),
-                          //                                        fontWeight:
-                          //                                            FontWeight
-                          //                                                .w400,
-                          //                                        fontSize: 16,
-                          //                                        fontFamily:
-                          //                                            "Cairo",
-                          //                                        fontStyle:
-                          //                                            FontStyle
-                          //                                                .normal,
-                          //                                        height: 1.5),
-                          //                                  ),
-                          //                                ],
-                          //                              ),
-                          //                            ],
-                          //                          ),
-                          //                          const SizedBox(height: 10),
-                          //                          Row(
-                          //                            children: const [
-                          //                              Icon(
-                          //                                Icons.email_outlined,
-                          //                                color: Color.fromRGBO(
-                          //                                    139, 190, 43, 1),
-                          //                              ),
-                          //                              SizedBox(width: 20),
-                          //                              Text(
-                          //                                "rzondervan@cioforum.nl",
-                          //                                style: TextStyle(
-                          //                                  color: Color.fromRGBO(
-                          //                                      225, 225, 225, 1),
-                          //                                  fontWeight:
-                          //                                      FontWeight.w400,
-                          //                                  fontSize: 16,
-                          //                                  fontFamily: "Cairo",
-                          //                                  fontStyle:
-                          //                                      FontStyle.normal,
-                          //                                ),
-                          //                              ),
-                          //                            ],
-                          //                          ),
-                          //                          const SizedBox(height: 20),
-                          //                          Row(
-                          //                            children: const [
-                          //                              Icon(
-                          //                                Icons.call,
-                          //                                color: Color.fromRGBO(
-                          //                                    139, 190, 43, 1),
-                          //                              ),
-                          //                              SizedBox(width: 20),
-                          //                              Text(
-                          //                                "+31 6 20 707 442",
-                          //                                style: TextStyle(
-                          //                                  color: Color.fromRGBO(
-                          //                                      225, 225, 225, 1),
-                          //                                  fontWeight:
-                          //                                      FontWeight.w400,
-                          //                                  fontSize: 16,
-                          //                                  fontFamily: "Cairo",
-                          //                                  fontStyle:
-                          //                                      FontStyle.normal,
-                          //                                ),
-                          //                              ),
-                          //                            ],
-                          //                          ),
-                          //                          const SizedBox(height: 10),
-                          //                        ],
-                          //                      ),
-                          //                   ],
-                          //                 ),
-                          //             )
-                          //             : Padding(
-                          //                 padding: const EdgeInsets.only(
-                          //                     left: 30, right: 30),
-                          //                 child: Column(
-                          //                   mainAxisAlignment:
-                          //                       MainAxisAlignment.center,
-                          //                   crossAxisAlignment:
-                          //                       CrossAxisAlignment.start,
-                          //                   children: [
-                          //                     Column(
-                          //                       crossAxisAlignment:
-                          //                           CrossAxisAlignment.start,
-                          //                       children: [
-                          //                         Row(
-                          //                           children: [
-                          //                             Image.asset(
-                          //                                 "assets/image 1.png",
-                          //                                 width: 33,
-                          //                                 height: 40),
-                          //                             const SizedBox(width: 10),
-                          //                             const Text(
-                          //                               "CIOFORUM",
-                          //                               style: TextStyle(
-                          //                                   color: Color.fromRGBO(
-                          //                                       225, 225, 225, 1),
-                          //                                   fontWeight:
-                          //                                       FontWeight.w800,
-                          //                                   fontSize: 34,
-                          //                                   fontStyle:
-                          //                                       FontStyle.normal,
-                          //                                   fontFamily:
-                          //                                       "Montserrat"),
-                          //                             ),
-                          //                           ],
-                          //                         ),
-                          //                         const SizedBox(height: 40),
-                          //                         const Text(
-                          //                           "CIOforum offers GDPR services and a ${"Shared IT Director"}  without the overhead of a salaried person. Make an appointment without obligation via",
-                          //                           // textAlign: TextAlign.left,
-                          //                           style: TextStyle(
-                          //                             color: Color.fromRGBO(
-                          //                                 225, 225, 225, 1),
-                          //                             fontStyle: FontStyle.normal,
-                          //                             fontFamily: "Cairo",
-                          //                             fontSize: 14,
-                          //                             fontWeight: FontWeight.w400,
-                          //                             letterSpacing: 1.0,
-                          //                             height: 2,
-                          //                           ),
-                          //                         ),
-                          //                         const Text(
-                          //                             "rzondervan@cioforum.nl ",
-                          //                             style: TextStyle(
-                          //                               color: Color.fromRGBO(
-                          //                                   225, 225, 225, 1),
-                          //                               fontStyle: FontStyle.normal,
-                          //                               fontFamily: "Cairo",
-                          //                               fontSize: 14,
-                          //                               fontWeight: FontWeight.w400,
-                          //                               letterSpacing: 1.0,
-                          //                               height: 1.7,
-                          //                             )),
-                          //                         const SizedBox(height: 30),
-                          //                         Row(
-                          //                           children: [
-                          //                             Container(
-                          //                               height: 44,
-                          //                               width: 44,
-                          //                               decoration: BoxDecoration(
-                          //                                   borderRadius:
-                          //                                       BorderRadius
-                          //                                           .circular(40),
-                          //                                   color: const Color
-                          //                                           .fromRGBO(0, 0,
-                          //                                       0, 0.5),
-                          //                                   image: const DecorationImage(
-                          //                                       image: AssetImage(
-                          //                                           "assets/Vector.png"),
-                          //                                       scale: 1.5)),
-                          //                             ),
-                          //                             const SizedBox(width: 10),
-                          //                             Container(
-                          //                               height: 44,
-                          //                               width: 44,
-                          //                               decoration: BoxDecoration(
-                          //                                   borderRadius:
-                          //                                       BorderRadius
-                          //                                           .circular(40),
-                          //                                   color: const Color
-                          //                                           .fromRGBO(0, 0,
-                          //                                       0, 0.5),
-                          //                                   image: const DecorationImage(
-                          //                                       image: AssetImage(
-                          //                                           "assets/Vector.png"),
-                          //                                       scale: 1.5)),
-                          //                             ),
-                          //                             const SizedBox(width: 10),
-                          //                             Container(
-                          //                               height: 44,
-                          //                               width: 44,
-                          //                               decoration: BoxDecoration(
-                          //                                   borderRadius:
-                          //                                       BorderRadius
-                          //                                           .circular(40),
-                          //                                   color: const Color
-                          //                                           .fromRGBO(0, 0,
-                          //                                       0, 0.5),
-                          //                                   image: const DecorationImage(
-                          //                                       image: AssetImage(
-                          //                                           "assets/Vector (1).png"),
-                          //                                       scale: 1.5)),
-                          //                             ),
-                          //                           ],
-                          //                         )
-                          //                       ],
-                          //                     ),
-                          //                     const SizedBox(height: 40),
-                          //                     Column(
-                          //                       crossAxisAlignment:
-                          //                           CrossAxisAlignment.start,
-                          //                       children: const [
-                          //                         Text(
-                          //                           "QUICK LIKES",
-                          //                           style: TextStyle(
-                          //                             fontSize: 19,
-                          //                             fontFamily: "Cairo",
-                          //                             fontStyle: FontStyle.normal,
-                          //                             fontWeight: FontWeight.w600,
-                          //                             color: Color.fromRGBO(
-                          //                                 139, 190, 43, 1),
-                          //                           ),
-                          //                         ),
-                          //                         SizedBox(height: 40),
-                          //                         Text(
-                          //                           "Home",
-                          //                           style: TextStyle(
-                          //                               color: Color.fromRGBO(
-                          //                                   225, 225, 225, 1),
-                          //                               fontWeight: FontWeight.w400,
-                          //                               fontFamily: "Cairo",
-                          //                               fontStyle: FontStyle.normal,
-                          //                               fontSize: 16),
-                          //                         ),
-                          //                         SizedBox(height: 20),
-                          //                         Text(
-                          //                           "Products",
-                          //                           style: TextStyle(
-                          //                             color: Color.fromRGBO(
-                          //                                 225, 225, 225, 1),
-                          //                             fontWeight: FontWeight.w400,
-                          //                             fontSize: 16,
-                          //                             fontFamily: "Cairo",
-                          //                             fontStyle: FontStyle.normal,
-                          //                           ),
-                          //                         ),
-                          //                         SizedBox(height: 20),
-                          //                         Text(
-                          //                           "Blog",
-                          //                           style: TextStyle(
-                          //                             color: Color.fromRGBO(
-                          //                                 225, 225, 225, 1),
-                          //                             fontWeight: FontWeight.w400,
-                          //                             fontSize: 16,
-                          //                             fontFamily: "Cairo",
-                          //                             fontStyle: FontStyle.normal,
-                          //                           ),
-                          //                         ),
-                          //                         SizedBox(height: 20),
-                          //                         Text(
-                          //                           "About us",
-                          //                           style: TextStyle(
-                          //                             color: Color.fromRGBO(
-                          //                                 225, 225, 225, 1),
-                          //                             fontWeight: FontWeight.w400,
-                          //                             fontSize: 16,
-                          //                             fontFamily: "Cairo",
-                          //                             fontStyle: FontStyle.normal,
-                          //                           ),
-                          //                         ),
-                          //                         SizedBox(height: 20),
-                          //                         Text(
-                          //                           "Contact",
-                          //                           style: TextStyle(
-                          //                             color: Color.fromRGBO(
-                          //                                 225, 225, 225, 1),
-                          //                             fontWeight: FontWeight.w400,
-                          //                             fontSize: 16,
-                          //                             fontFamily: "Cairo",
-                          //                             fontStyle: FontStyle.normal,
-                          //                           ),
-                          //                         ),
-                          //                       ],
-                          //                     ),
-                          //                     const SizedBox(height: 40),
-                          //                     Column(
-                          //                       crossAxisAlignment:
-                          //                           CrossAxisAlignment.start,
-                          //                       children: const [
-                          //                         Text(
-                          //                           "OTHERS LIKES",
-                          //                           style: TextStyle(
-                          //                             fontSize: 19,
-                          //                             fontFamily: "Cairo",
-                          //                             fontStyle: FontStyle.normal,
-                          //                             fontWeight: FontWeight.w600,
-                          //                             color: Color.fromRGBO(
-                          //                                 139, 190, 43, 1),
-                          //                           ),
-                          //                         ),
-                          //                         SizedBox(height: 40),
-                          //                         Text(
-                          //                           "Terms and Conditions",
-                          //                           style: TextStyle(
-                          //                             color: Color.fromRGBO(
-                          //                                 225, 225, 225, 1),
-                          //                             fontWeight: FontWeight.w400,
-                          //                             fontSize: 16,
-                          //                             fontFamily: "Cairo",
-                          //                             fontStyle: FontStyle.normal,
-                          //                           ),
-                          //                         ),
-                          //                         SizedBox(height: 20),
-                          //                         Text(
-                          //                           "Cookies",
-                          //                           style: TextStyle(
-                          //                             color: Color.fromRGBO(
-                          //                                 225, 225, 225, 1),
-                          //                             fontWeight: FontWeight.w400,
-                          //                             fontSize: 16,
-                          //                             fontFamily: "Cairo",
-                          //                             fontStyle: FontStyle.normal,
-                          //                           ),
-                          //                         ),
-                          //                         SizedBox(height: 20),
-                          //                         Text(
-                          //                           "Sitemap",
-                          //                           style: TextStyle(
-                          //                             color: Color.fromRGBO(
-                          //                                 225, 225, 225, 1),
-                          //                             fontWeight: FontWeight.w400,
-                          //                             fontSize: 16,
-                          //                             fontFamily: "Cairo",
-                          //                             fontStyle: FontStyle.normal,
-                          //                           ),
-                          //                         ),
-                          //                         SizedBox(height: 20),
-                          //                         Text(
-                          //                           "FAQ",
-                          //                           style: TextStyle(
-                          //                             color: Color.fromRGBO(
-                          //                                 225, 225, 225, 1),
-                          //                             fontWeight: FontWeight.w400,
-                          //                             fontSize: 16,
-                          //                             fontFamily: "Cairo",
-                          //                             fontStyle: FontStyle.normal,
-                          //                           ),
-                          //                         ),
-                          //                         SizedBox(height: 40),
-                          //                       ],
-                          //                     ),
-                          //                     const SizedBox(height: 40),
-                          //                     Column(
-                          //                       crossAxisAlignment:
-                          //                           CrossAxisAlignment.start,
-                          //                       children: [
-                          //                         const Text(
-                          //                           "GET IN TOUCH",
-                          //                           style: TextStyle(
-                          //                             fontSize: 19,
-                          //                             fontWeight: FontWeight.w600,
-                          //                             color: Color.fromRGBO(
-                          //                                 139, 190, 43, 1),
-                          //                             fontFamily: "Cairo",
-                          //                             fontStyle: FontStyle.normal,
-                          //                           ),
-                          //                         ),
-                          //                         const SizedBox(height: 40),
-                          //                         Row(
-                          //                           children: const [
-                          //                             Icon(
-                          //                               Icons.add_location_outlined,
-                          //                               color: Color.fromRGBO(
-                          //                                   139, 190, 43, 1),
-                          //                             ),
-                          //                             SizedBox(width: 20),
-                          //                             Text(
-                          //                               "CIOFORUM",
-                          //                               style: TextStyle(
-                          //                                 color: Color.fromRGBO(
-                          //                                     225, 225, 225, 1),
-                          //                                 fontWeight:
-                          //                                     FontWeight.w600,
-                          //                                 fontSize: 19,
-                          //                                 fontFamily: "Cairo",
-                          //                                 fontStyle:
-                          //                                     FontStyle.normal,
-                          //                               ),
-                          //                             ),
-                          //                           ],
-                          //                         ),
-                          //                         Column(
-                          //                           crossAxisAlignment:
-                          //                               CrossAxisAlignment.end,
-                          //                           children: [
-                          //                             const SizedBox(
-                          //                               height: 10,
-                          //                             ),
-                          //                             Row(
-                          //                               children: const [
-                          //                                 SizedBox(width: 40),
-                          //                                 Text(
-                          //                                   "Buntlaan 11B 3941 MG Doorn\nNederland",
-                          //                                   style: TextStyle(
-                          //                                       color:
-                          //                                           Color.fromRGBO(
-                          //                                               225,
-                          //                                               225,
-                          //                                               225,
-                          //                                               1),
-                          //                                       fontWeight:
-                          //                                           FontWeight.w400,
-                          //                                       fontSize: 16,
-                          //                                       fontFamily: "Cairo",
-                          //                                       fontStyle: FontStyle
-                          //                                           .normal,
-                          //                                       height: 1.5),
-                          //                                 ),
-                          //                               ],
-                          //                             ),
-                          //                           ],
-                          //                         ),
-                          //                         const SizedBox(height: 10),
-                          //                         Row(
-                          //                           children: const [
-                          //                             Icon(
-                          //                               Icons.email_outlined,
-                          //                               color: Color.fromRGBO(
-                          //                                   139, 190, 43, 1),
-                          //                             ),
-                          //                             SizedBox(width: 20),
-                          //                             Text(
-                          //                               "rzondervan@cioforum.nl",
-                          //                               style: TextStyle(
-                          //                                 color: Color.fromRGBO(
-                          //                                     225, 225, 225, 1),
-                          //                                 fontWeight:
-                          //                                     FontWeight.w400,
-                          //                                 fontSize: 16,
-                          //                                 fontFamily: "Cairo",
-                          //                                 fontStyle:
-                          //                                     FontStyle.normal,
-                          //                               ),
-                          //                             ),
-                          //                           ],
-                          //                         ),
-                          //                         const SizedBox(height: 20),
-                          //                         Row(
-                          //                           children: const [
-                          //                             Icon(
-                          //                               Icons.call,
-                          //                               color: Color.fromRGBO(
-                          //                                   139, 190, 43, 1),
-                          //                             ),
-                          //                             SizedBox(width: 20),
-                          //                             Text(
-                          //                               "+31 6 20 707 442",
-                          //                               style: TextStyle(
-                          //                                 color: Color.fromRGBO(
-                          //                                     225, 225, 225, 1),
-                          //                                 fontWeight:
-                          //                                     FontWeight.w400,
-                          //                                 fontSize: 16,
-                          //                                 fontFamily: "Cairo",
-                          //                                 fontStyle:
-                          //                                     FontStyle.normal,
-                          //                               ),
-                          //                             ),
-                          //                           ],
-                          //                         ),
-                          //                         const SizedBox(height: 10),
-                          //                       ],
-                          //                     )
-                          //                   ],
-                          //                 ),
-                          //               ),
-                          //         const Spacer(),
-                          //         const Center(
-                          //           child: Text(
-                          //             "©2022 CIOFORUM | All Rights are Reserved",
-                          //             style: TextStyle(
-                          //               fontWeight: FontWeight.w400,
-                          //               fontSize: 14,
-                          //               color: Colors.white,
-                          //               fontFamily: "Cairo",
-                          //               fontStyle: FontStyle.normal,
-                          //             ),
-                          //           ),
-                          //         )
-                          //       ],
-                          //     ),
-                          //   ),
-                        ),
+                        Footer1(context,widget.clickFooterCallback)
                       ],
                     ),
                   ),
