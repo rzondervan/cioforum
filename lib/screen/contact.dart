@@ -7,6 +7,8 @@ import 'package:ciofroum_web/responsive.dart';
 import 'package:ciofroum_web/widget/footer1.dart';
 import 'package:ciofroum_web/widget/google_map.dart';
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Contact extends StatefulWidget {
   Contact({required this.clickFooterCallback});
@@ -18,6 +20,17 @@ class Contact extends StatefulWidget {
 
 class _ContactState extends State<Contact> {
   // Completer<GoogleMapController> _controller = Completer();
+  Future<void> _makePhoneCall(String Url)async{
+    if(await canLaunch(Url)){
+      await launch(Url);
+    }
+    else{
+      throw "Could not launch $Url";
+    }
+  }
+  _launchEmail() async{
+    launch(" mailto:rzondervan@cioforum.nl.org");
+  }
   @override
   Widget build(BuildContext context) {
     final height=MediaQuery.of(context).size.height;
@@ -54,16 +67,16 @@ class _ContactState extends State<Contact> {
                       Container(
                         height:height*0.5,
                         width: width,
-                        color: Colors.red,
-                        // child: getMap()
-                        // child: const GoogleMap(
-                        //   mapType: MapType.normal,
-                        //   // zoomControlsEnabled: false,
-                        //   initialCameraPosition:  CameraPosition(target: const LatLng(30.7238206,76.6339858), zoom: 15),
-                        //   // onMapCreated: (GoogleMapController controller) {
-                        //   //   _controller.complete(controller);
-                        //   // },
-                        // ),
+                        // color: Colors.red,
+                        child: Responsive.isDesktop(context)?getMap():
+                          GoogleMap(
+                          mapType: MapType.normal,
+                          // zoomControlsEnabled: false,
+                          initialCameraPosition:  CameraPosition(target: const LatLng(30.7238206,76.6339858), zoom: 15),
+                          // onMapCreated: (GoogleMapController controller) {
+                          //   _controller.complete(controller);
+                          // },
+                        ),
                       ),
                       Container(
                         // height:height*0.3,
@@ -111,17 +124,48 @@ class _ContactState extends State<Contact> {
                                     child: Column(
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
-                                        Row(
-                                          children:  [
-                                            Icon(
-                                              Icons.email_outlined,size: 20,
-                                              color: Color.fromRGBO(
-                                                  139, 190, 43, 1),
-                                            ),
-                                            SizedBox(width: 20),
-                                            Expanded(
-                                              child: Text(
-                                                "rzondervan@cioforum.nl",
+                                        InkWell(
+                                          onTap: (){
+                                            _launchEmail();
+                                          },
+                                          child: Row(
+                                            children:  [
+                                              Icon(
+                                                Icons.email_outlined,size: 20,
+                                                color: Color.fromRGBO(
+                                                    139, 190, 43, 1),
+                                              ),
+                                              SizedBox(width: 20),
+                                              Expanded(
+                                                child: Text(
+                                                  "rzondervan@cioforum.nl",
+                                                  style: TextStyle(
+                                                      color: AppTheme.primaryBlueColor,
+                                                      fontFamily: "Cairo",
+                                                      fontSize: width<600?16:24,
+                                                      fontWeight: FontWeight.w500,
+                                                      fontStyle: FontStyle.normal
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        SizedBox(height: 20),
+                                        InkWell(
+                                          onTap: (){
+                                            _makePhoneCall("tel:+31620707442");
+                                          },
+                                          child: Row(
+                                            children:  [
+                                              Icon(
+                                                Icons.call,size: 20,
+                                                color: Color.fromRGBO(
+                                                    139, 190, 43, 1),
+                                              ),
+                                              SizedBox(width: 20),
+                                              Text(
+                                                "+31 6 20 707 442",
                                                 style: TextStyle(
                                                     color: AppTheme.primaryBlueColor,
                                                     fontFamily: "Cairo",
@@ -130,29 +174,8 @@ class _ContactState extends State<Contact> {
                                                     fontStyle: FontStyle.normal
                                                 ),
                                               ),
-                                            ),
-                                          ],
-                                        ),
-                                        SizedBox(height: 20),
-                                        Row(
-                                          children:  [
-                                            Icon(
-                                              Icons.call,size: 20,
-                                              color: Color.fromRGBO(
-                                                  139, 190, 43, 1),
-                                            ),
-                                            SizedBox(width: 20),
-                                            Text(
-                                              "+31 6 20 707 442",
-                                              style: TextStyle(
-                                                  color: AppTheme.primaryBlueColor,
-                                                  fontFamily: "Cairo",
-                                                  fontSize: width<600?16:24,
-                                                  fontWeight: FontWeight.w500,
-                                                  fontStyle: FontStyle.normal
-                                              ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
 
                                       ],

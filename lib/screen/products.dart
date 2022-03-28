@@ -38,6 +38,7 @@ class _ProductState extends State<Product> {
   Widget build(BuildContext context) {
     final height=MediaQuery.of(context).size.height;
     final width=MediaQuery.of(context).size.width;
+    print(width);
 
     return SafeArea(
       child: Scaffold(
@@ -97,8 +98,12 @@ class _ProductState extends State<Product> {
                           children: [
                             InkWell(
                               onTap:()async{
+                                setState(() {
+                                  widget.callback.onPageProduct(true);
 
-                                widget.callback.onPageProduct(true);
+                                });
+
+
                                 // Navigator.push(context,MaterialPageRoute(builder: (context)=>Privacy(clickFooterCallback:widget.clickFooterCallback)));
 
                               },
@@ -119,6 +124,7 @@ class _ProductState extends State<Product> {
                                   child: Column(
                                     children: [
                                       Container(
+                                        // height: width<width*0.21,
                                         height: width*0.21,
                                         width: width*0.21,
                                         color: const Color.fromRGBO(246,246,246,1),
@@ -151,8 +157,6 @@ class _ProductState extends State<Product> {
                                         fontFamily: "Cairo",
                                         fontStyle: FontStyle.normal,
                                       ),),
-
-
                                     ],
                                   ),
                                 ),),
@@ -160,9 +164,7 @@ class _ProductState extends State<Product> {
 
                           ],
                         );
-
-
-                      },
+                        },
                     ),
                     const SizedBox(height: 40),
                      Padding(

@@ -102,7 +102,7 @@ class _HomePageState extends State<HomeScreen>  implements ClickOpenCallback,Cli
                             newsTab = false;
                             aboutTab = false;
                             contact=false;
-
+                            product=false;
                           });
                           Navigator.pop(context);
                         },
@@ -294,6 +294,7 @@ class _HomePageState extends State<HomeScreen>  implements ClickOpenCallback,Cli
                               newsTab = false;
                               aboutTab = false;
                               contact=false;
+                              product=false;
 
                             });
                           },
@@ -378,15 +379,15 @@ class _HomePageState extends State<HomeScreen>  implements ClickOpenCallback,Cli
                       ? InkWell(
                     hoverColor: Colors.transparent,
 
-                    // onTap: (){
-                    //   setState(() {
-                    //   homeTabSelected=false;
-                    //   productTabSelected=false;
-                    //   newsTabSelected=false;
-                    //   aboutTabSelected=false;
-                    //     contact=true;
-                    //   });
-                    //   },
+                    onTap: (){
+                      setState(() {
+                      homeTabSelected=false;
+                      productTabSelected=false;
+                      newsTabSelected=false;
+                      aboutTabSelected=false;
+                        contact=true;
+                      });
+                      },
                         child: Container(
                             height: 50,
                             width: 130,
@@ -453,10 +454,10 @@ class _HomePageState extends State<HomeScreen>  implements ClickOpenCallback,Cli
                 ],
               ),
             )),
-        body: contact?Contact(clickFooterCallback: this,):homeTab
-            ? HomePage(clickFooterCallback: this,)
+        body: contact?Contact(clickFooterCallback: this):homeTab
+            ? HomePage(clickFooterCallback: this)
             : productTab
-                ? product?Privacy(clickFooterCallback: this): Product(clickFooterCallback: this, callback: this)
+                ?product?Privacy(clickFooterCallback: this):Product(clickFooterCallback: this, callback: this)
                 : newsTab
                     ?  NewPage(clickFooterCallback: this)
                     : aboutTab
@@ -535,6 +536,8 @@ class _HomePageState extends State<HomeScreen>  implements ClickOpenCallback,Cli
       newsTab = false;
       aboutTab = false;
       product=productMis;
+      // if(productMis){
+
     });
 
   }
