@@ -206,14 +206,19 @@ Widget Footer1(BuildContext context,ClickFooterCallback clickFooterCallback){
                         ),
                       ),
                       const SizedBox(height: 20),
-                      const Text(
-                        "Blog",
-                        style: TextStyle(
-                          color: Color.fromRGBO(225, 225, 225, 1),
-                          fontWeight: FontWeight.w400,
-                          fontSize: 16,
-                          fontFamily: "Cairo",
-                          fontStyle: FontStyle.normal,
+                      InkWell(
+                        onTap: (){
+                          clickFooterCallback.onPageOpen(false,false,true,false,false);
+                        },
+                        child: const Text(
+                          "Blog",
+                          style: TextStyle(
+                            color: Color.fromRGBO(225, 225, 225, 1),
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16,
+                            fontFamily: "Cairo",
+                            fontStyle: FontStyle.normal,
+                          ),
                         ),
                       ),
                       const SizedBox(height: 20),

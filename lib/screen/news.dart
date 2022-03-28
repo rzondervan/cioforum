@@ -6,9 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class NewPage extends StatefulWidget {
-  NewPage({required this.clickFooterCallback});
+  NewPage({required this.clickFooterCallback,required this.clickviewmore});
 
   ClickFooterCallback clickFooterCallback;
+  Homeviewmore clickviewmore;
   @override
   State<NewPage> createState() => _NewPageState();
 }

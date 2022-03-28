@@ -18,6 +18,16 @@ class Privacy extends StatefulWidget {
 class _PrivacyState extends State<Privacy> {
   int currentPos = 0;
   final CarouselController _controller = CarouselController();
+  PageController controller = PageController(
+    // initialPage: 0,
+  );
+
+  // @override
+  // void dispose() {
+  //   controller.dispose();
+  //   super.dispose();
+  // }
+
 
 
   @override
@@ -63,6 +73,7 @@ class _PrivacyState extends State<Privacy> {
               ),
               Container(
                 width: width,
+                // height: 500,
                 child: Padding(
                   padding:  EdgeInsets.only(left: Responsive.isDesktop(context)?width*0.13:width*0.06,right: Responsive.isDesktop(context)?width*0.13:width*0.06,top: 30,bottom: 30),
                   child: Row(
@@ -117,17 +128,17 @@ class _PrivacyState extends State<Privacy> {
                               onTap: ()async{
                                 final url="https://www.amazon.de/TOGAF-COBIT-Light-investment-success/dp/1534603441/ref=sr_1_2?ie=UTF8&qid=1476121717&sr=8-2&keywords=togaf+cobit";
                                 if(await canLaunch(url)){
-                                await launch(url);
+                                  await launch(url);
                                 }else {
-                                throw 'Could not launch $url';
+                                  throw 'Could not launch $url';
                                 }
                               },
                               child: Container(
                                 height: Responsive.isDesktop(context)?height*0.08:height*0.06,
                                 width:Responsive.isDesktop(context)? width*0.15:width*0.15,
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(Responsive.isDesktop(context)?60:20),
-                                  color: AppTheme.primaryGreenColor
+                                    borderRadius: BorderRadius.circular(Responsive.isDesktop(context)?60:20),
+                                    color: AppTheme.primaryGreenColor
                                 ),
                                 child: Center(
                                   child: Text("Purchase",style: TextStyle(

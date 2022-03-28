@@ -137,7 +137,7 @@ class Founder extends StatelessWidget {
                                 Text(
                                   "I am most proud of What customers say the successful implementations from my advice to project management.",
                                   style: TextStyle(
-                                      color: AppTheme.primaryBlackColor,
+                                      color: AppTheme.primaryBlueColor,
                                       fontWeight: FontWeight.w500,
                                       height: 1.3,
                                       fontSize: 24,
@@ -191,7 +191,7 @@ class Founder extends StatelessWidget {
                           Text(
                             "I am most proud of What customers say the successful implementations from my advice to project management.",
                             style: TextStyle(
-                                color: AppTheme.primaryBlackColor,
+                                color: AppTheme.primaryBlueColor,
                                 fontWeight: FontWeight.w500,
                                 height: 1.3,
                                 fontSize: Responsive.isDesktop(context)?24:18,

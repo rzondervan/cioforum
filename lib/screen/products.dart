@@ -14,8 +14,9 @@ import 'package:url_launcher/url_launcher.dart';
 
 class Product extends StatefulWidget {
   ClickProductCallback callback;
+  HomeExplorepage callback1;
 
-  Product({required this.callback,required this.clickFooterCallback});
+  Product({required this.callback,required this.clickFooterCallback,required this.callback1});
 
   ClickFooterCallback clickFooterCallback;
   @override

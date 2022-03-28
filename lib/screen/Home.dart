@@ -5,11 +5,15 @@ import 'package:ciofroum_web/responsive.dart';
 import 'package:ciofroum_web/widget/footer1.dart';
 import 'package:flutter/material.dart';
 import 'package:footer/footer.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({required this.clickFooterCallback});
+  HomePage({required this.clickFooterCallback,required this.clickexplore,required this.viewmore});
 
   ClickFooterCallback clickFooterCallback;
+  HomeExplorepage clickexplore;
+  Homeviewmore viewmore;
+
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -110,32 +114,37 @@ class _HomePageState extends State<HomePage> {
                                       height: Responsive.isDesktop(context)
                                           ? 40
                                           : 30),
-                                  Container(
-                                      height: Responsive.isDesktop(context)
-                                          ? 48
-                                          : 27.05,
-                                      width: Responsive.isDesktop(context)
-                                          ? 141
-                                          : 79.47,
-                                      decoration: BoxDecoration(
-                                          color: AppTheme.primaryBlueColor,
-                                          borderRadius:
-                                              BorderRadius.circular(40)),
-                                      child: Center(
-                                        child: Text(
-                                          "EXPLORE",
-                                          style: TextStyle(
-                                              color: AppTheme.primaryWhiteColor,
-                                              fontSize:
-                                                  Responsive.isDesktop(context)
-                                                      ? 18
-                                                      : 10.15,
-                                              fontFamily: "Cairo",
-                                              fontWeight: FontWeight.w600,
-                                              fontStyle: FontStyle.normal,
-                                              letterSpacing: 3),
-                                        ),
-                                      )),
+                                  InkWell(
+                                    onTap: (){
+                                      widget.clickexplore.onpageExplore(true);
+                                    },
+                                    child: Container(
+                                        height: Responsive.isDesktop(context)
+                                            ? 48
+                                            : 27.05,
+                                        width: Responsive.isDesktop(context)
+                                            ? 141
+                                            : 79.47,
+                                        decoration: BoxDecoration(
+                                            color: AppTheme.primaryBlueColor,
+                                            borderRadius:
+                                                BorderRadius.circular(40)),
+                                        child: Center(
+                                          child: Text(
+                                            "EXPLORE",
+                                            style: TextStyle(
+                                                color: AppTheme.primaryWhiteColor,
+                                                fontSize:
+                                                    Responsive.isDesktop(context)
+                                                        ? 18
+                                                        : 10.15,
+                                                fontFamily: "Cairo",
+                                                fontWeight: FontWeight.w600,
+                                                fontStyle: FontStyle.normal,
+                                                letterSpacing: 3),
+                                          ),
+                                        )),
+                                  ),
                                 ],
                               ),
                             ),
@@ -210,31 +219,116 @@ class _HomePageState extends State<HomePage> {
                                               fontStyle: FontStyle.normal),
                                         ),
                                         const SizedBox(height: 20),
-                                        Container(
-                                            height:
-                                                Responsive.isDesktop(context)
-                                                    ? 48
-                                                    : 45,
-                                            width: Responsive.isDesktop(context)
-                                                ? 141
-                                                : 132,
-                                            decoration: BoxDecoration(
-                                                color:
-                                                    AppTheme.primaryBlueColor,
-                                                borderRadius:
-                                                    BorderRadius.circular(40)),
-                                            child: Center(
-                                              child: Text(
-                                                "View More",
-                                                style: TextStyle(
-                                                    color: AppTheme
-                                                        .primaryWhiteColor,
-                                                    fontSize: 18,
-                                                    fontFamily: "Cairo",
-                                                    fontStyle: FontStyle.normal,
-                                                    letterSpacing: 3),
-                                              ),
-                                            )),
+                                        InkWell(
+                                          onTap: (){
+                                            showDialog(
+                                              context: context,
+                                                builder: (BuildContext context){
+                                                return AlertDialog(
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius: BorderRadius.circular(10)
+                                                  ),
+
+                                                  content: Container(
+                                                    width: 1000,
+                                                    // width: width,
+                                                    child: Expanded(
+                                                      child: Column(
+                                                        mainAxisSize: MainAxisSize.min,
+                                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                                        children: [
+                                                          Align(
+                                                            alignment: Alignment.topRight,
+                                                            child: InkWell(
+                                                              onTap: (){
+                                                                Navigator.pop(context);},
+                                                              child: Container(
+                                                                height: 25,
+                                                                width: 25,
+                                                                decoration: BoxDecoration(
+                                                                  borderRadius: BorderRadius.circular(20),
+                                                                  border: Border.all(
+                                                                      color: AppTheme.primaryGreenColor
+                                                                  ),
+
+                                                                ),
+                                                                child: Icon(Icons.clear,color: AppTheme.primaryGreenColor,),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          SizedBox(height: 20),
+                                                          Text(
+                                                            "What is the importance of an external DPO?",
+                                                            style: TextStyle(
+                                                                color: AppTheme.primaryBlueColor,
+                                                                fontWeight: FontWeight.w700,
+                                                                letterSpacing: 1.0,
+                                                                height: 1.7,
+                                                                fontSize: Responsive.isDesktop(context)?31:25,
+                                                                fontFamily: "Cairo",
+                                                                fontStyle: FontStyle.normal),
+                                                          ),
+                                                          const SizedBox(height: 20),
+                                                          Text(
+                                                            "A DPO is mandatory for schools. GDPR fines are becoming more common and are not a good idea. Fortunately, small fines are now also being handed out, but unfortunately that has also happened for sending an email with recipients in the CC.",
+                                                            style: TextStyle(
+                                                                color: AppTheme.primaryBlackColor,
+                                                                fontWeight: FontWeight.w500,
+                                                                letterSpacing: 1.0,
+                                                                height: 1.7,
+                                                                fontSize: Responsive.isDesktop(context)?19:16,
+                                                                fontFamily: "Cairo",
+                                                                fontStyle: FontStyle.normal),
+                                                          ),
+                                                          const SizedBox(height: 20),
+                                                          Text(
+                                                            "De menselijke fout is niet uit te sluiten, en dan is het van belang dat je met een externe FG een privacyraamwerk en pdca-cyclus hebt ingevoerd waarmee je privacybewustzijn kunt aantonen. Dat voorkomt of verlaagd een boete.",
+                                                            style: TextStyle(
+                                                                color: AppTheme.primaryBlackColor,
+                                                                fontWeight: FontWeight.w500,
+                                                                letterSpacing: 1.0,
+                                                                height: 1.7,
+                                                                fontSize: Responsive.isDesktop(context)?19:16,
+                                                                fontFamily: "Cairo",
+                                                                fontStyle: FontStyle.normal),
+                                                          ),
+
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+
+
+                                              }
+                                            );
+                                          },
+                                          child: Container(
+                                              height:
+                                                  Responsive.isDesktop(context)
+                                                      ? 48
+                                                      : 45,
+                                              width: Responsive.isDesktop(context)
+                                                  ? 141
+                                                  : 132,
+                                              decoration: BoxDecoration(
+                                                  color:
+                                                      AppTheme.primaryBlueColor,
+                                                  borderRadius:
+                                                      BorderRadius.circular(40)),
+                                              child: Center(
+                                                child: Text(
+                                                  "View More",
+                                                  style: TextStyle(
+                                                      color: AppTheme
+                                                          .primaryWhiteColor,
+                                                      fontSize: 18,
+                                                      fontFamily: "Cairo",
+                                                      fontStyle: FontStyle.normal,
+                                                      letterSpacing: 3),
+                                                ),
+                                              )),
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -250,13 +344,23 @@ class _HomePageState extends State<HomePage> {
                                         Positioned(
                                           top: 80,
                                           left: 140,
-                                          child: CircleAvatar(
-                                            radius: 30,
-                                            backgroundColor:
-                                                AppTheme.primaryGreenColor,
-                                            child: Icon(Icons.play_arrow,
-                                                color:
-                                                    AppTheme.primaryWhiteColor),
+                                          child: InkWell(
+                                            onTap: ()async{
+                                              final url="https://www.youtube.com/watch?v=jYsW1pF8x7I";
+                                              if(await canLaunch(url)){
+                                                await launch(url);
+                                              }else {
+                                                throw 'Could not launch $url';
+                                              }
+                                            },
+                                            child: CircleAvatar(
+                                              radius: 30,
+                                              backgroundColor:
+                                                  AppTheme.primaryGreenColor,
+                                              child: Icon(Icons.play_arrow,
+                                                  color:
+                                                      AppTheme.primaryWhiteColor),
+                                            ),
                                           ),
                                         )
                                       ],
@@ -291,24 +395,109 @@ class _HomePageState extends State<HomePage> {
                                         fontStyle: FontStyle.normal),
                                   ),
                                   const SizedBox(height: 20),
-                                  Container(
-                                      height: 45,
-                                      width: 132,
-                                      decoration: BoxDecoration(
-                                          color: AppTheme.primaryBlueColor,
-                                          borderRadius:
-                                              BorderRadius.circular(30)),
-                                      child: Center(
-                                        child: Text(
-                                          "View More",
-                                          style: TextStyle(
-                                              color: AppTheme.primaryWhiteColor,
-                                              fontSize: 16,
-                                              fontFamily: "Cairo",
-                                              fontStyle: FontStyle.normal,
-                                              letterSpacing: 3),
-                                        ),
-                                      )),
+                                  InkWell(
+                                    onTap: (){
+                                      showDialog(
+                                          context: context,
+                                          builder: (BuildContext context){
+                                            return AlertDialog(
+                                              shape: RoundedRectangleBorder(
+                                                  borderRadius: BorderRadius.circular(10)
+                                              ),
+
+                                              content: Container(
+                                                width: 1000,
+                                                // width: width,
+                                                child: Expanded(
+                                                  child: Column(
+                                                    mainAxisSize: MainAxisSize.min,
+                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                    children: [
+                                                      Align(
+                                                        alignment: Alignment.topRight,
+                                                        child: InkWell(
+                                                          onTap: (){
+                                                            Navigator.pop(context);},
+                                                          child: Container(
+                                                            height: 25,
+                                                            width: 25,
+                                                            decoration: BoxDecoration(
+                                                              borderRadius: BorderRadius.circular(20),
+                                                              border: Border.all(
+                                                                  color: AppTheme.primaryGreenColor
+                                                              ),
+
+                                                            ),
+                                                            child: Icon(Icons.clear,color: AppTheme.primaryGreenColor,),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      SizedBox(height: 20),
+                                                      Text(
+                                                        "What is the importance of an external DPO?",
+                                                        style: TextStyle(
+                                                            color: AppTheme.primaryBlueColor,
+                                                            fontWeight: FontWeight.w700,
+                                                            letterSpacing: 1.0,
+                                                            height: 1.7,
+                                                            fontSize: Responsive.isDesktop(context)?31:25,
+                                                            fontFamily: "Cairo",
+                                                            fontStyle: FontStyle.normal),
+                                                      ),
+                                                      const SizedBox(height: 20),
+                                                      Text(
+                                                        "A DPO is mandatory for schools. GDPR fines are becoming more common and are not a good idea. Fortunately, small fines are now also being handed out, but unfortunately that has also happened for sending an email with recipients in the CC.",
+                                                        style: TextStyle(
+                                                            color: AppTheme.primaryBlackColor,
+                                                            fontWeight: FontWeight.w500,
+                                                            letterSpacing: 1.0,
+                                                            height: 1.7,
+                                                            fontSize: Responsive.isDesktop(context)?19:16,
+                                                            fontFamily: "Cairo",
+                                                            fontStyle: FontStyle.normal),
+                                                      ),
+                                                      const SizedBox(height: 20),
+                                                      Text(
+                                                        "De menselijke fout is niet uit te sluiten, en dan is het van belang dat je met een externe FG een privacyraamwerk en pdca-cyclus hebt ingevoerd waarmee je privacybewustzijn kunt aantonen. Dat voorkomt of verlaagd een boete.",
+                                                        style: TextStyle(
+                                                            color: AppTheme.primaryBlackColor,
+                                                            fontWeight: FontWeight.w500,
+                                                            letterSpacing: 1.0,
+                                                            height: 1.7,
+                                                            fontSize: Responsive.isDesktop(context)?19:16,
+                                                            fontFamily: "Cairo",
+                                                            fontStyle: FontStyle.normal),
+                                                      ),
+
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+
+
+                                          }
+                                      );
+                                    },
+                                    child: Container(
+                                        height: 45,
+                                        width: 132,
+                                        decoration: BoxDecoration(
+                                            color: AppTheme.primaryBlueColor,
+                                            borderRadius:
+                                                BorderRadius.circular(30)),
+                                        child: Center(
+                                          child: Text(
+                                            "View More",
+                                            style: TextStyle(
+                                                color: AppTheme.primaryWhiteColor,
+                                                fontSize: 16,
+                                                fontFamily: "Cairo",
+                                                fontStyle: FontStyle.normal,
+                                                letterSpacing: 3),
+                                          ),
+                                        )),
+                                  ),
                                   const SizedBox(height: 30),
                                   Center(
                                     child: ClipRRect(
@@ -378,26 +567,111 @@ class _HomePageState extends State<HomePage> {
                                               fontSize: 19),
                                         ),
                                         const SizedBox(height: 20),
-                                        Container(
-                                            height: 48,
-                                            width: 141,
-                                            decoration: BoxDecoration(
-                                                color:
-                                                    AppTheme.primaryBlueColor,
-                                                borderRadius:
-                                                    BorderRadius.circular(40)),
-                                            child: Center(
-                                              child: Text(
-                                                "View More",
-                                                style: TextStyle(
-                                                    color: AppTheme
-                                                        .primaryWhiteColor,
-                                                    fontSize: 18,
-                                                    fontFamily: "Cairo",
-                                                    fontStyle: FontStyle.normal,
-                                                    letterSpacing: 3),
-                                              ),
-                                            )),
+                                        InkWell(
+                                          onTap: (){
+                                            showDialog(
+                                                context: context,
+                                                builder: (BuildContext context){
+                                                  return AlertDialog(
+                                                    shape: RoundedRectangleBorder(
+                                                        borderRadius: BorderRadius.circular(10)
+                                                    ),
+
+                                                    content: Container(
+                                                      width: 1000,
+                                                      // width: width,
+                                                      child: Expanded(
+                                                        child: Column(
+                                                          mainAxisSize: MainAxisSize.min,
+                                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                                          children: [
+                                                            Align(
+                                                              alignment: Alignment.topRight,
+                                                              child: InkWell(
+                                                                onTap: (){
+                                                                  Navigator.pop(context);},
+                                                                child: Container(
+                                                                  height: 25,
+                                                                  width: 25,
+                                                                  decoration: BoxDecoration(
+                                                                    borderRadius: BorderRadius.circular(20),
+                                                                    border: Border.all(
+                                                                        color: AppTheme.primaryGreenColor
+                                                                    ),
+
+                                                                  ),
+                                                                  child: Icon(Icons.clear,color: AppTheme.primaryGreenColor,),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            SizedBox(height: 20),
+                                                            Text(
+                                                              "Service 'Shared IT director'",
+                                                              style: TextStyle(
+                                                                  color: AppTheme.primaryBlueColor,
+                                                                  fontWeight: FontWeight.w700,
+                                                                  letterSpacing: 1.0,
+                                                                  height: 1.7,
+                                                                  fontSize: Responsive.isDesktop(context)?31:25,
+                                                                  fontFamily: "Cairo",
+                                                                  fontStyle: FontStyle.normal),
+                                                            ),
+                                                            const SizedBox(height: 20),
+                                                            Text(
+                                                              "CIOforum also offers a shared IT Director, a Chief Information Officer as a service, an IT sounding board for organizations that are too small for a salaried IT Manager. CIOforum offers subscription forms with a variation in quarterly to weekly meetings where you benefit from rapid knowledge building about your organization via an experienced IT coach.",
+                                                              style: TextStyle(
+                                                                  color: AppTheme.primaryBlackColor,
+                                                                  fontWeight: FontWeight.w500,
+                                                                  letterSpacing: 1.0,
+                                                                  height: 1.7,
+                                                                  fontSize: Responsive.isDesktop(context)?19:16,
+                                                                  fontFamily: "Cairo",
+                                                                  fontStyle: FontStyle.normal),
+                                                            ),
+                                                            const SizedBox(height: 20),
+                                                            Text(
+                                                              "De menselijke fout is niet uit te sluiten, en dan is het van belang dat je met een externe FG een privacyraamwerk en pdca-cyclus hebt ingevoerd waarmee je privacybewustzijn kunt aantonen. Dat voorkomt of verlaagd een boete.",
+                                                              style: TextStyle(
+                                                                  color: AppTheme.primaryBlackColor,
+                                                                  fontWeight: FontWeight.w500,
+                                                                  letterSpacing: 1.0,
+                                                                  height: 1.7,
+                                                                  fontSize: Responsive.isDesktop(context)?19:16,
+                                                                  fontFamily: "Cairo",
+                                                                  fontStyle: FontStyle.normal),
+                                                            ),
+
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+
+
+                                                }
+                                            );
+                                          },
+                                          child: Container(
+                                              height: 48,
+                                              width: 141,
+                                              decoration: BoxDecoration(
+                                                  color:
+                                                      AppTheme.primaryBlueColor,
+                                                  borderRadius:
+                                                      BorderRadius.circular(40)),
+                                              child: Center(
+                                                child: Text(
+                                                  "View More",
+                                                  style: TextStyle(
+                                                      color: AppTheme
+                                                          .primaryWhiteColor,
+                                                      fontSize: 18,
+                                                      fontFamily: "Cairo",
+                                                      fontStyle: FontStyle.normal,
+                                                      letterSpacing: 3),
+                                                ),
+                                              )),
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -431,24 +705,109 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                   ),
                                   const SizedBox(height: 20),
-                                  Container(
-                                      height: 42,
-                                      width: 123,
-                                      decoration: BoxDecoration(
-                                          color: AppTheme.primaryBlueColor,
-                                          borderRadius:
-                                              BorderRadius.circular(40)),
-                                      child: Center(
-                                        child: Text(
-                                          "View More",
-                                          style: TextStyle(
-                                              color: AppTheme.primaryWhiteColor,
-                                              fontSize: 16,
-                                              fontFamily: "Cairo",
-                                              fontStyle: FontStyle.normal,
-                                              letterSpacing: 3),
-                                        ),
-                                      )),
+                                  InkWell(
+                                    onTap: (){
+                                      showDialog(
+                                          context: context,
+                                          builder: (BuildContext context){
+                                            return AlertDialog(
+                                              shape: RoundedRectangleBorder(
+                                                  borderRadius: BorderRadius.circular(10)
+                                              ),
+
+                                              content: Container(
+                                                width: 1000,
+                                                // width: width,
+                                                child: Expanded(
+                                                  child: Column(
+                                                    mainAxisSize: MainAxisSize.min,
+                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                    children: [
+                                                      Align(
+                                                        alignment: Alignment.topRight,
+                                                        child: InkWell(
+                                                          onTap: (){
+                                                            Navigator.pop(context);},
+                                                          child: Container(
+                                                            height: 25,
+                                                            width: 25,
+                                                            decoration: BoxDecoration(
+                                                              borderRadius: BorderRadius.circular(20),
+                                                              border: Border.all(
+                                                                  color: AppTheme.primaryGreenColor
+                                                              ),
+
+                                                            ),
+                                                            child: Icon(Icons.clear,color: AppTheme.primaryGreenColor,),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      SizedBox(height: 20),
+                                                      Text(
+                                                        "Service 'Shared IT director'",
+                                                        style: TextStyle(
+                                                            color: AppTheme.primaryBlueColor,
+                                                            fontWeight: FontWeight.w700,
+                                                            letterSpacing: 1.0,
+                                                            height: 1.7,
+                                                            fontSize: Responsive.isDesktop(context)?31:25,
+                                                            fontFamily: "Cairo",
+                                                            fontStyle: FontStyle.normal),
+                                                      ),
+                                                      const SizedBox(height: 20),
+                                                      Text(
+                                                        "CIOforum also offers a shared IT Director, a Chief Information Officer as a service, an IT sounding board for organizations that are too small for a salaried IT Manager. CIOforum offers subscription forms with a variation in quarterly to weekly meetings where you benefit from rapid knowledge building about your organization via an experienced IT coach.",
+                                                        style: TextStyle(
+                                                            color: AppTheme.primaryBlackColor,
+                                                            fontWeight: FontWeight.w500,
+                                                            letterSpacing: 1.0,
+                                                            height: 1.7,
+                                                            fontSize: Responsive.isDesktop(context)?19:16,
+                                                            fontFamily: "Cairo",
+                                                            fontStyle: FontStyle.normal),
+                                                      ),
+                                                      const SizedBox(height: 20),
+                                                      Text(
+                                                        "De menselijke fout is niet uit te sluiten, en dan is het van belang dat je met een externe FG een privacyraamwerk en pdca-cyclus hebt ingevoerd waarmee je privacybewustzijn kunt aantonen. Dat voorkomt of verlaagd een boete.",
+                                                        style: TextStyle(
+                                                            color: AppTheme.primaryBlackColor,
+                                                            fontWeight: FontWeight.w500,
+                                                            letterSpacing: 1.0,
+                                                            height: 1.7,
+                                                            fontSize: Responsive.isDesktop(context)?19:16,
+                                                            fontFamily: "Cairo",
+                                                            fontStyle: FontStyle.normal),
+                                                      ),
+
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+
+
+                                          }
+                                      );
+                                    },
+                                    child: Container(
+                                        height: 42,
+                                        width: 123,
+                                        decoration: BoxDecoration(
+                                            color: AppTheme.primaryBlueColor,
+                                            borderRadius:
+                                                BorderRadius.circular(40)),
+                                        child: Center(
+                                          child: Text(
+                                            "View More",
+                                            style: TextStyle(
+                                                color: AppTheme.primaryWhiteColor,
+                                                fontSize: 16,
+                                                fontFamily: "Cairo",
+                                                fontStyle: FontStyle.normal,
+                                                letterSpacing: 3),
+                                          ),
+                                        )),
+                                  ),
                                   const SizedBox(height: 30),
                                   Center(
                                     child: ClipRRect(
@@ -952,24 +1311,30 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         const SizedBox(height: 20),
-                        Center(
-                          child: Container(
-                              height: 48,
-                              width: 141,
-                              decoration: BoxDecoration(
-                                  color: AppTheme.primaryBlueColor,
-                                  borderRadius: BorderRadius.circular(40)),
-                              child: Center(
-                                child: Text(
-                                  "View More",
-                                  style: TextStyle(
-                                      color: AppTheme.primaryWhiteColor,
-                                      fontSize: 18,
-                                      fontFamily: "Cairo",
-                                      fontStyle: FontStyle.normal,
-                                      letterSpacing: 3),
-                                ),
-                              )),
+                        InkWell(
+                          onTap:(){
+                            widget.viewmore.onpageview(true);
+
+                          },
+                          child: Center(
+                            child: Container(
+                                height: 48,
+                                width: 141,
+                                decoration: BoxDecoration(
+                                    color: AppTheme.primaryBlueColor,
+                                    borderRadius: BorderRadius.circular(40)),
+                                child: Center(
+                                  child: Text(
+                                    "View More",
+                                    style: TextStyle(
+                                        color: AppTheme.primaryWhiteColor,
+                                        fontSize: 18,
+                                        fontFamily: "Cairo",
+                                        fontStyle: FontStyle.normal,
+                                        letterSpacing: 3),
+                                  ),
+                                )),
+                          ),
                         ),
                         const SizedBox(height: 20),
                         Footer1(context,widget.clickFooterCallback)

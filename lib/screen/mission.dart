@@ -528,7 +528,7 @@ class _MissionState extends State<Mission> {
                 ),
               ),
               Container(
-                height: 300,
+                height: 200,
                 width: double.infinity,
                 color: const Color.fromRGBO(230, 255, 249, 1),
                 child: Padding(
@@ -545,7 +545,7 @@ class _MissionState extends State<Mission> {
                         "Vision",
                         style: TextStyle(
                             fontWeight: FontWeight.w700,
-                            fontSize: Responsive.isDesktop(context) ? 31:25,
+                            fontSize: Responsive.isDesktop(context) ? 24:22,
                             fontStyle: FontStyle.normal,
                             fontFamily: "Cairo",
                             color: Color.fromRGBO(30, 84, 71, 1),
@@ -557,7 +557,7 @@ class _MissionState extends State<Mission> {
                           "IT should do what your organization wants, only the most valuable projects, addressing the highest risks, with the most efficient building blocks and processes, and with the fewest resources.",
                           style: TextStyle(
                               fontWeight: FontWeight.w400,
-                              fontSize: Responsive.isDesktop(context) ? 31:18,
+                              fontSize: Responsive.isDesktop(context) ? 24:18,
                               fontStyle: FontStyle.normal,
                               fontFamily: "Cairo",
                               color: Color.fromRGBO(30, 84, 71, 1),
