@@ -56,7 +56,7 @@ class _AboutState extends State<About> {
                         style: TextStyle(
                             color: AppTheme.primaryWhiteColor,
                             fontFamily: "Cairo",
-                            fontSize: 40,
+                            fontSize: width < 600 ? 30 : 45,
                             // fontWeight: FontWeight.w600,
                             fontStyle: FontStyle.normal),
                       ),
@@ -192,8 +192,10 @@ class _AboutState extends State<About> {
                                 style: TextStyle(
                                     color: AppTheme.primaryBlueColor,
                                     fontFamily: "Cairo",
-                                    fontSize: Responsive.isDesktop(context)?22:18,
+                                    fontSize: Responsive.isDesktop(context)?19:16,
                                     // letterSpacing: 1,
+                                    letterSpacing: 1.0,
+                                    height: 1.7,
                                     fontWeight: FontWeight.w500,
                                     fontStyle: FontStyle.normal),
                               ),
@@ -205,8 +207,10 @@ class _AboutState extends State<About> {
                                 style: TextStyle(
                                     color: AppTheme.primaryBlueColor,
                                     fontFamily: "Cairo",
-                                    fontSize: Responsive.isDesktop(context)?22:18,
+                                    fontSize: Responsive.isDesktop(context)?19:16,
                                     // letterSpacing: 1,
+                                    letterSpacing: 1.0,
+                                    height: 1.7,
                                     fontWeight: FontWeight.w500,
                                     fontStyle: FontStyle.normal),
                               )
@@ -221,8 +225,10 @@ class _AboutState extends State<About> {
                       style: TextStyle(
                           color: AppTheme.primaryBlueColor,
                           fontFamily: "Cairo",
-                          fontSize: Responsive.isDesktop(context)?22:18,
+                          fontSize: Responsive.isDesktop(context)?19:16,
                           // letterSpacing: 1,
+                          letterSpacing: 1.0,
+                          height: 1.7,
                           fontWeight: FontWeight.w500,
                           fontStyle: FontStyle.normal),
                     ),
@@ -232,8 +238,10 @@ class _AboutState extends State<About> {
                       style: TextStyle(
                           color: AppTheme.primaryBlueColor,
                           fontFamily: "Cairo",
-                          fontSize: Responsive.isDesktop(context)?22:18,
+                          fontSize: Responsive.isDesktop(context)?19:16,
                           // letterSpacing: 1,
+                          letterSpacing: 1.0,
+                          height: 1.7,
                           fontWeight: FontWeight.w500,
                           fontStyle: FontStyle.normal),
                     ),
@@ -253,8 +261,10 @@ class _AboutState extends State<About> {
                               style: TextStyle(
                                   color: AppTheme.primaryBlueColor,
                                   fontFamily: "Cairo",
-                                  fontSize: Responsive.isDesktop(context) ?28:24,
+                                  fontSize: Responsive.isDesktop(context) ?24:18,
                                   // letterSpacing: 1,
+                                  letterSpacing: 1.0,
+                                  height: 1.7,
                                   fontWeight: FontWeight.w400,
                                   fontStyle: FontStyle.normal),
                             ),
@@ -266,8 +276,10 @@ class _AboutState extends State<About> {
                                   style: TextStyle(
                                       color: AppTheme.primaryBlueColor,
                                       fontFamily: "Cairo",
-                                      fontSize: Responsive.isDesktop(context) ?22:16,
+                                      fontSize: Responsive.isDesktop(context) ?19:16,
                                       fontWeight: FontWeight.w400,
+                                      letterSpacing: 1.0,
+                                      height: 1.7,
                                       fontStyle: FontStyle.normal),
                                   children: <TextSpan>[
                                     TextSpan(
@@ -276,8 +288,10 @@ class _AboutState extends State<About> {
                                       style: TextStyle(
                                           color: AppTheme.primaryBlueColor,
                                           fontFamily: "Cairo",
-                                          fontSize: Responsive.isDesktop(context) ?22:16,
+                                          fontSize: Responsive.isDesktop(context) ?19:16,
                                           fontWeight: FontWeight.w700,
+                                          letterSpacing: 1.0,
+                                          height: 1.7,
                                           fontStyle: FontStyle.normal),
                                     )
                                   ]),
@@ -288,7 +302,9 @@ class _AboutState extends State<About> {
                               style: TextStyle(
                                   color: AppTheme.primaryBlueColor,
                                   fontFamily: "Cairo",
-                                  fontSize: Responsive.isDesktop(context) ?22:18,
+                                  fontSize: Responsive.isDesktop(context) ?19:16,
+                                  letterSpacing: 1.0,
+                                  height: 1.7,
                                   fontWeight: FontWeight.w500,
                                   fontStyle: FontStyle.normal),
                             ),
@@ -310,6 +326,8 @@ class _AboutState extends State<About> {
                                     color: AppTheme.primaryBlueColor,
                                     fontFamily: "Cairo",
                                     fontSize: Responsive.isDesktop(context) ?24:18,
+                                    letterSpacing: 1.0,
+                                    height: 1.7,
                                     // letterSpacing: 1,
                                     fontWeight: FontWeight.w700,
                                     fontStyle: FontStyle.normal),
@@ -320,7 +338,9 @@ class _AboutState extends State<About> {
                                 style: TextStyle(
                                     color: AppTheme.primaryBlueColor,
                                     fontFamily: "Cairo",
-                                    fontSize: Responsive.isDesktop(context) ?22:18,
+                                    fontSize: Responsive.isDesktop(context) ?19:16,
+                                    letterSpacing: 1.0,
+                                    height: 1.7,
                                     // letterSpacing: 1,
                                     fontWeight: FontWeight.w400,
                                     fontStyle: FontStyle.normal),
@@ -340,6 +360,8 @@ class _AboutState extends State<About> {
                                     fontFamily: "Cairo",
                                     fontSize: Responsive.isDesktop(context)?24:18,
                                     // letterSpacing: 1,
+                                    letterSpacing: 1.0,
+                                    height: 1.7,
                                     fontWeight: FontWeight.w700,
                                     fontStyle: FontStyle.normal),
                               ),
@@ -349,8 +371,10 @@ class _AboutState extends State<About> {
                                 style: TextStyle(
                                     color: AppTheme.primaryBlueColor,
                                     fontFamily: "Cairo",
-                                    fontSize: Responsive.isDesktop(context) ?22:18,
+                                    fontSize: Responsive.isDesktop(context) ?19:16,
                                     // letterSpacing: 1,
+                                    letterSpacing: 1.0,
+                                    height: 1.7,
                                     fontWeight: FontWeight.w400,
                                     fontStyle: FontStyle.normal),
                               )
@@ -365,8 +389,10 @@ class _AboutState extends State<About> {
                       style: TextStyle(
                           color: AppTheme.primaryBlueColor,
                           fontFamily: "Cairo",
-                          fontSize: Responsive.isDesktop(context) ?28:24,
+                          fontSize: Responsive.isDesktop(context) ?24:18,
                           // letterSpacing: 1,
+                          letterSpacing: 1.0,
+                          height: 1.7,
                           fontWeight: FontWeight.w700,
                           fontStyle: FontStyle.normal),
                     ),
@@ -376,7 +402,9 @@ class _AboutState extends State<About> {
                       style: TextStyle(
                           color: AppTheme.primaryBlueColor,
                           fontFamily: "Cairo",
-                          fontSize: Responsive.isDesktop(context) ?22:18,
+                          fontSize: Responsive.isDesktop(context) ?19:16,
+                          letterSpacing: 1.0,
+                          height: 1.7,
                           // letterSpacing: 1,
                           fontWeight: FontWeight.w500,
                           fontStyle: FontStyle.normal),
@@ -387,7 +415,9 @@ class _AboutState extends State<About> {
                       style: TextStyle(
                           color: AppTheme.primaryBlueColor,
                           fontFamily: "Cairo",
-                          fontSize: Responsive.isDesktop(context) ?22:18,
+                          fontSize: Responsive.isDesktop(context) ?19:16,
+                          letterSpacing: 1.0,
+                          height: 1.7,
                           // letterSpacing: 1,
                           fontWeight: FontWeight.w500,
                           fontStyle: FontStyle.normal),
@@ -414,7 +444,9 @@ class _AboutState extends State<About> {
                                                   color: AppTheme
                                                       .primaryBlueColor,
                                                   fontFamily: "Cairo",
-                                                  fontSize: 20,
+                                                  fontSize: 19,
+                                                  letterSpacing: 1.0,
+                                                  height: 1.7,
                                                   // letterSpacing: 1,
                                                   fontWeight: FontWeight.w500,
                                                   fontStyle:
@@ -454,7 +486,9 @@ class _AboutState extends State<About> {
                                                   color: AppTheme
                                                       .primaryBlueColor,
                                                   fontFamily: "Cairo",
-                                                  fontSize: 20,
+                                                  fontSize: 19,
+                                                  letterSpacing: 1.0,
+                                                  height: 1.7,
                                                   // letterSpacing: 1,
                                                   fontWeight: FontWeight.w500,
                                                   fontStyle:
@@ -494,7 +528,9 @@ class _AboutState extends State<About> {
                                                   color: AppTheme
                                                       .primaryBlueColor,
                                                   fontFamily: "Cairo",
-                                                  fontSize: 20,
+                                                  fontSize: 19,
+                                                  letterSpacing: 1.0,
+                                                  height: 1.7,
                                                   // letterSpacing: 1,
                                                   fontWeight: FontWeight.w500,
                                                   fontStyle:
@@ -563,7 +599,9 @@ class _AboutState extends State<About> {
                                                   color: AppTheme
                                                       .primaryBlueColor,
                                                   fontFamily: "Cairo",
-                                                  fontSize: 20,
+                                                  fontSize: 19,
+                                                  letterSpacing: 1.0,
+                                                  height: 1.7,
                                                   // letterSpacing: 1,
                                                   fontWeight: FontWeight.w500,
                                                   fontStyle:
@@ -601,7 +639,9 @@ class _AboutState extends State<About> {
                                                   color: AppTheme
                                                       .primaryBlueColor,
                                                   fontFamily: "Cairo",
-                                                  fontSize: 20,
+                                                  fontSize: 19,
+                                                  letterSpacing: 1.0,
+                                                  height: 1.7,
                                                   // letterSpacing: 1,
                                                   fontWeight: FontWeight.w500,
                                                   fontStyle:
@@ -623,7 +663,7 @@ class _AboutState extends State<About> {
                                                   color: AppTheme
                                                       .primaryBlueColor,
                                                   fontFamily: "Cairo",
-                                                  fontSize: 20,
+                                                  fontSize: 34,
                                                   // letterSpacing: 1,
                                                   fontWeight: FontWeight.w600,
                                                   fontStyle:
@@ -639,7 +679,9 @@ class _AboutState extends State<About> {
                                                   color: AppTheme
                                                       .primaryBlueColor,
                                                   fontFamily: "Cairo",
-                                                  fontSize: 20,
+                                                  fontSize: 19,
+                                                  letterSpacing: 1.0,
+                                                  height: 1.7,
                                                   // letterSpacing: 1,
                                                   fontWeight: FontWeight.w500,
                                                   fontStyle:
@@ -688,7 +730,7 @@ class _AboutState extends State<About> {
                                                 color:
                                                     AppTheme.primaryBlueColor,
                                                 fontFamily: "Cairo",
-                                                fontSize: 18,
+                                                fontSize: 16,
                                                 // letterSpacing: 1,
                                                 fontWeight: FontWeight.w500,
                                                 fontStyle: FontStyle.normal),
@@ -724,7 +766,7 @@ class _AboutState extends State<About> {
                                                 color:
                                                     AppTheme.primaryBlueColor,
                                                 fontFamily: "Cairo",
-                                                fontSize: 18,
+                                                fontSize: 16,
                                                 // letterSpacing: 1,
                                                 fontWeight: FontWeight.w500,
                                                 fontStyle: FontStyle.normal),
@@ -760,7 +802,7 @@ class _AboutState extends State<About> {
                                                 color:
                                                     AppTheme.primaryBlueColor,
                                                 fontFamily: "Cairo",
-                                                fontSize: 18,
+                                                fontSize: 16,
                                                 // letterSpacing: 1,
                                                 fontWeight: FontWeight.w500,
                                                 fontStyle: FontStyle.normal),
@@ -807,7 +849,7 @@ class _AboutState extends State<About> {
                                                 color:
                                                     AppTheme.primaryBlueColor,
                                                 fontFamily: "Cairo",
-                                                fontSize: 18,
+                                                fontSize: 16,
                                                 // letterSpacing: 1,
                                                 fontWeight: FontWeight.w500,
                                                 fontStyle: FontStyle.normal),
@@ -843,7 +885,7 @@ class _AboutState extends State<About> {
                                                 color:
                                                     AppTheme.primaryBlueColor,
                                                 fontFamily: "Cairo",
-                                                fontSize: 18,
+                                                fontSize: 16,
                                                 // letterSpacing: 1,
                                                 fontWeight: FontWeight.w500,
                                                 fontStyle: FontStyle.normal),
@@ -879,7 +921,7 @@ class _AboutState extends State<About> {
                                                 color:
                                                     AppTheme.primaryBlueColor,
                                                 fontFamily: "Cairo",
-                                                fontSize: 18,
+                                                fontSize: 16,
                                                 // letterSpacing: 1,
                                                 fontWeight: FontWeight.w500,
                                                 fontStyle: FontStyle.normal),
@@ -910,7 +952,7 @@ class _AboutState extends State<About> {
                               style: TextStyle(
                                   color: AppTheme.primaryBlackColor,
                                   fontFamily: "Cairo",
-                                  fontSize: Responsive.isDesktop(context) ?33:24,
+                                  fontSize: Responsive.isDesktop(context) ?24:18,
                                   letterSpacing: 1,
                                   fontWeight: FontWeight.w700,
                                   fontStyle: FontStyle.normal),

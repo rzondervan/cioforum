@@ -68,7 +68,7 @@ class _PartnerState extends State<Partner> {
                           SizedBox(height: 30),
                           Text("Drie netwerken samengevoegd",style: TextStyle(
                               fontWeight: FontWeight.w700,
-                              fontSize: Responsive.isDesktop(context) ?31:25,
+                              fontSize: Responsive.isDesktop(context) ?24:18,
                               fontStyle: FontStyle.normal,
                               fontFamily: "Cairo",
                               color: AppTheme.primaryBlackColor,
@@ -84,11 +84,12 @@ class _PartnerState extends State<Partner> {
                                   "CIOforum biedt diensten voor directeuren, eigenaars en besturen zonder IT-expertise. Zij kunnen zich via ons forum spiegelen door ervaringen, meningen en vragen te delen.",
                                   style: TextStyle(
                                       fontWeight: FontWeight.w500,
-                                      fontSize: Responsive.isDesktop(context) ?24:18,
+                                      fontSize: Responsive.isDesktop(context) ?19:16,
                                       fontStyle: FontStyle.normal,
                                       fontFamily: "Cairo",
                                       color: AppTheme.primaryBlueColor,
-                                      letterSpacing: 1
+                                    letterSpacing: 1.0,
+                                    height: 1.7,
                                   ),
                                 ),
                                 const SizedBox(height: 30),
@@ -96,22 +97,27 @@ class _PartnerState extends State<Partner> {
                                   "De visie en strategie wordt altijd gedeeld en geleverd door een onafhankelijke associate.",
                                   style: TextStyle(
                                       fontWeight: FontWeight.w500,
-                                      fontSize: Responsive.isDesktop(context) ?24:18,
+                                      fontSize: Responsive.isDesktop(context) ?19:16,
                                       fontStyle: FontStyle.normal,
                                       fontFamily: "Cairo",
                                       color: AppTheme.primaryBlueColor,
-                                      letterSpacing: 1),
+                                    letterSpacing: 1.0,
+                                    height: 1.7,
+                                  ),
                                 ),
                                 const SizedBox(height: 30),
                                 Text(
                                   "Uiteindelijk wordt de strategie uitgevoerd in samenwerking met partners. Bij partnerkeuzes zullen we altijd adviseren om minimaal drie leveranciers voorbij te laten komen.",
                                   style: TextStyle(
                                       fontWeight: FontWeight.w500,
-                                      fontSize: Responsive.isDesktop(context) ?24:18,
+                                      fontSize: Responsive.isDesktop(context) ?19:16,
                                       fontStyle: FontStyle.normal,
                                       fontFamily: "Cairo",
                                       color: AppTheme.primaryBlueColor,
-                                      letterSpacing: 1),
+                                    letterSpacing: 1.0,
+                                    height: 1.7,
+                                  )
+                                  ,
                                 ),
                               ],
                             ),
@@ -135,7 +141,7 @@ class _PartnerState extends State<Partner> {
                               style: TextStyle(
                                   color: AppTheme.primaryBlueColor,
                                   fontFamily: "Cairo",
-                                  fontSize: Responsive.isDesktop(context) ?30:24,
+                                  fontSize: Responsive.isDesktop(context) ?24:18,
                                   letterSpacing: 1,
                                   fontWeight: FontWeight.w400,
                                   fontStyle: FontStyle.normal),
@@ -148,8 +154,9 @@ class _PartnerState extends State<Partner> {
                                   style: TextStyle(
                                       color: AppTheme.primaryBlueColor,
                                       fontFamily: "Cairo",
-                                      fontSize: Responsive.isDesktop(context) ?22:16,
-                                      letterSpacing: 1,
+                                      fontSize: Responsive.isDesktop(context) ?19:16,
+                                      letterSpacing: 1.0,
+                                      height: 1.7,
                                       fontWeight: FontWeight.w400,
                                       fontStyle: FontStyle.normal),
                                   children: <TextSpan>[
@@ -159,8 +166,9 @@ class _PartnerState extends State<Partner> {
                                       style: TextStyle(
                                           color: AppTheme.primaryBlueColor,
                                           fontFamily: "Cairo",
-                                          fontSize: Responsive.isDesktop(context) ?22:16,
-                                          letterSpacing: 1,
+                                          fontSize: Responsive.isDesktop(context) ?19:16,
+                                          letterSpacing: 1.0,
+                                          height: 1.7,
                                           fontWeight: FontWeight.w700,
                                           fontStyle: FontStyle.normal),
                                     )
@@ -172,8 +180,9 @@ class _PartnerState extends State<Partner> {
                               style: TextStyle(
                                   color: AppTheme.primaryBlueColor,
                                   fontFamily: "Cairo",
-                                  fontSize: Responsive.isDesktop(context) ?24:18,
-                                  letterSpacing: 1,
+                                  fontSize: Responsive.isDesktop(context) ?19:16,
+                                  letterSpacing: 1.0,
+                                  height: 1.7,
                                   fontWeight: FontWeight.w500,
                                   fontStyle: FontStyle.normal),
                             ),
@@ -187,8 +196,9 @@ class _PartnerState extends State<Partner> {
                       style: TextStyle(
                           color: AppTheme.primaryBlueColor,
                           fontFamily: "Cairo",
-                          fontSize: Responsive.isDesktop(context) ?31:25,
-                          letterSpacing: 1,
+                          fontSize: Responsive.isDesktop(context) ?24:18,
+                          letterSpacing: 1.0,
+                          height: 1.7,
                           fontWeight: FontWeight.w700,
                           fontStyle: FontStyle.normal),
                     ),
@@ -198,8 +208,9 @@ class _PartnerState extends State<Partner> {
                       style: TextStyle(
                           color: AppTheme.primaryBlueColor,
                           fontFamily: "Cairo",
-                          fontSize: Responsive.isDesktop(context) ?24:18,
-                          letterSpacing: 1,
+                          fontSize: Responsive.isDesktop(context) ?19:16,
+                          letterSpacing: 1.0,
+                          height: 1.7,
                           fontWeight: FontWeight.w500,
                           fontStyle: FontStyle.normal),
                     ),
@@ -209,8 +220,9 @@ class _PartnerState extends State<Partner> {
                       style: TextStyle(
                           color: AppTheme.primaryBlueColor,
                           fontFamily: "Cairo",
-                          fontSize: Responsive.isDesktop(context) ?24:18,
-                          letterSpacing: 1,
+                          fontSize: Responsive.isDesktop(context) ?19:16,
+                          letterSpacing: 1.0,
+                          height: 1.7,
                           fontWeight: FontWeight.w500,
                           fontStyle: FontStyle.normal),
                     ),
@@ -236,8 +248,10 @@ class _PartnerState extends State<Partner> {
                                             color: AppTheme
                                                 .primaryBlueColor,
                                             fontFamily: "Cairo",
-                                            fontSize: Responsive.isDesktop(context) ?23:17,
-                                            letterSpacing: 1,
+                                            fontSize: 19,
+                                            letterSpacing: 1.0,
+                                            height: 1.7,
+                                            // letterSpacing: 1,
                                             fontWeight: FontWeight.w500,
                                             fontStyle:
                                             FontStyle.normal),
@@ -247,12 +261,12 @@ class _PartnerState extends State<Partner> {
                                     CircleAvatar(
                                       radius: 20,
                                       backgroundColor:
-                                      AppTheme.lightyellowColor,
+                                      AppTheme.greenlightColor,
                                       child: Text(
                                         "1",
                                         style: TextStyle(
                                             color: AppTheme
-                                                .lightnumberColor,
+                                                .primaryBlueColor,
                                             fontFamily: "Cairo",
                                             fontSize: 34,
                                             letterSpacing: 1,
@@ -276,8 +290,10 @@ class _PartnerState extends State<Partner> {
                                             color: AppTheme
                                                 .primaryBlueColor,
                                             fontFamily: "Cairo",
-                                            fontSize: Responsive.isDesktop(context) ?23:17,
-                                            letterSpacing: 1,
+                                            fontSize: 19,
+                                            letterSpacing: 1.0,
+                                            height: 1.7,
+                                            // letterSpacing: 1,
                                             fontWeight: FontWeight.w500,
                                             fontStyle:
                                             FontStyle.normal),
@@ -287,15 +303,15 @@ class _PartnerState extends State<Partner> {
                                     CircleAvatar(
                                       radius: 20,
                                       backgroundColor:
-                                      AppTheme.lightyellowColor,
+                                      AppTheme.greenlightColor,
                                       child: Text(
                                         "2",
                                         style: TextStyle(
                                             color: AppTheme
-                                                .lightnumberColor,
+                                                .primaryBlueColor,
                                             fontFamily: "Cairo",
                                             fontSize: 34,
-                                            letterSpacing: 1,
+                                            // letterSpacing: 1,
                                             fontWeight: FontWeight.w600,
                                             fontStyle:
                                             FontStyle.normal),
@@ -316,8 +332,10 @@ class _PartnerState extends State<Partner> {
                                             color: AppTheme
                                                 .primaryBlueColor,
                                             fontFamily: "Cairo",
-                                            fontSize: Responsive.isDesktop(context) ?23:17,
-                                            letterSpacing: 1,
+                                            fontSize: 19,
+                                            letterSpacing: 1.0,
+                                            height: 1.7,
+                                            // letterSpacing: 1,
                                             fontWeight: FontWeight.w500,
                                             fontStyle:
                                             FontStyle.normal),
@@ -327,15 +345,15 @@ class _PartnerState extends State<Partner> {
                                     CircleAvatar(
                                       radius: 20,
                                       backgroundColor:
-                                      AppTheme.lightyellowColor,
+                                      AppTheme.greenlightColor,
                                       child: Text(
                                         "3",
                                         style: TextStyle(
                                             color: AppTheme
-                                                .lightnumberColor,
+                                                .primaryBlueColor,
                                             fontFamily: "Cairo",
                                             fontSize: 34,
-                                            letterSpacing: 1,
+                                            // letterSpacing: 1,
                                             fontWeight: FontWeight.w600,
                                             fontStyle:
                                             FontStyle.normal),
@@ -362,15 +380,15 @@ class _PartnerState extends State<Partner> {
                                     CircleAvatar(
                                       radius: 20,
                                       backgroundColor:
-                                      AppTheme.lightyellowColor,
+                                      AppTheme.greenlightColor,
                                       child: Text(
                                         "4",
                                         style: TextStyle(
                                             color: AppTheme
-                                                .lightnumberColor,
+                                                .primaryBlueColor,
                                             fontFamily: "Cairo",
                                             fontSize: 34,
-                                            letterSpacing: 1,
+                                            // letterSpacing: 1,
                                             fontWeight: FontWeight.w600,
                                             fontStyle:
                                             FontStyle.normal),
@@ -385,8 +403,10 @@ class _PartnerState extends State<Partner> {
                                             color: AppTheme
                                                 .primaryBlueColor,
                                             fontFamily: "Cairo",
-                                            fontSize: Responsive.isDesktop(context) ?23:17,
-                                            letterSpacing: 1,
+                                            fontSize: 19,
+                                            letterSpacing: 1.0,
+                                            height: 1.7,
+                                            // letterSpacing: 1,
                                             fontWeight: FontWeight.w500,
                                             fontStyle:
                                             FontStyle.normal),
@@ -400,15 +420,15 @@ class _PartnerState extends State<Partner> {
                                     CircleAvatar(
                                       radius: 20,
                                       backgroundColor:
-                                      AppTheme.lightyellowColor,
+                                      AppTheme.greenlightColor,
                                       child: Text(
                                         "5",
                                         style: TextStyle(
                                             color: AppTheme
-                                                .lightnumberColor,
+                                                .primaryBlueColor,
                                             fontFamily: "Cairo",
                                             fontSize: 34,
-                                            letterSpacing: 1,
+                                            // letterSpacing: 1,
                                             fontWeight: FontWeight.w600,
                                             fontStyle:
                                             FontStyle.normal),
@@ -423,8 +443,10 @@ class _PartnerState extends State<Partner> {
                                             color: AppTheme
                                                 .primaryBlueColor,
                                             fontFamily: "Cairo",
-                                            fontSize: Responsive.isDesktop(context) ?23:17,
-                                            letterSpacing: 1,
+                                            fontSize: 19,
+                                            letterSpacing: 1.0,
+                                            height: 1.7,
+                                            // letterSpacing: 1,
                                             fontWeight: FontWeight.w500,
                                             fontStyle:
                                             FontStyle.normal),
@@ -438,15 +460,15 @@ class _PartnerState extends State<Partner> {
                                     CircleAvatar(
                                       radius: 20,
                                       backgroundColor:
-                                      AppTheme.lightyellowColor,
+                                      AppTheme.greenlightColor,
                                       child: Text(
                                         "6",
                                         style: TextStyle(
                                             color: AppTheme
-                                                .lightnumberColor,
+                                                .primaryBlueColor,
                                             fontFamily: "Cairo",
                                             fontSize: 34,
-                                            letterSpacing: 1,
+                                            // letterSpacing: 1,
                                             fontWeight: FontWeight.w600,
                                             fontStyle:
                                             FontStyle.normal),
@@ -461,8 +483,10 @@ class _PartnerState extends State<Partner> {
                                             color: AppTheme
                                                 .primaryBlueColor,
                                             fontFamily: "Cairo",
-                                            fontSize: Responsive.isDesktop(context) ?23:17,
-                                            letterSpacing: 1,
+                                            fontSize: 19,
+                                            letterSpacing: 1.0,
+                                            height: 1.7,
+                                            // letterSpacing: 1,
                                             fontWeight: FontWeight.w500,
                                             fontStyle:
                                             FontStyle.normal),
@@ -486,17 +510,17 @@ class _PartnerState extends State<Partner> {
                               Row(
                                 children: [
                                   CircleAvatar(
-                                    radius: 20,
+                                    radius: 18,
                                     backgroundColor:
-                                    AppTheme.lightyellowColor,
+                                    AppTheme.greenlightColor,
                                     child: Text(
                                       "1",
                                       style: TextStyle(
                                           color:
-                                          AppTheme.lightnumberColor,
+                                          AppTheme.primaryBlueColor,
                                           fontFamily: "Cairo",
-                                          fontSize: 34,
-                                          letterSpacing: 1,
+                                          fontSize: 24,
+                                          // letterSpacing: 1,
                                           fontWeight: FontWeight.w600,
                                           fontStyle: FontStyle.normal),
                                     ),
@@ -510,8 +534,8 @@ class _PartnerState extends State<Partner> {
                                           color:
                                           AppTheme.primaryBlueColor,
                                           fontFamily: "Cairo",
-                                          fontSize: 23,
-                                          letterSpacing: 1,
+                                          fontSize: 16,
+                                          // letterSpacing: 1,
                                           fontWeight: FontWeight.w500,
                                           fontStyle: FontStyle.normal),
                                     ),
@@ -522,17 +546,17 @@ class _PartnerState extends State<Partner> {
                               Row(
                                 children: [
                                   CircleAvatar(
-                                    radius: 20,
+                                    radius: 18,
                                     backgroundColor:
-                                    AppTheme.lightyellowColor,
+                                    AppTheme.greenlightColor,
                                     child: Text(
                                       "2",
                                       style: TextStyle(
                                           color:
-                                          AppTheme.lightnumberColor,
+                                          AppTheme.primaryBlueColor,
                                           fontFamily: "Cairo",
-                                          fontSize: 34,
-                                          letterSpacing: 1,
+                                          fontSize: 24,
+                                          // letterSpacing: 1,
                                           fontWeight: FontWeight.w600,
                                           fontStyle: FontStyle.normal),
                                     ),
@@ -546,8 +570,8 @@ class _PartnerState extends State<Partner> {
                                           color:
                                           AppTheme.primaryBlueColor,
                                           fontFamily: "Cairo",
-                                          fontSize: 23,
-                                          letterSpacing: 1,
+                                          fontSize: 16,
+                                          // letterSpacing: 1,
                                           fontWeight: FontWeight.w500,
                                           fontStyle: FontStyle.normal),
                                     ),
@@ -558,17 +582,17 @@ class _PartnerState extends State<Partner> {
                               Row(
                                 children: [
                                   CircleAvatar(
-                                    radius: 20,
+                                    radius: 18,
                                     backgroundColor:
-                                    AppTheme.lightyellowColor,
+                                    AppTheme.greenlightColor,
                                     child: Text(
                                       "3",
                                       style: TextStyle(
                                           color:
-                                          AppTheme.lightnumberColor,
+                                          AppTheme.primaryBlueColor,
                                           fontFamily: "Cairo",
-                                          fontSize: 34,
-                                          letterSpacing: 1,
+                                          fontSize: 24,
+                                          // letterSpacing: 1,
                                           fontWeight: FontWeight.w600,
                                           fontStyle: FontStyle.normal),
                                     ),
@@ -582,8 +606,8 @@ class _PartnerState extends State<Partner> {
                                           color:
                                           AppTheme.primaryBlueColor,
                                           fontFamily: "Cairo",
-                                          fontSize: 23,
-                                          letterSpacing: 1,
+                                          fontSize: 16,
+                                          // letterSpacing: 1,
                                           fontWeight: FontWeight.w500,
                                           fontStyle: FontStyle.normal),
                                     ),
@@ -605,17 +629,17 @@ class _PartnerState extends State<Partner> {
                               Row(
                                 children: [
                                   CircleAvatar(
-                                    radius: 20,
+                                    radius: 18,
                                     backgroundColor:
-                                    AppTheme.lightyellowColor,
+                                    AppTheme.greenlightColor,
                                     child: Text(
                                       "4",
                                       style: TextStyle(
                                           color:
-                                          AppTheme.lightnumberColor,
+                                          AppTheme.primaryBlueColor,
                                           fontFamily: "Cairo",
-                                          fontSize: 34,
-                                          letterSpacing: 1,
+                                          fontSize: 24,
+                                          // letterSpacing: 1,
                                           fontWeight: FontWeight.w600,
                                           fontStyle: FontStyle.normal),
                                     ),
@@ -629,8 +653,8 @@ class _PartnerState extends State<Partner> {
                                           color:
                                           AppTheme.primaryBlueColor,
                                           fontFamily: "Cairo",
-                                          fontSize: 23,
-                                          letterSpacing: 1,
+                                          fontSize: 16,
+                                          // letterSpacing: 1,
                                           fontWeight: FontWeight.w500,
                                           fontStyle: FontStyle.normal),
                                     ),
@@ -641,17 +665,17 @@ class _PartnerState extends State<Partner> {
                               Row(
                                 children: [
                                   CircleAvatar(
-                                    radius: 20,
+                                    radius: 18,
                                     backgroundColor:
-                                    AppTheme.lightyellowColor,
+                                    AppTheme.greenlightColor,
                                     child: Text(
                                       "5",
                                       style: TextStyle(
                                           color:
-                                          AppTheme.lightnumberColor,
+                                          AppTheme.primaryBlueColor,
                                           fontFamily: "Cairo",
-                                          fontSize: 34,
-                                          letterSpacing: 1,
+                                          fontSize: 24,
+                                          // letterSpacing: 1,
                                           fontWeight: FontWeight.w600,
                                           fontStyle: FontStyle.normal),
                                     ),
@@ -665,8 +689,8 @@ class _PartnerState extends State<Partner> {
                                           color:
                                           AppTheme.primaryBlueColor,
                                           fontFamily: "Cairo",
-                                          fontSize: 23,
-                                          letterSpacing: 1,
+                                          fontSize: 16,
+                                          // letterSpacing: 1,
                                           fontWeight: FontWeight.w500,
                                           fontStyle: FontStyle.normal),
                                     ),
@@ -677,17 +701,17 @@ class _PartnerState extends State<Partner> {
                               Row(
                                 children: [
                                   CircleAvatar(
-                                    radius: 20,
+                                    radius: 18,
                                     backgroundColor:
-                                    AppTheme.lightyellowColor,
+                                    AppTheme.greenlightColor,
                                     child: Text(
                                       "6",
                                       style: TextStyle(
                                           color:
-                                          AppTheme.lightnumberColor,
+                                          AppTheme.primaryBlueColor,
                                           fontFamily: "Cairo",
-                                          fontSize: 34,
-                                          letterSpacing: 1,
+                                          fontSize: 24,
+                                          // letterSpacing: 1,
                                           fontWeight: FontWeight.w600,
                                           fontStyle: FontStyle.normal),
                                     ),
@@ -701,8 +725,8 @@ class _PartnerState extends State<Partner> {
                                           color:
                                           AppTheme.primaryBlueColor,
                                           fontFamily: "Cairo",
-                                          fontSize: 23,
-                                          letterSpacing: 1,
+                                          fontSize: 16,
+                                          // letterSpacing: 1,
                                           fontWeight: FontWeight.w500,
                                           fontStyle: FontStyle.normal),
                                     ),
@@ -733,7 +757,7 @@ class _PartnerState extends State<Partner> {
                               style: TextStyle(
                                   color: AppTheme.primaryBlackColor,
                                   fontFamily: "Cairo",
-                                  fontSize: Responsive.isDesktop(context) ?33:23,
+                                  fontSize: Responsive.isDesktop(context) ?24:18,
                                   letterSpacing: 1,
                                   fontWeight: FontWeight.w700,
                                   fontStyle: FontStyle.normal
@@ -752,7 +776,7 @@ class _PartnerState extends State<Partner> {
                                 child: Text("Download",style: TextStyle(
                                     color: AppTheme.WhiteColor,
                                     fontFamily: "Cairo",
-                                    fontSize: Responsive.isDesktop(context) ?19:13,
+                                    fontSize: Responsive.isDesktop(context) ?19:14,
                                     fontWeight: FontWeight.w700,
                                     fontStyle: FontStyle.normal
                                 ),),

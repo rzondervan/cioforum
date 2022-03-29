@@ -90,7 +90,7 @@ class _ContactState extends State<Contact> {
                               Text("CIOforum",style: TextStyle(
                                   color: AppTheme.primaryBlackColor,
                                   fontFamily: "Cairo",
-                                  fontSize: width<600?18:32,
+                                  fontSize: width<600?18:24,
                                   fontWeight: FontWeight.w700,
                                   fontStyle: FontStyle.normal
                               ),),
@@ -104,7 +104,7 @@ class _ContactState extends State<Contact> {
                                         Text("Buntlaan 11B3941 MG Doorn Nederland",style: TextStyle(
                                             color: AppTheme.primaryBlueColor,
                                             fontFamily: "Cairo",
-                                            fontSize: width<600?16:24,
+                                            fontSize: width<600?16:19,
                                             fontWeight: FontWeight.w500,
                                             fontStyle: FontStyle.normal
                                         ),),
@@ -112,7 +112,7 @@ class _ContactState extends State<Contact> {
                                         Text("Kvk: 62420186",style: TextStyle(
                                             color: AppTheme.primaryBlueColor,
                                             fontFamily: "Cairo",
-                                            fontSize: width<600?16:24,
+                                            fontSize: width<600?16:19,
                                             fontWeight: FontWeight.w500,
                                             fontStyle: FontStyle.normal
                                         ),),
@@ -142,7 +142,7 @@ class _ContactState extends State<Contact> {
                                                   style: TextStyle(
                                                       color: AppTheme.primaryBlueColor,
                                                       fontFamily: "Cairo",
-                                                      fontSize: width<600?16:24,
+                                                      fontSize: width<600?16:19,
                                                       fontWeight: FontWeight.w500,
                                                       fontStyle: FontStyle.normal
                                                   ),
@@ -169,7 +169,7 @@ class _ContactState extends State<Contact> {
                                                 style: TextStyle(
                                                     color: AppTheme.primaryBlueColor,
                                                     fontFamily: "Cairo",
-                                                    fontSize: width<600?16:24,
+                                                    fontSize: width<600?16:19,
                                                     fontWeight: FontWeight.w500,
                                                     fontStyle: FontStyle.normal
                                                 ),

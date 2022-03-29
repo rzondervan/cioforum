@@ -421,6 +421,7 @@ class _HomePageState extends State<HomeScreen>
                               newsTabSelected = false;
                               aboutTabSelected = false;
                               contact = true;
+                              homeTab=false;
                             });
                           },
                           child: Container(

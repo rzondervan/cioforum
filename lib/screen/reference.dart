@@ -59,7 +59,7 @@ class _ReferenceState extends State<Reference> {
                     style: TextStyle(
                         color: AppTheme.primaryBlueColor,
                         fontFamily: "Cairo",
-                        fontSize: Responsive.isDesktop(context) ? 31 : 22,
+                        fontSize: Responsive.isDesktop(context) ?28 : 20,
                         fontWeight: FontWeight.w700,
                         fontStyle: FontStyle.normal),
                   ),

@@ -277,21 +277,21 @@ Widget Footer1(BuildContext context,ClickFooterCallback clickFooterCallback){
                               139, 190, 43, 1),
                         ),
                       ),
-                      SizedBox(height: 65),
-                      Text(
-                        "Terms and Conditions",
-                        style: TextStyle(
-                          color: Color.fromRGBO(
-                              225, 225, 225, 1),
-                          fontWeight:
-                          FontWeight.w400,
-                          fontSize: 16,
-                          fontFamily: "Cairo",
-                          fontStyle:
-                          FontStyle.normal,
-                        ),
-                      ),
-                      SizedBox(height: 20),
+                      SizedBox(height: 60),
+                      // Text(
+                      //   "Terms and Conditions",
+                      //   style: TextStyle(
+                      //     color: Color.fromRGBO(
+                      //         225, 225, 225, 1),
+                      //     fontWeight:
+                      //     FontWeight.w400,
+                      //     fontSize: 16,
+                      //     fontFamily: "Cairo",
+                      //     fontStyle:
+                      //     FontStyle.normal,
+                      //   ),
+                      // ),
+                      // SizedBox(height: 20),
                       Text(
                         "Cookies",
                         style: TextStyle(
@@ -333,7 +333,8 @@ Widget Footer1(BuildContext context,ClickFooterCallback clickFooterCallback){
                           FontStyle.normal,
                         ),
                       ),
-                      SizedBox(height: 40),
+                      // SizedBox(height: 40),
+                      SizedBox(height: 60),
                     ],
                   ),
                 ),
@@ -358,7 +359,7 @@ Widget Footer1(BuildContext context,ClickFooterCallback clickFooterCallback){
                           FontStyle.normal,
                         ),
                       ),
-                      const SizedBox(height: 65),
+                      const SizedBox(height: 60),
                       InkWell(
                         onTap:()async{
                           final url="https://www.google.com/maps/place/Buntlaan+11B,+3941+MG+Doorn,+Netherlands/@52.0184738,5.3702172,17z/data=!3m1!4b1!4m5!3m4!1s0x47c65ba5083d3ffd:0xb990f2f48840faf5!8m2!3d52.0184705!4d5.3724059";

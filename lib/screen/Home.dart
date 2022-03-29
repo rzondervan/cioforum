@@ -855,150 +855,160 @@ class _HomePageState extends State<HomePage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Expanded(
-                                child: Container(
-                                  // height:  Responsive.isDesktop(context)?497:557,
-                                  decoration: BoxDecoration(
-                                      color: AppTheme.WhiteColor,
-                                      borderRadius: BorderRadius.circular(10)),
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(bottom: 10),
-                                    child: Column(
-                                      children: [
-                                        Container(
-                                          height: 250,
-                                          // width: 400,
-                                          decoration: const BoxDecoration(
-                                              borderRadius: BorderRadius.only(
-                                                topRight: Radius.circular(10),
-                                                topLeft: Radius.circular(10),
-                                              ),
-                                              image: DecorationImage(
-                                                  image: AssetImage(
-                                                      "assets/Rectangle_22.png"),
-                                                  fit: BoxFit.cover)),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(
-                                              left: 20, right: 20, top: 10,bottom: 10),
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                "Highly available internet re...",
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.w600,
-                                                  fontSize: 25,
-                                                  color: AppTheme
-                                                      .primaryBlackColor,
-                                                  fontFamily: "Cairo",
-                                                  fontStyle: FontStyle.normal,
+                                child: InkWell(
+                                  onTap:()async{
+                                    final url="https://timesofindia.indiatimes.com/news";
+                                    if(await canLaunch(url)){
+                                      await launch(url);
+                                    }else {
+                                      throw 'Could not launch $url';
+                                    }
+                                  },
+                                  child: Container(
+                                    // height:  Responsive.isDesktop(context)?497:557,
+                                    decoration: BoxDecoration(
+                                        color: AppTheme.WhiteColor,
+                                        borderRadius: BorderRadius.circular(10)),
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(bottom: 10),
+                                      child: Column(
+                                        children: [
+                                          Container(
+                                            height: 250,
+                                            // width: 400,
+                                            decoration: const BoxDecoration(
+                                                borderRadius: BorderRadius.only(
+                                                  topRight: Radius.circular(10),
+                                                  topLeft: Radius.circular(10),
                                                 ),
-                                              ),
-                                              const SizedBox(height: 10),
-                                              Text(
-                                                "Exciting holiday",
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.w600,
-                                                  fontSize: 17,
-                                                  fontFamily: "Cairo",
-                                                  fontStyle: FontStyle.normal,
-                                                  color:
-                                                      AppTheme.primaryBlueColor,
+                                                image: DecorationImage(
+                                                    image: AssetImage(
+                                                        "assets/Rectangle_22.png"),
+                                                    fit: BoxFit.cover)),
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 20, right: 20, top: 10,bottom: 10),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  "Highly available internet re...",
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.w600,
+                                                    fontSize: 25,
+                                                    color: AppTheme
+                                                        .primaryBlackColor,
+                                                    fontFamily: "Cairo",
+                                                    fontStyle: FontStyle.normal,
+                                                  ),
                                                 ),
-                                              ),
-                                              Responsive.isDesktop(context)
-                                                  ? const SizedBox(height: 30)
-                                                  : const SizedBox(height: 20),
-                                              RichText(
-                                                text: TextSpan(
-                                                    text:
-                                                    "De kerstvakantieweken waren spannend voor de afdeling ICT, en daarmee voor al...",
-                                                    style: TextStyle(
-                                                        fontWeight: FontWeight.w400,
-                                                        fontSize: 15,
-                                                        fontFamily: "Cairo",
-                                                        color: const Color.fromRGBO(50,59,75,1),
-
-                                                        fontStyle: FontStyle.normal,
-                                                        letterSpacing:
-                                                        Responsive.isMobile(
-                                                            context)
-                                                            ? 0.0
-                                                            : 1,
-                                                        height: 1.7
-
-                                                    ),
-                                                    children: <TextSpan>[
-                                                      TextSpan(
-                                                        text:
-                                                        "Read more",
-                                                        style: TextStyle(
-                                                          color: AppTheme
-                                                              .primaryGreenColor,
+                                                const SizedBox(height: 10),
+                                                Text(
+                                                  "Exciting holiday",
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.w600,
+                                                    fontSize: 17,
+                                                    fontFamily: "Cairo",
+                                                    fontStyle: FontStyle.normal,
+                                                    color:
+                                                        AppTheme.primaryBlueColor,
+                                                  ),
+                                                ),
+                                                Responsive.isDesktop(context)
+                                                    ? const SizedBox(height: 30)
+                                                    : const SizedBox(height: 20),
+                                                RichText(
+                                                  text: TextSpan(
+                                                      text:
+                                                      "De kerstvakantieweken waren spannend voor de afdeling ICT, en daarmee voor al...",
+                                                      style: TextStyle(
                                                           fontWeight: FontWeight.w400,
                                                           fontSize: 15,
                                                           fontFamily: "Cairo",
-                                                          fontStyle: FontStyle.normal,
-                                                        ),
-                                                      )
-                                                    ]),
-                                              ),
-                                              // Text(
-                                              //   "De kerstvakantieweken waren spannend voor de afdeling ICT, en daarmee voor al...",
-                                              //   style: TextStyle(
-                                              //       fontWeight: FontWeight.w400,
-                                              //       fontSize: 15,
-                                              //       fontFamily: "Cairo",
-                                              //       fontStyle: FontStyle.normal,
-                                              //       letterSpacing:
-                                              //           Responsive.isMobile(
-                                              //                   context)
-                                              //               ? 0.0
-                                              //               : 1,
-                                              //       height: 1.7
-                                              //
-                                              //       // color: const Color.fromRGBO(50,59,75,1),
-                                              //       ),
-                                              // ),
-                                              // Text(
-                                              //   "Read more",
-                                              //   style: TextStyle(
-                                              //     color: AppTheme
-                                              //         .primaryGreenColor,
-                                              //     fontWeight: FontWeight.w400,
-                                              //     fontSize: 15,
-                                              //     fontFamily: "Cairo",
-                                              //     fontStyle: FontStyle.normal,
-                                              //   ),
-                                              // ),
-                                              Responsive.isDesktop(context)
-                                                  ? const SizedBox(height: 50)
-                                                  : const SizedBox(
-                                                      height: 50,
-                                                    ),
-                                              Center(
-                                                child: Text(
-                                                  "REFERENCE - SOURCE: PUBLICATION OF CVO 'T GOOI",
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.w300,
-                                                    fontSize:
-                                                        Responsive.isDesktop(
-                                                                context)
-                                                            ? 12
-                                                            : 11,
-                                                    fontFamily: "Cairo",
-                                                    fontStyle: FontStyle.normal,
-                                                    letterSpacing: 0.0,
+                                                          color: const Color.fromRGBO(50,59,75,1),
 
-                                                    // color: const Color.fromRGBO(50,59,75,1),
+                                                          fontStyle: FontStyle.normal,
+                                                          letterSpacing:
+                                                          Responsive.isMobile(
+                                                              context)
+                                                              ? 0.0
+                                                              : 1,
+                                                          height: 1.7
+
+                                                      ),
+                                                      children: <TextSpan>[
+                                                        TextSpan(
+                                                          text:
+                                                          "Read more",
+                                                          style: TextStyle(
+                                                            color: AppTheme
+                                                                .primaryGreenColor,
+                                                            fontWeight: FontWeight.w400,
+                                                            fontSize: 15,
+                                                            fontFamily: "Cairo",
+                                                            fontStyle: FontStyle.normal,
+                                                          ),
+                                                        )
+                                                      ]),
+                                                ),
+                                                // Text(
+                                                //   "De kerstvakantieweken waren spannend voor de afdeling ICT, en daarmee voor al...",
+                                                //   style: TextStyle(
+                                                //       fontWeight: FontWeight.w400,
+                                                //       fontSize: 15,
+                                                //       fontFamily: "Cairo",
+                                                //       fontStyle: FontStyle.normal,
+                                                //       letterSpacing:
+                                                //           Responsive.isMobile(
+                                                //                   context)
+                                                //               ? 0.0
+                                                //               : 1,
+                                                //       height: 1.7
+                                                //
+                                                //       // color: const Color.fromRGBO(50,59,75,1),
+                                                //       ),
+                                                // ),
+                                                // Text(
+                                                //   "Read more",
+                                                //   style: TextStyle(
+                                                //     color: AppTheme
+                                                //         .primaryGreenColor,
+                                                //     fontWeight: FontWeight.w400,
+                                                //     fontSize: 15,
+                                                //     fontFamily: "Cairo",
+                                                //     fontStyle: FontStyle.normal,
+                                                //   ),
+                                                // ),
+                                                Responsive.isDesktop(context)
+                                                    ? const SizedBox(height: 50)
+                                                    : const SizedBox(
+                                                        height: 50,
+                                                      ),
+                                                Center(
+                                                  child: Text(
+                                                    "REFERENCE - SOURCE: PUBLICATION OF CVO 'T GOOI",
+                                                    style: TextStyle(
+                                                      fontWeight: FontWeight.w300,
+                                                      fontSize:
+                                                          Responsive.isDesktop(
+                                                                  context)
+                                                              ? 12
+                                                              : 11,
+                                                      fontFamily: "Cairo",
+                                                      fontStyle: FontStyle.normal,
+                                                      letterSpacing: 0.0,
+
+                                                      // color: const Color.fromRGBO(50,59,75,1),
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -1008,149 +1018,159 @@ class _HomePageState extends State<HomePage> {
                                   : Container(),
                               Responsive.isDesktop(context)
                                   ? Expanded(
-                                      child: Container(
-                                        // height: 497,
-                                        decoration: BoxDecoration(
-                                            color: AppTheme.WhiteColor,
-                                            borderRadius:
-                                                BorderRadius.circular(10)),
-                                        child: Padding(
-                                          padding:
-                                              const EdgeInsets.only(bottom: 10),
-                                          child: Column(
-                                            children: [
-                                              Container(
-                                                height: 250,
-                                                // width: 340,
-                                                decoration: const BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.only(
-                                                      topRight:
-                                                          Radius.circular(10),
-                                                      topLeft:
-                                                          Radius.circular(10),
-                                                    ),
-                                                    image: DecorationImage(
-                                                        image: AssetImage(
-                                                            "assets/Rectangle_25.png"),
-                                                        fit: BoxFit.cover)),
-                                              ),
-
-                                              Padding(
-                                                padding: const EdgeInsets.only(
-                                                    left: 20,
-                                                    right: 20,
-                                                    bottom: 10,
-                                                    top: 10),
-                                                child: Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Text(
-                                                      "GDPR in childcare",
-                                                      style: TextStyle(
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                        fontSize: 25,
-                                                        color: AppTheme
-                                                            .primaryBlackColor,
-                                                        fontFamily: "Cairo",
-                                                        fontStyle:
-                                                            FontStyle.normal,
+                                      child: InkWell(
+                                        onTap:()async{
+                                          final url="https://timesofindia.indiatimes.com/news";
+                                          if(await canLaunch(url)){
+                                            await launch(url);
+                                          }else {
+                                            throw 'Could not launch $url';
+                                          }
+                                        },
+                                        child: Container(
+                                          // height: 497,
+                                          decoration: BoxDecoration(
+                                              color: AppTheme.WhiteColor,
+                                              borderRadius:
+                                                  BorderRadius.circular(10)),
+                                          child: Padding(
+                                            padding:
+                                                const EdgeInsets.only(bottom: 10),
+                                            child: Column(
+                                              children: [
+                                                Container(
+                                                  height: 250,
+                                                  // width: 340,
+                                                  decoration: const BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.only(
+                                                        topRight:
+                                                            Radius.circular(10),
+                                                        topLeft:
+                                                            Radius.circular(10),
                                                       ),
-                                                    ),
-                                                    const SizedBox(height: 10),
-                                                    Text(
-                                                      "What do you need to know about email?",
-                                                      style: TextStyle(
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                        fontSize: 17,
-                                                        fontFamily: "Cairo",
-                                                        fontStyle:
-                                                            FontStyle.normal,
-                                                        color: AppTheme
-                                                            .primaryBlueColor,
-                                                      ),
-                                                    ),
-                                                    const SizedBox(height: 30),
-                                                    RichText(
-                                                      text: TextSpan(
-                                                          text:
-                                                          "The accompanying animation video of almost 2 minutes tells you what you can do wrong with...",
-                                                          style: const TextStyle(
-                                                              fontWeight: FontWeight.w400,
-                                                              fontSize: 15,
-                                                              fontFamily: "Cairo",
-                                                              fontStyle: FontStyle.normal,
-                                                              letterSpacing: 1.0,
-                                                              height: 1.7
+                                                      image: DecorationImage(
+                                                          image: AssetImage(
+                                                              "assets/Rectangle_25.png"),
+                                                          fit: BoxFit.cover)),
+                                                ),
 
-                                                            // color: const Color.fromRGBO(50,59,75,1),
-                                                          ),
-                                                          children: <TextSpan>[
-                                                            TextSpan(
-                                                              text:
-                                                              "Read more",
-                                                              style: TextStyle(
-                                                                color: AppTheme
-                                                                    .primaryGreenColor,
+                                                Padding(
+                                                  padding: const EdgeInsets.only(
+                                                      left: 20,
+                                                      right: 20,
+                                                      bottom: 10,
+                                                      top: 10),
+                                                  child: Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment.start,
+                                                    children: [
+                                                      Text(
+                                                        "GDPR in childcare",
+                                                        style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          fontSize: 25,
+                                                          color: AppTheme
+                                                              .primaryBlackColor,
+                                                          fontFamily: "Cairo",
+                                                          fontStyle:
+                                                              FontStyle.normal,
+                                                        ),
+                                                      ),
+                                                      const SizedBox(height: 10),
+                                                      Text(
+                                                        "What do you need to know about email?",
+                                                        style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          fontSize: 17,
+                                                          fontFamily: "Cairo",
+                                                          fontStyle:
+                                                              FontStyle.normal,
+                                                          color: AppTheme
+                                                              .primaryBlueColor,
+                                                        ),
+                                                      ),
+                                                      const SizedBox(height: 30),
+                                                      RichText(
+                                                        text: TextSpan(
+                                                            text:
+                                                            "The accompanying animation video of almost 2 minutes tells you what you can do wrong with...",
+                                                            style: const TextStyle(
                                                                 fontWeight: FontWeight.w400,
                                                                 fontSize: 15,
                                                                 fontFamily: "Cairo",
                                                                 fontStyle: FontStyle.normal,
-                                                              ),
-                                                            )
-                                                          ]),
-                                                    ),
+                                                                letterSpacing: 1.0,
+                                                                height: 1.7
 
-                                                    // const Text(
-                                                    //   "The accompanying animation video of almost 2 minutes tells you what you can do wrong with...",
-                                                    //   style: TextStyle(
-                                                    //     fontWeight:
-                                                    //         FontWeight.w400,
-                                                    //     fontSize: 15,
-                                                    //     letterSpacing: 1.0,
-                                                    //     height: 1.7,
-                                                    //     fontFamily: "Cairo",
-                                                    //     fontStyle:
-                                                    //         FontStyle.normal,
-                                                    //
-                                                    //     // color: const Color.fromRGBO(50,59,75,1),
-                                                    //   ),
-                                                    // ),
-                                                    // Text(
-                                                    //   "Read more",
-                                                    //   style: TextStyle(
-                                                    //     color: AppTheme
-                                                    //         .primaryGreenColor,
-                                                    //     fontWeight:
-                                                    //         FontWeight.w400,
-                                                    //     fontSize: 15,
-                                                    //     fontFamily: "Cairo",
-                                                    //     fontStyle:
-                                                    //         FontStyle.normal,
-                                                    //   ),
-                                                    // ),
-                                                    const SizedBox(height: 50),
-                                                    const Center(
-                                                      child: Text(
-                                                        "REFERENCE - SOURCE: PUBLICATION OF CVO 'T GOOI",
-                                                        style: TextStyle(
-                                                          fontWeight:
-                                                              FontWeight.w300,
-                                                          fontSize: 12,
-                                                          fontFamily: "Cairo",
-                                                          fontStyle:
-                                                              FontStyle.normal,
-                                                          // color: const Color.fromRGBO(50,59,75,1),
+                                                              // color: const Color.fromRGBO(50,59,75,1),
+                                                            ),
+                                                            children: <TextSpan>[
+                                                              TextSpan(
+                                                                text:
+                                                                "Read more",
+                                                                style: TextStyle(
+                                                                  color: AppTheme
+                                                                      .primaryGreenColor,
+                                                                  fontWeight: FontWeight.w400,
+                                                                  fontSize: 15,
+                                                                  fontFamily: "Cairo",
+                                                                  fontStyle: FontStyle.normal,
+                                                                ),
+                                                              )
+                                                            ]),
+                                                      ),
+
+                                                      // const Text(
+                                                      //   "The accompanying animation video of almost 2 minutes tells you what you can do wrong with...",
+                                                      //   style: TextStyle(
+                                                      //     fontWeight:
+                                                      //         FontWeight.w400,
+                                                      //     fontSize: 15,
+                                                      //     letterSpacing: 1.0,
+                                                      //     height: 1.7,
+                                                      //     fontFamily: "Cairo",
+                                                      //     fontStyle:
+                                                      //         FontStyle.normal,
+                                                      //
+                                                      //     // color: const Color.fromRGBO(50,59,75,1),
+                                                      //   ),
+                                                      // ),
+                                                      // Text(
+                                                      //   "Read more",
+                                                      //   style: TextStyle(
+                                                      //     color: AppTheme
+                                                      //         .primaryGreenColor,
+                                                      //     fontWeight:
+                                                      //         FontWeight.w400,
+                                                      //     fontSize: 15,
+                                                      //     fontFamily: "Cairo",
+                                                      //     fontStyle:
+                                                      //         FontStyle.normal,
+                                                      //   ),
+                                                      // ),
+                                                      const SizedBox(height: 50),
+                                                      const Center(
+                                                        child: Text(
+                                                          "REFERENCE - SOURCE: PUBLICATION OF CVO 'T GOOI",
+                                                          style: TextStyle(
+                                                            fontWeight:
+                                                                FontWeight.w300,
+                                                            fontSize: 12,
+                                                            fontFamily: "Cairo",
+                                                            fontStyle:
+                                                                FontStyle.normal,
+                                                            // color: const Color.fromRGBO(50,59,75,1),
+                                                          ),
                                                         ),
                                                       ),
-                                                    ),
-                                                  ],
+                                                    ],
+                                                  ),
                                                 ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -1161,147 +1181,157 @@ class _HomePageState extends State<HomePage> {
                                   : Container(),
                               Responsive.isDesktop(context)
                                   ? Expanded(
-                                      child: Container(
-                                        // height: 497,
-                                        decoration: BoxDecoration(
-                                            color: AppTheme.WhiteColor,
-                                            borderRadius:
-                                                BorderRadius.circular(10)),
-                                        child: Padding(
-                                          padding:
-                                              const EdgeInsets.only(bottom: 10),
-                                          child: Column(
-                                            children: [
-                                              Container(
-                                                height: 250,
-                                                // width: 340,
-                                                decoration: const BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.only(
-                                                      topRight:
-                                                          Radius.circular(10),
-                                                      topLeft:
-                                                          Radius.circular(10),
-                                                    ),
-                                                    image: DecorationImage(
-                                                        image: AssetImage(
-                                                            "assets/Rectangle_27.png"),
-                                                        fit: BoxFit.cover)),
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsets.only(
-                                                    left: 20,
-                                                    right: 20,
-                                                    top: 10,bottom: 10),
-                                                child: Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Text(
-                                                      "Working online basics - Mi...",
-                                                      style: TextStyle(
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                        fontSize: 25,
-                                                        color: AppTheme
-                                                            .primaryBlackColor,
-                                                        fontFamily: "Cairo",
-                                                        fontStyle:
-                                                            FontStyle.normal,
+                                      child: InkWell(
+                                        onTap:()async{
+                                          final url="https://timesofindia.indiatimes.com/news";
+                                          if(await canLaunch(url)){
+                                            await launch(url);
+                                          }else {
+                                            throw 'Could not launch $url';
+                                          }
+                                        },
+                                        child: Container(
+                                          // height: 497,
+                                          decoration: BoxDecoration(
+                                              color: AppTheme.WhiteColor,
+                                              borderRadius:
+                                                  BorderRadius.circular(10)),
+                                          child: Padding(
+                                            padding:
+                                                const EdgeInsets.only(bottom: 10),
+                                            child: Column(
+                                              children: [
+                                                Container(
+                                                  height: 250,
+                                                  // width: 340,
+                                                  decoration: const BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.only(
+                                                        topRight:
+                                                            Radius.circular(10),
+                                                        topLeft:
+                                                            Radius.circular(10),
                                                       ),
-                                                    ),
-                                                    const SizedBox(height: 10),
-                                                    Text(
-                                                      "What do you need to know about working online?",
-                                                      style: TextStyle(
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                        fontSize: 17,
-                                                        fontFamily: "Cairo",
-                                                        fontStyle:
-                                                            FontStyle.normal,
-                                                        color: AppTheme
-                                                            .primaryBlueColor,
+                                                      image: DecorationImage(
+                                                          image: AssetImage(
+                                                              "assets/Rectangle_27.png"),
+                                                          fit: BoxFit.cover)),
+                                                ),
+                                                Padding(
+                                                  padding: const EdgeInsets.only(
+                                                      left: 20,
+                                                      right: 20,
+                                                      top: 10,bottom: 10),
+                                                  child: Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment.start,
+                                                    children: [
+                                                      Text(
+                                                        "Working online basics - Mi...",
+                                                        style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          fontSize: 25,
+                                                          color: AppTheme
+                                                              .primaryBlackColor,
+                                                          fontFamily: "Cairo",
+                                                          fontStyle:
+                                                              FontStyle.normal,
+                                                        ),
                                                       ),
-                                                    ),
-                                                    const SizedBox(height: 20),
-                                                    RichText(
-                                                      text: TextSpan(
-                                                          text:
-                                                          "Korte video-uitleg van noodzakelijke basisbegrippen over online werken met de computer, zoals een bestand,...",
-                                                          style: const TextStyle(
-                                                              fontWeight: FontWeight.w400,
-                                                              fontSize: 15,
-                                                              fontFamily: "Cairo",
-                                                              fontStyle: FontStyle.normal,
-                                                              letterSpacing: 1.0,
-                                                              height: 1.7
-
-                                                            // color: const Color.fromRGBO(50,59,75,1),
-                                                          ),
-                                                          children: <TextSpan>[
-                                                            TextSpan(
-                                                              text:
-                                                              "Read more",
-                                                              style: TextStyle(
-                                                                color: AppTheme
-                                                                    .primaryGreenColor,
+                                                      const SizedBox(height: 10),
+                                                      Text(
+                                                        "What do you need to know about working online?",
+                                                        style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          fontSize: 17,
+                                                          fontFamily: "Cairo",
+                                                          fontStyle:
+                                                              FontStyle.normal,
+                                                          color: AppTheme
+                                                              .primaryBlueColor,
+                                                        ),
+                                                      ),
+                                                      const SizedBox(height: 20),
+                                                      RichText(
+                                                        text: TextSpan(
+                                                            text:
+                                                            "Korte video-uitleg van noodzakelijke basisbegrippen over online werken met de computer, zoals een bestand,...",
+                                                            style: const TextStyle(
                                                                 fontWeight: FontWeight.w400,
                                                                 fontSize: 15,
                                                                 fontFamily: "Cairo",
                                                                 fontStyle: FontStyle.normal,
-                                                              ),
-                                                            )
-                                                          ]),
-                                                    ),
+                                                                letterSpacing: 1.0,
+                                                                height: 1.7
 
-                                                    // const Text(
-                                                    //   "Korte video-uitleg van noodzakelijke basisbegrippen over online werken met de computer, zoals een bestand,...",
-                                                    //   style: TextStyle(
-                                                    //     fontWeight:
-                                                    //         FontWeight.w400,
-                                                    //     fontSize: 15,
-                                                    //     letterSpacing: 1.0,
-                                                    //     height: 1.7,
-                                                    //     fontFamily: "Cairo",
-                                                    //     fontStyle:
-                                                    //         FontStyle.normal,
-                                                    //
-                                                    //     // color: const Color.fromRGBO(50,59,75,1),
-                                                    //   ),
-                                                    // ),
-                                                    // Text(
-                                                    //   "Read more",
-                                                    //   style: TextStyle(
-                                                    //     color: AppTheme
-                                                    //         .primaryGreenColor,
-                                                    //     fontWeight:
-                                                    //         FontWeight.w400,
-                                                    //     fontSize: 15,
-                                                    //     fontFamily: "Cairo",
-                                                    //     fontStyle:
-                                                    //         FontStyle.normal,
-                                                    //   ),
-                                                    // ),
-                                                    const SizedBox(height: 50),
-                                                    const Center(
-                                                      child: Text(
-                                                        "REFERENCE - SOURCE: PUBLICATION OF CVO 'T GOOI",
-                                                        style: TextStyle(
-                                                          fontWeight:
-                                                              FontWeight.w300,
-                                                          fontSize: 12,
-                                                          fontFamily: "Cairo",
-                                                          fontStyle:
-                                                              FontStyle.normal,
-                                                          // color: const Color.fromRGBO(50,59,75,1),
+                                                              // color: const Color.fromRGBO(50,59,75,1),
+                                                            ),
+                                                            children: <TextSpan>[
+                                                              TextSpan(
+                                                                text:
+                                                                "Read more",
+                                                                style: TextStyle(
+                                                                  color: AppTheme
+                                                                      .primaryGreenColor,
+                                                                  fontWeight: FontWeight.w400,
+                                                                  fontSize: 15,
+                                                                  fontFamily: "Cairo",
+                                                                  fontStyle: FontStyle.normal,
+                                                                ),
+                                                              )
+                                                            ]),
+                                                      ),
+
+                                                      // const Text(
+                                                      //   "Korte video-uitleg van noodzakelijke basisbegrippen over online werken met de computer, zoals een bestand,...",
+                                                      //   style: TextStyle(
+                                                      //     fontWeight:
+                                                      //         FontWeight.w400,
+                                                      //     fontSize: 15,
+                                                      //     letterSpacing: 1.0,
+                                                      //     height: 1.7,
+                                                      //     fontFamily: "Cairo",
+                                                      //     fontStyle:
+                                                      //         FontStyle.normal,
+                                                      //
+                                                      //     // color: const Color.fromRGBO(50,59,75,1),
+                                                      //   ),
+                                                      // ),
+                                                      // Text(
+                                                      //   "Read more",
+                                                      //   style: TextStyle(
+                                                      //     color: AppTheme
+                                                      //         .primaryGreenColor,
+                                                      //     fontWeight:
+                                                      //         FontWeight.w400,
+                                                      //     fontSize: 15,
+                                                      //     fontFamily: "Cairo",
+                                                      //     fontStyle:
+                                                      //         FontStyle.normal,
+                                                      //   ),
+                                                      // ),
+                                                      const SizedBox(height: 50),
+                                                      const Center(
+                                                        child: Text(
+                                                          "REFERENCE - SOURCE: PUBLICATION OF CVO 'T GOOI",
+                                                          style: TextStyle(
+                                                            fontWeight:
+                                                                FontWeight.w300,
+                                                            fontSize: 12,
+                                                            fontFamily: "Cairo",
+                                                            fontStyle:
+                                                                FontStyle.normal,
+                                                            // color: const Color.fromRGBO(50,59,75,1),
+                                                          ),
                                                         ),
                                                       ),
-                                                    ),
-                                                  ],
+                                                    ],
+                                                  ),
                                                 ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ),

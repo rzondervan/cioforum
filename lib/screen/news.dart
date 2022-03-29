@@ -57,7 +57,7 @@ class _NewPageState extends State<NewPage> {
                   child: Text("News",style: TextStyle(
                     color: AppTheme.primaryWhiteColor,
                     fontFamily: "Cairo",
-                    fontSize: 45,
+                      fontSize: width < 600 ? 30 : 45,
                     // fontWeight: FontWeight.w600,
                     fontStyle: FontStyle.normal
                   ),),
@@ -111,7 +111,7 @@ class _NewPageState extends State<NewPage> {
                                             Text("Highly available internet ...",style: TextStyle(
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
-                                                fontSize: 28,
+                                                fontSize: 24,
                                                 fontWeight: FontWeight.w400,
                                                 fontStyle: FontStyle.normal
                                             ),),
@@ -120,6 +120,8 @@ class _NewPageState extends State<NewPage> {
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 17,
+                                                letterSpacing: 1.0,
+                                                height: 1.7,
                                                 // fontWeight: FontWeight.w600,
                                                 fontStyle: FontStyle.normal
                                             ),),
@@ -129,7 +131,9 @@ class _NewPageState extends State<NewPage> {
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 19,
-                                                letterSpacing: 1.5,
+                                                letterSpacing: 1.0,
+                                                height: 1.7,
+
                                                 // fontWeight: FontWeight.w600,
                                                 fontStyle: FontStyle.normal
                                             ),),
@@ -139,8 +143,8 @@ class _NewPageState extends State<NewPage> {
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 14,
-                                                letterSpacing: 1,
-
+                                                letterSpacing: 1.0,
+                                                height: 1.7,
                                                 // fontWeight: FontWeight.w600,
                                                 fontStyle: FontStyle.normal
                                             ),),
@@ -201,7 +205,7 @@ class _NewPageState extends State<NewPage> {
                                             Text("GDPR in childcare ...",style: TextStyle(
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
-                                                fontSize: 28,
+                                                fontSize: 24,
                                                 fontWeight: FontWeight.w400,
                                                 fontStyle: FontStyle.normal
                                             ),),
@@ -210,6 +214,8 @@ class _NewPageState extends State<NewPage> {
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 17,
+                                                letterSpacing: 1.0,
+                                                height: 1.7,
                                                 // fontWeight: FontWeight.w600,
                                                 fontStyle: FontStyle.normal
                                             ),),
@@ -219,7 +225,8 @@ class _NewPageState extends State<NewPage> {
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 19,
-                                                letterSpacing: 1.5,
+                                                letterSpacing: 1.0,
+                                                height: 1.7,
                                                 // fontWeight: FontWeight.w600,
                                                 fontStyle: FontStyle.normal
                                             ),),
@@ -229,8 +236,8 @@ class _NewPageState extends State<NewPage> {
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 14,
-                                                letterSpacing: 1,
-
+                                                letterSpacing: 1.0,
+                                                height: 1.7,
                                                 // fontWeight: FontWeight.w600,
                                                 fontStyle: FontStyle.normal
                                             ),),
@@ -291,7 +298,7 @@ class _NewPageState extends State<NewPage> {
                                             Text("AVG at school - dl3 - secure ...",style: TextStyle(
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
-                                                fontSize: 28,
+                                                fontSize: 24,
                                                 fontWeight: FontWeight.w400,
                                                 fontStyle: FontStyle.normal
                                             ),),
@@ -300,6 +307,8 @@ class _NewPageState extends State<NewPage> {
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 17,
+                                                letterSpacing: 1.0,
+                                                height: 1.7,
                                                 // fontWeight: FontWeight.w600,
                                                 fontStyle: FontStyle.normal
                                             ),),
@@ -309,7 +318,8 @@ class _NewPageState extends State<NewPage> {
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 19,
-                                                letterSpacing: 1.5,
+                                                letterSpacing: 1.0,
+                                                height: 1.7,
                                                 // fontWeight: FontWeight.w600,
                                                 fontStyle: FontStyle.normal
                                             ),),
@@ -319,8 +329,8 @@ class _NewPageState extends State<NewPage> {
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 14,
-                                                letterSpacing: 1,
-
+                                                letterSpacing: 1.0,
+                                                height: 1.7,
                                                 // fontWeight: FontWeight.w600,
                                                 fontStyle: FontStyle.normal
                                             ),),
@@ -381,7 +391,7 @@ class _NewPageState extends State<NewPage> {
                                             Text("AVG at school - dl2 - the ...",style: TextStyle(
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
-                                                fontSize: 28,
+                                                fontSize: 24,
                                                 fontWeight: FontWeight.w400,
                                                 fontStyle: FontStyle.normal
                                             ),),
@@ -390,6 +400,8 @@ class _NewPageState extends State<NewPage> {
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 17,
+                                                letterSpacing: 1.0,
+                                                height: 1.7,
                                                 // fontWeight: FontWeight.w600,
                                                 fontStyle: FontStyle.normal
                                             ),),
@@ -399,7 +411,8 @@ class _NewPageState extends State<NewPage> {
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 19,
-                                                letterSpacing: 1.5,
+                                                letterSpacing: 1.0,
+                                                height: 1.7,
                                                 // fontWeight: FontWeight.w600,
                                                 fontStyle: FontStyle.normal
                                             ),),
@@ -409,8 +422,8 @@ class _NewPageState extends State<NewPage> {
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 14,
-                                                letterSpacing: 1,
-
+                                                letterSpacing: 1.0,
+                                                height: 1.7,
                                                 // fontWeight: FontWeight.w600,
                                                 fontStyle: FontStyle.normal
                                             ),),
@@ -472,7 +485,7 @@ class _NewPageState extends State<NewPage> {
                                             Text("GDPR for drivers ...",style: TextStyle(
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
-                                                fontSize: 28,
+                                                fontSize: 24,
                                                 fontWeight: FontWeight.w400,
                                                 fontStyle: FontStyle.normal
                                             ),),
@@ -481,6 +494,8 @@ class _NewPageState extends State<NewPage> {
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 17,
+                                                letterSpacing: 1.0,
+                                                height: 1.7,
                                                 // fontWeight: FontWeight.w600,
                                                 fontStyle: FontStyle.normal
                                             ),),
@@ -490,8 +505,8 @@ class _NewPageState extends State<NewPage> {
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 19,
-                                                letterSpacing: 1.5,
-                                                // fontWeight: FontWeight.w600,
+                                                letterSpacing: 1.0,
+                                                height: 1.7,                                                // fontWeight: FontWeight.w600,
                                                 fontStyle: FontStyle.normal
                                             ),),
                                             SizedBox(height: 20),
@@ -500,8 +515,8 @@ class _NewPageState extends State<NewPage> {
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 14,
-                                                letterSpacing: 1,
-
+                                                letterSpacing: 1.0,
+                                                height: 1.7,
                                                 // fontWeight: FontWeight.w600,
                                                 fontStyle: FontStyle.normal
                                             ),),
@@ -657,7 +672,9 @@ class _NewPageState extends State<NewPage> {
                                                           Text("Highly available internet ...",style: TextStyle(
                                                               color: AppTheme.primaryBlackColor,
                                                               fontFamily: "Cairo",
-                                                              fontSize: 13.73,
+                                                              fontSize: 15,
+                                                              letterSpacing: 1.0,
+                                                              height: 1.7,
                                                               fontWeight: FontWeight.w400,
                                                               fontStyle: FontStyle.normal
                                                           ),),
@@ -665,9 +682,9 @@ class _NewPageState extends State<NewPage> {
                                                           Text("De kerstvakantieweken waren spannend voor de afdeling ICT, en daarmee voor al...",style: TextStyle(
                                                               color: AppTheme.primaryBlackColor,
                                                               fontFamily: "Cairo",
-                                                              fontSize: 9.32,
-                                                              letterSpacing: 1.5,
-                                                              // fontWeight: FontWeight.w600,
+                                                              fontSize: 12,
+                                                              letterSpacing: 1.0,
+                                                              height: 1.7,                                                              // fontWeight: FontWeight.w600,
                                                               fontStyle: FontStyle.normal
                                                           ),),
 
@@ -713,17 +730,19 @@ class _NewPageState extends State<NewPage> {
                                                           Text("Highly available internet ...",style: TextStyle(
                                                               color: AppTheme.primaryBlackColor,
                                                               fontFamily: "Cairo",
-                                                              fontSize: 13.73,
+                                                              fontSize: 15,
                                                               fontWeight: FontWeight.w400,
-                                                              fontStyle: FontStyle.normal
+                                                              fontStyle: FontStyle.normal,
+                                                            letterSpacing: 1.0,
+                                                            height: 1.7,
                                                           ),),
                                                           SizedBox(height: 10),
                                                           Text("De kerstvakantieweken waren spannend voor de afdeling ICT, en daarmee voor al...",style: TextStyle(
                                                               color: AppTheme.primaryBlackColor,
                                                               fontFamily: "Cairo",
-                                                              fontSize: 9.32,
-                                                              letterSpacing: 1.5,
-                                                              // fontWeight: FontWeight.w600,
+                                                              fontSize: 12,
+                                                              letterSpacing: 1.0,
+                                                              height: 1.7,                                                              // fontWeight: FontWeight.w600,
                                                               fontStyle: FontStyle.normal
                                                           ),),
 
@@ -1077,6 +1096,8 @@ class _NewPageState extends State<NewPage> {
                                                           color: AppTheme.primaryBlackColor,
                                                           fontFamily: "Cairo",
                                                           fontSize: 16,
+                                                          letterSpacing: 1.0,
+                                                          height: 1.7,
                                                           fontWeight: FontWeight.w400,
                                                           fontStyle: FontStyle.normal
                                                       ),),
@@ -1084,9 +1105,9 @@ class _NewPageState extends State<NewPage> {
                                                       Text("De kerstvakantieweken waren spannend voor de afdeling ICT, en daarmee voor al...",style: TextStyle(
                                                           color: AppTheme.primaryBlackColor,
                                                           fontFamily: "Cairo",
-                                                          fontSize: 12,
-                                                          letterSpacing: 1.5,
-                                                          // fontWeight: FontWeight.w600,
+                                                          fontSize: 14,
+                                                          letterSpacing: 1.0,
+                                                          height: 1.7,                                                          // fontWeight: FontWeight.w600,
                                                           fontStyle: FontStyle.normal
                                                       ),),
 
@@ -1133,6 +1154,8 @@ class _NewPageState extends State<NewPage> {
                                                           color: AppTheme.primaryBlackColor,
                                                           fontFamily: "Cairo",
                                                           fontSize: 16,
+                                                          letterSpacing: 1.0,
+                                                          height: 1.7,
                                                           fontWeight: FontWeight.w400,
                                                           fontStyle: FontStyle.normal
                                                       ),),
@@ -1140,9 +1163,9 @@ class _NewPageState extends State<NewPage> {
                                                       Text("De kerstvakantieweken waren spannend voor de afdeling ICT, en daarmee voor al...",style: TextStyle(
                                                           color: AppTheme.primaryBlackColor,
                                                           fontFamily: "Cairo",
-                                                          fontSize: 12,
-                                                          letterSpacing: 1.5,
-                                                          // fontWeight: FontWeight.w600,
+                                                          fontSize: 14,
+                                                          letterSpacing: 1.0,
+                                                          height: 1.7,                                                          // fontWeight: FontWeight.w600,
                                                           fontStyle: FontStyle.normal
                                                       ),),
 
@@ -1411,6 +1434,8 @@ class _NewPageState extends State<NewPage> {
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 20,
+                                                letterSpacing: 1.0,
+                                                height: 1.7,
                                                 fontWeight: FontWeight.w400,
                                                 fontStyle: FontStyle.normal
                                             ),),
@@ -1419,6 +1444,8 @@ class _NewPageState extends State<NewPage> {
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 15,
+                                                letterSpacing: 1.0,
+                                                height: 1.7,
                                                 // fontWeight: FontWeight.w600,
                                                 fontStyle: FontStyle.normal
                                             ),),
@@ -1428,7 +1455,8 @@ class _NewPageState extends State<NewPage> {
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 15,
-                                                letterSpacing: 1.5,
+                                                letterSpacing: 1.0,
+                                                height: 1.7,
                                                 // fontWeight: FontWeight.w600,
                                                 fontStyle: FontStyle.normal
                                             ),),
@@ -1438,7 +1466,8 @@ class _NewPageState extends State<NewPage> {
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 12,
-                                                letterSpacing: 1,
+                                                letterSpacing: 1.0,
+                                                height: 1.7,
 
                                                 // fontWeight: FontWeight.w600,
                                                 fontStyle: FontStyle.normal
@@ -1501,6 +1530,8 @@ class _NewPageState extends State<NewPage> {
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 20,
+                                                letterSpacing: 1.0,
+                                                height: 1.7,
                                                 fontWeight: FontWeight.w400,
                                                 fontStyle: FontStyle.normal
                                             ),),
@@ -1509,6 +1540,8 @@ class _NewPageState extends State<NewPage> {
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 15,
+                                                letterSpacing: 1.0,
+                                                height: 1.7,
                                                 // fontWeight: FontWeight.w600,
                                                 fontStyle: FontStyle.normal
                                             ),),
@@ -1518,8 +1551,8 @@ class _NewPageState extends State<NewPage> {
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 15,
-                                                letterSpacing: 1.5,
-                                                // fontWeight: FontWeight.w600,
+                                                letterSpacing: 1.0,
+                                                height: 1.7,                                                // fontWeight: FontWeight.w600,
                                                 fontStyle: FontStyle.normal
                                             ),),
                                             SizedBox(height: 20),
@@ -1528,8 +1561,8 @@ class _NewPageState extends State<NewPage> {
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 12,
-                                                letterSpacing: 1,
-
+                                                letterSpacing: 1.0,
+                                                height: 1.7,
                                                 // fontWeight: FontWeight.w600,
                                                 fontStyle: FontStyle.normal
                                             ),),
@@ -1591,6 +1624,8 @@ class _NewPageState extends State<NewPage> {
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 20,
+                                                letterSpacing: 1.0,
+                                                height: 1.7,
                                                 fontWeight: FontWeight.w400,
                                                 fontStyle: FontStyle.normal
                                             ),),
@@ -1599,6 +1634,8 @@ class _NewPageState extends State<NewPage> {
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 15,
+                                                letterSpacing: 1.0,
+                                                height: 1.7,
                                                 // fontWeight: FontWeight.w600,
                                                 fontStyle: FontStyle.normal
                                             ),),
@@ -1608,7 +1645,8 @@ class _NewPageState extends State<NewPage> {
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 15,
-                                                letterSpacing: 1.5,
+                                                letterSpacing: 1.0,
+                                                height: 1.7,
                                                 // fontWeight: FontWeight.w600,
                                                 fontStyle: FontStyle.normal
                                             ),),
@@ -1618,8 +1656,8 @@ class _NewPageState extends State<NewPage> {
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 12,
-                                                letterSpacing: 1,
-
+                                                letterSpacing: 1.0,
+                                                height: 1.7,
                                                 // fontWeight: FontWeight.w600,
                                                 fontStyle: FontStyle.normal
                                             ),),
@@ -1681,6 +1719,8 @@ class _NewPageState extends State<NewPage> {
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 20,
+                                                letterSpacing: 1.0,
+                                                height: 1.7,
                                                 fontWeight: FontWeight.w400,
                                                 fontStyle: FontStyle.normal
                                             ),),
@@ -1689,6 +1729,8 @@ class _NewPageState extends State<NewPage> {
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 15,
+                                                letterSpacing: 1.0,
+                                                height: 1.7,
                                                 // fontWeight: FontWeight.w600,
                                                 fontStyle: FontStyle.normal
                                             ),),
@@ -1698,7 +1740,8 @@ class _NewPageState extends State<NewPage> {
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 15,
-                                                letterSpacing: 1.5,
+                                                letterSpacing: 1.0,
+                                                height: 1.7,
                                                 // fontWeight: FontWeight.w600,
                                                 fontStyle: FontStyle.normal
                                             ),),
@@ -1708,8 +1751,8 @@ class _NewPageState extends State<NewPage> {
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 12,
-                                                letterSpacing: 1,
-
+                                                letterSpacing: 1.0,
+                                                height: 1.7,
                                                 // fontWeight: FontWeight.w600,
                                                 fontStyle: FontStyle.normal
                                             ),),
@@ -1772,6 +1815,8 @@ class _NewPageState extends State<NewPage> {
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 20,
+                                                letterSpacing: 1.0,
+                                                height: 1.7,
                                                 fontWeight: FontWeight.w400,
                                                 fontStyle: FontStyle.normal
                                             ),),
@@ -1780,6 +1825,8 @@ class _NewPageState extends State<NewPage> {
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 15,
+                                                letterSpacing: 1.0,
+                                                height: 1.7,
                                                 // fontWeight: FontWeight.w600,
                                                 fontStyle: FontStyle.normal
                                             ),),
@@ -1789,8 +1836,8 @@ class _NewPageState extends State<NewPage> {
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 15,
-                                                letterSpacing: 1.5,
-                                                // fontWeight: FontWeight.w600,
+                                                letterSpacing: 1.0,
+                                                height: 1.7,                                                // fontWeight: FontWeight.w600,
                                                 fontStyle: FontStyle.normal
                                             ),),
                                             SizedBox(height: 20),
@@ -1799,8 +1846,8 @@ class _NewPageState extends State<NewPage> {
                                                 color: AppTheme.primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 12,
-                                                letterSpacing: 1,
-
+                                                letterSpacing: 1.0,
+                                                height: 1.7,
                                                 // fontWeight: FontWeight.w600,
                                                 fontStyle: FontStyle.normal
                                             ),),
