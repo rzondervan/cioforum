@@ -42,6 +42,8 @@ dependencies:
   map: ^1.0.0
   latlng: any
   cached_network_image: ^3.0.0
+  expansion_tile_card: ^2.0.0
+
 
 
   url_launcher: ^6.0.20

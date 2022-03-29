@@ -1,9 +1,14 @@
 
 import 'package:ciofroum_web/Homepage.dart';
+import 'package:ciofroum_web/screen/Home.dart';
 import 'package:ciofroum_web/screen/contact.dart';
+import 'package:ciofroum_web/screen/cookies.dart';
+import 'package:ciofroum_web/screen/faq.dart';
 import 'package:ciofroum_web/screen/partner.dart';
 import 'package:ciofroum_web/screen/privacy.dart';
 import 'package:ciofroum_web/screen/reference.dart';
+import 'package:ciofroum_web/screen/sitemap.dart';
+import 'package:ciofroum_web/screen/termsandconditions.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'dart:html';
@@ -22,10 +27,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue
+        primarySwatch: Colors.grey
       ),
       themeMode: ThemeMode.light,
-      home: HomeScreen(),
+      home: HomeScreen()
 
     );
   }

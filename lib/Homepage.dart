@@ -3,6 +3,8 @@ import 'package:ciofroum_web/responsive.dart';
 import 'package:ciofroum_web/screen/Home.dart';
 import 'package:ciofroum_web/screen/about.dart';
 import 'package:ciofroum_web/screen/contact.dart';
+import 'package:ciofroum_web/screen/cookies.dart';
+import 'package:ciofroum_web/screen/faq.dart';
 import 'package:ciofroum_web/screen/founder.dart';
 import 'package:ciofroum_web/screen/mission.dart';
 import 'package:ciofroum_web/screen/news.dart';
@@ -10,6 +12,8 @@ import 'package:ciofroum_web/screen/partner.dart';
 import 'package:ciofroum_web/screen/privacy.dart';
 import 'package:ciofroum_web/screen/products.dart';
 import 'package:ciofroum_web/screen/reference.dart';
+import 'package:ciofroum_web/screen/sitemap.dart';
+import 'package:ciofroum_web/screen/termsandconditions.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -41,6 +45,10 @@ class _HomePageState extends State<HomeScreen>
   bool newsTab = false;
   bool aboutTab = false;
   bool contact = false;
+  bool termscondition = false;
+  bool cookies = false;
+  bool sitemap = false;
+  bool faq = false;
 
   bool homeTabSelected = true;
   bool productTabSelected = false;
@@ -391,6 +399,7 @@ class _HomePageState extends State<HomeScreen>
                               newsTab = false;
                               aboutTab = true;
                               contact = false;
+
                             });
                           },
                           child: MouseRegion(
@@ -539,8 +548,8 @@ class _HomePageState extends State<HomeScreen>
                                             ? Reference(
                                                 clickFooterCallback: this,
                                               )
-                                            : const IgnorePointer(),
-      ),
+                                            : termscondition?TermsandConditions(clickFooterCallback: this,):cookies?Cookies(clickFooterCallback: this,):sitemap?SiteMape(clickFooterCallback:this):faq?FAQ(clickFooterCallback: this,): IgnorePointer(),
+      )
     );
   }
 
@@ -561,7 +570,7 @@ class _HomePageState extends State<HomeScreen>
 
   @override
   void onPageOpen(
-      bool homeT, bool aboutT, bool newsT, bool productT, bool contactT) {
+      bool homeT, bool aboutT, bool newsT, bool productT, bool contactT,bool termsconditions1, bool cookies1, bool sitemap1, bool faq1 ) {
     print("gmfdvscx");
     setState(() {
       homeTab = homeT;
@@ -601,6 +610,86 @@ class _HomePageState extends State<HomeScreen>
         productTabSelected = false;
         newsTabSelected = false;
         aboutTabSelected = false;
+      }
+      termscondition=termsconditions1;
+      if(termscondition){
+        homeTabSelected = false;
+        productTabSelected = false;
+        newsTabSelected = false;
+        aboutTabSelected = false;
+         homeTab = false;
+         productTab = false;
+         newsTab = false;
+         aboutTab = false;
+         contact = false;
+         termscondition = true;
+         cookies = false;
+         sitemap = false;
+         faq = false;
+        aboutMission=false;
+        aboutMission1=false;
+        aboutMission2=false;
+        aboutMission3=false;
+      }
+      cookies=cookies1;
+      if(cookies){
+        homeTabSelected = false;
+        productTabSelected = false;
+        newsTabSelected = false;
+        aboutTabSelected = false;
+        homeTab = false;
+        productTab = false;
+        newsTab = false;
+        aboutTab = false;
+        contact = false;
+        termscondition = false;
+        cookies = true;
+        sitemap = false;
+        faq = false;
+        aboutMission=false;
+        aboutMission1=false;
+        aboutMission2=false;
+        aboutMission3=false;
+      }
+      sitemap=sitemap1;
+      if(sitemap){
+        homeTabSelected = false;
+        productTabSelected = false;
+        newsTabSelected = false;
+        aboutTabSelected = false;
+        homeTab = false;
+        productTab = false;
+        newsTab = false;
+        aboutTab = false;
+        contact = false;
+        termscondition = false;
+        cookies = false;
+        sitemap = true;
+        faq = false;
+        aboutMission=false;
+        aboutMission1=false;
+        aboutMission2=false;
+        aboutMission3=false;
+      }
+      faq=faq1;
+      if(faq){
+        homeTabSelected = false;
+        productTabSelected = false;
+        newsTabSelected = false;
+        aboutTabSelected = false;
+        homeTab = false;
+        productTab = false;
+        newsTab = false;
+        aboutTab = false;
+        contact = false;
+        termscondition = false;
+        cookies = false;
+        sitemap = false;
+        faq = true;
+        aboutMission=false;
+        aboutMission1=false;
+        aboutMission2=false;
+        aboutMission3=false;
       }
     });
   }
@@ -675,5 +764,5 @@ class ClickOpenCallback {
 
 class ClickFooterCallback {
   void onPageOpen(bool aboutMission, bool aboutMission1, bool aboutMission2,
-      bool aboutMission3, bool contact) {}
+      bool aboutMission3, bool contact, bool termsccondition ,bool cookies, bool sitemap,bool faq) {}
 }

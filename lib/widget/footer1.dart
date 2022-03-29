@@ -176,7 +176,7 @@ Widget Footer1(BuildContext context,ClickFooterCallback clickFooterCallback){
                       const SizedBox(height: 65),
                       InkWell(
                         onTap: (){
-                          clickFooterCallback.onPageOpen(true,false,false,false,false);
+                          clickFooterCallback.onPageOpen(true,false,false,false,false,false,false,false,false);
                         },
                         child: const Text(
                           "Home",
@@ -192,7 +192,7 @@ Widget Footer1(BuildContext context,ClickFooterCallback clickFooterCallback){
                       const SizedBox(height: 20),
                       InkWell(
                         onTap: (){
-                          clickFooterCallback.onPageOpen(false,false,false,true,false);
+                          clickFooterCallback.onPageOpen(false,false,false,true,false,false,false,false,false);
                         },
                         child: const Text(
                           "Products",
@@ -208,7 +208,7 @@ Widget Footer1(BuildContext context,ClickFooterCallback clickFooterCallback){
                       const SizedBox(height: 20),
                       InkWell(
                         onTap: (){
-                          clickFooterCallback.onPageOpen(false,false,true,false,false);
+                          clickFooterCallback.onPageOpen(false,false,true,false,false,false,false,false,false);
                         },
                         child: const Text(
                           "Blog",
@@ -224,7 +224,7 @@ Widget Footer1(BuildContext context,ClickFooterCallback clickFooterCallback){
                       const SizedBox(height: 20),
                       InkWell(
                         onTap: (){
-                          clickFooterCallback.onPageOpen(false,true,false,false,false);
+                          clickFooterCallback.onPageOpen(false,true,false,false,false,false,false,false,false);
                         },
                         child: const Text(
                           "About us",
@@ -240,7 +240,7 @@ Widget Footer1(BuildContext context,ClickFooterCallback clickFooterCallback){
                       const SizedBox(height: 20),
                       InkWell(
                         onTap: (){
-                          clickFooterCallback.onPageOpen(false,false,false,false,true);
+                          clickFooterCallback.onPageOpen(false,false,false,false,true,false,false,false,false);
                         },
                         child: const Text(
                           "Contact",
@@ -263,7 +263,7 @@ Widget Footer1(BuildContext context,ClickFooterCallback clickFooterCallback){
                   child: Column(
                     crossAxisAlignment:
                     CrossAxisAlignment.start,
-                    children: const [
+                    children:  [
                       Text(
                         "OTHERS LIKES",
                         style: TextStyle(
@@ -277,64 +277,83 @@ Widget Footer1(BuildContext context,ClickFooterCallback clickFooterCallback){
                               139, 190, 43, 1),
                         ),
                       ),
-                      SizedBox(height: 60),
-                      // Text(
-                      //   "Terms and Conditions",
-                      //   style: TextStyle(
-                      //     color: Color.fromRGBO(
-                      //         225, 225, 225, 1),
-                      //     fontWeight:
-                      //     FontWeight.w400,
-                      //     fontSize: 16,
-                      //     fontFamily: "Cairo",
-                      //     fontStyle:
-                      //     FontStyle.normal,
-                      //   ),
-                      // ),
-                      // SizedBox(height: 20),
-                      Text(
-                        "Cookies",
-                        style: TextStyle(
-                          color: Color.fromRGBO(
-                              225, 225, 225, 1),
-                          fontWeight:
-                          FontWeight.w400,
-                          fontSize: 16,
-                          fontFamily: "Cairo",
-                          fontStyle:
-                          FontStyle.normal,
+                      SizedBox(height: 65),
+                      InkWell(
+                        onTap: (){
+                          clickFooterCallback.onPageOpen(false,false,false,false,false,true,false,false,false);
+                        },
+                        child: Text(
+                          "Terms and Conditions",
+                          style: TextStyle(
+                            color: Color.fromRGBO(
+                                225, 225, 225, 1),
+                            fontWeight:
+                            FontWeight.w400,
+                            fontSize: 16,
+                            fontFamily: "Cairo",
+                            fontStyle:
+                            FontStyle.normal,
+                          ),
                         ),
                       ),
                       SizedBox(height: 20),
-                      Text(
-                        "Sitemap",
-                        style: TextStyle(
-                          color: Color.fromRGBO(
-                              225, 225, 225, 1),
-                          fontWeight:
-                          FontWeight.w400,
-                          fontSize: 16,
-                          fontFamily: "Cairo",
-                          fontStyle:
-                          FontStyle.normal,
+                      InkWell(
+                        onTap: (){
+                          clickFooterCallback.onPageOpen(false,false,false,false,false,false,true,false,false);
+                        },
+                        child: Text(
+                          "Cookies",
+                          style: TextStyle(
+                            color: Color.fromRGBO(
+                                225, 225, 225, 1),
+                            fontWeight:
+                            FontWeight.w400,
+                            fontSize: 16,
+                            fontFamily: "Cairo",
+                            fontStyle:
+                            FontStyle.normal,
+                          ),
                         ),
                       ),
                       SizedBox(height: 20),
-                      Text(
-                        "FAQ",
-                        style: TextStyle(
-                          color: Color.fromRGBO(
-                              225, 225, 225, 1),
-                          fontWeight:
-                          FontWeight.w400,
-                          fontSize: 16,
-                          fontFamily: "Cairo",
-                          fontStyle:
-                          FontStyle.normal,
+                      InkWell(
+                        onTap: (){
+                          clickFooterCallback.onPageOpen(false,false,false,false,false,false,false,true,false);
+                        },
+                        child: Text(
+                          "Sitemap",
+                          style: TextStyle(
+                            color: Color.fromRGBO(
+                                225, 225, 225, 1),
+                            fontWeight:
+                            FontWeight.w400,
+                            fontSize: 16,
+                            fontFamily: "Cairo",
+                            fontStyle:
+                            FontStyle.normal,
+                          ),
                         ),
                       ),
-                      // SizedBox(height: 40),
-                      SizedBox(height: 60),
+                      SizedBox(height: 20),
+                      InkWell(
+                        onTap: (){
+                          clickFooterCallback.onPageOpen(false,false,false,false,false,false,false,false,true);
+                        },
+                        child: Text(
+                          "FAQ",
+                          style: TextStyle(
+                            color: Color.fromRGBO(
+                                225, 225, 225, 1),
+                            fontWeight:
+                            FontWeight.w400,
+                            fontSize: 16,
+                            fontFamily: "Cairo",
+                            fontStyle:
+                            FontStyle.normal,
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 40),
                     ],
                   ),
                 ),

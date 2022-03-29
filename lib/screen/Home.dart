@@ -1367,7 +1367,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         const SizedBox(height: 20),
-                        Footer1(context,widget.clickFooterCallback)
+                        Footer1(context,widget.clickFooterCallback,)
                       ],
                     ),
                   ),
