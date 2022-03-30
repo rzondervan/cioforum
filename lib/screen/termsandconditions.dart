@@ -5,6 +5,7 @@ import 'package:ciofroum_web/widget/appbar.dart';
 import 'package:ciofroum_web/widget/drawer.dart';
 import 'package:ciofroum_web/widget/footer1.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 
 class TermsandConditions extends StatefulWidget {
@@ -796,22 +797,32 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                             ),
                           ),
                           SizedBox(height: 20),
-                          Container(
-                            height: height*0.06,
-                            width: width*0.15,
-                            decoration: BoxDecoration(
-                              color: AppTheme(context).primaryGreenColor,
-                              borderRadius: BorderRadius.circular(10),
+                          InkWell(
+                            onTap: ()async{
+                              final url="https://cioforum.nl/cioforum/over-ons/partners/";
+                              if(await canLaunch(url)){
+                                await launch(url);
+                              }else {
+                                throw 'Could not launch $url';
+                              }
+                            },
+                            child: Container(
+                              height: height*0.06,
+                              width: width*0.15,
+                              decoration: BoxDecoration(
+                                color: AppTheme(context).primaryGreenColor,
+                                borderRadius: BorderRadius.circular(10),
 
-                            ),
-                            child: Center(
-                              child: Text("Download",style: TextStyle(
-                                  color: AppTheme(context).WhiteColor,
-                                  fontFamily: "Cairo",
-                                  fontSize: Responsive.isDesktop(context) ?19:14,
-                                  fontWeight: FontWeight.w700,
-                                  fontStyle: FontStyle.normal
-                              ),),
+                              ),
+                              child: Center(
+                                child: Text("Download",style: TextStyle(
+                                    color: AppTheme(context).WhiteColor,
+                                    fontFamily: "Cairo",
+                                    fontSize: Responsive.isDesktop(context) ?19:14,
+                                    fontWeight: FontWeight.w700,
+                                    fontStyle: FontStyle.normal
+                                ),),
+                              ),
                             ),
                           )
                         ],
