@@ -106,6 +106,10 @@ class _PrivacyState extends State<Privacy> {
                     onTap: () => controller.previousPage(
                         duration: const Duration(milliseconds: 300),
                         curve: Curves.linear),
+
+
+
+                    
                     child: Container(
                       height: 40,
                       width: 40,
