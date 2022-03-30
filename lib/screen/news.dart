@@ -2,17 +2,19 @@ import 'package:ciofroum_web/Homepage.dart';
 import 'package:ciofroum_web/constants/themes.dart';
 import 'package:ciofroum_web/responsive.dart';
 import 'package:ciofroum_web/thememode/provider.dart';
+import 'package:ciofroum_web/widget/appbar.dart';
+import 'package:ciofroum_web/widget/drawer.dart';
 import 'package:ciofroum_web/widget/footer1.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class NewPage extends StatefulWidget {
-  NewPage({required this.clickFooterCallback,required this.clickviewmore,required this.sitemapClick});
-
-  ClickFooterCallback clickFooterCallback;
-  Homeviewmore clickviewmore;
-  SitemapClick sitemapClick;
+  // NewPage({required this.clickFooterCallback,required this.clickviewmore,required this.sitemapClick});
+  //
+  // ClickFooterCallback clickFooterCallback;
+  // Homeviewmore clickviewmore;
+  // SitemapClick sitemapClick;
   @override
   State<NewPage> createState() => _NewPageState();
 }
@@ -24,6 +26,10 @@ class _NewPageState extends State<NewPage> {
   String dropdownvalue4 = '2019(1)';
   TextEditingController searchController=TextEditingController();
   ScrollController scrollController=ScrollController();
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  GlobalKey menuKey = GlobalKey();
+
+
 
 
   var items = [
@@ -51,6 +57,10 @@ class _NewPageState extends State<NewPage> {
 
     return SafeArea(
       child: Scaffold(
+          key:_scaffoldKey,
+          endDrawer: Responsive.isMobile(context)
+              ? SideDrawer(context:context,homeTabSelected:false,productTabSelected:false,newsTabSelected:true,aboutTabSelected:false,contact:false,menuKey: menuKey): null,
+          appBar:appbar(context,false,false,true,false,false,_scaffoldKey,menuKey),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -1924,7 +1934,7 @@ class _NewPageState extends State<NewPage> {
                   ),
                 ),
               ),
-              Footer1(context,widget.clickFooterCallback)
+              Footer1(context)
 
 
             ],

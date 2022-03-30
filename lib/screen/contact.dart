@@ -4,6 +4,8 @@ import 'package:ciofroum_web/Homepage.dart';
 import 'package:ciofroum_web/constants/themes.dart';
 import 'package:ciofroum_web/footer_view.dart';
 import 'package:ciofroum_web/responsive.dart';
+import 'package:ciofroum_web/widget/appbar.dart';
+import 'package:ciofroum_web/widget/drawer.dart';
 import 'package:ciofroum_web/widget/footer1.dart';
 import 'package:ciofroum_web/widget/google_map.dart';
 import 'package:flutter/material.dart';
@@ -11,10 +13,10 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Contact extends StatefulWidget {
-  Contact({required this.clickFooterCallback,required this.sitemapClick});
-
-  ClickFooterCallback clickFooterCallback;
-  SitemapClick sitemapClick;
+  // Contact({required this.clickFooterCallback,required this.sitemapClick});
+  //
+  // ClickFooterCallback clickFooterCallback;
+  // SitemapClick sitemapClick;
   @override
   State<Contact> createState() => _ContactState();
 }
@@ -32,12 +34,20 @@ class _ContactState extends State<Contact> {
   _launchEmail() async{
     launch(" mailto:rzondervan@cioforum.nl.org");
   }
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  GlobalKey menuKey = GlobalKey();
+
+
   @override
   Widget build(BuildContext context) {
     final height=MediaQuery.of(context).size.height;
     final width=MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
+        key: _scaffoldKey,
+        endDrawer: Responsive.isMobile(context)
+            ? SideDrawer(context:context,homeTabSelected:false,productTabSelected:false,newsTabSelected:false,aboutTabSelected:false,contact:false,menuKey: menuKey): null,
+        appBar:appbar(context,false,false,false,false,false,_scaffoldKey,menuKey),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -195,7 +205,8 @@ class _ContactState extends State<Contact> {
                 ),
               ),
               SizedBox(height: 20),
-              Footer1(context,widget.clickFooterCallback)
+              // Footer1(context,widget.clickFooterCallback)
+              Footer1(context)
 
 
             ],

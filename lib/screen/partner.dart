@@ -3,6 +3,8 @@ import 'package:ciofroum_web/constants/themes.dart';
 import 'package:ciofroum_web/footer_view.dart';
 import 'package:ciofroum_web/responsive.dart';
 import 'package:ciofroum_web/thememode/provider.dart';
+import 'package:ciofroum_web/widget/appbar.dart';
+import 'package:ciofroum_web/widget/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -10,13 +12,14 @@ import '../widget/footer1.dart';
 
 
 class Partner extends StatefulWidget {
-  Partner({required this.clickFooterCallback,required this.sitemapClick});
-
-  ClickFooterCallback clickFooterCallback;
-  SitemapClick sitemapClick;
+  // Partner({required this.clickFooterCallback,required this.sitemapClick});
+  //
+  // ClickFooterCallback clickFooterCallback;
+  // SitemapClick sitemapClick;
   @override
   State<Partner> createState() => _PartnerState();
 }
+final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
 class _PartnerState extends State<Partner> {
   @override
@@ -24,9 +27,16 @@ class _PartnerState extends State<Partner> {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     final themeChange = Provider.of<DarkThemeProvider>(context);
+    GlobalKey menuKey = GlobalKey();
+
+
 
     return SafeArea(
       child: Scaffold(
+          key: _scaffoldKey,
+          endDrawer: Responsive.isMobile(context)
+              ? SideDrawer(context:context,homeTabSelected:false,productTabSelected:false,newsTabSelected:false,aboutTabSelected:false,contact:false,menuKey: menuKey): null,
+          appBar:appbar(context,false,false,false,false,false,_scaffoldKey,menuKey),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -786,7 +796,7 @@ class _PartnerState extends State<Partner> {
                   ],
                 ),
               ),
-              Footer1(context,widget.clickFooterCallback)
+              Footer1(context)
             ],
           ),
         )

@@ -1,8 +1,13 @@
 import 'package:ciofroum_web/Homepage.dart';
 import 'package:ciofroum_web/constants/themes.dart';
 import 'package:ciofroum_web/responsive.dart';
+import 'package:ciofroum_web/screen/founder.dart';
 import 'package:ciofroum_web/screen/mission.dart';
+import 'package:ciofroum_web/screen/partner.dart';
+import 'package:ciofroum_web/screen/reference.dart';
 import 'package:ciofroum_web/thememode/provider.dart';
+import 'package:ciofroum_web/widget/appbar.dart';
+import 'package:ciofroum_web/widget/drawer.dart';
 import 'package:ciofroum_web/widget/footer1.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -10,12 +15,12 @@ import 'package:provider/provider.dart';
 class About extends StatefulWidget {
 
 
-  ClickFooterCallback clickFooterCallback;
-  SitemapClick sitemapClick;
+  // ClickFooterCallback clickFooterCallback;
+  // SitemapClick sitemapClick;
   // HoverInterface hoverInterface;
 
-  ClickOpenCallback callback;
-  About({required this.callback,required this.clickFooterCallback,required this.sitemapClick});
+  // ClickOpenCallback callback;
+  // About({required this.callback,required this.clickFooterCallback,required this.sitemapClick});
 
   @override
   _AboutState createState() => _AboutState();
@@ -36,6 +41,10 @@ class _AboutState extends State<About> {
   //   super.initState();
   //   widget.hoverInterface =this;
   // }
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  GlobalKey menuKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -44,6 +53,10 @@ class _AboutState extends State<About> {
 
     return SafeArea(
       child: Scaffold(
+        key: _scaffoldKey,
+        endDrawer: Responsive.isMobile(context)
+            ? SideDrawer(context:context,homeTabSelected:false,productTabSelected:false,newsTabSelected:false,aboutTabSelected:true,contact:false,menuKey: menuKey,): null,
+        appBar:appbar(context,false,false,false,true,false,_scaffoldKey,menuKey),
         body: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -65,106 +78,123 @@ class _AboutState extends State<About> {
                             // fontWeight: FontWeight.w600,
                             fontStyle: FontStyle.normal),
                       ),
-                      const SizedBox(width: 40),
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 20),
-                        child: Container(
-                          width: 120,
-                          color: AppTheme(context).primaryGreenColor,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              InkWell(
-                                onTap: () {
-                                  setState(() {
-                                    widget.callback.onPageOpne(true,false,false,false);
-                                  });
-                                },
-                                child: Padding(
-                                  padding: const EdgeInsets.only(left: 5),
-                                  child: Text(
-                                    "Our Mission",
-                                    style: TextStyle(
-                                        color: Color.fromRGBO(225, 225, 225, 1),
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                        fontStyle: FontStyle.normal,
-                                        fontFamily: "Cairo"),
-                                  ),
-                                ),
-                              ),
-                              const Divider(
-                                color:
-                                    const Color.fromRGBO(225, 225, 225, 0.29),
-                              ),
-                              InkWell(
-                                onTap: () {
-                                  setState(() {
-                                    widget.callback.onPageOpne(false,true,false,false);
-                                  });
-                                },
-                                child: Padding(
-                                  padding: const EdgeInsets.only(left: 5),
-                                  child: Text(
-                                    "Founder",
-                                    style: TextStyle(
-                                        color: Color.fromRGBO(225, 225, 225, 1),
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                        fontStyle: FontStyle.normal,
-                                        fontFamily: "Cairo"),
-                                  ),
-                                ),
-                              ),
-                              const Divider(
-                                color: Color.fromRGBO(225, 225, 225, 0.29),
-                              ),
-                              InkWell(
-                                onTap: () {
-                                  setState(() {
-                                    widget.callback.onPageOpne(false,false,true,false);
-                                  });
-                                },
-                                child: Padding(
-                                  padding: const EdgeInsets.only(left: 5),
-                                  child: Text(
-                                    "Partner",
-                                    style: TextStyle(
-                                        color: Color.fromRGBO(225, 225, 225, 1),
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                        fontStyle: FontStyle.normal,
-                                        fontFamily: "Cairo"),
-                                  ),
-                                ),
-                              ),
-                              const Divider(
-                                color: Color.fromRGBO(225, 225, 225, 0.29),
-                              ),
-                              InkWell(
-                                onTap: () {
-                                  setState(() {
-                                    widget.callback.onPageOpne(false,false,false,true);
-                                  });
-                                },
-                                child: Padding(
-                                  padding: const EdgeInsets.only(left: 5),
-                                  child: Text(
-                                    "Reference",
-                                    style: TextStyle(
-                                        color: Color.fromRGBO(225, 225, 225, 1),
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                        fontStyle: FontStyle.normal,
-                                        fontFamily: "Cairo"),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      )
+                      // const SizedBox(width: 40),
+                      // Padding(
+                      //   padding: const EdgeInsets.only(bottom: 20),
+                      //   child: Container(
+                      //     width: 120,
+                      //     color: AppTheme(context).primaryGreenColor,
+                      //     child: Column(
+                      //       crossAxisAlignment: CrossAxisAlignment.start,
+                      //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      //       children: [
+                      //         InkWell(
+                      //           onTap: () {
+                      //             // Navigator.push(context,MaterialPageRoute(builder: (context)=>Mission()));
+                      //             Navigator.pushNamed(context,"/mission");
+                      //
+                      //
+                      //             // setState(() {
+                      //             //   widget.callback.onPageOpne(true,false,false,false);
+                      //             // });
+                      //           },
+                      //           child: Padding(
+                      //             padding: const EdgeInsets.only(left: 5),
+                      //             child: Text(
+                      //               "Our Mission",
+                      //               style: TextStyle(
+                      //                   color: Color.fromRGBO(225, 225, 225, 1),
+                      //                   fontSize: 16,
+                      //                   fontWeight: FontWeight.w500,
+                      //                   fontStyle: FontStyle.normal,
+                      //                   fontFamily: "Cairo"
+                      //               ),
+                      //             ),
+                      //           ),
+                      //         ),
+                      //         const Divider(
+                      //           color:
+                      //               const Color.fromRGBO(225, 225, 225, 0.29),
+                      //         ),
+                      //         InkWell(
+                      //           onTap: () {
+                      //             // Navigator.push(context,MaterialPageRoute(builder: (context)=>Founder()));
+                      //             Navigator.pushNamed(context,"/founder");
+                      //
+                      //
+                      //             // setState(() {
+                      //             //   widget.callback.onPageOpne(false,true,false,false);
+                      //             // });
+                      //           },
+                      //           child: Padding(
+                      //             padding: const EdgeInsets.only(left: 5),
+                      //             child: Text(
+                      //               "Founder",
+                      //               style: TextStyle(
+                      //                   color: Color.fromRGBO(225, 225, 225, 1),
+                      //                   fontSize: 16,
+                      //                   fontWeight: FontWeight.w500,
+                      //                   fontStyle: FontStyle.normal,
+                      //                   fontFamily: "Cairo"),
+                      //             ),
+                      //           ),
+                      //         ),
+                      //         const Divider(
+                      //           color: Color.fromRGBO(225, 225, 225, 0.29),
+                      //         ),
+                      //         InkWell(
+                      //           onTap: () {
+                      //             // Navigator.push(context,MaterialPageRoute(builder: (context)=>Partner()));
+                      //             Navigator.pushNamed(context,"/partner");
+                      //
+                      //
+                      //             // setState(() {
+                      //             //   widget.callback.onPageOpne(false,false,true,false);
+                      //             // });
+                      //           },
+                      //           child: Padding(
+                      //             padding: const EdgeInsets.only(left: 5),
+                      //             child: Text(
+                      //               "Partner",
+                      //               style: TextStyle(
+                      //                   color: Color.fromRGBO(225, 225, 225, 1),
+                      //                   fontSize: 16,
+                      //                   fontWeight: FontWeight.w500,
+                      //                   fontStyle: FontStyle.normal,
+                      //                   fontFamily: "Cairo"),
+                      //             ),
+                      //           ),
+                      //         ),
+                      //         const Divider(
+                      //           color: Color.fromRGBO(225, 225, 225, 0.29),
+                      //         ),
+                      //         InkWell(
+                      //           onTap: () {
+                      //             // Navigator.push(context,MaterialPageRoute(builder: (context)=>Reference()));
+                      //             Navigator.pushNamed(context,"/reference");
+                      //
+                      //
+                      //             // setState(() {
+                      //             //   widget.callback.onPageOpne(false,false,false,true);
+                      //             // });
+                      //           },
+                      //           child: Padding(
+                      //             padding: const EdgeInsets.only(left: 5),
+                      //             child: Text(
+                      //               "Reference",
+                      //               style: TextStyle(
+                      //                   color: Color.fromRGBO(225, 225, 225, 1),
+                      //                   fontSize: 16,
+                      //                   fontWeight: FontWeight.w500,
+                      //                   fontStyle: FontStyle.normal,
+                      //                   fontFamily: "Cairo"),
+                      //             ),
+                      //           ),
+                      //         ),
+                      //       ],
+                      //     ),
+                      //   ),
+                      // )
                     ],
                   ),
                 ),
@@ -1034,7 +1064,7 @@ class _AboutState extends State<About> {
                   ],
                 ),
               ),
-              Footer1(context,widget.clickFooterCallback)
+              Footer1(context)
             ],
           ),
         ),

@@ -3,6 +3,8 @@ import 'package:ciofroum_web/Homepage.dart';
 import 'package:ciofroum_web/constants/themes.dart';
 import 'package:ciofroum_web/responsive.dart';
 import 'package:ciofroum_web/thememode/provider.dart';
+import 'package:ciofroum_web/widget/appbar.dart';
+import 'package:ciofroum_web/widget/drawer.dart';
 import 'package:ciofroum_web/widget/footer1.dart';
 import 'package:ciofroum_web/widget/productcarousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -10,15 +12,17 @@ import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Privacy extends StatefulWidget {
-  Privacy({required this.clickFooterCallback});
-
-  ClickFooterCallback clickFooterCallback;
+  // Privacy({required this.clickFooterCallback});
+  //
+  // ClickFooterCallback clickFooterCallback;
   @override
   State<Privacy> createState() => _PrivacyState();
 }
 
 class _PrivacyState extends State<Privacy> {
   int currentPos = 0;
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   final CarouselController _controller = CarouselController();
   PageController controller = PageController(
     // initialPage: 0,
@@ -37,9 +41,15 @@ class _PrivacyState extends State<Privacy> {
     final height=MediaQuery.of(context).size.height;
     final width=MediaQuery.of(context).size.width;
     final themeChange = Provider.of<DarkThemeProvider>(context);
+    GlobalKey menuKey = GlobalKey();
+
 
     return SafeArea(
       child: Scaffold(
+        key: _scaffoldKey,
+        endDrawer: Responsive.isMobile(context)
+            ? SideDrawer(context:context,homeTabSelected:false,productTabSelected:false,newsTabSelected:false,aboutTabSelected:false,contact:false,menuKey: menuKey): null,
+        appBar:appbar(context,false,false,false,false,false,_scaffoldKey,menuKey),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -109,7 +119,7 @@ class _PrivacyState extends State<Privacy> {
 
 
 
-                    
+
                     child: Container(
                       height: 40,
                       width: 40,
@@ -279,7 +289,7 @@ class _PrivacyState extends State<Privacy> {
                   ],
                 ),
               ),
-              Footer1(context,widget.clickFooterCallback)
+              Footer1(context)
 
             ],
           ),
@@ -307,7 +317,7 @@ class _PrivacyState extends State<Privacy> {
                 fontFamily: "Cairo",
                 fontStyle: FontStyle.normal,
               ),),
-              SizedBox(height: 20),
+              SizedBox(height: 10),
               Text("Auteur: Robert Zondervan, CIOforum",style: TextStyle(
                 color:AppTheme(context).primaryBlueColor,
                 fontSize:Responsive.isDesktop(context)?19:14,
@@ -331,7 +341,7 @@ class _PrivacyState extends State<Privacy> {
                 fontFamily: "Cairo",
                 fontStyle: FontStyle.normal,
               ),),
-              SizedBox(height: 20),
+              SizedBox(height: 10),
               Text("€21.40",style: TextStyle(
                 color:AppTheme(context).primaryBlueColor,
                 fontSize:Responsive.isDesktop(context)?24:16,
@@ -339,7 +349,7 @@ class _PrivacyState extends State<Privacy> {
                 fontFamily: "Cairo",
                 fontStyle: FontStyle.normal,
               ),),
-              SizedBox(height: 20),
+              SizedBox(height: 10),
               InkWell(
                 hoverColor: Colors.transparent,
 

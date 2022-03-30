@@ -2,7 +2,11 @@ import 'package:ciofroum_web/Homepage.dart';
 import 'package:ciofroum_web/constants/themes.dart';
 import 'package:ciofroum_web/footer_view.dart';
 import 'package:ciofroum_web/responsive.dart';
+import 'package:ciofroum_web/screen/news.dart';
+import 'package:ciofroum_web/screen/products.dart';
 import 'package:ciofroum_web/thememode/provider.dart';
+import 'package:ciofroum_web/widget/appbar.dart';
+import 'package:ciofroum_web/widget/drawer.dart';
 import 'package:ciofroum_web/widget/footer1.dart';
 import 'package:flutter/material.dart';
 import 'package:footer/footer.dart';
@@ -10,11 +14,11 @@ import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({required this.clickFooterCallback,required this.clickexplore,required this.viewmore});
-
-  ClickFooterCallback clickFooterCallback;
-  HomeExplorepage clickexplore;
-  Homeviewmore viewmore;
+  // HomePage({required this.clickFooterCallback,required this.clickexplore,required this.viewmore});
+  //
+  // ClickFooterCallback? clickFooterCallback;
+  // HomeExplorepage? clickexplore;
+  // Homeviewmore? viewmore;
 
 
   @override
@@ -24,8 +28,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   // Footer footer=Footer();
   bool isSwitched = false;
-  GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   bool ontab = true;
+
+
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  GlobalKey menuKey = GlobalKey();
 
 
 
@@ -38,6 +45,10 @@ class _HomePageState extends State<HomePage> {
 
     return SafeArea(
       child: Scaffold(
+        endDrawer: Responsive.isMobile(context)
+            ? SideDrawer(context:context,homeTabSelected:true,productTabSelected:false,newsTabSelected:false,aboutTabSelected:false,contact:false,menuKey: menuKey)
+            : null,
+        appBar:appbar(context,true,false,false,false,false,_scaffoldKey,menuKey),
         key: _scaffoldKey,
         body: SingleChildScrollView(
           child: Stack(
@@ -120,7 +131,9 @@ class _HomePageState extends State<HomePage> {
                                           : 30),
                                   InkWell(
                                     onTap: (){
-                                      widget.clickexplore.onpageExplore(true);
+                                      Navigator.push(context,MaterialPageRoute(builder: (context)=>Product()));
+
+                                      // widget.clickexplore.onpageExplore(true);
                                     },
                                     child: Container(
                                         height: Responsive.isDesktop(context)
@@ -1360,7 +1373,9 @@ class _HomePageState extends State<HomePage> {
                         InkWell(
                           hoverColor: Colors.transparent,
                           onTap:(){
-                            widget.viewmore.onpageview(true);
+                            Navigator.push(context,MaterialPageRoute(builder: (context)=>NewPage()));
+
+                            // widget.viewmore.onpageview(true);
 
                           },
                           child: Center(
@@ -1384,7 +1399,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         const SizedBox(height: 20),
-                        Footer1(context,widget.clickFooterCallback,)
+                        Footer1(context)
                       ],
                     ),
                   ),
@@ -1462,4 +1477,5 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+
 }

@@ -1,11 +1,16 @@
 
 import 'package:ciofroum_web/Homepage.dart';
 import 'package:ciofroum_web/screen/Home.dart';
+import 'package:ciofroum_web/screen/about.dart';
 import 'package:ciofroum_web/screen/contact.dart';
 import 'package:ciofroum_web/screen/cookies.dart';
 import 'package:ciofroum_web/screen/faq.dart';
+import 'package:ciofroum_web/screen/founder.dart';
+import 'package:ciofroum_web/screen/mission.dart';
+import 'package:ciofroum_web/screen/news.dart';
 import 'package:ciofroum_web/screen/partner.dart';
 import 'package:ciofroum_web/screen/privacy.dart';
+import 'package:ciofroum_web/screen/products.dart';
 import 'package:ciofroum_web/screen/reference.dart';
 import 'package:ciofroum_web/screen/sitemap.dart';
 import 'package:ciofroum_web/screen/termsandconditions.dart';
@@ -54,9 +59,23 @@ class _MyAppState extends State<MyApp> {
           builder: (BuildContext context, value, Widget? child) {
             return MaterialApp(
               debugShowCheckedModeBanner: false,
-
+              routes: {
+                '/home':(context)=> HomePage(),
+                '/products':(context)=> Product(),
+                '/news':(context)=> NewPage(),
+                '/about':(context)=> About(),
+                '/contact':(context)=> Contact(),
+                '/mission':(context)=> Mission(),
+                '/founder':(context)=> Founder(),
+                '/partner':(context)=> Partner(),
+                '/reference':(context)=> Reference(),
+                '/terms&conditions':(context)=> TermsandConditions(),
+                '/cookies':(context)=> Cookies(),
+                '/sitemap':(context)=> SiteMape(),
+                '/faq':(context)=> FAQ(),
+              },
               theme: Styles.themeData(themeChangeProvider.darkTheme, context),
-              home: HomeScreen(),
+              home: HomePage(),
 
             );
           },

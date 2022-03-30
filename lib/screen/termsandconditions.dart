@@ -1,20 +1,26 @@
 import 'package:ciofroum_web/Homepage.dart';
 import 'package:ciofroum_web/constants/themes.dart';
 import 'package:ciofroum_web/responsive.dart';
+import 'package:ciofroum_web/widget/appbar.dart';
+import 'package:ciofroum_web/widget/drawer.dart';
 import 'package:ciofroum_web/widget/footer1.dart';
 import 'package:flutter/material.dart';
 
 
 class TermsandConditions extends StatefulWidget {
-   TermsandConditions({Key? key,required this.clickFooterCallback,required this.sitemapClick }) : super(key: key);
-   ClickFooterCallback clickFooterCallback;
-   SitemapClick sitemapClick;
+   // TermsandConditions({Key? key,required this.clickFooterCallback,required this.sitemapClick }) : super(key: key);
+   // ClickFooterCallback clickFooterCallback;
+   // SitemapClick sitemapClick;
+
 
 
 
    @override
   State<TermsandConditions> createState() => _TermsandConditionsState();
 }
+final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+GlobalKey menuKey = GlobalKey();
+
 
 class _TermsandConditionsState extends State<TermsandConditions> {
   @override
@@ -22,6 +28,10 @@ class _TermsandConditionsState extends State<TermsandConditions> {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
+      key: _scaffoldKey,
+      endDrawer: Responsive.isMobile(context)
+          ? SideDrawer(context:context,homeTabSelected:false,productTabSelected:false,newsTabSelected:false,aboutTabSelected:false,contact:false,menuKey: menuKey): null,
+      appBar:appbar(context,false,false,false,false,false,_scaffoldKey,menuKey),
       body:  SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -815,7 +825,7 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                 ],
               ),
             ),
-            Footer1(context,widget.clickFooterCallback)
+            Footer1(context)
 
 
 

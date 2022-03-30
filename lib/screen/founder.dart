@@ -2,6 +2,8 @@ import 'package:ciofroum_web/Homepage.dart';
 import 'package:ciofroum_web/constants/themes.dart';
 import 'package:ciofroum_web/responsive.dart';
 import 'package:ciofroum_web/thememode/provider.dart';
+import 'package:ciofroum_web/widget/appbar.dart';
+import 'package:ciofroum_web/widget/drawer.dart';
 import 'package:ciofroum_web/widget/footer1.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -10,10 +12,13 @@ import 'package:url_launcher/url_launcher.dart';
 class Founder extends StatelessWidget {
 
 
-  ClickFooterCallback clickFooterCallback;
-  SitemapClick sitemapClick;
+  // ClickFooterCallback clickFooterCallback;
+  // SitemapClick sitemapClick;
+  //
+  // Founder({required this.clickFooterCallback,required  this.sitemapClick});
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  GlobalKey menuKey = GlobalKey();
 
-  Founder({required this.clickFooterCallback,required  this.sitemapClick});
 
 
   @override
@@ -23,6 +28,10 @@ class Founder extends StatelessWidget {
     final themeChange = Provider.of<DarkThemeProvider>(context);
 
     return Scaffold(
+      key: _scaffoldKey,
+      endDrawer: Responsive.isMobile(context)
+          ? SideDrawer(context:context,homeTabSelected:false,productTabSelected:false,newsTabSelected:false,aboutTabSelected:false,contact:false,menuKey: menuKey): null,
+      appBar:appbar(context,false,false,false,false,false,_scaffoldKey,menuKey),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -408,7 +417,7 @@ class Founder extends StatelessWidget {
 
               ],
             ),
-            Footer1(context,clickFooterCallback)
+            Footer1(context)
 
           ],
         ),

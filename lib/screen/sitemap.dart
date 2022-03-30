@@ -1,18 +1,35 @@
 import 'package:ciofroum_web/Homepage.dart';
 import 'package:ciofroum_web/constants/themes.dart';
 import 'package:ciofroum_web/responsive.dart';
+import 'package:ciofroum_web/screen/about.dart';
+import 'package:ciofroum_web/screen/contact.dart';
+import 'package:ciofroum_web/screen/cookies.dart';
+import 'package:ciofroum_web/screen/faq.dart';
+import 'package:ciofroum_web/screen/founder.dart';
+import 'package:ciofroum_web/screen/mission.dart';
+import 'package:ciofroum_web/screen/news.dart';
+import 'package:ciofroum_web/screen/partner.dart';
+import 'package:ciofroum_web/screen/products.dart';
+import 'package:ciofroum_web/screen/reference.dart';
+import 'package:ciofroum_web/screen/termsandconditions.dart';
+import 'package:ciofroum_web/widget/appbar.dart';
+import 'package:ciofroum_web/widget/drawer.dart';
 import 'package:ciofroum_web/widget/footer1.dart';
 import 'package:flutter/material.dart';
 
 class SiteMape extends StatefulWidget {
-   SiteMape({Key? key, required this.clickFooterCallback,required this.sitemapClick}) : super(key: key);
-  ClickFooterCallback clickFooterCallback;
-   SitemapClick sitemapClick;
+  //  SiteMape({Key? key, required this.clickFooterCallback,required this.sitemapClick}) : super(key: key);
+  // ClickFooterCallback clickFooterCallback;
+  //  SitemapClick sitemapClick;
 
 
   @override
   State<SiteMape> createState() => _SiteMapeState();
 }
+final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+GlobalKey menuKey = GlobalKey();
+
+
 
 class _SiteMapeState extends State<SiteMape> {
   @override
@@ -20,6 +37,10 @@ class _SiteMapeState extends State<SiteMape> {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
+      key: _scaffoldKey,
+      endDrawer: Responsive.isMobile(context)
+          ? SideDrawer(context:context,homeTabSelected:false,productTabSelected:false,newsTabSelected:false,aboutTabSelected:false,contact:false,menuKey: menuKey): null,
+      appBar:appbar(context,false,false,false,false,false,_scaffoldKey,menuKey),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -80,7 +101,11 @@ class _SiteMapeState extends State<SiteMape> {
                           InkWell(
                             hoverColor: Colors.transparent,
                             onTap:(){
-                           widget.sitemapClick.onsitepage(false,false,true,false,false,false,false,false,false,false,false,false);
+                              // Navigator.push(context,MaterialPageRoute(builder: (context)=>About()));
+                              Navigator.pushNamed(context,"/about");
+
+
+                              // widget.sitemapClick.onsitepage(false,false,true,false,false,false,false,false,false,false,false,false);
                            },
                             child: Text(
                               "About",
@@ -98,7 +123,11 @@ class _SiteMapeState extends State<SiteMape> {
                           InkWell(
                             hoverColor: Colors.transparent,
                             onTap:(){
-                              widget.sitemapClick.onsitepage(true,false,false,false,false,false,false,false,false,false,false,false);
+                              // Navigator.push(context,MaterialPageRoute(builder: (context)=>Product()));
+                              Navigator.pushNamed(context,"/products");
+
+
+                              // widget.sitemapClick.onsitepage(true,false,false,false,false,false,false,false,false,false,false,false);
                             },
                             child: Text(
                               "Products",
@@ -116,10 +145,14 @@ class _SiteMapeState extends State<SiteMape> {
                           InkWell(
                             hoverColor: Colors.transparent,
                             onTap:(){
-                              widget.sitemapClick.onsitepage(false,true,false,false,false,false,false,false,false,false,false,false);
+                              // Navigator.push(context,MaterialPageRoute(builder: (context)=>NewPage()));
+                              Navigator.pushNamed(context,"/news");
+
+
+                              // widget.sitemapClick.onsitepage(false,true,false,false,false,false,false,false,false,false,false,false);
                             },
                             child: Text(
-                              "Blog",
+                              "News",
                               style: TextStyle(
                                   color: AppTheme(context).primaryBlueColor,
                                   fontFamily: "Cairo",
@@ -134,7 +167,11 @@ class _SiteMapeState extends State<SiteMape> {
                           InkWell(
                             hoverColor: Colors.transparent,
                             onTap:(){
-                              widget.sitemapClick.onsitepage(false,false,false,true,false,false,false,false,false,false,false,false);
+                              // Navigator.push(context,MaterialPageRoute(builder: (context)=>Contact()));
+                              Navigator.pushNamed(context,"/contact");
+
+
+                              // widget.sitemapClick.onsitepage(false,false,false,true,false,false,false,false,false,false,false,false);
                             },
                             child: Text(
                               "Contact",
@@ -161,7 +198,11 @@ class _SiteMapeState extends State<SiteMape> {
                           InkWell(
                             hoverColor: Colors.transparent,
                             onTap:(){
-                              widget.sitemapClick.onsitepage(false,false,false,false,true,false,false,false,false,false,false,false);
+                              // Navigator.push(context,MaterialPageRoute(builder: (context)=>Mission()));
+                              Navigator.pushNamed(context,"/mission");
+
+
+                              // widget.sitemapClick.onsitepage(false,false,false,false,true,false,false,false,false,false,false,false);
                             },
                             child: Text(
                               "Mission",
@@ -179,7 +220,11 @@ class _SiteMapeState extends State<SiteMape> {
                           InkWell(
                             hoverColor: Colors.transparent,
                             onTap:(){
-                              widget.sitemapClick.onsitepage(false,false,false,false,false,true,false,false,false,false,false,false);
+                              // Navigator.push(context,MaterialPageRoute(builder: (context)=>Founder()));
+                              Navigator.pushNamed(context,"/founder");
+
+
+                              // widget.sitemapClick.onsitepage(false,false,false,false,false,true,false,false,false,false,false,false);
                             },
                             child: Text(
                               "Founder",
@@ -197,7 +242,11 @@ class _SiteMapeState extends State<SiteMape> {
                           InkWell(
                             hoverColor: Colors.transparent,
                             onTap:(){
-                              widget.sitemapClick.onsitepage(false,false,false,false,false,false,true,false,false,false,false,false);
+                              // Navigator.push(context,MaterialPageRoute(builder: (context)=>Partner()));
+                              Navigator.pushNamed(context,"/partner");
+
+
+                              // widget.sitemapClick.onsitepage(false,false,false,false,false,false,true,false,false,false,false,false);
                             },
                             child: Text(
                               "Partners",
@@ -215,7 +264,11 @@ class _SiteMapeState extends State<SiteMape> {
                           InkWell(
                             hoverColor: Colors.transparent,
                             onTap:(){
-                              widget.sitemapClick.onsitepage(false,false,false,false,false,false,false,true,false,false,false,false);
+                              // Navigator.push(context,MaterialPageRoute(builder: (context)=>Reference()));
+                              Navigator.pushNamed(context,"/reference");
+
+
+                              // widget.sitemapClick.onsitepage(false,false,false,false,false,false,false,true,false,false,false,false);
                             },
                             child: Text(
                               "References",
@@ -242,7 +295,11 @@ class _SiteMapeState extends State<SiteMape> {
                           InkWell(
                             hoverColor: Colors.transparent,
                             onTap:(){
-                              widget.sitemapClick.onsitepage(false,false,false,false,false,false,false,false,true,false,false,false);
+                              // Navigator.push(context,MaterialPageRoute(builder: (context)=>TermsandConditions()));
+                              Navigator.pushNamed(context,"/terms&conditions");
+
+
+                              // widget.sitemapClick.onsitepage(false,false,false,false,false,false,false,false,true,false,false,false);
                             },
                             child: Text(
                               "Terms and Conditions",
@@ -260,7 +317,11 @@ class _SiteMapeState extends State<SiteMape> {
                           InkWell(
                             hoverColor: Colors.transparent,
                             onTap:(){
-                              widget.sitemapClick.onsitepage(false,false,false,false,false,false,false,false,false,true,false,false);
+                              // Navigator.push(context,MaterialPageRoute(builder: (context)=>Cookies()));
+                              Navigator.pushNamed(context,"/cookies");
+
+
+                              // widget.sitemapClick.onsitepage(false,false,false,false,false,false,false,false,false,true,false,false);
                             },
                             child: Text(
                               "Cookies",
@@ -278,7 +339,11 @@ class _SiteMapeState extends State<SiteMape> {
                           InkWell(
                             hoverColor: Colors.transparent,
                             onTap:(){
-                              widget.sitemapClick.onsitepage(false,false,false,false,false,false,false,false,false,false,true,false);
+                              // Navigator.push(context,MaterialPageRoute(builder: (context)=>SiteMape()));
+                              Navigator.pushNamed(context,"/sitemap");
+
+
+                              // widget.sitemapClick.onsitepage(false,false,false,false,false,false,false,false,false,false,true,false);
                             },
                             child: Text(
                               "site map",
@@ -296,7 +361,11 @@ class _SiteMapeState extends State<SiteMape> {
                           InkWell(
                             hoverColor: Colors.transparent,
                             onTap:(){
-                              widget.sitemapClick.onsitepage(false,false,false,false,false,false,false,false,false,false,false,true);
+                              // Navigator.push(context,MaterialPageRoute(builder: (context)=>FAQ()));
+                              Navigator.pushNamed(context,"/faq");
+
+
+                              // widget.sitemapClick.onsitepage(false,false,false,false,false,false,false,false,false,false,false,true);
                             },
                             child: Text(
                               "FAQ",

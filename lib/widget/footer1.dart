@@ -1,10 +1,21 @@
 import 'package:ciofroum_web/Homepage.dart';
 import 'package:ciofroum_web/constants/themes.dart';
 import 'package:ciofroum_web/responsive.dart';
+import 'package:ciofroum_web/screen/Home.dart';
+import 'package:ciofroum_web/screen/about.dart';
+import 'package:ciofroum_web/screen/contact.dart';
+import 'package:ciofroum_web/screen/cookies.dart';
+import 'package:ciofroum_web/screen/faq.dart';
+import 'package:ciofroum_web/screen/news.dart';
+import 'package:ciofroum_web/screen/products.dart';
+import 'package:ciofroum_web/screen/sitemap.dart';
+import 'package:ciofroum_web/screen/termsandconditions.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-Widget Footer1(BuildContext context,ClickFooterCallback clickFooterCallback){
+Widget Footer1(BuildContext context,
+    // ClickFooterCallback clickFooterCallback
+    ){
   Future<void> _makePhoneCall(String Url)async{
     if(await canLaunch(Url)){
       await launch(Url);
@@ -176,8 +187,14 @@ Widget Footer1(BuildContext context,ClickFooterCallback clickFooterCallback){
                       const SizedBox(height: 65),
                       InkWell(
                         onTap: (){
-                          clickFooterCallback.onPageOpen(true,false,false,false,false,false,false,false,false);
+                          // Navigator.push(context,MaterialPageRoute(builder: (context)=>HomePage()));
+                          Navigator.pushNamed(context,"/home");
+
+
                         },
+                        // onTap: (){
+                        //   clickFooterCallback.onPageOpen(true,false,false,false,false,false,false,false,false);
+                        // },
                         child: const Text(
                           "Home",
                           style: TextStyle(
@@ -192,8 +209,14 @@ Widget Footer1(BuildContext context,ClickFooterCallback clickFooterCallback){
                       const SizedBox(height: 20),
                       InkWell(
                         onTap: (){
-                          clickFooterCallback.onPageOpen(false,false,false,true,false,false,false,false,false);
+                          // Navigator.push(context,MaterialPageRoute(builder: (context)=>Product()));
+                          Navigator.pushNamed(context,"/products");
+
+
                         },
+                        // onTap: (){
+                        //   clickFooterCallback.onPageOpen(false,false,false,true,false,false,false,false,false);
+                        // },
                         child: const Text(
                           "Products",
                           style: TextStyle(
@@ -208,10 +231,16 @@ Widget Footer1(BuildContext context,ClickFooterCallback clickFooterCallback){
                       const SizedBox(height: 20),
                       InkWell(
                         onTap: (){
-                          clickFooterCallback.onPageOpen(false,false,true,false,false,false,false,false,false);
+                          // Navigator.push(context,MaterialPageRoute(builder: (context)=>NewPage()));
+                          Navigator.pushNamed(context,"/news");
+
+
                         },
+                        // onTap: (){
+                        //   clickFooterCallback.onPageOpen(false,false,true,false,false,false,false,false,false);
+                        // },
                         child: const Text(
-                          "Blog",
+                          "News",
                           style: TextStyle(
                             color: Color.fromRGBO(225, 225, 225, 1),
                             fontWeight: FontWeight.w400,
@@ -224,8 +253,14 @@ Widget Footer1(BuildContext context,ClickFooterCallback clickFooterCallback){
                       const SizedBox(height: 20),
                       InkWell(
                         onTap: (){
-                          clickFooterCallback.onPageOpen(false,true,false,false,false,false,false,false,false);
+                          // Navigator.push(context,MaterialPageRoute(builder: (context)=>About()));
+                          Navigator.pushNamed(context,"/about");
+
+
                         },
+                        // onTap: (){
+                        //   clickFooterCallback.onPageOpen(false,true,false,false,false,false,false,false,false);
+                        // },
                         child: const Text(
                           "About",
                           style: TextStyle(
@@ -240,8 +275,14 @@ Widget Footer1(BuildContext context,ClickFooterCallback clickFooterCallback){
                       const SizedBox(height: 20),
                       InkWell(
                         onTap: (){
-                          clickFooterCallback.onPageOpen(false,false,false,false,true,false,false,false,false);
+                          // Navigator.push(context,MaterialPageRoute(builder: (context)=>Contact()));
+                          Navigator.pushNamed(context,"/contact");
+
+
                         },
+                        // onTap: (){
+                        //   clickFooterCallback.onPageOpen(false,false,false,false,true,false,false,false,false);
+                        // },
                         child: const Text(
                           "Contact",
                           style: TextStyle(
@@ -280,8 +321,14 @@ Widget Footer1(BuildContext context,ClickFooterCallback clickFooterCallback){
                       SizedBox(height: 65),
                       InkWell(
                         onTap: (){
-                          clickFooterCallback.onPageOpen(false,false,false,false,false,true,false,false,false);
+                          // Navigator.push(context,MaterialPageRoute(builder: (context)=>TermsandConditions()));
+                          Navigator.pushNamed(context,"/terms&conditions");
+
+
                         },
+                        // onTap: (){
+                        //   clickFooterCallback.onPageOpen(false,false,false,false,false,true,false,false,false);
+                        // },
                         child: Text(
                           "Terms and Conditions",
                           style: TextStyle(
@@ -299,8 +346,14 @@ Widget Footer1(BuildContext context,ClickFooterCallback clickFooterCallback){
                       SizedBox(height: 20),
                       InkWell(
                         onTap: (){
-                          clickFooterCallback.onPageOpen(false,false,false,false,false,false,true,false,false);
+                          // Navigator.push(context,MaterialPageRoute(builder: (context)=>Cookies()));
+                          Navigator.pushNamed(context,"/cookies");
+
+
                         },
+                        // onTap: (){
+                        //   clickFooterCallback.onPageOpen(false,false,false,false,false,false,true,false,false);
+                        // },
                         child: Text(
                           "Cookies",
                           style: TextStyle(
@@ -318,8 +371,14 @@ Widget Footer1(BuildContext context,ClickFooterCallback clickFooterCallback){
                       SizedBox(height: 20),
                       InkWell(
                         onTap: (){
-                          clickFooterCallback.onPageOpen(false,false,false,false,false,false,false,true,false);
+                          // Navigator.push(context,MaterialPageRoute(builder: (context)=>SiteMape()));
+                          Navigator.pushNamed(context,"/sitemap");
+
+
                         },
+                        // onTap: (){
+                        //   clickFooterCallback.onPageOpen(false,false,false,false,false,false,false,true,false);
+                        // },
                         child: Text(
                           "Sitemap",
                           style: TextStyle(
@@ -337,8 +396,14 @@ Widget Footer1(BuildContext context,ClickFooterCallback clickFooterCallback){
                       SizedBox(height: 20),
                       InkWell(
                         onTap: (){
-                          clickFooterCallback.onPageOpen(false,false,false,false,false,false,false,false,true);
+                          // Navigator.push(context,MaterialPageRoute(builder: (context)=>FAQ()));
+                          Navigator.pushNamed(context,"/faq");
+
+
                         },
+                        // onTap: (){
+                        //   clickFooterCallback.onPageOpen(false,false,false,false,false,false,false,false,true);
+                        // },
                         child: Text(
                           "FAQ",
                           style: TextStyle(

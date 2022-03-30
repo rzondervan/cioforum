@@ -5,6 +5,8 @@ import 'package:ciofroum_web/constants/themes.dart';
 import 'package:ciofroum_web/responsive.dart';
 import 'package:ciofroum_web/screen/privacy.dart';
 import 'package:ciofroum_web/thememode/provider.dart';
+import 'package:ciofroum_web/widget/appbar.dart';
+import 'package:ciofroum_web/widget/drawer.dart';
 import 'package:ciofroum_web/widget/footer1.dart';
 import 'package:ciofroum_web/widget/product_page.dart';
 import 'package:ciofroum_web/widget/productcarousel_slider.dart';
@@ -15,13 +17,13 @@ import 'package:url_launcher/url_launcher.dart';
 
 
 class Product extends StatefulWidget {
-  ClickProductCallback callback;
-  HomeExplorepage callback1;
-  SitemapClick sitemapClick;
+  // ClickProductCallback callback;
+  // HomeExplorepage callback1;
+  // SitemapClick sitemapClick;
 
-  Product({required this.callback,required this.clickFooterCallback,required this.callback1,required this.sitemapClick});
+  // Product({required this.callback,required this.clickFooterCallback,required this.callback1,required this.sitemapClick});
 
-  ClickFooterCallback clickFooterCallback;
+  // ClickFooterCallback clickFooterCallback;
   @override
   State<Product> createState() => _ProductState();
 }
@@ -32,8 +34,11 @@ class _ProductState extends State<Product> {
 
   final CarouselController _controller = CarouselController();
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  GlobalKey menuKey = GlobalKey();
+
   ScrollController scrollController=ScrollController();
   CarouselController carouselController=CarouselController();
+
 
 
 
@@ -48,6 +53,10 @@ class _ProductState extends State<Product> {
 
     return SafeArea(
       child: Scaffold(
+        key:_scaffoldKey ,
+        endDrawer: Responsive.isMobile(context)
+            ? SideDrawer(context:context,homeTabSelected:false,productTabSelected:true,newsTabSelected:false,aboutTabSelected:false,contact:false,menuKey: menuKey): null,
+        appBar:appbar(context,false,true,false,false,false,_scaffoldKey,menuKey),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -104,13 +113,13 @@ class _ProductState extends State<Product> {
                           children: [
                             InkWell(
                               onTap:()async{
-                                setState(() {
-                                  widget.callback.onPageProduct(true);
+                                // setState(() {
+                                //   widget.callback.onPageProduct(true);
+                                //
+                                // });
 
-                                });
 
-
-                                // Navigator.push(context,MaterialPageRoute(builder: (context)=>Privacy(clickFooterCallback:widget.clickFooterCallback)));
+                                Navigator.push(context,MaterialPageRoute(builder: (context)=>Privacy()));
 
                               },
                               child: Container(
@@ -317,7 +326,7 @@ class _ProductState extends State<Product> {
                   ],
                 ),
               ),
-              Footer1(context,widget.clickFooterCallback)
+              Footer1(context)
 
 
 
