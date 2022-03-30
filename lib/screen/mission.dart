@@ -1,13 +1,16 @@
 import 'package:ciofroum_web/Homepage.dart';
 import 'package:ciofroum_web/constants/themes.dart';
 import 'package:ciofroum_web/responsive.dart';
+import 'package:ciofroum_web/thememode/provider.dart';
 import 'package:ciofroum_web/widget/footer1.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Mission extends StatefulWidget {
-  Mission({required this.clickFooterCallback});
+  Mission({required this.clickFooterCallback,required this.sitemapClick});
 
   ClickFooterCallback clickFooterCallback;
+  SitemapClick sitemapClick;
   @override
   State<Mission> createState() => _MissionState();
 }
@@ -17,6 +20,8 @@ class _MissionState extends State<Mission> {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
+    final themeChange = Provider.of<DarkThemeProvider>(context);
+
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -36,7 +41,7 @@ class _MissionState extends State<Mission> {
                       child: Text(
                         "Mission",
                         style: TextStyle(
-                            color: AppTheme.primaryWhiteColor,
+                            color: Color.fromRGBO(225, 225, 225, 1),
                             fontFamily: "Cairo",
                             fontStyle: FontStyle.normal,
                             fontSize: width<600?width*0.08:54,
@@ -46,7 +51,7 @@ class _MissionState extends State<Mission> {
                   ),
                 ],
               ),
-              const SizedBox(height: 20),
+               SizedBox(height: 20),
               Padding(
                 padding: EdgeInsets.only(
                     left: Responsive.isDesktop(context) ? 170 : 20,
@@ -58,7 +63,7 @@ class _MissionState extends State<Mission> {
                   children: [
                     Container(
                       // color: Colors.red,
-                      color: const Color.fromRGBO(247, 247, 247, 1),
+                      color: themeChange.darkTheme?Color.fromRGBO(50, 59, 75, 1): Color.fromRGBO(247, 247, 247, 1),
                       child: Padding(
                         padding:  EdgeInsets.all(Responsive.isDesktop(context) ?60.0:18),
                         child: Column(
@@ -71,7 +76,7 @@ class _MissionState extends State<Mission> {
                                   fontSize: Responsive.isDesktop(context) ?19:16,
                                   fontStyle: FontStyle.normal,
                                   fontFamily: "Cairo",
-                                  color: AppTheme.primaryBlueColor,
+                                  color: AppTheme(context).primaryBlueColor,
                                 letterSpacing: 1.0,
                                 height: 1.7,                              ),
                             ),
@@ -87,7 +92,7 @@ class _MissionState extends State<Mission> {
                                         fontSize: Responsive.isDesktop(context) ?19:16,
                                         fontStyle: FontStyle.normal,
                                         fontFamily: "Cairo",
-                                        color: AppTheme.primaryBlueColor,
+                                        color: AppTheme(context).primaryBlueColor,
                                       letterSpacing: 1.0,
                                       height: 1.7,                                    ),
                                   ),
@@ -106,7 +111,7 @@ class _MissionState extends State<Mission> {
                                         fontSize: Responsive.isDesktop(context) ?19:16,
                                         fontStyle: FontStyle.normal,
                                         fontFamily: "Cairo",
-                                        color: AppTheme.primaryBlueColor,
+                                        color: AppTheme(context).primaryBlueColor,
                                       letterSpacing: 1.0,
                                       height: 1.7,                                    ),
                                   ),
@@ -125,7 +130,7 @@ class _MissionState extends State<Mission> {
                                         fontSize: Responsive.isDesktop(context) ?19:16,
                                         fontStyle: FontStyle.normal,
                                         fontFamily: "Cairo",
-                                        color: AppTheme.primaryBlueColor,
+                                        color: AppTheme(context).primaryBlueColor,
                                       letterSpacing: 1.0,
                                       height: 1.7,
 
@@ -142,7 +147,7 @@ class _MissionState extends State<Mission> {
                                   fontSize: Responsive.isDesktop(context) ?19:16,
                                   fontStyle: FontStyle.normal,
                                   fontFamily: "Cairo",
-                                  color: AppTheme.primaryBlueColor,
+                                  color: AppTheme(context).primaryBlueColor,
                                 letterSpacing: 1.0,
                                 height: 1.7,
 
@@ -160,7 +165,7 @@ class _MissionState extends State<Mission> {
                           fontSize: Responsive.isDesktop(context) ?31:24,
                           fontStyle: FontStyle.normal,
                           fontFamily: "Cairo",
-                          color: AppTheme.primaryBlueColor,
+                          color: AppTheme(context).primaryBlueColor,
                           letterSpacing: 1),
                     ),
                     // Row(
@@ -178,7 +183,7 @@ class _MissionState extends State<Mission> {
                     //                 fontSize: 20,
                     //                 fontStyle: FontStyle.normal,
                     //                 fontFamily: "Cairo",
-                    //                 color: AppTheme.primaryBlueColor,
+                    //                 color: AppTheme(context).primaryBlueColor,
                     //               ),
                     //             ),
                     //             const SizedBox(height: 10),
@@ -199,7 +204,7 @@ class _MissionState extends State<Mission> {
                     //                       fontSize: 20,
                     //                       fontStyle: FontStyle.normal,
                     //                       fontFamily: "Cairo",
-                    //                       color: AppTheme.primaryBlueColor,
+                    //                       color: AppTheme(context).primaryBlueColor,
                     //                     ),
                     //                   ),
                     //                 ),
@@ -223,7 +228,7 @@ class _MissionState extends State<Mission> {
                     //                       fontSize: 20,
                     //                       fontStyle: FontStyle.normal,
                     //                       fontFamily: "Cairo",
-                    //                       color: AppTheme.primaryBlueColor,
+                    //                       color: AppTheme(context).primaryBlueColor,
                     //                     ),
                     //                   ),
                     //                 ),
@@ -247,7 +252,7 @@ class _MissionState extends State<Mission> {
                     //                       fontSize: 20,
                     //                       fontStyle: FontStyle.normal,
                     //                       fontFamily: "Cairo",
-                    //                       color: AppTheme.primaryBlueColor,
+                    //                       color: AppTheme(context).primaryBlueColor,
                     //                     ),
                     //                   ),
                     //                 ),
@@ -272,7 +277,7 @@ class _MissionState extends State<Mission> {
                     //                       fontSize: 20,
                     //                       fontStyle: FontStyle.normal,
                     //                       fontFamily: "Cairo",
-                    //                       color: AppTheme.primaryBlueColor,
+                    //                       color: AppTheme(context).primaryBlueColor,
                     //                     ),
                     //                   ),
                     //                 ),
@@ -300,7 +305,7 @@ class _MissionState extends State<Mission> {
                                   fontSize: 19,
                                   fontStyle: FontStyle.normal,
                                   fontFamily: "Cairo",
-                                  color: AppTheme.primaryBlueColor,
+                                  color: AppTheme(context).primaryBlueColor,
                                   letterSpacing: 1.0,
                                   height: 1.7,
                                 ),
@@ -326,7 +331,7 @@ class _MissionState extends State<Mission> {
                                         fontSize: 19,
                                         fontStyle: FontStyle.normal,
                                         fontFamily: "Cairo",
-                                        color: AppTheme.primaryBlueColor,
+                                        color: AppTheme(context).primaryBlueColor,
                                       ),
                                     ),
                                   ),
@@ -352,7 +357,7 @@ class _MissionState extends State<Mission> {
                                         fontSize: 19,
                                         fontStyle: FontStyle.normal,
                                         fontFamily: "Cairo",
-                                        color: AppTheme.primaryBlueColor,
+                                        color: AppTheme(context).primaryBlueColor,
                                       ),
                                     ),
                                   ),
@@ -378,7 +383,7 @@ class _MissionState extends State<Mission> {
                                         fontSize: 19,
                                         fontStyle: FontStyle.normal,
                                         fontFamily: "Cairo",
-                                        color: AppTheme.primaryBlueColor,
+                                        color: AppTheme(context).primaryBlueColor,
                                       ),
                                     ),
                                   ),
@@ -405,7 +410,7 @@ class _MissionState extends State<Mission> {
                                         fontSize: 19,
                                         fontStyle: FontStyle.normal,
                                         fontFamily: "Cairo",
-                                        color: AppTheme.primaryBlueColor,
+                                        color: AppTheme(context).primaryBlueColor,
                                       ),
                                     ),
                                   ),
@@ -439,7 +444,7 @@ class _MissionState extends State<Mission> {
                                   height: 1.7,
                                   fontStyle: FontStyle.normal,
                                   fontFamily: "Cairo",
-                                  color: AppTheme.primaryBlueColor,
+                                  color: AppTheme(context).primaryBlueColor,
                                 ),
                               ),
                               const SizedBox(height: 10),
@@ -462,7 +467,7 @@ class _MissionState extends State<Mission> {
                                         height: 1.7,
                                         fontStyle: FontStyle.normal,
                                         fontFamily: "Cairo",
-                                        color: AppTheme.primaryBlueColor,
+                                        color: AppTheme(context).primaryBlueColor,
                                       ),
                                     ),
                                   ),
@@ -488,7 +493,7 @@ class _MissionState extends State<Mission> {
                                         height: 1.7,
                                         fontStyle: FontStyle.normal,
                                         fontFamily: "Cairo",
-                                        color: AppTheme.primaryBlueColor,
+                                        color: AppTheme(context).primaryBlueColor,
                                       ),
                                     ),
                                   ),
@@ -514,7 +519,7 @@ class _MissionState extends State<Mission> {
                                         height: 1.7,
                                         fontStyle: FontStyle.normal,
                                         fontFamily: "Cairo",
-                                        color: AppTheme.primaryBlueColor,
+                                        color: AppTheme(context).primaryBlueColor,
                                       ),
                                     ),
                                   ),
@@ -541,7 +546,7 @@ class _MissionState extends State<Mission> {
                                         height: 1.7,
                                         fontStyle: FontStyle.normal,
                                         fontFamily: "Cairo",
-                                        color: AppTheme.primaryBlueColor,
+                                        color: AppTheme(context).primaryBlueColor,
                                       ),
                                     ),
                                   ),

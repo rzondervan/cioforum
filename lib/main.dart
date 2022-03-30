@@ -9,106 +9,73 @@ import 'package:ciofroum_web/screen/privacy.dart';
 import 'package:ciofroum_web/screen/reference.dart';
 import 'package:ciofroum_web/screen/sitemap.dart';
 import 'package:ciofroum_web/screen/termsandconditions.dart';
+import 'package:ciofroum_web/thememode/provider.dart';
+import 'package:ciofroum_web/thememode/style.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main()async{
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.grey
-      ),
-      themeMode: ThemeMode.light,
-      home: HomeScreen()
-
-    );
-  }
+  State<MyApp> createState() => _MyAppState();
 }
 
-// void main() => runApp(MyApp());
-//
-// class MyApp extends StatelessWidget {
-//   static const String _title = 'Flutter Code Sample';
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: _title,
-//       home: Scaffold(
-//         appBar: AppBar(title: const Text(_title)),
-//         body: Center(
-//           child: MyStatefulWidget(),
-//         ),
-//       ),
-//     );
-//   }
-// }
-//
-// class MyStatefulWidget extends StatefulWidget {
-//   @override
-//   _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
-// }
-//
-// class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-//   GlobalKey menuKey = GlobalKey();
-//
-//   showMenus(BuildContext context) async {
-//     final render = menuKey.currentContext!.findRenderObject() as RenderBox;
-//     await showMenu(
-//       context: context,
-//       position: RelativeRect.fromLTRB(
-//           render.localToGlobal(Offset.zero).dx,
-//           render.localToGlobal(Offset.zero).dy + 50,
-//           double.infinity,
-//           double.infinity),
-//       items: [
-//         PopupMenuItem(
-//           child: Text("Create a website"),
-//         ),
-//         PopupMenuItem(
-//           child: Text("Top Ms commericial management"),
-//         ),
-//         PopupMenuItem(
-//           child: Text("Mobile inventory application"),
-//         ),
-//       ],
-//     );
-//   }
-//
-//   bool showMenuPop= false;
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       key: menuKey,
-//       color: Colors.lightBlueAccent,
-//       constraints: BoxConstraints(
-//         minWidth: 100,
-//         minHeight: 50,
-//       ),
-//       child: MouseRegion(
-//         onHover: (event) {
-//           if(!showMenuPop){
-//             showMenuPop = true;
-//             showMenus(context);
-//           }else {
-//             showMenuPop = false;
-//
-//           }
-//           },
-//         child: Text('Solutions'),
-//       ),
-//     );
-//   }
-// }
+class _MyAppState extends State<MyApp> {
+  DarkThemeProvider themeChangeProvider = new DarkThemeProvider();
+
+  @override
+  void initState() {
+    super.initState();
+    getCurrentAppTheme();
+  }
+
+  void getCurrentAppTheme() async {
+    themeChangeProvider.darkTheme =
+    await themeChangeProvider.darkThemePreference.getTheme();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return
+      ChangeNotifierProvider(
+        create: (_) {
+          return themeChangeProvider;
+        },
+        child: Consumer<DarkThemeProvider>(
+          builder: (BuildContext context, value, Widget? child) {
+            return MaterialApp(
+              debugShowCheckedModeBanner: false,
+
+              theme: Styles.themeData(themeChangeProvider.darkTheme, context),
+              home: HomeScreen(),
+
+            );
+          },
+        ),);
+  }
+  // @override
+  // Widget build(BuildContext context) {
+  //   return MaterialApp(
+  //       debugShowCheckedModeBanner: false,
+  //       // theme: ThemeData(),
+  //       // darkTheme: ThemeData.dark(),
+  //       theme: Styles.themeData(themeChangeProvider.darkTheme, context),
+  //
+  //       // themeMode: ThemeMode.light,
+  //       home: HomeScreen()
+  //
+  //   );
+  // }
+
+
+}
+

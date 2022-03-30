@@ -7,8 +7,9 @@ import 'package:flutter/material.dart';
 
 
 class FAQ extends StatefulWidget {
-   FAQ({Key? key,required this.clickFooterCallback}) : super(key: key);
+   FAQ({Key? key,required this.clickFooterCallback,required this.sitemapClick}) : super(key: key);
   ClickFooterCallback clickFooterCallback;
+   SitemapClick sitemapClick;
 
 
   @override
@@ -42,7 +43,7 @@ class _FAQState extends State<FAQ> {
                     child: Text(
                       "FAQ",
                       style: TextStyle(
-                          color: AppTheme.primaryWhiteColor,
+                          color: Color.fromRGBO(225, 225, 225, 1),
                           fontFamily: "Cairo",
                           fontStyle: FontStyle.normal,
                           fontSize: width<600?width*0.08:54,
@@ -66,7 +67,7 @@ class _FAQState extends State<FAQ> {
                     child: ExpansionTileCard(
                     key: cardA,
                  title: Text('Who is CIO forum intended for?',style: TextStyle(
-                    color: AppTheme.primaryBlueColor,
+                    color: AppTheme(context).primaryBlueColor,
                     fontFamily: "Cairo",
                     fontSize: Responsive.isDesktop(context) ?24:18,
                     letterSpacing: 1.0,
@@ -88,7 +89,7 @@ class _FAQState extends State<FAQ> {
                         ),
                         child: Text("For directors, boards and owners of organizations of about 100 people, who want to save on an IT director in salaried employment, or want assistance in fulfilling the role of IT leader. CIOforum offers vendor-independent IT services. As a result, you are no longer dependent on the expertise of your supplier or internal 'expert'.",
                           style:TextStyle(
-                              color: AppTheme.primaryBlueColor,
+                              color: AppTheme(context).primaryBlueColor,
                               fontFamily: "Cairo",
                               fontSize: Responsive.isDesktop(context) ?19:16,
                               letterSpacing: 1.0,
@@ -110,7 +111,7 @@ class _FAQState extends State<FAQ> {
           title: Text(
             "What is the difference with the foreign CIO forums?",
             style: TextStyle(
-                    color: AppTheme.primaryBlueColor,
+                    color: AppTheme(context).primaryBlueColor,
                     fontFamily: "Cairo",
                     fontSize: Responsive.isDesktop(context) ?24:18,
                     letterSpacing: 1.0,
@@ -133,7 +134,7 @@ class _FAQState extends State<FAQ> {
                         child: Text(
                           "CIOforum.nl is not intended for IT professionals and not for CIOs, but by CIOs, Chief Information Officers with understandable and independent advice for directors, owners and directors without IT expertise.",
                           style:TextStyle(
-                              color: AppTheme.primaryBlueColor,
+                              color: AppTheme(context).primaryBlueColor,
                               fontFamily: "Cairo",
                               fontSize: Responsive.isDesktop(context) ?19:16,
                               letterSpacing: 1.0,
@@ -156,7 +157,7 @@ class _FAQState extends State<FAQ> {
           title: Text(
             "What is IT TEDtalk?",
             style: TextStyle(
-                    color: AppTheme.primaryBlueColor,
+                    color: AppTheme(context).primaryBlueColor,
                     fontFamily: "Cairo",
                     fontSize: Responsive.isDesktop(context) ?24:18,
                     letterSpacing: 1.0,
@@ -182,7 +183,7 @@ class _FAQState extends State<FAQ> {
                             Text(
                               "IT-TEDtalk is a free monthly publication of valuable articles, presentations and videos, which are an inspiring and educational mix of IT and TED* (Technology, Entertainment, Design). You will also find the TED video of the month in the strategic IT tips article. In the monthly articles you will find:",
                               style:TextStyle(
-                                  color: AppTheme.primaryBlueColor,
+                                  color: AppTheme(context).primaryBlueColor,
                                   fontFamily: "Cairo",
                                   fontSize: Responsive.isDesktop(context) ?19:16,
                                   letterSpacing: 1.0,
@@ -195,7 +196,7 @@ class _FAQState extends State<FAQ> {
                             Text(
                               "Vision, strategy and innovation opportunities explained by CIOforum Case studies and testimonials of implementation successes from CIOforum and partners",
                                 style:TextStyle(
-                                    color: AppTheme.primaryBlueColor,
+                                    color: AppTheme(context).primaryBlueColor,
                                     fontFamily: "Cairo",
                                     fontSize: Responsive.isDesktop(context) ?19:16,
                                     letterSpacing: 1.0,
@@ -208,7 +209,7 @@ class _FAQState extends State<FAQ> {
                             Text(
                               "TED tips on designing the life of a director, owner, or director, such as:Less stress Happiness, health, leisure More sustainable living and working helping others A forum where you can comment and ask questions",
                                 style:TextStyle(
-                                    color: AppTheme.primaryBlueColor,
+                                    color: AppTheme(context).primaryBlueColor,
                                     fontFamily: "Cairo",
                                     fontSize: Responsive.isDesktop(context) ?19:16,
                                     letterSpacing: 1.0,
@@ -221,7 +222,7 @@ class _FAQState extends State<FAQ> {
                             Text(
                               "*TED.com is a non-profit organization that publishes ideas worth sharing.",
                                 style:TextStyle(
-                                    color: AppTheme.primaryBlueColor,
+                                    color: AppTheme(context).primaryBlueColor,
                                     fontFamily: "Cairo",
                                     fontSize: Responsive.isDesktop(context) ?19:16,
                                     letterSpacing: 1.0,
@@ -249,7 +250,7 @@ class _FAQState extends State<FAQ> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text("Question not answered?",style: TextStyle(
-                      color: AppTheme.primaryBlueColor,
+                      color: AppTheme(context).primaryBlueColor,
                       fontFamily: "Cairo",
                       fontSize: Responsive.isDesktop(context) ?24:18,
                       letterSpacing: 1,
@@ -258,7 +259,7 @@ class _FAQState extends State<FAQ> {
                       fontStyle: FontStyle.normal
                   ),),
                   Text("Call 06-20 707 442, mail rzondervan@cioforum.nl.",style: TextStyle(
-                      color: AppTheme.primaryBlueColor,
+                      color: AppTheme(context).primaryBlueColor,
                       fontFamily: "Cairo",
                       fontSize: Responsive.isDesktop(context) ?28:20,
                       letterSpacing: 1,
@@ -283,7 +284,7 @@ class _FAQState extends State<FAQ> {
                   Text(
                     "Top 7 Mistakes When Hiring an IT Director",
                     style: TextStyle(
-                        color: AppTheme.primaryBlueColor,
+                        color: AppTheme(context).primaryBlueColor,
                         fontFamily: "Cairo",
                         fontSize: Responsive.isDesktop(context) ?24:18,
                         letterSpacing: 1.0,
@@ -295,7 +296,7 @@ class _FAQState extends State<FAQ> {
                   Text(
                     "CIOforum has a short IT market research for directors, owners and boards. The anonymous answers are used as input for IT-TEDtalk. Would you like to answer three short questions? It will take a few minutes of your time. As a thank you, you will receive the article Top 7 of mistakes ....",
                     style: TextStyle(
-                        color: AppTheme.primaryBlueColor,
+                        color: AppTheme(context).primaryBlueColor,
                         fontFamily: "Cairo",
                         fontSize: Responsive.isDesktop(context) ?19:16,
                         letterSpacing: 1.0,
@@ -307,7 +308,7 @@ class _FAQState extends State<FAQ> {
                   Text(
                     "Download the whitepaper to learn what IT leadership skills you need and don't need.",
                     style: TextStyle(
-                        color: AppTheme.primaryBlueColor,
+                        color: AppTheme(context).primaryBlueColor,
                         fontFamily: "Cairo",
                         fontSize: Responsive.isDesktop(context) ?19:16,
                         letterSpacing: 1.0,
@@ -334,8 +335,7 @@ class _FAQState extends State<FAQ> {
                                       "Prevent consequences of a wrong profile",
                                       textAlign: TextAlign.end,
                                       style: TextStyle(
-                                          color: AppTheme
-                                              .primaryBlueColor,
+                                          color: AppTheme(context).primaryBlueColor,
                                           fontFamily: "Cairo",
                                           fontSize: 19,
                                           letterSpacing: 1.0,
@@ -350,12 +350,11 @@ class _FAQState extends State<FAQ> {
                                   CircleAvatar(
                                     radius: 20,
                                     backgroundColor:
-                                    AppTheme.greenlightColor,
+                                    AppTheme(context).greenlightColor,
                                     child: Text(
                                       "1",
                                       style: TextStyle(
-                                          color: AppTheme
-                                              .primaryBlueColor,
+                                          color: AppTheme(context).primaryBlueColor,
                                           fontFamily: "Cairo",
                                           fontSize: 34,
                                           letterSpacing: 1,
@@ -376,8 +375,7 @@ class _FAQState extends State<FAQ> {
                                       "Make sure IT offers added value",
                                       textAlign: TextAlign.end,
                                       style: TextStyle(
-                                          color: AppTheme
-                                              .primaryBlueColor,
+                                          color: AppTheme(context).primaryBlueColor,
                                           fontFamily: "Cairo",
                                           fontSize: 19,
                                           letterSpacing: 1.0,
@@ -392,12 +390,11 @@ class _FAQState extends State<FAQ> {
                                   CircleAvatar(
                                     radius: 20,
                                     backgroundColor:
-                                    AppTheme.greenlightColor,
+                                    AppTheme(context).greenlightColor,
                                     child: Text(
                                       "2",
                                       style: TextStyle(
-                                          color: AppTheme
-                                              .primaryBlueColor,
+                                          color: AppTheme(context).primaryBlueColor,
                                           fontFamily: "Cairo",
                                           fontSize: 34,
                                           // letterSpacing: 1,
@@ -418,8 +415,7 @@ class _FAQState extends State<FAQ> {
                                       "Prevent IT from taking\n unacceptable risks",
                                       textAlign: TextAlign.end,
                                       style: TextStyle(
-                                          color: AppTheme
-                                              .primaryBlueColor,
+                                          color: AppTheme(context).primaryBlueColor,
                                           fontFamily: "Cairo",
                                           fontSize: 19,
                                           letterSpacing: 1.0,
@@ -434,12 +430,11 @@ class _FAQState extends State<FAQ> {
                                   CircleAvatar(
                                     radius: 20,
                                     backgroundColor:
-                                    AppTheme.greenlightColor,
+                                    AppTheme(context).greenlightColor,
                                     child: Text(
                                       "3",
                                       style: TextStyle(
-                                          color: AppTheme
-                                              .primaryBlueColor,
+                                          color: AppTheme(context).primaryBlueColor,
                                           fontFamily: "Cairo",
                                           fontSize: 34,
                                           // letterSpacing: 1,
@@ -469,12 +464,11 @@ class _FAQState extends State<FAQ> {
                                   CircleAvatar(
                                     radius: 20,
                                     backgroundColor:
-                                    AppTheme.greenlightColor,
+                                    AppTheme(context).greenlightColor,
                                     child: Text(
                                       "4",
                                       style: TextStyle(
-                                          color: AppTheme
-                                              .primaryBlueColor,
+                                          color: AppTheme(context).primaryBlueColor,
                                           fontFamily: "Cairo",
                                           fontSize: 34,
                                           // letterSpacing: 1,
@@ -489,8 +483,7 @@ class _FAQState extends State<FAQ> {
                                       "Prevent IT from doing what you want",
                                       textAlign: TextAlign.start,
                                       style: TextStyle(
-                                          color: AppTheme
-                                              .primaryBlueColor,
+                                          color: AppTheme(context).primaryBlueColor,
                                           fontFamily: "Cairo",
                                           fontSize: 19,
                                           letterSpacing: 1.0,
@@ -509,12 +502,11 @@ class _FAQState extends State<FAQ> {
                                   CircleAvatar(
                                     radius: 20,
                                     backgroundColor:
-                                    AppTheme.greenlightColor,
+                                    AppTheme(context).greenlightColor,
                                     child: Text(
                                       "5",
                                       style: TextStyle(
-                                          color: AppTheme
-                                              .primaryBlueColor,
+                                          color: AppTheme(context).primaryBlueColor,
                                           fontFamily: "Cairo",
                                           fontSize: 34,
                                           // letterSpacing: 1,
@@ -529,8 +521,7 @@ class _FAQState extends State<FAQ> {
                                       "Prevent IT from perpetuating itself ",
                                       textAlign: TextAlign.start,
                                       style: TextStyle(
-                                          color: AppTheme
-                                              .primaryBlueColor,
+                                          color: AppTheme(context).primaryBlueColor,
                                           fontFamily: "Cairo",
                                           fontSize: 19,
                                           letterSpacing: 1.0,
@@ -549,12 +540,11 @@ class _FAQState extends State<FAQ> {
                                   CircleAvatar(
                                     radius: 20,
                                     backgroundColor:
-                                    AppTheme.greenlightColor,
+                                    AppTheme(context).greenlightColor,
                                     child: Text(
                                       "6",
                                       style: TextStyle(
-                                          color: AppTheme
-                                              .primaryBlueColor,
+                                          color: AppTheme(context).primaryBlueColor,
                                           fontFamily: "Cairo",
                                           fontSize: 34,
                                           // letterSpacing: 1,
@@ -569,8 +559,7 @@ class _FAQState extends State<FAQ> {
                                       "You does not benefit from Cloud and managed services",
                                       textAlign: TextAlign.start,
                                       style: TextStyle(
-                                          color: AppTheme
-                                              .primaryBlueColor,
+                                          color: AppTheme(context).primaryBlueColor,
                                           fontFamily: "Cairo",
                                           fontSize: 19,
                                           letterSpacing: 1.0,
@@ -601,12 +590,12 @@ class _FAQState extends State<FAQ> {
                                 CircleAvatar(
                                   radius: 18,
                                   backgroundColor:
-                                  AppTheme.greenlightColor,
+                                  AppTheme(context).greenlightColor,
                                   child: Text(
                                     "1",
                                     style: TextStyle(
                                         color:
-                                        AppTheme.primaryBlueColor,
+                                        AppTheme(context).primaryBlueColor,
                                         fontFamily: "Cairo",
                                         fontSize: 24,
                                         // letterSpacing: 1,
@@ -621,7 +610,7 @@ class _FAQState extends State<FAQ> {
                                     textAlign: TextAlign.start,
                                     style: TextStyle(
                                         color:
-                                        AppTheme.primaryBlueColor,
+                                        AppTheme(context).primaryBlueColor,
                                         fontFamily: "Cairo",
                                         fontSize: 16,
                                         // letterSpacing: 1,
@@ -637,12 +626,12 @@ class _FAQState extends State<FAQ> {
                                 CircleAvatar(
                                   radius: 18,
                                   backgroundColor:
-                                  AppTheme.greenlightColor,
+                                  AppTheme(context).greenlightColor,
                                   child: Text(
                                     "2",
                                     style: TextStyle(
                                         color:
-                                        AppTheme.primaryBlueColor,
+                                        AppTheme(context).primaryBlueColor,
                                         fontFamily: "Cairo",
                                         fontSize: 24,
                                         // letterSpacing: 1,
@@ -657,7 +646,7 @@ class _FAQState extends State<FAQ> {
                                     textAlign: TextAlign.start,
                                     style: TextStyle(
                                         color:
-                                        AppTheme.primaryBlueColor,
+                                        AppTheme(context).primaryBlueColor,
                                         fontFamily: "Cairo",
                                         fontSize: 16,
                                         // letterSpacing: 1,
@@ -673,12 +662,12 @@ class _FAQState extends State<FAQ> {
                                 CircleAvatar(
                                   radius: 18,
                                   backgroundColor:
-                                  AppTheme.greenlightColor,
+                                  AppTheme(context).greenlightColor,
                                   child: Text(
                                     "3",
                                     style: TextStyle(
                                         color:
-                                        AppTheme.primaryBlueColor,
+                                        AppTheme(context).primaryBlueColor,
                                         fontFamily: "Cairo",
                                         fontSize: 24,
                                         // letterSpacing: 1,
@@ -693,7 +682,7 @@ class _FAQState extends State<FAQ> {
                                     textAlign: TextAlign.start,
                                     style: TextStyle(
                                         color:
-                                        AppTheme.primaryBlueColor,
+                                        AppTheme(context).primaryBlueColor,
                                         fontFamily: "Cairo",
                                         fontSize: 16,
                                         // letterSpacing: 1,
@@ -720,12 +709,12 @@ class _FAQState extends State<FAQ> {
                                 CircleAvatar(
                                   radius: 18,
                                   backgroundColor:
-                                  AppTheme.greenlightColor,
+                                  AppTheme(context).greenlightColor,
                                   child: Text(
                                     "4",
                                     style: TextStyle(
                                         color:
-                                        AppTheme.primaryBlueColor,
+                                        AppTheme(context).primaryBlueColor,
                                         fontFamily: "Cairo",
                                         fontSize: 24,
                                         // letterSpacing: 1,
@@ -740,7 +729,7 @@ class _FAQState extends State<FAQ> {
                                     textAlign: TextAlign.start,
                                     style: TextStyle(
                                         color:
-                                        AppTheme.primaryBlueColor,
+                                        AppTheme(context).primaryBlueColor,
                                         fontFamily: "Cairo",
                                         fontSize: 16,
                                         // letterSpacing: 1,
@@ -756,12 +745,12 @@ class _FAQState extends State<FAQ> {
                                 CircleAvatar(
                                   radius: 18,
                                   backgroundColor:
-                                  AppTheme.greenlightColor,
+                                  AppTheme(context).greenlightColor,
                                   child: Text(
                                     "5",
                                     style: TextStyle(
                                         color:
-                                        AppTheme.primaryBlueColor,
+                                        AppTheme(context).primaryBlueColor,
                                         fontFamily: "Cairo",
                                         fontSize: 24,
                                         // letterSpacing: 1,
@@ -776,7 +765,7 @@ class _FAQState extends State<FAQ> {
                                     textAlign: TextAlign.start,
                                     style: TextStyle(
                                         color:
-                                        AppTheme.primaryBlueColor,
+                                        AppTheme(context).primaryBlueColor,
                                         fontFamily: "Cairo",
                                         fontSize: 16,
                                         // letterSpacing: 1,
@@ -792,12 +781,12 @@ class _FAQState extends State<FAQ> {
                                 CircleAvatar(
                                   radius: 18,
                                   backgroundColor:
-                                  AppTheme.greenlightColor,
+                                  AppTheme(context).greenlightColor,
                                   child: Text(
                                     "6",
                                     style: TextStyle(
                                         color:
-                                        AppTheme.primaryBlueColor,
+                                        AppTheme(context).primaryBlueColor,
                                         fontFamily: "Cairo",
                                         fontSize: 24,
                                         // letterSpacing: 1,
@@ -812,7 +801,7 @@ class _FAQState extends State<FAQ> {
                                     textAlign: TextAlign.start,
                                     style: TextStyle(
                                         color:
-                                        AppTheme.primaryBlueColor,
+                                        AppTheme(context).primaryBlueColor,
                                         fontFamily: "Cairo",
                                         fontSize: 16,
                                         // letterSpacing: 1,
@@ -833,7 +822,7 @@ class _FAQState extends State<FAQ> {
                     width: width,
                     decoration: BoxDecoration(
                       // color: Colors.red,
-                      color: AppTheme.WhiteColor,
+                      color: AppTheme(context).WhiteColor,
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Padding(
@@ -844,7 +833,7 @@ class _FAQState extends State<FAQ> {
                           Text(
                             "Download white paper",
                             style: TextStyle(
-                                color: AppTheme.primaryBlackColor,
+                                color: AppTheme(context).primaryBlackColor,
                                 fontFamily: "Cairo",
                                 fontSize: Responsive.isDesktop(context) ?24:18,
                                 letterSpacing: 1,
@@ -857,13 +846,13 @@ class _FAQState extends State<FAQ> {
                             height: height*0.06,
                             width: width*0.15,
                             decoration: BoxDecoration(
-                              color: AppTheme.primaryGreenColor,
+                              color: AppTheme(context).primaryGreenColor,
                               borderRadius: BorderRadius.circular(10),
 
                             ),
                             child: Center(
                               child: Text("Download",style: TextStyle(
-                                  color: AppTheme.WhiteColor,
+                                  color: AppTheme(context).WhiteColor,
                                   fontFamily: "Cairo",
                                   fontSize: Responsive.isDesktop(context) ?19:14,
                                   fontWeight: FontWeight.w700,

@@ -2,9 +2,11 @@ import 'package:ciofroum_web/Homepage.dart';
 import 'package:ciofroum_web/constants/themes.dart';
 import 'package:ciofroum_web/footer_view.dart';
 import 'package:ciofroum_web/responsive.dart';
+import 'package:ciofroum_web/thememode/provider.dart';
 import 'package:ciofroum_web/widget/footer1.dart';
 import 'package:flutter/material.dart';
 import 'package:footer/footer.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
@@ -31,6 +33,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
+    final themeChange = Provider.of<DarkThemeProvider>(context);
+
 
     return SafeArea(
       child: Scaffold(
@@ -76,7 +80,7 @@ class _HomePageState extends State<HomePage> {
                                   Text(
                                     "Privacy and IT for",
                                     style: TextStyle(
-                                        color: AppTheme.primaryBlueColor,
+                                        color: Color.fromRGBO(50, 59, 75, 1),
                                         fontFamily: "Cairo",
                                         fontSize: Responsive.isDesktop(context)
                                             ? 59
@@ -86,7 +90,7 @@ class _HomePageState extends State<HomePage> {
                                   Text(
                                     "education",
                                     style: TextStyle(
-                                        color: AppTheme.primaryGreenColor,
+                                        color: AppTheme(context).primaryGreenColor,
                                         fontSize: Responsive.isDesktop(context)
                                             ? 59
                                             : 33.25,
@@ -101,7 +105,7 @@ class _HomePageState extends State<HomePage> {
                                   Text(
                                     "Independent advice for directors and boards of education and childcare organizations.",
                                     style: TextStyle(
-                                      color: AppTheme.primaryBlueColor,
+                                      color: Color.fromRGBO(50, 59, 75, 1),
                                       fontWeight: FontWeight.w400,
                                       fontStyle: FontStyle.normal,
                                       fontFamily: "Cairo",
@@ -126,14 +130,14 @@ class _HomePageState extends State<HomePage> {
                                             ? 141
                                             : 79.47,
                                         decoration: BoxDecoration(
-                                            color: AppTheme.primaryBlueColor,
+                                            color: AppTheme(context).primaryBlueColor,
                                             borderRadius:
                                                 BorderRadius.circular(40)),
                                         child: Center(
                                           child: Text(
                                             "EXPLORE",
                                             style: TextStyle(
-                                                color: AppTheme.primaryWhiteColor,
+                                                color: AppTheme(context).primaryWhiteColor,
                                                 fontSize:
                                                     Responsive.isDesktop(context)
                                                         ? 18
@@ -169,7 +173,7 @@ class _HomePageState extends State<HomePage> {
                           child: Text(
                             "Service 'Data Protection Officer (DPO)'",
                             style: TextStyle(
-                                color: AppTheme.primaryBlueColor,
+                                color: AppTheme(context).primaryBlueColor,
                                 fontWeight: FontWeight.w700,
                                 fontSize:
                                     Responsive.isDesktop(context) ? 31 : 25,
@@ -198,7 +202,7 @@ class _HomePageState extends State<HomePage> {
                                         Text(
                                           "What is the importance of an external DPO?",
                                           style: TextStyle(
-                                              color: AppTheme.primaryBlueColor,
+                                              color: AppTheme(context).primaryBlueColor,
                                               fontWeight: FontWeight.w700,
                                               letterSpacing: 1.0,
                                               height: 1.7,
@@ -210,7 +214,7 @@ class _HomePageState extends State<HomePage> {
                                         Text(
                                           "A DPO is mandatory for schools. GDPR fines are becoming more common and are not a good idea. Fortunately, small fines are now also being handed out, but unfortunately that has also happened for sending an email with recipients in the CC.",
                                           style: TextStyle(
-                                              color: AppTheme.primaryBlackColor,
+                                              color: AppTheme(context).primaryBlackColor,
                                               fontWeight: FontWeight.w500,
                                               letterSpacing: 1.0,
                                               height: 1.7,
@@ -220,81 +224,84 @@ class _HomePageState extends State<HomePage> {
                                         ),
                                         const SizedBox(height: 20),
                                         InkWell(
+                                          hoverColor: Colors.transparent,
                                           onTap: (){
+
                                             showDialog(
                                               context: context,
+                                                // barrierColor: themeChange.darkTheme?Colors.white:Colors.transparent,
                                                 builder: (BuildContext context){
                                                 return AlertDialog(
+                                                  backgroundColor: themeChange.darkTheme?Color.fromRGBO(50, 59, 75, 1):Colors.white,
                                                   shape: RoundedRectangleBorder(
                                                     borderRadius: BorderRadius.circular(10)
                                                   ),
 
                                                   content: Container(
                                                     width: 1000,
+                                                    color: themeChange.darkTheme?Color.fromRGBO(50, 59, 75, 1):Colors.white,
                                                     // width: width,
-                                                    child: Expanded(
-                                                      child: Column(
-                                                        mainAxisSize: MainAxisSize.min,
-                                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                                        children: [
-                                                          Align(
-                                                            alignment: Alignment.topRight,
-                                                            child: InkWell(
-                                                              onTap: (){
-                                                                Navigator.pop(context);},
-                                                              child: Container(
-                                                                height: 25,
-                                                                width: 25,
-                                                                decoration: BoxDecoration(
-                                                                  borderRadius: BorderRadius.circular(20),
-                                                                  border: Border.all(
-                                                                      color: AppTheme.primaryGreenColor
-                                                                  ),
-
+                                                    child: Column(
+                                                      mainAxisSize: MainAxisSize.min,
+                                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                                      children: [
+                                                        Align(
+                                                          alignment: Alignment.topRight,
+                                                          child: InkWell(
+                                                            onTap: (){
+                                                              Navigator.pop(context);},
+                                                            child: Container(
+                                                              height: 25,
+                                                              width: 25,
+                                                              decoration: BoxDecoration(
+                                                                borderRadius: BorderRadius.circular(20),
+                                                                border: Border.all(
+                                                                    color: AppTheme(context).primaryGreenColor
                                                                 ),
-                                                                child: Icon(Icons.clear,color: AppTheme.primaryGreenColor,),
+
                                                               ),
+                                                              child: Icon(Icons.clear,color: AppTheme(context).primaryGreenColor,),
                                                             ),
                                                           ),
-                                                          SizedBox(height: 20),
-                                                          Text(
-                                                            "What is the importance of an external DPO?",
-                                                            style: TextStyle(
-                                                                color: AppTheme.primaryBlueColor,
-                                                                fontWeight: FontWeight.w700,
-                                                                letterSpacing: 1.0,
-                                                                height: 1.7,
-                                                                fontSize: Responsive.isDesktop(context)?31:25,
-                                                                fontFamily: "Cairo",
-                                                                fontStyle: FontStyle.normal),
-                                                          ),
-                                                          const SizedBox(height: 20),
-                                                          Text(
-                                                            "A DPO is mandatory for schools. GDPR fines are becoming more common and are not a good idea. Fortunately, small fines are now also being handed out, but unfortunately that has also happened for sending an email with recipients in the CC.",
-                                                            style: TextStyle(
-                                                                color: AppTheme.primaryBlackColor,
-                                                                fontWeight: FontWeight.w500,
-                                                                letterSpacing: 1.0,
-                                                                height: 1.7,
-                                                                fontSize: Responsive.isDesktop(context)?19:16,
-                                                                fontFamily: "Cairo",
-                                                                fontStyle: FontStyle.normal),
-                                                          ),
-                                                          const SizedBox(height: 20),
-                                                          Text(
-                                                            "De menselijke fout is niet uit te sluiten, en dan is het van belang dat je met een externe FG een privacyraamwerk en pdca-cyclus hebt ingevoerd waarmee je privacybewustzijn kunt aantonen. Dat voorkomt of verlaagd een boete.",
-                                                            style: TextStyle(
-                                                                color: AppTheme.primaryBlackColor,
-                                                                fontWeight: FontWeight.w500,
-                                                                letterSpacing: 1.0,
-                                                                height: 1.7,
-                                                                fontSize: Responsive.isDesktop(context)?19:16,
-                                                                fontFamily: "Cairo",
-                                                                fontStyle: FontStyle.normal),
-                                                          ),
+                                                        ),
+                                                        SizedBox(height: 20),
+                                                        Text(
+                                                          "What is the importance of an external DPO?",
+                                                          style: TextStyle(
+                                                              color: AppTheme(context).primaryBlueColor,
+                                                              fontWeight: FontWeight.w700,
+                                                              letterSpacing: 1.0,
+                                                              height: 1.7,
+                                                              fontSize: Responsive.isDesktop(context)?31:25,
+                                                              fontFamily: "Cairo",
+                                                              fontStyle: FontStyle.normal),
+                                                        ),
+                                                        const SizedBox(height: 20),
+                                                        Text(
+                                                          "A DPO is mandatory for schools. GDPR fines are becoming more common and are not a good idea. Fortunately, small fines are now also being handed out, but unfortunately that has also happened for sending an email with recipients in the CC.",
+                                                          style: TextStyle(
+                                                              color: AppTheme(context).primaryBlackColor,
+                                                              fontWeight: FontWeight.w500,
+                                                              letterSpacing: 1.0,
+                                                              height: 1.7,
+                                                              fontSize: Responsive.isDesktop(context)?19:16,
+                                                              fontFamily: "Cairo",
+                                                              fontStyle: FontStyle.normal),
+                                                        ),
+                                                        const SizedBox(height: 20),
+                                                        Text(
+                                                          "De menselijke fout is niet uit te sluiten, en dan is het van belang dat je met een externe FG een privacyraamwerk en pdca-cyclus hebt ingevoerd waarmee je privacybewustzijn kunt aantonen. Dat voorkomt of verlaagd een boete.",
+                                                          style: TextStyle(
+                                                              color: AppTheme(context).primaryBlackColor,
+                                                              fontWeight: FontWeight.w500,
+                                                              letterSpacing: 1.0,
+                                                              height: 1.7,
+                                                              fontSize: Responsive.isDesktop(context)?19:16,
+                                                              fontFamily: "Cairo",
+                                                              fontStyle: FontStyle.normal),
+                                                        ),
 
-                                                        ],
-                                                      ),
+                                                      ],
                                                     ),
                                                   ),
                                                 );
@@ -312,16 +319,15 @@ class _HomePageState extends State<HomePage> {
                                                   ? 141
                                                   : 132,
                                               decoration: BoxDecoration(
-                                                  color:
-                                                      AppTheme.primaryBlueColor,
+                                                  color:themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlueColor ,
+
                                                   borderRadius:
                                                       BorderRadius.circular(40)),
                                               child: Center(
                                                 child: Text(
                                                   "View More",
                                                   style: TextStyle(
-                                                      color: AppTheme
-                                                          .primaryWhiteColor,
+                                                      color:!themeChange.darkTheme?Color.fromRGBO(225, 225, 225, 1):Color.fromRGBO(50, 59, 75, 1) ,
                                                       fontSize: 18,
                                                       fontFamily: "Cairo",
                                                       fontStyle: FontStyle.normal,
@@ -356,10 +362,10 @@ class _HomePageState extends State<HomePage> {
                                             child: CircleAvatar(
                                               radius: 30,
                                               backgroundColor:
-                                                  AppTheme.primaryGreenColor,
+                                                  AppTheme(context).primaryGreenColor,
                                               child: Icon(Icons.play_arrow,
                                                   color:
-                                                      AppTheme.primaryWhiteColor),
+                                                      AppTheme(context).primaryWhiteColor),
                                             ),
                                           ),
                                         )
@@ -371,10 +377,11 @@ class _HomePageState extends State<HomePage> {
                             : Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Text(
+                                   Text(
                                     "What is the importance of an external DPO?",
                                     style: TextStyle(
-                                        color: Color.fromRGBO(50, 59, 75, 1),
+                                        // color: Color.fromRGBO(50, 59, 75, 1),
+                                        color: themeChange.darkTheme?Colors.white:Color.fromRGBO(50, 59, 75, 1),
                                         fontWeight: FontWeight.w700,
                                         letterSpacing: 1.0,
                                         height: 1.5,
@@ -386,7 +393,7 @@ class _HomePageState extends State<HomePage> {
                                   Text(
                                     "A DPO is mandatory for schools. GDPR fines are becoming more common and are not a good idea. Fortunately, small fines are now also being handed out, but unfortunately that has also happened for sending an email with recipients in the CC.",
                                     style: TextStyle(
-                                        color: AppTheme.primaryBlackColor,
+                                        color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlackColor,
                                         fontWeight: FontWeight.w500,
                                         letterSpacing: .2,
                                         height: 1.7,
@@ -396,17 +403,22 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                   const SizedBox(height: 20),
                                   InkWell(
+                                    hoverColor: Colors.transparent,
                                     onTap: (){
                                       showDialog(
                                           context: context,
                                           builder: (BuildContext context){
                                             return AlertDialog(
+                                              backgroundColor: themeChange.darkTheme?Color.fromRGBO(50, 59, 75, 1):Colors.white,
+
                                               shape: RoundedRectangleBorder(
                                                   borderRadius: BorderRadius.circular(10)
                                               ),
 
                                               content: Container(
                                                 width: 1000,
+                                                color: themeChange.darkTheme?Color.fromRGBO(50, 59, 75, 1):Colors.white,
+
                                                 // width: width,
                                                 child: Expanded(
                                                   child: Column(
@@ -416,6 +428,7 @@ class _HomePageState extends State<HomePage> {
                                                       Align(
                                                         alignment: Alignment.topRight,
                                                         child: InkWell(
+                                                          hoverColor: Colors.transparent,
                                                           onTap: (){
                                                             Navigator.pop(context);},
                                                           child: Container(
@@ -424,11 +437,11 @@ class _HomePageState extends State<HomePage> {
                                                             decoration: BoxDecoration(
                                                               borderRadius: BorderRadius.circular(20),
                                                               border: Border.all(
-                                                                  color: AppTheme.primaryGreenColor
+                                                                  color: AppTheme(context).primaryGreenColor
                                                               ),
 
                                                             ),
-                                                            child: Icon(Icons.clear,color: AppTheme.primaryGreenColor,),
+                                                            child: Icon(Icons.clear,color: AppTheme(context).primaryGreenColor,),
                                                           ),
                                                         ),
                                                       ),
@@ -436,7 +449,9 @@ class _HomePageState extends State<HomePage> {
                                                       Text(
                                                         "What is the importance of an external DPO?",
                                                         style: TextStyle(
-                                                            color: AppTheme.primaryBlueColor,
+                                                            // color: AppTheme(context).primaryBlueColor,
+                                                            color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlueColor,
+
                                                             fontWeight: FontWeight.w700,
                                                             letterSpacing: 1.0,
                                                             height: 1.7,
@@ -448,7 +463,7 @@ class _HomePageState extends State<HomePage> {
                                                       Text(
                                                         "A DPO is mandatory for schools. GDPR fines are becoming more common and are not a good idea. Fortunately, small fines are now also being handed out, but unfortunately that has also happened for sending an email with recipients in the CC.",
                                                         style: TextStyle(
-                                                            color: AppTheme.primaryBlackColor,
+                                                            color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlackColor,
                                                             fontWeight: FontWeight.w500,
                                                             letterSpacing: 1.0,
                                                             height: 1.7,
@@ -460,7 +475,7 @@ class _HomePageState extends State<HomePage> {
                                                       Text(
                                                         "De menselijke fout is niet uit te sluiten, en dan is het van belang dat je met een externe FG een privacyraamwerk en pdca-cyclus hebt ingevoerd waarmee je privacybewustzijn kunt aantonen. Dat voorkomt of verlaagd een boete.",
                                                         style: TextStyle(
-                                                            color: AppTheme.primaryBlackColor,
+                                                            color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlackColor,
                                                             fontWeight: FontWeight.w500,
                                                             letterSpacing: 1.0,
                                                             height: 1.7,
@@ -483,14 +498,16 @@ class _HomePageState extends State<HomePage> {
                                         height: 45,
                                         width: 132,
                                         decoration: BoxDecoration(
-                                            color: AppTheme.primaryBlueColor,
+                                            // color: AppTheme(context).primaryBlueColor,
+                                            color:themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlueColor ,
+
                                             borderRadius:
                                                 BorderRadius.circular(30)),
                                         child: Center(
                                           child: Text(
                                             "View More",
                                             style: TextStyle(
-                                                color: AppTheme.primaryWhiteColor,
+                                                color:!themeChange.darkTheme?Color.fromRGBO(225, 225, 225, 1):Color.fromRGBO(50, 59, 75, 1) ,
                                                 fontSize: 16,
                                                 fontFamily: "Cairo",
                                                 fontStyle: FontStyle.normal,
@@ -512,10 +529,9 @@ class _HomePageState extends State<HomePage> {
                                             child: CircleAvatar(
                                               radius: 30,
                                               backgroundColor:
-                                                  AppTheme.primaryGreenColor,
+                                                  AppTheme(context).primaryGreenColor,
                                               child: Icon(Icons.play_arrow,
-                                                  color: AppTheme
-                                                      .primaryWhiteColor),
+                                                  color: AppTheme(context).primaryWhiteColor),
                                             ),
                                           )
                                         ],
@@ -546,7 +562,7 @@ class _HomePageState extends State<HomePage> {
                                         Text(
                                           "Service 'Shared IT director'",
                                           style: TextStyle(
-                                              color: AppTheme.primaryBlueColor,
+                                              color: AppTheme(context).primaryBlueColor,
                                               fontWeight: FontWeight.w700,
                                               letterSpacing: 1.0,
                                               height: 1.7,
@@ -558,7 +574,7 @@ class _HomePageState extends State<HomePage> {
                                         Text(
                                           "CIOforum also offers a shared IT Director, a Chief Information Officer as a service, an IT sounding board for organizations that are too small for a salaried IT Manager. CIOforum offers subscription forms with a variation in quarterly to weekly meetings where you benefit from rapid knowledge building about your organization via an experienced IT coach.",
                                           style: TextStyle(
-                                              color: AppTheme.primaryBlackColor,
+                                              color: AppTheme(context).primaryBlueColor,
                                               fontWeight: FontWeight.w500,
                                               fontFamily: "Cairo",
                                               letterSpacing: 1.0,
@@ -568,81 +584,84 @@ class _HomePageState extends State<HomePage> {
                                         ),
                                         const SizedBox(height: 20),
                                         InkWell(
+                                          hoverColor: Colors.transparent,
                                           onTap: (){
                                             showDialog(
                                                 context: context,
                                                 builder: (BuildContext context){
                                                   return AlertDialog(
+                                                    backgroundColor: themeChange.darkTheme?Color.fromRGBO(50, 59, 75, 1):Colors.white,
                                                     shape: RoundedRectangleBorder(
                                                         borderRadius: BorderRadius.circular(10)
                                                     ),
 
                                                     content: Container(
                                                       width: 1000,
+                                                            color: themeChange.darkTheme?Color.fromRGBO(50, 59, 75, 1):Colors.white,
                                                       // width: width,
-                                                      child: Expanded(
-                                                        child: Column(
-                                                          mainAxisSize: MainAxisSize.min,
-                                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                                          children: [
-                                                            Align(
-                                                              alignment: Alignment.topRight,
-                                                              child: InkWell(
-                                                                onTap: (){
-                                                                  Navigator.pop(context);},
-                                                                child: Container(
-                                                                  height: 25,
-                                                                  width: 25,
-                                                                  decoration: BoxDecoration(
-                                                                    borderRadius: BorderRadius.circular(20),
-                                                                    border: Border.all(
-                                                                        color: AppTheme.primaryGreenColor
-                                                                    ),
+                                                      child: Column(
+                                                        mainAxisSize: MainAxisSize.min,
+                                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                                        children: [
+                                                          Align(
+                                                            alignment: Alignment.topRight,
+                                                            child: InkWell(
+                                                              hoverColor: Colors.transparent,
 
+                                                              onTap: (){
+                                                                Navigator.pop(context);},
+                                                              child: Container(
+                                                                height: 25,
+                                                                width: 25,
+                                                                decoration: BoxDecoration(
+                                                                  borderRadius: BorderRadius.circular(20),
+                                                                  border: Border.all(
+                                                                      color: AppTheme(context).primaryGreenColor
                                                                   ),
-                                                                  child: Icon(Icons.clear,color: AppTheme.primaryGreenColor,),
+
                                                                 ),
+                                                                child: Icon(Icons.clear,color: AppTheme(context).primaryGreenColor,),
                                                               ),
                                                             ),
-                                                            SizedBox(height: 20),
-                                                            Text(
-                                                              "Service 'Shared IT director'",
-                                                              style: TextStyle(
-                                                                  color: AppTheme.primaryBlueColor,
-                                                                  fontWeight: FontWeight.w700,
-                                                                  letterSpacing: 1.0,
-                                                                  height: 1.7,
-                                                                  fontSize: Responsive.isDesktop(context)?31:25,
-                                                                  fontFamily: "Cairo",
-                                                                  fontStyle: FontStyle.normal),
-                                                            ),
-                                                            const SizedBox(height: 20),
-                                                            Text(
-                                                              "CIOforum also offers a shared IT Director, a Chief Information Officer as a service, an IT sounding board for organizations that are too small for a salaried IT Manager. CIOforum offers subscription forms with a variation in quarterly to weekly meetings where you benefit from rapid knowledge building about your organization via an experienced IT coach.",
-                                                              style: TextStyle(
-                                                                  color: AppTheme.primaryBlackColor,
-                                                                  fontWeight: FontWeight.w500,
-                                                                  letterSpacing: 1.0,
-                                                                  height: 1.7,
-                                                                  fontSize: Responsive.isDesktop(context)?19:16,
-                                                                  fontFamily: "Cairo",
-                                                                  fontStyle: FontStyle.normal),
-                                                            ),
-                                                            const SizedBox(height: 20),
-                                                            Text(
-                                                              "De menselijke fout is niet uit te sluiten, en dan is het van belang dat je met een externe FG een privacyraamwerk en pdca-cyclus hebt ingevoerd waarmee je privacybewustzijn kunt aantonen. Dat voorkomt of verlaagd een boete.",
-                                                              style: TextStyle(
-                                                                  color: AppTheme.primaryBlackColor,
-                                                                  fontWeight: FontWeight.w500,
-                                                                  letterSpacing: 1.0,
-                                                                  height: 1.7,
-                                                                  fontSize: Responsive.isDesktop(context)?19:16,
-                                                                  fontFamily: "Cairo",
-                                                                  fontStyle: FontStyle.normal),
-                                                            ),
+                                                          ),
+                                                          SizedBox(height: 20),
+                                                          Text(
+                                                            "Service 'Shared IT director'",
+                                                            style: TextStyle(
+                                                                color: AppTheme(context).primaryBlueColor,
+                                                                fontWeight: FontWeight.w700,
+                                                                letterSpacing: 1.0,
+                                                                height: 1.7,
+                                                                fontSize: Responsive.isDesktop(context)?31:25,
+                                                                fontFamily: "Cairo",
+                                                                fontStyle: FontStyle.normal),
+                                                          ),
+                                                          const SizedBox(height: 20),
+                                                          Text(
+                                                            "CIOforum also offers a shared IT Director, a Chief Information Officer as a service, an IT sounding board for organizations that are too small for a salaried IT Manager. CIOforum offers subscription forms with a variation in quarterly to weekly meetings where you benefit from rapid knowledge building about your organization via an experienced IT coach.",
+                                                            style: TextStyle(
+                                                                color: AppTheme(context).primaryBlackColor,
+                                                                fontWeight: FontWeight.w500,
+                                                                letterSpacing: 1.0,
+                                                                height: 1.7,
+                                                                fontSize: Responsive.isDesktop(context)?19:16,
+                                                                fontFamily: "Cairo",
+                                                                fontStyle: FontStyle.normal),
+                                                          ),
+                                                          const SizedBox(height: 20),
+                                                          Text(
+                                                            "De menselijke fout is niet uit te sluiten, en dan is het van belang dat je met een externe FG een privacyraamwerk en pdca-cyclus hebt ingevoerd waarmee je privacybewustzijn kunt aantonen. Dat voorkomt of verlaagd een boete.",
+                                                            style: TextStyle(
+                                                                color: AppTheme(context).primaryBlackColor,
+                                                                fontWeight: FontWeight.w500,
+                                                                letterSpacing: 1.0,
+                                                                height: 1.7,
+                                                                fontSize: Responsive.isDesktop(context)?19:16,
+                                                                fontFamily: "Cairo",
+                                                                fontStyle: FontStyle.normal),
+                                                          ),
 
-                                                          ],
-                                                        ),
+                                                        ],
                                                       ),
                                                     ),
                                                   );
@@ -655,16 +674,16 @@ class _HomePageState extends State<HomePage> {
                                               height: 48,
                                               width: 141,
                                               decoration: BoxDecoration(
-                                                  color:
-                                                      AppTheme.primaryBlueColor,
+                                                  color:themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlueColor ,
+
                                                   borderRadius:
                                                       BorderRadius.circular(40)),
                                               child: Center(
                                                 child: Text(
                                                   "View More",
                                                   style: TextStyle(
-                                                      color: AppTheme
-                                                          .primaryWhiteColor,
+                                                      color:!themeChange.darkTheme?Color.fromRGBO(225, 225, 225, 1):Color.fromRGBO(50, 59, 75, 1) ,
+
                                                       fontSize: 18,
                                                       fontFamily: "Cairo",
                                                       fontStyle: FontStyle.normal,
@@ -683,7 +702,7 @@ class _HomePageState extends State<HomePage> {
                                   Text(
                                     "Service 'Shared IT director'",
                                     style: TextStyle(
-                                        color: AppTheme.primaryBlueColor,
+                                        color: AppTheme(context).primaryBlueColor,
                                         fontWeight: FontWeight.bold,
                                         letterSpacing: 1.0,
                                         height: 1.7,
@@ -695,7 +714,7 @@ class _HomePageState extends State<HomePage> {
                                   Text(
                                     "CIOforum also offers a shared IT Director, a Chief Information Officer as a service, an IT sounding board for organizations that are too small for a salaried IT Manager. CIOforum offers subscription forms with a variation in quarterly to weekly meetings where you benefit from rapid knowledge building about your organization via an experienced IT coach.",
                                     style: TextStyle(
-                                      color: AppTheme.primaryBlackColor,
+                                      color: AppTheme(context).primaryBlackColor,
                                       fontWeight: FontWeight.w500,
                                       fontFamily: "Cairo",
                                       fontStyle: FontStyle.normal,
@@ -711,12 +730,16 @@ class _HomePageState extends State<HomePage> {
                                           context: context,
                                           builder: (BuildContext context){
                                             return AlertDialog(
+                                              backgroundColor: themeChange.darkTheme?Color.fromRGBO(50, 59, 75, 1):Colors.white,
+
                                               shape: RoundedRectangleBorder(
                                                   borderRadius: BorderRadius.circular(10)
                                               ),
 
                                               content: Container(
                                                 width: 1000,
+                                                color: themeChange.darkTheme?Color.fromRGBO(50, 59, 75, 1):Colors.white,
+
                                                 // width: width,
                                                 child: Expanded(
                                                   child: Column(
@@ -734,11 +757,11 @@ class _HomePageState extends State<HomePage> {
                                                             decoration: BoxDecoration(
                                                               borderRadius: BorderRadius.circular(20),
                                                               border: Border.all(
-                                                                  color: AppTheme.primaryGreenColor
+                                                                  color: AppTheme(context).primaryGreenColor
                                                               ),
 
                                                             ),
-                                                            child: Icon(Icons.clear,color: AppTheme.primaryGreenColor,),
+                                                            child: Icon(Icons.clear,color: AppTheme(context).primaryGreenColor,),
                                                           ),
                                                         ),
                                                       ),
@@ -746,7 +769,7 @@ class _HomePageState extends State<HomePage> {
                                                       Text(
                                                         "Service 'Shared IT director'",
                                                         style: TextStyle(
-                                                            color: AppTheme.primaryBlueColor,
+                                                            color: AppTheme(context).primaryBlueColor,
                                                             fontWeight: FontWeight.w700,
                                                             letterSpacing: 1.0,
                                                             height: 1.7,
@@ -758,7 +781,7 @@ class _HomePageState extends State<HomePage> {
                                                       Text(
                                                         "CIOforum also offers a shared IT Director, a Chief Information Officer as a service, an IT sounding board for organizations that are too small for a salaried IT Manager. CIOforum offers subscription forms with a variation in quarterly to weekly meetings where you benefit from rapid knowledge building about your organization via an experienced IT coach.",
                                                         style: TextStyle(
-                                                            color: AppTheme.primaryBlackColor,
+                                                            color: AppTheme(context).primaryBlackColor,
                                                             fontWeight: FontWeight.w500,
                                                             letterSpacing: 1.0,
                                                             height: 1.7,
@@ -770,7 +793,7 @@ class _HomePageState extends State<HomePage> {
                                                       Text(
                                                         "De menselijke fout is niet uit te sluiten, en dan is het van belang dat je met een externe FG een privacyraamwerk en pdca-cyclus hebt ingevoerd waarmee je privacybewustzijn kunt aantonen. Dat voorkomt of verlaagd een boete.",
                                                         style: TextStyle(
-                                                            color: AppTheme.primaryBlackColor,
+                                                            color: AppTheme(context).primaryBlackColor,
                                                             fontWeight: FontWeight.w500,
                                                             letterSpacing: 1.0,
                                                             height: 1.7,
@@ -793,14 +816,14 @@ class _HomePageState extends State<HomePage> {
                                         height: 42,
                                         width: 123,
                                         decoration: BoxDecoration(
-                                            color: AppTheme.primaryBlueColor,
+                                            color:themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlueColor ,
                                             borderRadius:
                                                 BorderRadius.circular(40)),
                                         child: Center(
                                           child: Text(
                                             "View More",
                                             style: TextStyle(
-                                                color: AppTheme.primaryWhiteColor,
+                                                color:!themeChange.darkTheme?Color.fromRGBO(225, 225, 225, 1):Color.fromRGBO(50, 59, 75, 1) ,
                                                 fontSize: 16,
                                                 fontFamily: "Cairo",
                                                 fontStyle: FontStyle.normal,
@@ -826,9 +849,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Container(
                     width: double.infinity,
-                    color: Responsive.isDesktop(context)
+                    color: !themeChange.darkTheme?(Responsive.isDesktop(context)
                         ? const Color.fromRGBO(243, 248, 234, 1)
-                        : Colors.transparent,
+                        : Colors.transparent):Colors.black,
                     child: Column(
                       children: [
                         const SizedBox(height: 20),
@@ -837,7 +860,7 @@ class _HomePageState extends State<HomePage> {
                             child: Text(
                               "Our latest news and updates",
                               style: TextStyle(
-                                  color: AppTheme.primaryBlackColor,
+                                  color: AppTheme(context).primaryBlackColor,
                                   fontWeight: FontWeight.w700,
                                   fontSize:
                                       Responsive.isDesktop(context) ? 30 : 20,
@@ -867,7 +890,7 @@ class _HomePageState extends State<HomePage> {
                                   child: Container(
                                     // height:  Responsive.isDesktop(context)?497:557,
                                     decoration: BoxDecoration(
-                                        color: AppTheme.WhiteColor,
+                                        color: AppTheme(context).WhiteColor,
                                         borderRadius: BorderRadius.circular(10)),
                                     child: Padding(
                                       padding: const EdgeInsets.only(bottom: 10),
@@ -898,8 +921,7 @@ class _HomePageState extends State<HomePage> {
                                                   style: TextStyle(
                                                     fontWeight: FontWeight.w600,
                                                     fontSize: 25,
-                                                    color: AppTheme
-                                                        .primaryBlackColor,
+                                                    color: AppTheme(context).primaryBlackColor,
                                                     fontFamily: "Cairo",
                                                     fontStyle: FontStyle.normal,
                                                   ),
@@ -913,7 +935,7 @@ class _HomePageState extends State<HomePage> {
                                                     fontFamily: "Cairo",
                                                     fontStyle: FontStyle.normal,
                                                     color:
-                                                        AppTheme.primaryBlueColor,
+                                                        AppTheme(context).primaryBlueColor,
                                                   ),
                                                 ),
                                                 Responsive.isDesktop(context)
@@ -927,7 +949,7 @@ class _HomePageState extends State<HomePage> {
                                                           fontWeight: FontWeight.w400,
                                                           fontSize: 15,
                                                           fontFamily: "Cairo",
-                                                          color: const Color.fromRGBO(50,59,75,1),
+                                                          color: themeChange.darkTheme? Colors.white:Color.fromRGBO(50,59,75,1),
 
                                                           fontStyle: FontStyle.normal,
                                                           letterSpacing:
@@ -943,8 +965,7 @@ class _HomePageState extends State<HomePage> {
                                                           text:
                                                           "Read more",
                                                           style: TextStyle(
-                                                            color: AppTheme
-                                                                .primaryGreenColor,
+                                                            color: AppTheme(context).primaryGreenColor,
                                                             fontWeight: FontWeight.w400,
                                                             fontSize: 15,
                                                             fontFamily: "Cairo",
@@ -1030,7 +1051,7 @@ class _HomePageState extends State<HomePage> {
                                         child: Container(
                                           // height: 497,
                                           decoration: BoxDecoration(
-                                              color: AppTheme.WhiteColor,
+                                              color: AppTheme(context).WhiteColor,
                                               borderRadius:
                                                   BorderRadius.circular(10)),
                                           child: Padding(
@@ -1071,8 +1092,7 @@ class _HomePageState extends State<HomePage> {
                                                           fontWeight:
                                                               FontWeight.w600,
                                                           fontSize: 25,
-                                                          color: AppTheme
-                                                              .primaryBlackColor,
+                                                          color: AppTheme(context).primaryBlackColor,
                                                           fontFamily: "Cairo",
                                                           fontStyle:
                                                               FontStyle.normal,
@@ -1088,8 +1108,7 @@ class _HomePageState extends State<HomePage> {
                                                           fontFamily: "Cairo",
                                                           fontStyle:
                                                               FontStyle.normal,
-                                                          color: AppTheme
-                                                              .primaryBlueColor,
+                                                          color: AppTheme(context).primaryBlueColor,
                                                         ),
                                                       ),
                                                       const SizedBox(height: 30),
@@ -1097,23 +1116,23 @@ class _HomePageState extends State<HomePage> {
                                                         text: TextSpan(
                                                             text:
                                                             "The accompanying animation video of almost 2 minutes tells you what you can do wrong with...",
-                                                            style: const TextStyle(
+                                                            style:  TextStyle(
                                                                 fontWeight: FontWeight.w400,
                                                                 fontSize: 15,
                                                                 fontFamily: "Cairo",
                                                                 fontStyle: FontStyle.normal,
                                                                 letterSpacing: 1.0,
-                                                                height: 1.7
+                                                                height: 1.7,
 
-                                                              // color: const Color.fromRGBO(50,59,75,1),
+
+                                                              color: themeChange.darkTheme? Colors.white:Color.fromRGBO(50,59,75,1),
                                                             ),
                                                             children: <TextSpan>[
                                                               TextSpan(
                                                                 text:
                                                                 "Read more",
                                                                 style: TextStyle(
-                                                                  color: AppTheme
-                                                                      .primaryGreenColor,
+                                                                  color: AppTheme(context).primaryGreenColor,
                                                                   fontWeight: FontWeight.w400,
                                                                   fontSize: 15,
                                                                   fontFamily: "Cairo",
@@ -1193,7 +1212,7 @@ class _HomePageState extends State<HomePage> {
                                         child: Container(
                                           // height: 497,
                                           decoration: BoxDecoration(
-                                              color: AppTheme.WhiteColor,
+                                              color: AppTheme(context).WhiteColor,
                                               borderRadius:
                                                   BorderRadius.circular(10)),
                                           child: Padding(
@@ -1232,8 +1251,7 @@ class _HomePageState extends State<HomePage> {
                                                           fontWeight:
                                                               FontWeight.w600,
                                                           fontSize: 25,
-                                                          color: AppTheme
-                                                              .primaryBlackColor,
+                                                          color: AppTheme(context).primaryBlackColor,
                                                           fontFamily: "Cairo",
                                                           fontStyle:
                                                               FontStyle.normal,
@@ -1249,8 +1267,7 @@ class _HomePageState extends State<HomePage> {
                                                           fontFamily: "Cairo",
                                                           fontStyle:
                                                               FontStyle.normal,
-                                                          color: AppTheme
-                                                              .primaryBlueColor,
+                                                          color: AppTheme(context).primaryBlueColor,
                                                         ),
                                                       ),
                                                       const SizedBox(height: 20),
@@ -1258,23 +1275,22 @@ class _HomePageState extends State<HomePage> {
                                                         text: TextSpan(
                                                             text:
                                                             "Korte video-uitleg van noodzakelijke basisbegrippen over online werken met de computer, zoals een bestand,...",
-                                                            style: const TextStyle(
+                                                            style:  TextStyle(
                                                                 fontWeight: FontWeight.w400,
                                                                 fontSize: 15,
                                                                 fontFamily: "Cairo",
                                                                 fontStyle: FontStyle.normal,
                                                                 letterSpacing: 1.0,
-                                                                height: 1.7
+                                                                height: 1.7,
 
-                                                              // color: const Color.fromRGBO(50,59,75,1),
+                                                              color: themeChange.darkTheme? Colors.white:Color.fromRGBO(50,59,75,1),
                                                             ),
                                                             children: <TextSpan>[
                                                               TextSpan(
                                                                 text:
                                                                 "Read more",
                                                                 style: TextStyle(
-                                                                  color: AppTheme
-                                                                      .primaryGreenColor,
+                                                                  color: AppTheme(context).primaryGreenColor,
                                                                   fontWeight: FontWeight.w400,
                                                                   fontSize: 15,
                                                                   fontFamily: "Cairo",
@@ -1342,6 +1358,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         const SizedBox(height: 20),
                         InkWell(
+                          hoverColor: Colors.transparent,
                           onTap:(){
                             widget.viewmore.onpageview(true);
 
@@ -1351,13 +1368,13 @@ class _HomePageState extends State<HomePage> {
                                 height: 48,
                                 width: 141,
                                 decoration: BoxDecoration(
-                                    color: AppTheme.primaryBlueColor,
+                                    color:themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlueColor ,
                                     borderRadius: BorderRadius.circular(40)),
                                 child: Center(
                                   child: Text(
                                     "View More",
                                     style: TextStyle(
-                                        color: AppTheme.primaryWhiteColor,
+                                        color:!themeChange.darkTheme?Color.fromRGBO(225, 225, 225, 1):Color.fromRGBO(50, 59, 75, 1) ,
                                         fontSize: 18,
                                         fontFamily: "Cairo",
                                         fontStyle: FontStyle.normal,

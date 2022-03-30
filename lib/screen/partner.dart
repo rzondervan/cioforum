@@ -2,15 +2,18 @@ import 'package:ciofroum_web/Homepage.dart';
 import 'package:ciofroum_web/constants/themes.dart';
 import 'package:ciofroum_web/footer_view.dart';
 import 'package:ciofroum_web/responsive.dart';
+import 'package:ciofroum_web/thememode/provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../widget/footer1.dart';
 
 
 class Partner extends StatefulWidget {
-  Partner({required this.clickFooterCallback});
+  Partner({required this.clickFooterCallback,required this.sitemapClick});
 
   ClickFooterCallback clickFooterCallback;
+  SitemapClick sitemapClick;
   @override
   State<Partner> createState() => _PartnerState();
 }
@@ -20,6 +23,8 @@ class _PartnerState extends State<Partner> {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
+    final themeChange = Provider.of<DarkThemeProvider>(context);
+
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -39,7 +44,7 @@ class _PartnerState extends State<Partner> {
                       child: Text(
                         "Partners",
                         style: TextStyle(
-                            color: AppTheme.primaryWhiteColor,
+                            color: Color.fromRGBO(225, 225, 225, 1),
                             fontFamily: "Cairo",
                             fontStyle: FontStyle.normal,
                             fontSize: width<600?width*0.08:54,
@@ -60,7 +65,7 @@ class _PartnerState extends State<Partner> {
                   children: [
                     Container(
                       // color: Colors.red,
-                      color: const Color.fromRGBO(247, 247, 247, 1),
+                      color: themeChange.darkTheme? Color.fromRGBO(50, 59, 75, 1):Color.fromRGBO(247, 247, 247, 1),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
 
@@ -71,7 +76,7 @@ class _PartnerState extends State<Partner> {
                               fontSize: Responsive.isDesktop(context) ?24:18,
                               fontStyle: FontStyle.normal,
                               fontFamily: "Cairo",
-                              color: AppTheme.primaryBlackColor,
+                              color: AppTheme(context).primaryBlackColor,
                               letterSpacing: 1
                           ),),
                           Padding(
@@ -87,7 +92,7 @@ class _PartnerState extends State<Partner> {
                                       fontSize: Responsive.isDesktop(context) ?19:16,
                                       fontStyle: FontStyle.normal,
                                       fontFamily: "Cairo",
-                                      color: AppTheme.primaryBlueColor,
+                                      color: AppTheme(context).primaryBlueColor,
                                     letterSpacing: 1.0,
                                     height: 1.7,
                                   ),
@@ -100,7 +105,7 @@ class _PartnerState extends State<Partner> {
                                       fontSize: Responsive.isDesktop(context) ?19:16,
                                       fontStyle: FontStyle.normal,
                                       fontFamily: "Cairo",
-                                      color: AppTheme.primaryBlueColor,
+                                      color: AppTheme(context).primaryBlueColor,
                                     letterSpacing: 1.0,
                                     height: 1.7,
                                   ),
@@ -113,7 +118,7 @@ class _PartnerState extends State<Partner> {
                                       fontSize: Responsive.isDesktop(context) ?19:16,
                                       fontStyle: FontStyle.normal,
                                       fontFamily: "Cairo",
-                                      color: AppTheme.primaryBlueColor,
+                                      color: AppTheme(context).primaryBlueColor,
                                     letterSpacing: 1.0,
                                     height: 1.7,
                                   )
@@ -129,7 +134,7 @@ class _PartnerState extends State<Partner> {
                     Container(
                       width: width,
                       decoration: BoxDecoration(
-                          color: AppTheme.greenlightColor,
+                          color: AppTheme(context).greenlightColor,
                           borderRadius: BorderRadius.circular(10)),
                       child: Padding(
                         padding: const EdgeInsets.all(20.0),
@@ -139,7 +144,7 @@ class _PartnerState extends State<Partner> {
                             Text(
                               "Shared IT Director",
                               style: TextStyle(
-                                  color: AppTheme.primaryBlueColor,
+                                  color: AppTheme(context).primaryBlueColor,
                                   fontFamily: "Cairo",
                                   fontSize: Responsive.isDesktop(context) ?24:18,
                                   letterSpacing: 1,
@@ -152,7 +157,7 @@ class _PartnerState extends State<Partner> {
                                   text:
                                   'CIOforum offers you a shared IT Director, a Chief Information Officer " CIO " , as a service, an IT sounding board',
                                   style: TextStyle(
-                                      color: AppTheme.primaryBlueColor,
+                                      color: AppTheme(context).primaryBlueColor,
                                       fontFamily: "Cairo",
                                       fontSize: Responsive.isDesktop(context) ?19:16,
                                       letterSpacing: 1.0,
@@ -164,7 +169,7 @@ class _PartnerState extends State<Partner> {
                                       text:
                                       ' without the overhead of a salaried person .',
                                       style: TextStyle(
-                                          color: AppTheme.primaryBlueColor,
+                                          color: AppTheme(context).primaryBlueColor,
                                           fontFamily: "Cairo",
                                           fontSize: Responsive.isDesktop(context) ?19:16,
                                           letterSpacing: 1.0,
@@ -178,7 +183,7 @@ class _PartnerState extends State<Partner> {
                             Text(
                               "CIOforum offers subscription forms with variation in quarterly to weekly meetings, where you benefit from first opinion and rapid knowledge building about your organization. ",
                               style: TextStyle(
-                                  color: AppTheme.primaryBlueColor,
+                                  color: AppTheme(context).primaryBlueColor,
                                   fontFamily: "Cairo",
                                   fontSize: Responsive.isDesktop(context) ?19:16,
                                   letterSpacing: 1.0,
@@ -194,7 +199,7 @@ class _PartnerState extends State<Partner> {
                     Text(
                       "Top 7 Mistakes When Hiring an IT Director",
                       style: TextStyle(
-                          color: AppTheme.primaryBlueColor,
+                          color: AppTheme(context).primaryBlueColor,
                           fontFamily: "Cairo",
                           fontSize: Responsive.isDesktop(context) ?24:18,
                           letterSpacing: 1.0,
@@ -206,7 +211,7 @@ class _PartnerState extends State<Partner> {
                     Text(
                       "CIOforum has a short IT market research for directors, owners and boards. The anonymous answers are used as input for IT-TEDtalk. Would you like to answer three short questions? It will take a few minutes of your time. As a thank you, you will receive the article Top 7 of mistakes ....",
                       style: TextStyle(
-                          color: AppTheme.primaryBlueColor,
+                          color: AppTheme(context).primaryBlueColor,
                           fontFamily: "Cairo",
                           fontSize: Responsive.isDesktop(context) ?19:16,
                           letterSpacing: 1.0,
@@ -218,7 +223,7 @@ class _PartnerState extends State<Partner> {
                     Text(
                       "Download the whitepaper to learn what IT leadership skills you need and don't need.",
                       style: TextStyle(
-                          color: AppTheme.primaryBlueColor,
+                          color: AppTheme(context).primaryBlueColor,
                           fontFamily: "Cairo",
                           fontSize: Responsive.isDesktop(context) ?19:16,
                           letterSpacing: 1.0,
@@ -245,8 +250,7 @@ class _PartnerState extends State<Partner> {
                                         "Prevent consequences of a wrong profile",
                                         textAlign: TextAlign.end,
                                         style: TextStyle(
-                                            color: AppTheme
-                                                .primaryBlueColor,
+                                            color: AppTheme(context).primaryBlueColor,
                                             fontFamily: "Cairo",
                                             fontSize: 19,
                                             letterSpacing: 1.0,
@@ -261,12 +265,11 @@ class _PartnerState extends State<Partner> {
                                     CircleAvatar(
                                       radius: 20,
                                       backgroundColor:
-                                      AppTheme.greenlightColor,
+                                      AppTheme(context).greenlightColor,
                                       child: Text(
                                         "1",
                                         style: TextStyle(
-                                            color: AppTheme
-                                                .primaryBlueColor,
+                                            color: AppTheme(context).primaryBlueColor,
                                             fontFamily: "Cairo",
                                             fontSize: 34,
                                             letterSpacing: 1,
@@ -287,8 +290,7 @@ class _PartnerState extends State<Partner> {
                                         "Make sure IT offers added value",
                                         textAlign: TextAlign.end,
                                         style: TextStyle(
-                                            color: AppTheme
-                                                .primaryBlueColor,
+                                            color: AppTheme(context).primaryBlueColor,
                                             fontFamily: "Cairo",
                                             fontSize: 19,
                                             letterSpacing: 1.0,
@@ -303,12 +305,11 @@ class _PartnerState extends State<Partner> {
                                     CircleAvatar(
                                       radius: 20,
                                       backgroundColor:
-                                      AppTheme.greenlightColor,
+                                      AppTheme(context).greenlightColor,
                                       child: Text(
                                         "2",
                                         style: TextStyle(
-                                            color: AppTheme
-                                                .primaryBlueColor,
+                                            color: AppTheme(context).primaryBlueColor,
                                             fontFamily: "Cairo",
                                             fontSize: 34,
                                             // letterSpacing: 1,
@@ -329,8 +330,7 @@ class _PartnerState extends State<Partner> {
                                         "Prevent IT from taking\n unacceptable risks",
                                         textAlign: TextAlign.end,
                                         style: TextStyle(
-                                            color: AppTheme
-                                                .primaryBlueColor,
+                                            color: AppTheme(context).primaryBlueColor,
                                             fontFamily: "Cairo",
                                             fontSize: 19,
                                             letterSpacing: 1.0,
@@ -345,12 +345,11 @@ class _PartnerState extends State<Partner> {
                                     CircleAvatar(
                                       radius: 20,
                                       backgroundColor:
-                                      AppTheme.greenlightColor,
+                                      AppTheme(context).greenlightColor,
                                       child: Text(
                                         "3",
                                         style: TextStyle(
-                                            color: AppTheme
-                                                .primaryBlueColor,
+                                            color: AppTheme(context).primaryBlueColor,
                                             fontFamily: "Cairo",
                                             fontSize: 34,
                                             // letterSpacing: 1,
@@ -380,12 +379,11 @@ class _PartnerState extends State<Partner> {
                                     CircleAvatar(
                                       radius: 20,
                                       backgroundColor:
-                                      AppTheme.greenlightColor,
+                                      AppTheme(context).greenlightColor,
                                       child: Text(
                                         "4",
                                         style: TextStyle(
-                                            color: AppTheme
-                                                .primaryBlueColor,
+                                            color: AppTheme(context).primaryBlueColor,
                                             fontFamily: "Cairo",
                                             fontSize: 34,
                                             // letterSpacing: 1,
@@ -400,8 +398,7 @@ class _PartnerState extends State<Partner> {
                                         "Prevent IT from doing what you want",
                                         textAlign: TextAlign.start,
                                         style: TextStyle(
-                                            color: AppTheme
-                                                .primaryBlueColor,
+                                            color: AppTheme(context).primaryBlueColor,
                                             fontFamily: "Cairo",
                                             fontSize: 19,
                                             letterSpacing: 1.0,
@@ -420,12 +417,11 @@ class _PartnerState extends State<Partner> {
                                     CircleAvatar(
                                       radius: 20,
                                       backgroundColor:
-                                      AppTheme.greenlightColor,
+                                      AppTheme(context).greenlightColor,
                                       child: Text(
                                         "5",
                                         style: TextStyle(
-                                            color: AppTheme
-                                                .primaryBlueColor,
+                                            color: AppTheme(context).primaryBlueColor,
                                             fontFamily: "Cairo",
                                             fontSize: 34,
                                             // letterSpacing: 1,
@@ -440,8 +436,7 @@ class _PartnerState extends State<Partner> {
                                         "Prevent IT from perpetuating itself ",
                                         textAlign: TextAlign.start,
                                         style: TextStyle(
-                                            color: AppTheme
-                                                .primaryBlueColor,
+                                            color: AppTheme(context).primaryBlueColor,
                                             fontFamily: "Cairo",
                                             fontSize: 19,
                                             letterSpacing: 1.0,
@@ -460,12 +455,11 @@ class _PartnerState extends State<Partner> {
                                     CircleAvatar(
                                       radius: 20,
                                       backgroundColor:
-                                      AppTheme.greenlightColor,
+                                      AppTheme(context).greenlightColor,
                                       child: Text(
                                         "6",
                                         style: TextStyle(
-                                            color: AppTheme
-                                                .primaryBlueColor,
+                                            color: AppTheme(context).primaryBlueColor,
                                             fontFamily: "Cairo",
                                             fontSize: 34,
                                             // letterSpacing: 1,
@@ -480,8 +474,7 @@ class _PartnerState extends State<Partner> {
                                         "You does not benefit from Cloud and managed services",
                                         textAlign: TextAlign.start,
                                         style: TextStyle(
-                                            color: AppTheme
-                                                .primaryBlueColor,
+                                            color: AppTheme(context).primaryBlueColor,
                                             fontFamily: "Cairo",
                                             fontSize: 19,
                                             letterSpacing: 1.0,
@@ -512,12 +505,12 @@ class _PartnerState extends State<Partner> {
                                   CircleAvatar(
                                     radius: 18,
                                     backgroundColor:
-                                    AppTheme.greenlightColor,
+                                    AppTheme(context).greenlightColor,
                                     child: Text(
                                       "1",
                                       style: TextStyle(
                                           color:
-                                          AppTheme.primaryBlueColor,
+                                          AppTheme(context).primaryBlueColor,
                                           fontFamily: "Cairo",
                                           fontSize: 24,
                                           // letterSpacing: 1,
@@ -532,7 +525,7 @@ class _PartnerState extends State<Partner> {
                                       textAlign: TextAlign.start,
                                       style: TextStyle(
                                           color:
-                                          AppTheme.primaryBlueColor,
+                                          AppTheme(context).primaryBlueColor,
                                           fontFamily: "Cairo",
                                           fontSize: 16,
                                           // letterSpacing: 1,
@@ -548,12 +541,12 @@ class _PartnerState extends State<Partner> {
                                   CircleAvatar(
                                     radius: 18,
                                     backgroundColor:
-                                    AppTheme.greenlightColor,
+                                    AppTheme(context).greenlightColor,
                                     child: Text(
                                       "2",
                                       style: TextStyle(
                                           color:
-                                          AppTheme.primaryBlueColor,
+                                          AppTheme(context).primaryBlueColor,
                                           fontFamily: "Cairo",
                                           fontSize: 24,
                                           // letterSpacing: 1,
@@ -568,7 +561,7 @@ class _PartnerState extends State<Partner> {
                                       textAlign: TextAlign.start,
                                       style: TextStyle(
                                           color:
-                                          AppTheme.primaryBlueColor,
+                                          AppTheme(context).primaryBlueColor,
                                           fontFamily: "Cairo",
                                           fontSize: 16,
                                           // letterSpacing: 1,
@@ -584,12 +577,12 @@ class _PartnerState extends State<Partner> {
                                   CircleAvatar(
                                     radius: 18,
                                     backgroundColor:
-                                    AppTheme.greenlightColor,
+                                    AppTheme(context).greenlightColor,
                                     child: Text(
                                       "3",
                                       style: TextStyle(
                                           color:
-                                          AppTheme.primaryBlueColor,
+                                          AppTheme(context).primaryBlueColor,
                                           fontFamily: "Cairo",
                                           fontSize: 24,
                                           // letterSpacing: 1,
@@ -604,7 +597,7 @@ class _PartnerState extends State<Partner> {
                                       textAlign: TextAlign.start,
                                       style: TextStyle(
                                           color:
-                                          AppTheme.primaryBlueColor,
+                                          AppTheme(context).primaryBlueColor,
                                           fontFamily: "Cairo",
                                           fontSize: 16,
                                           // letterSpacing: 1,
@@ -631,12 +624,12 @@ class _PartnerState extends State<Partner> {
                                   CircleAvatar(
                                     radius: 18,
                                     backgroundColor:
-                                    AppTheme.greenlightColor,
+                                    AppTheme(context).greenlightColor,
                                     child: Text(
                                       "4",
                                       style: TextStyle(
                                           color:
-                                          AppTheme.primaryBlueColor,
+                                          AppTheme(context).primaryBlueColor,
                                           fontFamily: "Cairo",
                                           fontSize: 24,
                                           // letterSpacing: 1,
@@ -651,7 +644,7 @@ class _PartnerState extends State<Partner> {
                                       textAlign: TextAlign.start,
                                       style: TextStyle(
                                           color:
-                                          AppTheme.primaryBlueColor,
+                                          AppTheme(context).primaryBlueColor,
                                           fontFamily: "Cairo",
                                           fontSize: 16,
                                           // letterSpacing: 1,
@@ -667,12 +660,12 @@ class _PartnerState extends State<Partner> {
                                   CircleAvatar(
                                     radius: 18,
                                     backgroundColor:
-                                    AppTheme.greenlightColor,
+                                    AppTheme(context).greenlightColor,
                                     child: Text(
                                       "5",
                                       style: TextStyle(
                                           color:
-                                          AppTheme.primaryBlueColor,
+                                          AppTheme(context).primaryBlueColor,
                                           fontFamily: "Cairo",
                                           fontSize: 24,
                                           // letterSpacing: 1,
@@ -687,7 +680,7 @@ class _PartnerState extends State<Partner> {
                                       textAlign: TextAlign.start,
                                       style: TextStyle(
                                           color:
-                                          AppTheme.primaryBlueColor,
+                                          AppTheme(context).primaryBlueColor,
                                           fontFamily: "Cairo",
                                           fontSize: 16,
                                           // letterSpacing: 1,
@@ -703,12 +696,12 @@ class _PartnerState extends State<Partner> {
                                   CircleAvatar(
                                     radius: 18,
                                     backgroundColor:
-                                    AppTheme.greenlightColor,
+                                    AppTheme(context).greenlightColor,
                                     child: Text(
                                       "6",
                                       style: TextStyle(
                                           color:
-                                          AppTheme.primaryBlueColor,
+                                          AppTheme(context).primaryBlueColor,
                                           fontFamily: "Cairo",
                                           fontSize: 24,
                                           // letterSpacing: 1,
@@ -723,7 +716,7 @@ class _PartnerState extends State<Partner> {
                                       textAlign: TextAlign.start,
                                       style: TextStyle(
                                           color:
-                                          AppTheme.primaryBlueColor,
+                                          AppTheme(context).primaryBlueColor,
                                           fontFamily: "Cairo",
                                           fontSize: 16,
                                           // letterSpacing: 1,
@@ -744,7 +737,7 @@ class _PartnerState extends State<Partner> {
                       width: width,
                       decoration: BoxDecoration(
                         // color: Colors.red,
-                        color: AppTheme.WhiteColor,
+                        color: themeChange.darkTheme?Color.fromRGBO(50, 59, 75, 1):AppTheme(context).WhiteColor,
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Padding(
@@ -755,7 +748,7 @@ class _PartnerState extends State<Partner> {
                             Text(
                               "Download white paper",
                               style: TextStyle(
-                                  color: AppTheme.primaryBlackColor,
+                                  color: AppTheme(context).primaryBlackColor,
                                   fontFamily: "Cairo",
                                   fontSize: Responsive.isDesktop(context) ?24:18,
                                   letterSpacing: 1,
@@ -768,13 +761,13 @@ class _PartnerState extends State<Partner> {
                               height: height*0.06,
                               width: width*0.15,
                               decoration: BoxDecoration(
-                                color: AppTheme.primaryGreenColor,
+                                color: AppTheme(context).primaryGreenColor,
                                 borderRadius: BorderRadius.circular(10),
 
                               ),
                               child: Center(
                                 child: Text("Download",style: TextStyle(
-                                    color: AppTheme.WhiteColor,
+                                    color: AppTheme(context).WhiteColor,
                                     fontFamily: "Cairo",
                                     fontSize: Responsive.isDesktop(context) ?19:14,
                                     fontWeight: FontWeight.w700,

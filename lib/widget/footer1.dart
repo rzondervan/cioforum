@@ -227,7 +227,7 @@ Widget Footer1(BuildContext context,ClickFooterCallback clickFooterCallback){
                           clickFooterCallback.onPageOpen(false,true,false,false,false,false,false,false,false);
                         },
                         child: const Text(
-                          "About us",
+                          "About",
                           style: TextStyle(
                             color: Color.fromRGBO(225, 225, 225, 1),
                             fontWeight: FontWeight.w400,
@@ -525,7 +525,7 @@ Widget Footer1(BuildContext context,ClickFooterCallback clickFooterCallback){
             ),
           ),
           Text("©2022 CIOFORUM | All Rights are Reserved",style: TextStyle(
-              color: AppTheme.primaryWhiteColor,
+              color: AppTheme(context).primaryWhiteColor,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w400,
               fontSize: 14,

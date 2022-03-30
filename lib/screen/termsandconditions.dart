@@ -6,8 +6,9 @@ import 'package:flutter/material.dart';
 
 
 class TermsandConditions extends StatefulWidget {
-   TermsandConditions({Key? key,required this.clickFooterCallback }) : super(key: key);
+   TermsandConditions({Key? key,required this.clickFooterCallback,required this.sitemapClick }) : super(key: key);
    ClickFooterCallback clickFooterCallback;
+   SitemapClick sitemapClick;
 
 
 
@@ -40,7 +41,7 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                     child: Text(
                       "Terms and Conditions",
                       style: TextStyle(
-                          color: AppTheme.primaryWhiteColor,
+                          color: Color.fromRGBO(225, 225, 225, 1),
                           fontFamily: "Cairo",
                           fontStyle: FontStyle.normal,
                           fontSize: width<600?width*0.08:54,
@@ -60,7 +61,7 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text("Terms and Conditions",style: TextStyle(
-                      color: AppTheme.primaryBlueColor,
+                      color: AppTheme(context).primaryBlueColor,
                       fontFamily: "Cairo",
                       fontSize: Responsive.isDesktop(context) ?28:24,
                       letterSpacing: 1,
@@ -69,7 +70,7 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                       fontStyle: FontStyle.normal
                   ),),
                   Text("Shared IT Director",style: TextStyle(
-                      color: AppTheme.primaryBlueColor,
+                      color: AppTheme(context).primaryBlueColor,
                       fontFamily: "Cairo",
                       fontSize: Responsive.isDesktop(context) ?24:18,
                       letterSpacing: 1,
@@ -81,7 +82,7 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                   Text(
                     "CIOforum offers subscription forms with variation in quarterly to weekly meetings where you can benefit from first opinion and rapid knowledge building about your organization, without the overhead of someone in paid employment . Some conditions for the different subscriptions are:",
                     style: TextStyle(
-                      color: AppTheme.primaryBlueColor,
+                      color: AppTheme(context).primaryBlueColor,
                       fontFamily: "Cairo",
                       fontSize: Responsive.isDesktop(context)?19:16,
                       letterSpacing: 1,
@@ -94,7 +95,7 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                   Text(
                     "We only work with monthly subscriptions.",
                     style: TextStyle(
-                        color: AppTheme.primaryBlueColor,
+                        color: AppTheme(context).primaryBlueColor,
                         fontFamily: "Cairo",
                         fontSize: Responsive.isDesktop(context)?19:16,
                         letterSpacing: 1,
@@ -105,7 +106,7 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                   Text(
                     "Each type of subscription entitles you to unlimited questions. Executive tasks are an option, such as project management or negotiating prices and terms with suppliers.",
                     style: TextStyle(
-                        color: AppTheme.primaryBlueColor,
+                        color: AppTheme(context).primaryBlueColor,
                         fontFamily: "Cairo",
                         fontSize: Responsive.isDesktop(context)?19:16,
                         letterSpacing: 1,
@@ -116,7 +117,7 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                   Text(
                     "A subscription entitles you to a discount of the daily price for the optional executive tasks.",
                     style: TextStyle(
-                        color: AppTheme.primaryBlueColor,
+                        color: AppTheme(context).primaryBlueColor,
                         fontFamily: "Cairo",
                         fontSize: Responsive.isDesktop(context)?19:16,
                         letterSpacing: 1,
@@ -127,7 +128,7 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                   Text(
                     "Our daily SWOT analysis log about your organization is always available to you.",
                     style: TextStyle(
-                        color: AppTheme.primaryBlueColor,
+                        color: AppTheme(context).primaryBlueColor,
                         fontFamily: "Cairo",
                         fontSize: Responsive.isDesktop(context)?19:16,
                         letterSpacing: 1,
@@ -138,7 +139,7 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                   Text(
                     "Exit is easy. Cancellation of automatic renewal per month: Cancellation is possible up to 1 week before the next invoice date by email.",
                     style: TextStyle(
-                        color: AppTheme.primaryBlueColor,
+                        color: AppTheme(context).primaryBlueColor,
                         fontFamily: "Cairo",
                         fontSize: Responsive.isDesktop(context)?19:16,
                         letterSpacing: 1,
@@ -149,7 +150,7 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                   Text(
                     "Upon satisfaction: An annual referral by you to a potential customer for CIOforum.",
                     style: TextStyle(
-                        color: AppTheme.primaryBlueColor,
+                        color: AppTheme(context).primaryBlueColor,
                         fontFamily: "Cairo",
                         fontSize: Responsive.isDesktop(context)?19:16,
                         letterSpacing: 1,
@@ -159,7 +160,7 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                     ),),
                   SizedBox(height:40),
                   Text("Privacy Policy",style: TextStyle(
-                      color: AppTheme.primaryBlueColor,
+                      color: AppTheme(context).primaryBlueColor,
                       fontFamily: "Cairo",
                       fontSize: Responsive.isDesktop(context) ?24:18,
                       letterSpacing: 1,
@@ -171,7 +172,7 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                   Text(
                     "None of your profile information is made available to third parties. Statistics of our website are kept by Google Analytics. More about this can be found under cookies .",
                     style: TextStyle(
-                        color: AppTheme.primaryBlueColor,
+                        color: AppTheme(context).primaryBlueColor,
                         fontFamily: "Cairo",
                         fontSize: Responsive.isDesktop(context)?19:16,
                         letterSpacing: 1,
@@ -181,7 +182,7 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                     ),),
                   SizedBox(height:40),
                   Text("Shipping information, shipping term and VAT",style: TextStyle(
-                      color: AppTheme.primaryBlueColor,
+                      color: AppTheme(context).primaryBlueColor,
                       fontFamily: "Cairo",
                       fontSize: Responsive.isDesktop(context) ?24:18,
                       letterSpacing: 1,
@@ -193,7 +194,7 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                   Text(
                     "All prices stated on our site include shipping and handling costs, and exclude VAT. After receipt of the webshop payment, ordered products are automatically made available to you via email and portal access.",
                     style: TextStyle(
-                        color: AppTheme.primaryBlueColor,
+                        color: AppTheme(context).primaryBlueColor,
                         fontFamily: "Cairo",
                         fontSize: Responsive.isDesktop(context)?19:16,
                         letterSpacing: 1,
@@ -203,7 +204,7 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                     ),),
                   SizedBox(height:40),
                   Text("Return and Refund Policy",style: TextStyle(
-                      color: AppTheme.primaryBlueColor,
+                      color: AppTheme(context).primaryBlueColor,
                       fontFamily: "Cairo",
                       fontSize: Responsive.isDesktop(context) ?24:18,
                       letterSpacing: 1,
@@ -215,7 +216,7 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                   Text(
                     "After ordering on our website and payment via the webshop, our products and services are automatically made available to you. You are not entitled to a refund of unused periods. You can cancel your current subscription in your profile until 1 day before the next invoice date.",
                     style: TextStyle(
-                        color: AppTheme.primaryBlueColor,
+                        color: AppTheme(context).primaryBlueColor,
                         fontFamily: "Cairo",
                         fontSize: Responsive.isDesktop(context)?19:16,
                         letterSpacing: 1,
@@ -227,7 +228,7 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                   Text(
                     "Top 7 Mistakes When Hiring an IT Director",
                     style: TextStyle(
-                        color: AppTheme.primaryBlueColor,
+                        color: AppTheme(context).primaryBlueColor,
                         fontFamily: "Cairo",
                         fontSize: Responsive.isDesktop(context) ?24:18,
                         letterSpacing: 1.0,
@@ -239,7 +240,7 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                   Text(
                     "CIOforum has a short IT market research for directors, owners and boards. The anonymous answers are used as input for IT-TEDtalk. Would you like to answer three short questions? It will take a few minutes of your time. As a thank you, you will receive the article Top 7 of mistakes ....",
                     style: TextStyle(
-                        color: AppTheme.primaryBlueColor,
+                        color: AppTheme(context).primaryBlueColor,
                         fontFamily: "Cairo",
                         fontSize: Responsive.isDesktop(context) ?19:16,
                         letterSpacing: 1.0,
@@ -251,7 +252,7 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                   Text(
                     "Download the whitepaper to learn what IT leadership skills you need and don't need.",
                     style: TextStyle(
-                        color: AppTheme.primaryBlueColor,
+                        color: AppTheme(context).primaryBlueColor,
                         fontFamily: "Cairo",
                         fontSize: Responsive.isDesktop(context) ?19:16,
                         letterSpacing: 1.0,
@@ -278,8 +279,7 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                                       "Prevent consequences of a wrong profile",
                                       textAlign: TextAlign.end,
                                       style: TextStyle(
-                                          color: AppTheme
-                                              .primaryBlueColor,
+                                          color: AppTheme(context).primaryBlueColor,
                                           fontFamily: "Cairo",
                                           fontSize: 19,
                                           letterSpacing: 1.0,
@@ -294,12 +294,11 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                                   CircleAvatar(
                                     radius: 20,
                                     backgroundColor:
-                                    AppTheme.greenlightColor,
+                                    AppTheme(context).greenlightColor,
                                     child: Text(
                                       "1",
                                       style: TextStyle(
-                                          color: AppTheme
-                                              .primaryBlueColor,
+                                          color: AppTheme(context).primaryBlueColor,
                                           fontFamily: "Cairo",
                                           fontSize: 34,
                                           letterSpacing: 1,
@@ -320,8 +319,7 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                                       "Make sure IT offers added value",
                                       textAlign: TextAlign.end,
                                       style: TextStyle(
-                                          color: AppTheme
-                                              .primaryBlueColor,
+                                          color: AppTheme(context).primaryBlueColor,
                                           fontFamily: "Cairo",
                                           fontSize: 19,
                                           letterSpacing: 1.0,
@@ -336,12 +334,11 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                                   CircleAvatar(
                                     radius: 20,
                                     backgroundColor:
-                                    AppTheme.greenlightColor,
+                                    AppTheme(context).greenlightColor,
                                     child: Text(
                                       "2",
                                       style: TextStyle(
-                                          color: AppTheme
-                                              .primaryBlueColor,
+                                          color: AppTheme(context).primaryBlueColor,
                                           fontFamily: "Cairo",
                                           fontSize: 34,
                                           // letterSpacing: 1,
@@ -362,8 +359,7 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                                       "Prevent IT from taking\n unacceptable risks",
                                       textAlign: TextAlign.end,
                                       style: TextStyle(
-                                          color: AppTheme
-                                              .primaryBlueColor,
+                                          color: AppTheme(context).primaryBlueColor,
                                           fontFamily: "Cairo",
                                           fontSize: 19,
                                           letterSpacing: 1.0,
@@ -378,12 +374,11 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                                   CircleAvatar(
                                     radius: 20,
                                     backgroundColor:
-                                    AppTheme.greenlightColor,
+                                    AppTheme(context).greenlightColor,
                                     child: Text(
                                       "3",
                                       style: TextStyle(
-                                          color: AppTheme
-                                              .primaryBlueColor,
+                                          color: AppTheme(context).primaryBlueColor,
                                           fontFamily: "Cairo",
                                           fontSize: 34,
                                           // letterSpacing: 1,
@@ -413,12 +408,11 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                                   CircleAvatar(
                                     radius: 20,
                                     backgroundColor:
-                                    AppTheme.greenlightColor,
+                                    AppTheme(context).greenlightColor,
                                     child: Text(
                                       "4",
                                       style: TextStyle(
-                                          color: AppTheme
-                                              .primaryBlueColor,
+                                          color: AppTheme(context).primaryBlueColor,
                                           fontFamily: "Cairo",
                                           fontSize: 34,
                                           // letterSpacing: 1,
@@ -433,8 +427,7 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                                       "Prevent IT from doing what you want",
                                       textAlign: TextAlign.start,
                                       style: TextStyle(
-                                          color: AppTheme
-                                              .primaryBlueColor,
+                                          color: AppTheme(context).primaryBlueColor,
                                           fontFamily: "Cairo",
                                           fontSize: 19,
                                           letterSpacing: 1.0,
@@ -453,12 +446,11 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                                   CircleAvatar(
                                     radius: 20,
                                     backgroundColor:
-                                    AppTheme.greenlightColor,
+                                    AppTheme(context).greenlightColor,
                                     child: Text(
                                       "5",
                                       style: TextStyle(
-                                          color: AppTheme
-                                              .primaryBlueColor,
+                                          color: AppTheme(context).primaryBlueColor,
                                           fontFamily: "Cairo",
                                           fontSize: 34,
                                           // letterSpacing: 1,
@@ -473,8 +465,7 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                                       "Prevent IT from perpetuating itself ",
                                       textAlign: TextAlign.start,
                                       style: TextStyle(
-                                          color: AppTheme
-                                              .primaryBlueColor,
+                                          color: AppTheme(context).primaryBlueColor,
                                           fontFamily: "Cairo",
                                           fontSize: 19,
                                           letterSpacing: 1.0,
@@ -493,12 +484,11 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                                   CircleAvatar(
                                     radius: 20,
                                     backgroundColor:
-                                    AppTheme.greenlightColor,
+                                    AppTheme(context).greenlightColor,
                                     child: Text(
                                       "6",
                                       style: TextStyle(
-                                          color: AppTheme
-                                              .primaryBlueColor,
+                                          color: AppTheme(context).primaryBlueColor,
                                           fontFamily: "Cairo",
                                           fontSize: 34,
                                           // letterSpacing: 1,
@@ -513,8 +503,7 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                                       "You does not benefit from Cloud and managed services",
                                       textAlign: TextAlign.start,
                                       style: TextStyle(
-                                          color: AppTheme
-                                              .primaryBlueColor,
+                                          color: AppTheme(context).primaryBlueColor,
                                           fontFamily: "Cairo",
                                           fontSize: 19,
                                           letterSpacing: 1.0,
@@ -545,12 +534,12 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                                 CircleAvatar(
                                   radius: 18,
                                   backgroundColor:
-                                  AppTheme.greenlightColor,
+                                  AppTheme(context).greenlightColor,
                                   child: Text(
                                     "1",
                                     style: TextStyle(
                                         color:
-                                        AppTheme.primaryBlueColor,
+                                        AppTheme(context).primaryBlueColor,
                                         fontFamily: "Cairo",
                                         fontSize: 24,
                                         // letterSpacing: 1,
@@ -565,7 +554,7 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                                     textAlign: TextAlign.start,
                                     style: TextStyle(
                                         color:
-                                        AppTheme.primaryBlueColor,
+                                        AppTheme(context).primaryBlueColor,
                                         fontFamily: "Cairo",
                                         fontSize: 16,
                                         // letterSpacing: 1,
@@ -581,12 +570,12 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                                 CircleAvatar(
                                   radius: 18,
                                   backgroundColor:
-                                  AppTheme.greenlightColor,
+                                  AppTheme(context).greenlightColor,
                                   child: Text(
                                     "2",
                                     style: TextStyle(
                                         color:
-                                        AppTheme.primaryBlueColor,
+                                        AppTheme(context).primaryBlueColor,
                                         fontFamily: "Cairo",
                                         fontSize: 24,
                                         // letterSpacing: 1,
@@ -601,7 +590,7 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                                     textAlign: TextAlign.start,
                                     style: TextStyle(
                                         color:
-                                        AppTheme.primaryBlueColor,
+                                        AppTheme(context).primaryBlueColor,
                                         fontFamily: "Cairo",
                                         fontSize: 16,
                                         // letterSpacing: 1,
@@ -617,12 +606,12 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                                 CircleAvatar(
                                   radius: 18,
                                   backgroundColor:
-                                  AppTheme.greenlightColor,
+                                  AppTheme(context).greenlightColor,
                                   child: Text(
                                     "3",
                                     style: TextStyle(
                                         color:
-                                        AppTheme.primaryBlueColor,
+                                        AppTheme(context).primaryBlueColor,
                                         fontFamily: "Cairo",
                                         fontSize: 24,
                                         // letterSpacing: 1,
@@ -637,7 +626,7 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                                     textAlign: TextAlign.start,
                                     style: TextStyle(
                                         color:
-                                        AppTheme.primaryBlueColor,
+                                        AppTheme(context).primaryBlueColor,
                                         fontFamily: "Cairo",
                                         fontSize: 16,
                                         // letterSpacing: 1,
@@ -664,12 +653,12 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                                 CircleAvatar(
                                   radius: 18,
                                   backgroundColor:
-                                  AppTheme.greenlightColor,
+                                  AppTheme(context).greenlightColor,
                                   child: Text(
                                     "4",
                                     style: TextStyle(
                                         color:
-                                        AppTheme.primaryBlueColor,
+                                        AppTheme(context).primaryBlueColor,
                                         fontFamily: "Cairo",
                                         fontSize: 24,
                                         // letterSpacing: 1,
@@ -684,7 +673,7 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                                     textAlign: TextAlign.start,
                                     style: TextStyle(
                                         color:
-                                        AppTheme.primaryBlueColor,
+                                        AppTheme(context).primaryBlueColor,
                                         fontFamily: "Cairo",
                                         fontSize: 16,
                                         // letterSpacing: 1,
@@ -700,12 +689,12 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                                 CircleAvatar(
                                   radius: 18,
                                   backgroundColor:
-                                  AppTheme.greenlightColor,
+                                  AppTheme(context).greenlightColor,
                                   child: Text(
                                     "5",
                                     style: TextStyle(
                                         color:
-                                        AppTheme.primaryBlueColor,
+                                        AppTheme(context).primaryBlueColor,
                                         fontFamily: "Cairo",
                                         fontSize: 24,
                                         // letterSpacing: 1,
@@ -720,7 +709,7 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                                     textAlign: TextAlign.start,
                                     style: TextStyle(
                                         color:
-                                        AppTheme.primaryBlueColor,
+                                        AppTheme(context).primaryBlueColor,
                                         fontFamily: "Cairo",
                                         fontSize: 16,
                                         // letterSpacing: 1,
@@ -736,12 +725,12 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                                 CircleAvatar(
                                   radius: 18,
                                   backgroundColor:
-                                  AppTheme.greenlightColor,
+                                  AppTheme(context).greenlightColor,
                                   child: Text(
                                     "6",
                                     style: TextStyle(
                                         color:
-                                        AppTheme.primaryBlueColor,
+                                        AppTheme(context).primaryBlueColor,
                                         fontFamily: "Cairo",
                                         fontSize: 24,
                                         // letterSpacing: 1,
@@ -756,7 +745,7 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                                     textAlign: TextAlign.start,
                                     style: TextStyle(
                                         color:
-                                        AppTheme.primaryBlueColor,
+                                        AppTheme(context).primaryBlueColor,
                                         fontFamily: "Cairo",
                                         fontSize: 16,
                                         // letterSpacing: 1,
@@ -777,7 +766,7 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                     width: width,
                     decoration: BoxDecoration(
                       // color: Colors.red,
-                      color: AppTheme.WhiteColor,
+                      color: AppTheme(context).WhiteColor,
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Padding(
@@ -788,7 +777,7 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                           Text(
                             "Download white paper",
                             style: TextStyle(
-                                color: AppTheme.primaryBlackColor,
+                                color: AppTheme(context).primaryBlackColor,
                                 fontFamily: "Cairo",
                                 fontSize: Responsive.isDesktop(context) ?24:18,
                                 letterSpacing: 1,
@@ -801,13 +790,13 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                             height: height*0.06,
                             width: width*0.15,
                             decoration: BoxDecoration(
-                              color: AppTheme.primaryGreenColor,
+                              color: AppTheme(context).primaryGreenColor,
                               borderRadius: BorderRadius.circular(10),
 
                             ),
                             child: Center(
                               child: Text("Download",style: TextStyle(
-                                  color: AppTheme.WhiteColor,
+                                  color: AppTheme(context).WhiteColor,
                                   fontFamily: "Cairo",
                                   fontSize: Responsive.isDesktop(context) ?19:14,
                                   fontWeight: FontWeight.w700,

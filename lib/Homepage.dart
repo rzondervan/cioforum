@@ -14,7 +14,10 @@ import 'package:ciofroum_web/screen/products.dart';
 import 'package:ciofroum_web/screen/reference.dart';
 import 'package:ciofroum_web/screen/sitemap.dart';
 import 'package:ciofroum_web/screen/termsandconditions.dart';
+import 'package:ciofroum_web/thememode/provider.dart';
+import 'package:ciofroum_web/widget/newsitempage.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -37,6 +40,7 @@ class _HomePageState extends State<HomeScreen>
         ClickFooterCallback,
         ClickProductCallback,
         HomeExplorepage,
+        SitemapClick,
         Homeviewmore {
   bool isSwitched = false;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -60,6 +64,7 @@ class _HomePageState extends State<HomeScreen>
   // bool homeTab = false;
 
   GlobalKey menuKey = GlobalKey();
+  DarkThemeProvider themeChangeProvider = new DarkThemeProvider();
 
   @override
   void initState() {
@@ -92,19 +97,228 @@ class _HomePageState extends State<HomeScreen>
 
   @override
   Widget build(BuildContext context) {
+    final themeChange = Provider.of<DarkThemeProvider>(context);
+
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     return SafeArea(
-      child: Scaffold(
-        key: _scaffoldKey,
-        endDrawer: Responsive.isMobile(context)
-            ? Drawer(
-                backgroundColor: Colors.white,
-                child: Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: ListView(
-                    children: [
-                      InkWell(
+        child: Scaffold(
+      key: _scaffoldKey,
+      endDrawer: Responsive.isMobile(context)
+          ? Drawer(
+              backgroundColor: themeChange.darkTheme
+                  ? Color.fromRGBO(50, 59, 75, 1)
+                  : Colors.white,
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: ListView(
+                  children: [
+                    InkWell(
+                      hoverColor: Colors.transparent,
+                      onTap: () {
+                        // Navigator.push(context,MaterialPageRoute(builder: (context)=>HomePage()));
+                        setState(() {
+                          homeTabSelected = true;
+                          productTabSelected = false;
+                          newsTabSelected = false;
+                          aboutTabSelected = false;
+                          homeTab = true;
+                          productTab = false;
+                          newsTab = false;
+                          aboutTab = false;
+                          contact = false;
+                        });
+                        Navigator.pop(context);
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: Text("Home",
+                            style: TextStyle(
+                                color: themeChange.darkTheme
+                                    ? homeTabSelected
+                                        ? Color.fromRGBO(139, 190, 43, 1)
+                                        : Colors.white
+                                    : homeTabSelected
+                                        ? AppTheme(context).primaryGreenColor
+                                        : AppTheme(context).primaryBlueColor,
+                                fontWeight: FontWeight.w400,
+                                fontSize: homeTabSelected ? 15 : 18)),
+                      ),
+                    ),
+                    // const SizedBox(height: 30),
+                    InkWell(
+                      hoverColor: Colors.transparent,
+                      onTap: () {
+                        // Navigator.push(context,MaterialPageRoute(builder: (context)=>Product()));
+                        setState(() {
+                          homeTabSelected = false;
+                          productTabSelected = true;
+                          newsTabSelected = false;
+                          aboutTabSelected = false;
+                          homeTab = false;
+                          productTab = true;
+                          newsTab = false;
+                          aboutTab = false;
+                          contact = false;
+                          product = false;
+                        });
+                        Navigator.pop(context);
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: Text("Products",
+                            style: TextStyle(
+                                color: themeChange.darkTheme
+                                    ? productTabSelected
+                                        ? Color.fromRGBO(139, 190, 43, 1)
+                                        : Colors.white
+                                    : productTabSelected
+                                        ? Color.fromRGBO(139, 190, 43, 1)
+                                        : Color.fromRGBO(50, 59, 75, 1),
+                                fontWeight: FontWeight.w400,
+                                fontSize: productTabSelected ? 15 : 18)),
+                      ),
+                    ),
+                    // const SizedBox(height: 30),
+                    InkWell(
+                      hoverColor: Colors.transparent,
+                      onTap: () {
+                        // Navigator.push(context,MaterialPageRoute(builder: (context)=>Product()));
+                        setState(() {
+                          homeTabSelected = false;
+                          productTabSelected = false;
+                          newsTabSelected = true;
+                          aboutTabSelected = false;
+                          homeTab = false;
+                          productTab = false;
+                          newsTab = true;
+                          aboutTab = false;
+                          contact = false;
+                        });
+                        Navigator.pop(context);
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: Text("News",
+                            style: TextStyle(
+                                color: themeChange.darkTheme
+                                    ? newsTabSelected
+                                        ? Color.fromRGBO(139, 190, 43, 1)
+                                        : Colors.white
+                                    : newsTabSelected
+                                        ? AppTheme(context).primaryGreenColor
+                                        : AppTheme(context).primaryBlueColor,
+                                fontWeight: FontWeight.w400,
+                                fontSize: newsTabSelected ? 15 : 18)),
+                      ),
+                    ),
+                    // const SizedBox(height: 30),
+                    InkWell(
+                      hoverColor: Colors.transparent,
+                      onTap: () {
+                        // Navigator.push(context,MaterialPageRoute(builder: (context)=>Product()));
+                        setState(() {
+                          homeTabSelected = false;
+                          productTabSelected = false;
+                          newsTabSelected = false;
+                          aboutTabSelected = true;
+                          homeTab = false;
+                          productTab = false;
+                          newsTab = false;
+                          aboutTab = true;
+                          contact = false;
+                        });
+                        Navigator.pop(context);
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: Text("About",
+                            style: TextStyle(
+                                color: themeChange.darkTheme
+                                    ? aboutTabSelected
+                                        ? Color.fromRGBO(139, 190, 43, 1)
+                                        : Colors.white
+                                    : aboutTabSelected
+                                        ? AppTheme(context).primaryGreenColor
+                                        : AppTheme(context).primaryBlueColor,
+                                fontWeight: FontWeight.w400,
+                                fontSize: aboutTabSelected ? 15 : 18)),
+                      ),
+                    ),
+                    InkWell(
+                      hoverColor: Colors.transparent,
+                      onTap: () {
+                        setState(() {
+                          homeTabSelected = false;
+                          productTabSelected = false;
+                          newsTabSelected = false;
+                          aboutTabSelected = false;
+                          contact = true;
+                        });
+                        Navigator.pop(context);
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: Text("Contact Us",
+                            style: TextStyle(
+                                color: themeChange.darkTheme
+                                    ? contact
+                                        ? Color.fromRGBO(139, 190, 43, 1)
+                                        : Colors.white
+                                    : contact
+                                        ? AppTheme(context).primaryGreenColor
+                                        : AppTheme(context).primaryBlueColor,
+                                fontWeight: FontWeight.w400,
+                                fontSize: contact ? 15 : 18)),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            )
+          : null,
+      // appBar: AppBar(),
+      appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(112),
+          // here the desired height
+          child: Container(
+            height: Responsive.isDesktop(context) ? height * 1 : 80,
+            // height:MediaQuery.of(context).size.height*1,
+            color: Colors.transparent,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // Responsive.isDesktop(context)
+                SizedBox(
+                  width: width * 0.10,
+                ),
+                // : Container(),
+                Image.asset("assets/image_1.png",
+                    // color: Colors.transparent,
+                    width: Responsive.isDesktop(context) ? 33 : 19,
+                    height: Responsive.isDesktop(context) ? 40 : 23),
+                const SizedBox(width: 10),
+                Center(
+                  child: Text(
+                    "CIOFORUM",
+                    style: TextStyle(
+                        color: themeChange.darkTheme
+                            ? Colors.white
+                            : AppTheme(context).primaryBlueColor,
+                        // color: isSwitched?AppTheme(context).primaryWhiteColor:AppTheme(context).primaryBlueColor,
+
+                        fontWeight: FontWeight.bold,
+                        fontSize: Responsive.isDesktop(context) ? 34 : 19.79,
+                        fontStyle: FontStyle.normal,
+                        fontFamily: "Montserrat"),
+                  ),
+                ),
+                Responsive.isDesktop(context) ? const Spacer() : const Spacer(),
+                // Responsive.isDesktop(context)
+                //     ? SizedBox(width: MediaQuery.of(context).size.width*0.03)
+                //     : Container(),
+                Responsive.isDesktop(context)
+                    ? InkWell(
                         hoverColor: Colors.transparent,
                         onTap: () {
                           // Navigator.push(context,MaterialPageRoute(builder: (context)=>HomePage()));
@@ -118,22 +332,31 @@ class _HomePageState extends State<HomeScreen>
                             newsTab = false;
                             aboutTab = false;
                             contact = false;
+                            explore = false;
+                            product = false;
+                            view = false;
                           });
-                          Navigator.pop(context);
                         },
-                        child: Padding(
-                          padding: const EdgeInsets.all(15.0),
-                          child: Text("Home",
-                              style: TextStyle(
-                                  color: homeTabSelected
-                                      ? const Color.fromRGBO(139, 190, 43, 1)
-                                      : const Color.fromRGBO(50, 59, 75, 1),
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: homeTabSelected ? 15 : 18)),
-                        ),
-                      ),
-                      // const SizedBox(height: 30),
-                      InkWell(
+                        child: Text("Home",
+                            style: TextStyle(
+                                color: themeChange.darkTheme
+                                    ? homeTabSelected
+                                        ? AppTheme(context).primaryGreenColor
+                                        : Colors.white
+                                    : homeTabSelected
+                                        ? AppTheme(context).primaryGreenColor
+                                        : AppTheme(context).primaryBlueColor,
+                                fontWeight: FontWeight.w400,
+                                fontSize: homeTabSelected ? 15 : 18,
+                                fontStyle: FontStyle.normal,
+                                fontFamily: "Cairo")),
+                      )
+                    : Container(),
+                Responsive.isDesktop(context)
+                    ? SizedBox(width: width * 0.02)
+                    : Container(),
+                Responsive.isDesktop(context)
+                    ? InkWell(
                         hoverColor: Colors.transparent,
                         onTap: () {
                           // Navigator.push(context,MaterialPageRoute(builder: (context)=>Product()));
@@ -148,25 +371,31 @@ class _HomePageState extends State<HomeScreen>
                             aboutTab = false;
                             contact = false;
                             product = false;
+                            view = false;
                           });
-                          Navigator.pop(context);
                         },
-                        child: Padding(
-                          padding: const EdgeInsets.all(15.0),
-                          child: Text("Products",
-                              style: TextStyle(
-                                  color: productTabSelected
-                                      ? const Color.fromRGBO(139, 190, 43, 1)
-                                      : const Color.fromRGBO(50, 59, 75, 1),
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: productTabSelected ? 15 : 18)),
-                        ),
-                      ),
-                      // const SizedBox(height: 30),
-                      InkWell(
+                        child: Text("Products",
+                            style: TextStyle(
+                                color: themeChange.darkTheme
+                                    ? productTabSelected
+                                        ? AppTheme(context).primaryGreenColor
+                                        : Colors.white
+                                    : productTabSelected
+                                        ? AppTheme(context).primaryGreenColor
+                                        : AppTheme(context).primaryBlueColor,
+                                fontWeight: FontWeight.w400,
+                                fontSize: productTabSelected ? 15 : 18,
+                                fontStyle: FontStyle.normal,
+                                fontFamily: "Cairo")),
+                      )
+                    : Container(),
+                Responsive.isDesktop(context)
+                    ? SizedBox(width: width * 0.02)
+                    : Container(),
+                Responsive.isDesktop(context)
+                    ? InkWell(
                         hoverColor: Colors.transparent,
                         onTap: () {
-                          // Navigator.push(context,MaterialPageRoute(builder: (context)=>Product()));
                           setState(() {
                             homeTabSelected = false;
                             productTabSelected = false;
@@ -178,24 +407,32 @@ class _HomePageState extends State<HomeScreen>
                             aboutTab = false;
                             contact = false;
                           });
-                          Navigator.pop(context);
                         },
-                        child: Padding(
-                          padding: const EdgeInsets.all(15.0),
-                          child: Text("News",
-                              style: TextStyle(
-                                  color: newsTabSelected
-                                      ? const Color.fromRGBO(139, 190, 43, 1)
-                                      : const Color.fromRGBO(50, 59, 75, 1),
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: newsTabSelected ? 15 : 18)),
-                        ),
-                      ),
-                      // const SizedBox(height: 30),
-                      InkWell(
+                        child: Text("News",
+                            style: TextStyle(
+                                color: themeChange.darkTheme
+                                    ? newsTabSelected
+                                        ? AppTheme(context).primaryGreenColor
+                                        : Colors.white
+                                    : newsTabSelected
+                                        ? AppTheme(context).primaryGreenColor
+                                        : AppTheme(context).primaryBlueColor,
+                                fontWeight: FontWeight.w400,
+                                fontSize: newsTabSelected ? 15 : 18,
+                                fontStyle: FontStyle.normal,
+                                fontFamily: "Cairo")),
+                      )
+                    : Container(),
+                Responsive.isDesktop(context)
+                    ? SizedBox(width: width * 0.02)
+                    : Container(),
+                Responsive.isDesktop(context)
+                    ? InkWell(
                         hoverColor: Colors.transparent,
+                        onHover: (_) {
+                          showMenus(context);
+                        },
                         onTap: () {
-                          // Navigator.push(context,MaterialPageRoute(builder: (context)=>Product()));
                           setState(() {
                             homeTabSelected = false;
                             productTabSelected = false;
@@ -207,20 +444,31 @@ class _HomePageState extends State<HomeScreen>
                             aboutTab = true;
                             contact = false;
                           });
-                          Navigator.pop(context);
                         },
-                        child: Padding(
-                          padding: const EdgeInsets.all(15.0),
+                        child: MouseRegion(
+                          onHover: (event) {
+                            showMenus(context);
+                          },
                           child: Text("About",
                               style: TextStyle(
-                                  color: aboutTabSelected
-                                      ? const Color.fromRGBO(139, 190, 43, 1)
-                                      : const Color.fromRGBO(50, 59, 75, 1),
+                                  color: themeChange.darkTheme
+                                      ? aboutTabSelected
+                                          ? AppTheme(context).primaryGreenColor
+                                          : Colors.white
+                                      : aboutTabSelected
+                                          ? AppTheme(context).primaryGreenColor
+                                          : AppTheme(context).primaryBlueColor,
                                   fontWeight: FontWeight.w400,
-                                  fontSize: aboutTabSelected ? 15 : 18)),
-                        ),
-                      ),
-                      InkWell(
+                                  fontSize: aboutTabSelected ? 15 : 18,
+                                  fontStyle: FontStyle.normal,
+                                  fontFamily: "Cairo")),
+                        ))
+                    : Container(),
+                Responsive.isDesktop(context)
+                    ? SizedBox(width: width * 0.03)
+                    : Container(),
+                Responsive.isDesktop(context)
+                    ? InkWell(
                         hoverColor: Colors.transparent,
                         onTap: () {
                           setState(() {
@@ -229,328 +477,243 @@ class _HomePageState extends State<HomeScreen>
                             newsTabSelected = false;
                             aboutTabSelected = false;
                             contact = true;
+                            homeTab = false;
                           });
-                          Navigator.pop(context);
                         },
-                        child: Padding(
-                          padding: const EdgeInsets.all(15.0),
-                          child: Text("Contact Us",
-                              style: TextStyle(
-                                  color: contact
-                                      ? const Color.fromRGBO(139, 190, 43, 1)
-                                      : const Color.fromRGBO(50, 59, 75, 1),
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: contact ? 15 : 18)),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              )
-            : null,
-        // appBar: AppBar(),
-        appBar: PreferredSize(
-            preferredSize: const Size.fromHeight(112),
-            // here the desired height
-            child: Container(
-              height: Responsive.isDesktop(context) ? height * 1 : 80,
-              // height:MediaQuery.of(context).size.height*1,
-              color: Colors.transparent,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  // Responsive.isDesktop(context)
-                  SizedBox(
-                    width: width * 0.10,
-                  ),
-                  // : Container(),
-                  Image.asset("assets/image_1.png",
-                      width: Responsive.isDesktop(context) ? 33 : 19,
-                      height: Responsive.isDesktop(context) ? 40 : 23),
-                  const SizedBox(width: 10),
-                  Center(
-                    child: Text(
-                      "CIOFORUM",
-                      style: TextStyle(
-                          color: AppTheme.primaryBlueColor,
-                          fontWeight: FontWeight.bold,
-                          fontSize: Responsive.isDesktop(context) ? 34 : 19.79,
-                          fontStyle: FontStyle.normal,
-                          fontFamily: "Montserrat"),
-                    ),
-                  ),
-                  Responsive.isDesktop(context)
-                      ? const Spacer()
-                      : const Spacer(),
-                  // Responsive.isDesktop(context)
-                  //     ? SizedBox(width: MediaQuery.of(context).size.width*0.03)
-                  //     : Container(),
-                  Responsive.isDesktop(context)
-                      ? InkWell(
-                          hoverColor: Colors.transparent,
-                          onTap: () {
-                            // Navigator.push(context,MaterialPageRoute(builder: (context)=>HomePage()));
-                            setState(() {
-                              homeTabSelected = true;
-                              productTabSelected = false;
-                              newsTabSelected = false;
-                              aboutTabSelected = false;
-                              homeTab = true;
-                              productTab = false;
-                              newsTab = false;
-                              aboutTab = false;
-                              contact = false;
-                              explore = false;
-                              product = false;
-                              view = false;
-                            });
-                          },
-                          child: Text("Home",
-                              style: TextStyle(
-                                  color: homeTabSelected
-                                      ? AppTheme.primaryGreenColor
-                                      : AppTheme.primaryBlueColor,
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: homeTabSelected ? 15 : 18,
-                                  fontStyle: FontStyle.normal,
-                                  fontFamily: "Cairo")),
-                        )
-                      : Container(),
-                  Responsive.isDesktop(context)
-                      ? SizedBox(width: width * 0.02)
-                      : Container(),
-                  Responsive.isDesktop(context)
-                      ? InkWell(
-                          hoverColor: Colors.transparent,
-                          onTap: () {
-                            // Navigator.push(context,MaterialPageRoute(builder: (context)=>Product()));
-                            setState(() {
-                              homeTabSelected = false;
-                              productTabSelected = true;
-                              newsTabSelected = false;
-                              aboutTabSelected = false;
-                              homeTab = false;
-                              productTab = true;
-                              newsTab = false;
-                              aboutTab = false;
-                              contact = false;
-                              product = false;
-                              view = false;
-                            });
-                          },
-                          child: Text("Products",
-                              style: TextStyle(
-                                  color: productTabSelected
-                                      ? AppTheme.primaryGreenColor
-                                      : AppTheme.primaryBlueColor,
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: productTabSelected ? 15 : 18,
-                                  fontStyle: FontStyle.normal,
-                                  fontFamily: "Cairo")),
-                        )
-                      : Container(),
-                  Responsive.isDesktop(context)
-                      ? SizedBox(width: width * 0.02)
-                      : Container(),
-                  Responsive.isDesktop(context)
-                      ? InkWell(
-                          hoverColor: Colors.transparent,
-                          onTap: () {
-                            setState(() {
-                              homeTabSelected = false;
-                              productTabSelected = false;
-                              newsTabSelected = true;
-                              aboutTabSelected = false;
-                              homeTab = false;
-                              productTab = false;
-                              newsTab = true;
-                              aboutTab = false;
-                              contact = false;
-                            });
-                          },
-                          child: Text("News",
-                              style: TextStyle(
-                                  color: newsTabSelected
-                                      ? AppTheme.primaryGreenColor
-                                      : AppTheme.primaryBlueColor,
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: newsTabSelected ? 15 : 18,
-                                  fontStyle: FontStyle.normal,
-                                  fontFamily: "Cairo")),
-                        )
-                      : Container(),
-                  Responsive.isDesktop(context)
-                      ? SizedBox(width: width * 0.02)
-                      : Container(),
-                  Responsive.isDesktop(context)
-                      ? InkWell(
-                          hoverColor: Colors.transparent,
-                          onHover: (_) {
-                            showMenus(context);
-                          },
-                          onTap: () {
-                            setState(() {
-                              homeTabSelected = false;
-                              productTabSelected = false;
-                              newsTabSelected = false;
-                              aboutTabSelected = true;
-                              homeTab = false;
-                              productTab = false;
-                              newsTab = false;
-                              aboutTab = true;
-                              contact = false;
-
-                            });
-                          },
-                          child: MouseRegion(
-                            onHover: (event) {
-                              showMenus(context);
-                            },
-                            child: Text("About",
+                        child: Container(
+                            height: 50,
+                            width: 130,
+                            decoration: BoxDecoration(
+                                // color: AppTheme(context).primaryBlueColor,
+                                color: themeChange.darkTheme
+                                    ? Colors.white
+                                    : AppTheme(context).primaryBlueColor,
+                                borderRadius: BorderRadius.circular(50)),
+                            child: Center(
+                              child: Text(
+                                "Contact Us",
                                 style: TextStyle(
-                                    color: aboutTabSelected
-                                        ? AppTheme.primaryGreenColor
-                                        : AppTheme.primaryBlueColor,
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: aboutTabSelected ? 15 : 18,
+                                    color: themeChange.darkTheme
+                                        ? Color.fromRGBO(50, 59, 75, 1)
+                                        : AppTheme(context).primaryWhiteColor,
+                                    // color: AppTheme(context).primaryWhiteColor,
+                                    fontFamily: "Cairo",
                                     fontStyle: FontStyle.normal,
-                                    fontFamily: "Cairo")),
-                          ))
-                      : Container(),
-                  Responsive.isDesktop(context)
-                      ? SizedBox(width: width * 0.03)
-                      : Container(),
-                  Responsive.isDesktop(context)
-                      ? InkWell(
-                          hoverColor: Colors.transparent,
-                          onTap: () {
-                            setState(() {
-                              homeTabSelected = false;
-                              productTabSelected = false;
-                              newsTabSelected = false;
-                              aboutTabSelected = false;
-                              contact = true;
-                              homeTab=false;
-                            });
-                          },
-                          child: Container(
-                              height: 50,
-                              width: 130,
-                              decoration: BoxDecoration(
-                                  color: AppTheme.primaryBlueColor,
-                                  borderRadius: BorderRadius.circular(50)),
-                              child: Center(
-                                child: Text(
-                                  "Contact Us",
-                                  style: TextStyle(
-                                      color: AppTheme.primaryWhiteColor,
-                                      fontFamily: "Cairo",
-                                      fontStyle: FontStyle.normal,
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 18),
-                                ),
-                              )),
-                        )
-                      : Container(),
-                  Responsive.isDesktop(context)
-                      ? const SizedBox(width: 80)
-                      : const SizedBox(width: 60),
-                  homeTab
-                      ? Image.asset(
-                          "assets/sun_1.png",
-                          height: 24,
-                          width: 24,
-                        )
-                      : const SizedBox(
-                          width: 20,
-                        ),
-                  // const Icon(
-                  //   Icons.stream,
-                  //   color: Color.fromRGBO(50, 59, 75, 1),
-                  // ),
-                  homeTab
-                      ? Switch(
-                          activeColor: AppTheme.primaryGreenColor,
-                          inactiveThumbColor: AppTheme.primaryGreenColor,
-                          inactiveTrackColor: Colors.grey.shade200,
-                          value: isSwitched,
-                          onChanged: (value) {
-                            setState(() {
-                              isSwitched = value;
-                            });
-                          },
-                        )
-                      : const SizedBox(width: 58),
-                  Responsive.isDesktop(context)
-                      ? const Spacer()
-                      : const SizedBox(width: 50),
-                  !Responsive.isDesktop(context)
-                      ? InkWell(
-                          onTap: () {
-                            _scaffoldKey.currentState?.openEndDrawer();
-                          },
-                          child: Icon(
-                            Icons.menu,
-                            color: AppTheme.primaryBlackColor,
-                            size: 30,
-                          ))
-                      : Container(),
-                  const SizedBox(width: 10),
-                ],
-              ),
-            )),
-        body: contact
-            ? Contact(clickFooterCallback: this)
-            : homeTab
-                ? explore
-                    ? Product(
-                        clickFooterCallback: this,
-                        callback: this,
-                        callback1: this,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 18),
+                              ),
+                            )),
                       )
-                    : HomePage(
-                        clickFooterCallback: this,
-                        clickexplore: this,
-                        viewmore: this,
+                    : Container(),
+                Responsive.isDesktop(context)
+                    ? const SizedBox(width: 80)
+                    : const SizedBox(width: 60),
+                homeTab
+                    ? Image.asset(
+                        "assets/sun_1.png",
+                        color: AppTheme(context).primaryBlueColor,
+                        height: 24,
+                        width: 24,
                       )
-                : productTab
-                    ? product
-                        ? Privacy(clickFooterCallback: this)
-                        : view
-                            ? NewPage(
-                                clickFooterCallback: this,
-                                clickviewmore: this,
-                              )
-                            : Product(
-                                clickFooterCallback: this,
-                                callback: this,
-                                callback1: this,
-                              )
-                    : newsTab
-                        ? NewPage(
-                            clickFooterCallback: this,
-                            clickviewmore: this,
-                          )
-                        : aboutTab
-                            ? About(
-                                callback: this,
-                                clickFooterCallback: this,
-                              )
-                            : aboutMission
-                                ? Mission(clickFooterCallback: this)
-                                : aboutMission1
-                                    ? Founder(
-                                        clickFooterCallback: this,
-                                      )
-                                    : aboutMission2
-                                        ? Partner(clickFooterCallback: this)
-                                        : aboutMission3
-                                            ? Reference(
-                                                clickFooterCallback: this,
-                                              )
-                                            : termscondition?TermsandConditions(clickFooterCallback: this,):cookies?Cookies(clickFooterCallback: this,):sitemap?SiteMape(clickFooterCallback:this):faq?FAQ(clickFooterCallback: this,): IgnorePointer(),
-      )
-    );
+                    : const SizedBox(
+                        width: 20,
+                      ),
+                // const Icon(
+                //   Icons.stream,
+                //   color: Color.fromRGBO(50, 59, 75, 1),
+                // ),
+                homeTab
+                    ? Switch(
+                        hoverColor: Colors.transparent,
+                        activeColor: AppTheme(context).primaryGreenColor,
+                        inactiveThumbColor: AppTheme(context).primaryGreenColor,
+                        inactiveTrackColor: Colors.grey.shade200,
+                        // value: isSwitched,
+                        value: themeChange.darkTheme,
+                        onChanged: (value) {
+                          themeChange.darkTheme = value;
+                          // setState(() {
+                          //         isSwitched = value;
+                          //       });
+                        },
+                      )
+                    : const SizedBox(width: 58),
+                Responsive.isDesktop(context)
+                    ? const Spacer()
+                    : const SizedBox(width: 50),
+                !Responsive.isDesktop(context)
+                    ? InkWell(
+                        onTap: () {
+                          _scaffoldKey.currentState?.openEndDrawer();
+                        },
+                        child: Icon(
+                          Icons.menu,
+                          color: AppTheme(context).primaryBlackColor,
+                          size: 30,
+                        ))
+                    : Container(),
+                const SizedBox(width: 10),
+              ],
+            ),
+          )),
+      body: contact
+          ? Contact(
+              clickFooterCallback: this,
+              sitemapClick: this,
+            )
+          : homeTab
+              ? explore
+                  ? Product(
+                      clickFooterCallback: this,
+                      callback: this,
+                      callback1: this,
+                      sitemapClick: this,
+                    )
+                  : HomePage(
+                      clickFooterCallback: this,
+                      clickexplore: this,
+                      viewmore: this,
+                    )
+              : productTab
+                  ? product
+                      ? Privacy(clickFooterCallback: this)
+                      : view
+                          ? NewPage(
+                              clickFooterCallback: this,
+                              clickviewmore: this,
+                              sitemapClick: this)
+                          : Product(
+                              clickFooterCallback: this,
+                              callback: this,
+                              callback1: this,
+                              sitemapClick: this,
+                            )
+                  : newsTab
+                      ? NewPage(
+                          clickFooterCallback: this,
+                          clickviewmore: this,
+                          sitemapClick: this,
+                        )
+                      : aboutTab
+                          ? About(
+                              callback: this,
+                              clickFooterCallback: this,
+                              sitemapClick: this,
+                            )
+                          : aboutMission
+                              ? Mission(
+                                  clickFooterCallback: this,
+                                  sitemapClick: this,
+                                )
+                              : aboutMission1
+                                  ? Founder(
+                                      clickFooterCallback: this,
+                                      sitemapClick: this,
+                                    )
+                                  : aboutMission2
+                                      ? Partner(
+                                          clickFooterCallback: this,
+                                          sitemapClick: this,
+                                        )
+                                      : aboutMission3
+                                          ? Reference(
+                                              clickFooterCallback: this,
+                                              sitemapClick: this,
+                                            )
+                                          : termscondition
+                                              ? TermsandConditions(
+                                                  clickFooterCallback: this,
+                                                  sitemapClick: this,
+                                                )
+                                              : cookies
+                                                  ? Cookies(
+                                                      clickFooterCallback: this,
+                                                      sitemapClick: this,
+                                                    )
+                                                  : sitemap
+                                                      ? SiteMape(
+                                                          clickFooterCallback:
+                                                              this,
+                                                          sitemapClick: this,
+                                                        )
+                                                      : aboutTab
+                                                          ? About(
+                                                              callback: this,
+                                                              clickFooterCallback:
+                                                                  this,
+                                                              sitemapClick:
+                                                                  this,
+                                                            )
+                                                          : productTab
+                                                              ? Product(
+                                                                  clickFooterCallback:
+                                                                      this,
+                                                                  callback:
+                                                                      this,
+                                                                  callback1:
+                                                                      this,
+                                                                  sitemapClick:
+                                                                      this,
+                                                                )
+                                                              : newsTab
+                                                                  ? NewPage(
+                                                                      clickFooterCallback:
+                                                                          this,
+                                                                      clickviewmore:
+                                                                          this,
+                                                                      sitemapClick:
+                                                                          this)
+                                                                  : contact
+                                                                      ? Contact(
+                                                                          clickFooterCallback:
+                                                                              this,
+                                                                          sitemapClick:
+                                                                              this,
+                                                                        )
+                                                                      : aboutMission
+                                                                          ? Mission(
+                                                                              clickFooterCallback: this,
+                                                                              sitemapClick: this,
+                                                                            )
+                                                                          : aboutMission1
+                                                                              ? Founder(
+                                                                                  clickFooterCallback: this,
+                                                                                  sitemapClick: this,
+                                                                                )
+                                                                              : aboutMission2
+                                                                                  ? Partner(clickFooterCallback: this, sitemapClick: this)
+                                                                                  : aboutMission3
+                                                                                      ? Reference(
+                                                                                          clickFooterCallback: this,
+                                                                                          sitemapClick: this,
+                                                                                        )
+                                                                                      : termscondition
+                                                                                          ? TermsandConditions(
+                                                                                              clickFooterCallback: this,
+                                                                                              sitemapClick: this,
+                                                                                            )
+                                                                                          : cookies
+                                                                                              ? Cookies(
+                                                                                                  clickFooterCallback: this,
+                                                                                                  sitemapClick: this,
+                                                                                                )
+                                                                                              : sitemap
+                                                                                                  ? SiteMape(
+                                                                                                      clickFooterCallback: this,
+                                                                                                      sitemapClick: this,
+                                                                                                    )
+                                                                                                  : faq
+                                                                                                      ? FAQ(
+                                                                                                          clickFooterCallback: this,
+                                                                                                          sitemapClick: this,
+                                                                                                        )
+                                                                                                      : faq
+                                                                                                          ? FAQ(
+                                                                                                              clickFooterCallback: this,
+                                                                                                              sitemapClick: this,
+                                                                                                            )
+                                                                                                          : IgnorePointer(),
+    ));
   }
 
   @override
@@ -570,7 +733,15 @@ class _HomePageState extends State<HomeScreen>
 
   @override
   void onPageOpen(
-      bool homeT, bool aboutT, bool newsT, bool productT, bool contactT,bool termsconditions1, bool cookies1, bool sitemap1, bool faq1 ) {
+      bool homeT,
+      bool aboutT,
+      bool newsT,
+      bool productT,
+      bool contactT,
+      bool termsconditions1,
+      bool cookies1,
+      bool sitemap1,
+      bool faq1) {
     print("gmfdvscx");
     setState(() {
       homeTab = homeT;
@@ -611,28 +782,28 @@ class _HomePageState extends State<HomeScreen>
         newsTabSelected = false;
         aboutTabSelected = false;
       }
-      termscondition=termsconditions1;
-      if(termscondition){
+      termscondition = termsconditions1;
+      if (termscondition) {
         homeTabSelected = false;
         productTabSelected = false;
         newsTabSelected = false;
         aboutTabSelected = false;
-         homeTab = false;
-         productTab = false;
-         newsTab = false;
-         aboutTab = false;
-         contact = false;
-         termscondition = true;
-         cookies = false;
-         sitemap = false;
-         faq = false;
-        aboutMission=false;
-        aboutMission1=false;
-        aboutMission2=false;
-        aboutMission3=false;
+        homeTab = false;
+        productTab = false;
+        newsTab = false;
+        aboutTab = false;
+        contact = false;
+        termscondition = true;
+        cookies = false;
+        sitemap = false;
+        faq = false;
+        aboutMission = false;
+        aboutMission1 = false;
+        aboutMission2 = false;
+        aboutMission3 = false;
       }
-      cookies=cookies1;
-      if(cookies){
+      cookies = cookies1;
+      if (cookies) {
         homeTabSelected = false;
         productTabSelected = false;
         newsTabSelected = false;
@@ -646,13 +817,13 @@ class _HomePageState extends State<HomeScreen>
         cookies = true;
         sitemap = false;
         faq = false;
-        aboutMission=false;
-        aboutMission1=false;
-        aboutMission2=false;
-        aboutMission3=false;
+        aboutMission = false;
+        aboutMission1 = false;
+        aboutMission2 = false;
+        aboutMission3 = false;
       }
-      sitemap=sitemap1;
-      if(sitemap){
+      sitemap = sitemap1;
+      if (sitemap) {
         homeTabSelected = false;
         productTabSelected = false;
         newsTabSelected = false;
@@ -666,13 +837,13 @@ class _HomePageState extends State<HomeScreen>
         cookies = false;
         sitemap = true;
         faq = false;
-        aboutMission=false;
-        aboutMission1=false;
-        aboutMission2=false;
-        aboutMission3=false;
+        aboutMission = false;
+        aboutMission1 = false;
+        aboutMission2 = false;
+        aboutMission3 = false;
       }
-      faq=faq1;
-      if(faq){
+      faq = faq1;
+      if (faq) {
         homeTabSelected = false;
         productTabSelected = false;
         newsTabSelected = false;
@@ -686,10 +857,10 @@ class _HomePageState extends State<HomeScreen>
         cookies = false;
         sitemap = false;
         faq = true;
-        aboutMission=false;
-        aboutMission1=false;
-        aboutMission2=false;
-        aboutMission3=false;
+        aboutMission = false;
+        aboutMission1 = false;
+        aboutMission2 = false;
+        aboutMission3 = false;
       }
     });
   }
@@ -743,6 +914,56 @@ class _HomePageState extends State<HomeScreen>
       // if(productMis){
     });
   }
+
+  @override
+  void onsitepage(
+      bool product,
+      bool news,
+      bool about,
+      bool contact1,
+      bool mission,
+      bool fouder,
+      bool partners,
+      bool reference,
+      bool termsconditions,
+      bool cookies1,
+      bool sitemap1,
+      bool faq1) {
+    // TODO: implement onsitepage
+    print("ghfnbvcvcv");
+    setState(() {
+    productTab = product;
+    if(productTab){
+      homeTabSelected = false;
+      productTabSelected = true;
+      newsTabSelected = false;
+      aboutTabSelected = false;
+    }
+    newsTab = news;
+    if(newsTab){
+      homeTabSelected = false;
+      productTabSelected = false;
+      newsTabSelected = true;
+      aboutTabSelected = false;
+    }
+    aboutTab = about;
+    if(aboutTab){
+      homeTabSelected = false;
+      productTabSelected = false;
+      newsTabSelected = false;
+      aboutTabSelected = true;
+    }
+    contact = contact1;
+    aboutMission = mission;
+    aboutMission1 = fouder;
+    aboutMission2 = partners;
+    aboutMission3 = reference;
+    termscondition = termsconditions;
+    cookies = cookies1;
+    sitemap = sitemap1;
+    faq = faq1;
+    });
+  }
 }
 
 class ClickProductCallback {
@@ -763,6 +984,30 @@ class ClickOpenCallback {
 }
 
 class ClickFooterCallback {
-  void onPageOpen(bool aboutMission, bool aboutMission1, bool aboutMission2,
-      bool aboutMission3, bool contact, bool termsccondition ,bool cookies, bool sitemap,bool faq) {}
+  void onPageOpen(
+      bool aboutMission,
+      bool aboutMission1,
+      bool aboutMission2,
+      bool aboutMission3,
+      bool contact,
+      bool termsccondition,
+      bool cookies,
+      bool sitemap,
+      bool faq) {}
+}
+
+class SitemapClick {
+  void onsitepage(
+      bool product,
+      bool news,
+      bool about,
+      bool contact,
+      bool mission,
+      bool fouder,
+      bool partners,
+      bool reference,
+      bool termsconditions,
+      bool cookies,
+      bool sitemap,
+      bool faq) {}
 }

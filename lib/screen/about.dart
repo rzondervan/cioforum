@@ -2,17 +2,20 @@ import 'package:ciofroum_web/Homepage.dart';
 import 'package:ciofroum_web/constants/themes.dart';
 import 'package:ciofroum_web/responsive.dart';
 import 'package:ciofroum_web/screen/mission.dart';
+import 'package:ciofroum_web/thememode/provider.dart';
 import 'package:ciofroum_web/widget/footer1.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class About extends StatefulWidget {
 
 
   ClickFooterCallback clickFooterCallback;
+  SitemapClick sitemapClick;
   // HoverInterface hoverInterface;
 
   ClickOpenCallback callback;
-  About({required this.callback,required this.clickFooterCallback});
+  About({required this.callback,required this.clickFooterCallback,required this.sitemapClick});
 
   @override
   _AboutState createState() => _AboutState();
@@ -37,6 +40,8 @@ class _AboutState extends State<About> {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
+    final themeChange = Provider.of<DarkThemeProvider>(context);
+
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -46,7 +51,7 @@ class _AboutState extends State<About> {
               Container(
                 height: height * 0.22,
                 width: double.infinity,
-                color: AppTheme.primaryBlueColor,
+                color: Color.fromRGBO(50, 59, 75, 1),
                 child: Center(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -54,7 +59,7 @@ class _AboutState extends State<About> {
                       Text(
                         "About Us",
                         style: TextStyle(
-                            color: AppTheme.primaryWhiteColor,
+                            color: Color.fromRGBO(225, 225, 225, 1),
                             fontFamily: "Cairo",
                             fontSize: width < 600 ? 30 : 45,
                             // fontWeight: FontWeight.w600,
@@ -65,7 +70,7 @@ class _AboutState extends State<About> {
                         padding: const EdgeInsets.only(bottom: 20),
                         child: Container(
                           width: 120,
-                          color: AppTheme.primaryGreenColor,
+                          color: AppTheme(context).primaryGreenColor,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -81,7 +86,7 @@ class _AboutState extends State<About> {
                                   child: Text(
                                     "Our Mission",
                                     style: TextStyle(
-                                        color: AppTheme.primaryWhiteColor,
+                                        color: Color.fromRGBO(225, 225, 225, 1),
                                         fontSize: 16,
                                         fontWeight: FontWeight.w500,
                                         fontStyle: FontStyle.normal,
@@ -104,7 +109,7 @@ class _AboutState extends State<About> {
                                   child: Text(
                                     "Founder",
                                     style: TextStyle(
-                                        color: AppTheme.primaryWhiteColor,
+                                        color: Color.fromRGBO(225, 225, 225, 1),
                                         fontSize: 16,
                                         fontWeight: FontWeight.w500,
                                         fontStyle: FontStyle.normal,
@@ -126,7 +131,7 @@ class _AboutState extends State<About> {
                                   child: Text(
                                     "Partner",
                                     style: TextStyle(
-                                        color: AppTheme.primaryWhiteColor,
+                                        color: Color.fromRGBO(225, 225, 225, 1),
                                         fontSize: 16,
                                         fontWeight: FontWeight.w500,
                                         fontStyle: FontStyle.normal,
@@ -148,7 +153,7 @@ class _AboutState extends State<About> {
                                   child: Text(
                                     "Reference",
                                     style: TextStyle(
-                                        color: AppTheme.primaryWhiteColor,
+                                        color: Color.fromRGBO(225, 225, 225, 1),
                                         fontSize: 16,
                                         fontWeight: FontWeight.w500,
                                         fontStyle: FontStyle.normal,
@@ -190,7 +195,7 @@ class _AboutState extends State<About> {
                                 "CIOforum offers vendor-independent services for directors and boards in education and childcare.",
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
-                                    color: AppTheme.primaryBlueColor,
+                                    color: AppTheme(context).primaryBlueColor,
                                     fontFamily: "Cairo",
                                     fontSize: Responsive.isDesktop(context)?19:16,
                                     // letterSpacing: 1,
@@ -205,7 +210,7 @@ class _AboutState extends State<About> {
                               Text(
                                 " CIOforum believes that you can get more out of the potential of your employees and IT suppliers and therefore be more successful with your organization.",
                                 style: TextStyle(
-                                    color: AppTheme.primaryBlueColor,
+                                    color: AppTheme(context).primaryBlueColor,
                                     fontFamily: "Cairo",
                                     fontSize: Responsive.isDesktop(context)?19:16,
                                     // letterSpacing: 1,
@@ -223,7 +228,7 @@ class _AboutState extends State<About> {
                     Text(
                       "CIOforum combines more than 30 years of experience in IT consultancy, knowledge and teamwork to make sure IT does what your organization wants:",
                       style: TextStyle(
-                          color: AppTheme.primaryBlueColor,
+                          color: AppTheme(context).primaryBlueColor,
                           fontFamily: "Cairo",
                           fontSize: Responsive.isDesktop(context)?19:16,
                           // letterSpacing: 1,
@@ -236,7 +241,7 @@ class _AboutState extends State<About> {
                     Text(
                       "Addressing your annoyances, problems or challenges Savings by looking at the most valuable choices for new investments, workplaces and purchasing with the right prices and fulfillment of your conditions Risk mitigation by improving availability and continuity, for example by working in the Cloud Efficiency improvement, for example by aligning IT with your processes, assistance with the choice and management of a supplier or system CIOforum has a system of 5 short pragmatic steps for determining the best IT investment.",
                       style: TextStyle(
-                          color: AppTheme.primaryBlueColor,
+                          color: AppTheme(context).primaryBlueColor,
                           fontFamily: "Cairo",
                           fontSize: Responsive.isDesktop(context)?19:16,
                           // letterSpacing: 1,
@@ -249,7 +254,7 @@ class _AboutState extends State<About> {
                     Container(
                       width: width,
                       decoration: BoxDecoration(
-                          color: AppTheme.greenlightColor,
+                          color: AppTheme(context).greenlightColor,
                           borderRadius: BorderRadius.circular(10)),
                       child: Padding(
                         padding: const EdgeInsets.all(20.0),
@@ -259,7 +264,7 @@ class _AboutState extends State<About> {
                             Text(
                               "Shared IT Director",
                               style: TextStyle(
-                                  color: AppTheme.primaryBlueColor,
+                                  color: AppTheme(context).primaryBlueColor,
                                   fontFamily: "Cairo",
                                   fontSize: Responsive.isDesktop(context) ?24:18,
                                   // letterSpacing: 1,
@@ -274,7 +279,7 @@ class _AboutState extends State<About> {
                                   text:
                                   'CIOforum offers you a shared IT Director, a Chief Information Officer " CIO " , as a service, an IT sounding board',
                                   style: TextStyle(
-                                      color: AppTheme.primaryBlueColor,
+                                      color: AppTheme(context).primaryBlueColor,
                                       fontFamily: "Cairo",
                                       fontSize: Responsive.isDesktop(context) ?19:16,
                                       fontWeight: FontWeight.w400,
@@ -286,7 +291,7 @@ class _AboutState extends State<About> {
                                       text:
                                       ' without the overhead of a salaried person .',
                                       style: TextStyle(
-                                          color: AppTheme.primaryBlueColor,
+                                          color: AppTheme(context).primaryBlueColor,
                                           fontFamily: "Cairo",
                                           fontSize: Responsive.isDesktop(context) ?19:16,
                                           fontWeight: FontWeight.w700,
@@ -300,7 +305,7 @@ class _AboutState extends State<About> {
                             Text(
                               "CIOforum offers subscription forms with variation in quarterly to weekly meetings, where you benefit from first opinion and rapid knowledge building about your organization. ",
                               style: TextStyle(
-                                  color: AppTheme.primaryBlueColor,
+                                  color: AppTheme(context).primaryBlueColor,
                                   fontFamily: "Cairo",
                                   fontSize: Responsive.isDesktop(context) ?19:16,
                                   letterSpacing: 1.0,
@@ -323,7 +328,7 @@ class _AboutState extends State<About> {
                               Text(
                                 "Service 'Shared IT director'",
                                 style: TextStyle(
-                                    color: AppTheme.primaryBlueColor,
+                                    color: AppTheme(context).primaryBlueColor,
                                     fontFamily: "Cairo",
                                     fontSize: Responsive.isDesktop(context) ?24:18,
                                     letterSpacing: 1.0,
@@ -336,7 +341,7 @@ class _AboutState extends State<About> {
                               Text(
                                 "CIOforum offers you a shared IT Director , a Chief Information O fficer  CIO  , as a service , an IT sounding board without the overhead of a salaried person . CIOforum offers subscription types with a variation in quarterly to weekly meetings, where you benefit from rapid knowledge building about your organization via an experienced IT coach.",
                                 style: TextStyle(
-                                    color: AppTheme.primaryBlueColor,
+                                    color: AppTheme(context).primaryBlueColor,
                                     fontFamily: "Cairo",
                                     fontSize: Responsive.isDesktop(context) ?19:16,
                                     letterSpacing: 1.0,
@@ -356,7 +361,7 @@ class _AboutState extends State<About> {
                               Text(
                                 "Service 'Data Protection Officer'",
                                 style: TextStyle(
-                                    color: AppTheme.primaryBlueColor,
+                                    color: AppTheme(context).primaryBlueColor,
                                     fontFamily: "Cairo",
                                     fontSize: Responsive.isDesktop(context)?24:18,
                                     // letterSpacing: 1,
@@ -369,7 +374,7 @@ class _AboutState extends State<About> {
                               Text(
                                 "In addition, Robert Zondervan is certified for the Data Protection Officer (CIPM) service for setting up and maintaining a privacy framework, for example for identifying and tackling privacy risks according to a step-by-step plan of the Dutch Data Protection Authority and the European privacy law (AVG - GDPR).",
                                 style: TextStyle(
-                                    color: AppTheme.primaryBlueColor,
+                                    color: AppTheme(context).primaryBlueColor,
                                     fontFamily: "Cairo",
                                     fontSize: Responsive.isDesktop(context) ?19:16,
                                     // letterSpacing: 1,
@@ -387,7 +392,7 @@ class _AboutState extends State<About> {
                     Text(
                       "Top 7 Mistakes When Hiring an IT Director",
                       style: TextStyle(
-                          color: AppTheme.primaryBlueColor,
+                          color: AppTheme(context).primaryBlueColor,
                           fontFamily: "Cairo",
                           fontSize: Responsive.isDesktop(context) ?24:18,
                           // letterSpacing: 1,
@@ -400,7 +405,7 @@ class _AboutState extends State<About> {
                     Text(
                       "CIOforum has a short IT market research for directors, owners and boards. The anonymous answers are used as input for IT-TEDtalk. Would you like to answer three short questions? It will take a few minutes of your time. As a thank you, you will receive the article Top 7 of mistakes ....",
                       style: TextStyle(
-                          color: AppTheme.primaryBlueColor,
+                          color: AppTheme(context).primaryBlueColor,
                           fontFamily: "Cairo",
                           fontSize: Responsive.isDesktop(context) ?19:16,
                           letterSpacing: 1.0,
@@ -413,7 +418,7 @@ class _AboutState extends State<About> {
                     Text(
                       "Download the whitepaper to learn what IT leadership skills you need and don't need.",
                       style: TextStyle(
-                          color: AppTheme.primaryBlueColor,
+                          color: AppTheme(context).primaryBlueColor,
                           fontFamily: "Cairo",
                           fontSize: Responsive.isDesktop(context) ?19:16,
                           letterSpacing: 1.0,
@@ -441,8 +446,7 @@ class _AboutState extends State<About> {
                                               "Prevent consequences of a wrong profile",
                                               textAlign: TextAlign.end,
                                               style: TextStyle(
-                                                  color: AppTheme
-                                                      .primaryBlueColor,
+                                                  color: AppTheme(context).primaryBlueColor,
                                                   fontFamily: "Cairo",
                                                   fontSize: 19,
                                                   letterSpacing: 1.0,
@@ -457,12 +461,11 @@ class _AboutState extends State<About> {
                                           CircleAvatar(
                                             radius: 20,
                                             backgroundColor:
-                                                AppTheme.greenlightColor,
+                                                AppTheme(context).greenlightColor,
                                             child: Text(
                                               "1",
                                               style: TextStyle(
-                                                  color: AppTheme
-                                                      .primaryBlueColor,
+                                                  color: AppTheme(context).primaryBlueColor,
                                                   fontFamily: "Cairo",
                                                   fontSize: 34,
                                                   letterSpacing: 1,
@@ -483,8 +486,7 @@ class _AboutState extends State<About> {
                                               "Make sure IT offers added value",
                                               textAlign: TextAlign.end,
                                               style: TextStyle(
-                                                  color: AppTheme
-                                                      .primaryBlueColor,
+                                                  color: AppTheme(context).primaryBlueColor,
                                                   fontFamily: "Cairo",
                                                   fontSize: 19,
                                                   letterSpacing: 1.0,
@@ -499,12 +501,11 @@ class _AboutState extends State<About> {
                                           CircleAvatar(
                                             radius: 20,
                                             backgroundColor:
-                                                AppTheme.greenlightColor,
+                                                AppTheme(context).greenlightColor,
                                             child: Text(
                                               "2",
                                               style: TextStyle(
-                                                  color: AppTheme
-                                                      .primaryBlueColor,
+                                                  color: AppTheme(context).primaryBlueColor,
                                                   fontFamily: "Cairo",
                                                   fontSize: 34,
                                                   // letterSpacing: 1,
@@ -525,8 +526,7 @@ class _AboutState extends State<About> {
                                               "Prevent IT from taking\n unacceptable risks",
                                               textAlign: TextAlign.end,
                                               style: TextStyle(
-                                                  color: AppTheme
-                                                      .primaryBlueColor,
+                                                  color: AppTheme(context).primaryBlueColor,
                                                   fontFamily: "Cairo",
                                                   fontSize: 19,
                                                   letterSpacing: 1.0,
@@ -541,12 +541,11 @@ class _AboutState extends State<About> {
                                           CircleAvatar(
                                             radius: 20,
                                             backgroundColor:
-                                                AppTheme.greenlightColor,
+                                                AppTheme(context).greenlightColor,
                                             child: Text(
                                               "3",
                                               style: TextStyle(
-                                                  color: AppTheme
-                                                      .primaryBlueColor,
+                                                  color: AppTheme(context).primaryBlueColor,
                                                   fontFamily: "Cairo",
                                                   fontSize: 34,
                                                   // letterSpacing: 1,
@@ -576,12 +575,11 @@ class _AboutState extends State<About> {
                                           CircleAvatar(
                                             radius: 20,
                                             backgroundColor:
-                                                AppTheme.greenlightColor,
+                                                AppTheme(context).greenlightColor,
                                             child: Text(
                                               "4",
                                               style: TextStyle(
-                                                  color: AppTheme
-                                                      .primaryBlueColor,
+                                                  color: AppTheme(context).primaryBlueColor,
                                                   fontFamily: "Cairo",
                                                   fontSize: 34,
                                                   // letterSpacing: 1,
@@ -596,8 +594,7 @@ class _AboutState extends State<About> {
                                               "Prevent IT from doing what you want",
                                               textAlign: TextAlign.start,
                                               style: TextStyle(
-                                                  color: AppTheme
-                                                      .primaryBlueColor,
+                                                  color: AppTheme(context).primaryBlueColor,
                                                   fontFamily: "Cairo",
                                                   fontSize: 19,
                                                   letterSpacing: 1.0,
@@ -616,12 +613,11 @@ class _AboutState extends State<About> {
                                           CircleAvatar(
                                             radius: 20,
                                             backgroundColor:
-                                                AppTheme.greenlightColor,
+                                                AppTheme(context).greenlightColor,
                                             child: Text(
                                               "5",
                                               style: TextStyle(
-                                                  color: AppTheme
-                                                      .primaryBlueColor,
+                                                  color: AppTheme(context).primaryBlueColor,
                                                   fontFamily: "Cairo",
                                                   fontSize: 34,
                                                   // letterSpacing: 1,
@@ -636,8 +632,7 @@ class _AboutState extends State<About> {
                                               "Prevent IT from perpetuating itself ",
                                               textAlign: TextAlign.start,
                                               style: TextStyle(
-                                                  color: AppTheme
-                                                      .primaryBlueColor,
+                                                  color: AppTheme(context).primaryBlueColor,
                                                   fontFamily: "Cairo",
                                                   fontSize: 19,
                                                   letterSpacing: 1.0,
@@ -656,12 +651,11 @@ class _AboutState extends State<About> {
                                           CircleAvatar(
                                             radius: 20,
                                             backgroundColor:
-                                                AppTheme.greenlightColor,
+                                                AppTheme(context).greenlightColor,
                                             child: Text(
                                               "6",
                                               style: TextStyle(
-                                                  color: AppTheme
-                                                      .primaryBlueColor,
+                                                  color: AppTheme(context).primaryBlueColor,
                                                   fontFamily: "Cairo",
                                                   fontSize: 34,
                                                   // letterSpacing: 1,
@@ -676,8 +670,7 @@ class _AboutState extends State<About> {
                                               "You does not benefit from Cloud and managed services",
                                               textAlign: TextAlign.start,
                                               style: TextStyle(
-                                                  color: AppTheme
-                                                      .primaryBlueColor,
+                                                  color: AppTheme(context).primaryBlueColor,
                                                   fontFamily: "Cairo",
                                                   fontSize: 19,
                                                   letterSpacing: 1.0,
@@ -708,12 +701,12 @@ class _AboutState extends State<About> {
                                         CircleAvatar(
                                           radius: 18,
                                           backgroundColor:
-                                              AppTheme.greenlightColor,
+                                              AppTheme(context).greenlightColor,
                                           child: Text(
                                             "1",
                                             style: TextStyle(
                                                 color:
-                                                    AppTheme.primaryBlueColor,
+                                                    AppTheme(context).primaryBlueColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 24,
                                                 // letterSpacing: 1,
@@ -728,7 +721,7 @@ class _AboutState extends State<About> {
                                             textAlign: TextAlign.start,
                                             style: TextStyle(
                                                 color:
-                                                    AppTheme.primaryBlueColor,
+                                                    AppTheme(context).primaryBlueColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 16,
                                                 // letterSpacing: 1,
@@ -744,12 +737,12 @@ class _AboutState extends State<About> {
                                         CircleAvatar(
                                           radius: 18,
                                           backgroundColor:
-                                              AppTheme.greenlightColor,
+                                              AppTheme(context).greenlightColor,
                                           child: Text(
                                             "2",
                                             style: TextStyle(
                                                 color:
-                                                    AppTheme.primaryBlueColor,
+                                                    AppTheme(context).primaryBlueColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 24,
                                                 // letterSpacing: 1,
@@ -764,7 +757,7 @@ class _AboutState extends State<About> {
                                             textAlign: TextAlign.start,
                                             style: TextStyle(
                                                 color:
-                                                    AppTheme.primaryBlueColor,
+                                                    AppTheme(context).primaryBlueColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 16,
                                                 // letterSpacing: 1,
@@ -780,12 +773,12 @@ class _AboutState extends State<About> {
                                         CircleAvatar(
                                           radius: 18,
                                           backgroundColor:
-                                              AppTheme.greenlightColor,
+                                              AppTheme(context).greenlightColor,
                                           child: Text(
                                             "3",
                                             style: TextStyle(
                                                 color:
-                                                    AppTheme.primaryBlueColor,
+                                                    AppTheme(context).primaryBlueColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 24,
                                                 // letterSpacing: 1,
@@ -800,7 +793,7 @@ class _AboutState extends State<About> {
                                             textAlign: TextAlign.start,
                                             style: TextStyle(
                                                 color:
-                                                    AppTheme.primaryBlueColor,
+                                                    AppTheme(context).primaryBlueColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 16,
                                                 // letterSpacing: 1,
@@ -827,12 +820,12 @@ class _AboutState extends State<About> {
                                         CircleAvatar(
                                           radius: 18,
                                           backgroundColor:
-                                              AppTheme.greenlightColor,
+                                              AppTheme(context).greenlightColor,
                                           child: Text(
                                             "4",
                                             style: TextStyle(
                                                 color:
-                                                    AppTheme.primaryBlueColor,
+                                                    AppTheme(context).primaryBlueColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 24,
                                                 // letterSpacing: 1,
@@ -847,7 +840,7 @@ class _AboutState extends State<About> {
                                             textAlign: TextAlign.start,
                                             style: TextStyle(
                                                 color:
-                                                    AppTheme.primaryBlueColor,
+                                                    AppTheme(context).primaryBlueColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 16,
                                                 // letterSpacing: 1,
@@ -863,12 +856,12 @@ class _AboutState extends State<About> {
                                         CircleAvatar(
                                           radius: 18,
                                           backgroundColor:
-                                              AppTheme.greenlightColor,
+                                              AppTheme(context).greenlightColor,
                                           child: Text(
                                             "5",
                                             style: TextStyle(
                                                 color:
-                                                    AppTheme.primaryBlueColor,
+                                                    AppTheme(context).primaryBlueColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 24,
                                                 // letterSpacing: 1,
@@ -883,7 +876,7 @@ class _AboutState extends State<About> {
                                             textAlign: TextAlign.start,
                                             style: TextStyle(
                                                 color:
-                                                    AppTheme.primaryBlueColor,
+                                                    AppTheme(context).primaryBlueColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 16,
                                                 // letterSpacing: 1,
@@ -899,12 +892,12 @@ class _AboutState extends State<About> {
                                         CircleAvatar(
                                           radius: 18,
                                           backgroundColor:
-                                              AppTheme.greenlightColor,
+                                              AppTheme(context).greenlightColor,
                                           child: Text(
                                             "6",
                                             style: TextStyle(
                                                 color:
-                                                    AppTheme.primaryBlueColor,
+                                                    AppTheme(context).primaryBlueColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 24,
                                                 // letterSpacing: 1,
@@ -919,7 +912,7 @@ class _AboutState extends State<About> {
                                             textAlign: TextAlign.start,
                                             style: TextStyle(
                                                 color:
-                                                    AppTheme.primaryBlueColor,
+                                                    AppTheme(context).primaryBlueColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 16,
                                                 // letterSpacing: 1,
@@ -939,7 +932,7 @@ class _AboutState extends State<About> {
                       // height: height,
                       width: width,
                       decoration: BoxDecoration(
-                        color: AppTheme.WhiteColor,
+                        color: AppTheme(context).WhiteColor,
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Padding(
@@ -950,7 +943,7 @@ class _AboutState extends State<About> {
                             Text(
                               "Download white paper",
                               style: TextStyle(
-                                  color: AppTheme.primaryBlackColor,
+                                  color: themeChange.darkTheme?Colors.white:Colors.black,
                                   fontFamily: "Cairo",
                                   fontSize: Responsive.isDesktop(context) ?24:18,
                                   letterSpacing: 1,
@@ -975,14 +968,14 @@ class _AboutState extends State<About> {
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(10),
                                       border: Border.all(
-                                          color: AppTheme.greyColor)),
+                                          color: AppTheme(context).greyColor)),
                                   child: TextFormField(
                                     decoration: InputDecoration(
                                         hintText: "First name *",
                                         border: OutlineInputBorder(
                                             borderSide: BorderSide.none),
                                         hintStyle: TextStyle(
-                                            color: AppTheme.primaryBlackColor,
+                                            color: themeChange.darkTheme?Colors.white:Colors.black,
                                             fontFamily: "Cairo",
                                             fontSize: 19,
                                             letterSpacing: 1,
@@ -997,14 +990,14 @@ class _AboutState extends State<About> {
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(10),
                                       border: Border.all(
-                                          color: AppTheme.greyColor)),
+                                          color: AppTheme(context).greyColor)),
                                   child: TextFormField(
                                     decoration: InputDecoration(
                                         hintText: "Email Address",
                                         border: OutlineInputBorder(
                                             borderSide: BorderSide.none),
                                         hintStyle: TextStyle(
-                                            color: AppTheme.primaryBlackColor,
+                                            color: themeChange.darkTheme?Colors.white:Colors.black,
                                             fontFamily: "Cairo",
                                             fontSize: 19,
                                             letterSpacing: 1,
@@ -1018,12 +1011,12 @@ class _AboutState extends State<About> {
                                   width: 142,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(10),
-                                      color: AppTheme.primaryGreenColor),
+                                      color: AppTheme(context).primaryGreenColor),
                                   child: Center(
                                     child: Text(
                                       "Submit",
                                       style: TextStyle(
-                                          color: AppTheme.primaryWhiteColor,
+                                          color: AppTheme(context).primaryWhiteColor,
                                           fontFamily: "Cairo",
                                           fontSize: 19,
                                           letterSpacing: 1,

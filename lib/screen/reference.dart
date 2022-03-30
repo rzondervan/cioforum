@@ -10,9 +10,10 @@ import 'package:footer/footer.dart';
 
 class Reference extends StatefulWidget {
 
-  Reference({required this.clickFooterCallback});
+  Reference({required this.clickFooterCallback,required this.sitemapClick});
 
   ClickFooterCallback clickFooterCallback;
+  SitemapClick sitemapClick;
   @override
   State<Reference> createState() => _ReferenceState();
 }
@@ -32,12 +33,12 @@ class _ReferenceState extends State<Reference> {
             Container(
               height: height * 0.2,
               width: double.infinity,
-              color: AppTheme.primaryBlueColor,
+              color: Color.fromRGBO(50, 59, 75, 1),
               child: Center(
                 child: Text(
                   "Reference",
                   style: TextStyle(
-                      color: AppTheme.primaryWhiteColor,
+                      color: Color.fromRGBO(225, 225, 225, 1),
                       fontFamily: "Cairo",
                       fontSize: width < 600 ? 30 : 45,
                       // fontWeight: FontWeight.w600,
@@ -48,7 +49,7 @@ class _ReferenceState extends State<Reference> {
             Container(
               height: height * 0.4,
               width: double.infinity,
-              color: AppTheme.WhiteColor,
+              color: AppTheme(context).WhiteColor,
               // color: Colors.red,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -57,7 +58,7 @@ class _ReferenceState extends State<Reference> {
                   Text(
                     "The organizations where CIOforum provides services are",
                     style: TextStyle(
-                        color: AppTheme.primaryBlueColor,
+                        color: AppTheme(context).primaryBlueColor,
                         fontFamily: "Cairo",
                         fontSize: Responsive.isDesktop(context) ?28 : 20,
                         fontWeight: FontWeight.w700,
@@ -104,7 +105,7 @@ class _ReferenceState extends State<Reference> {
             Text(
               "What customers say",
               style: TextStyle(
-                  color: AppTheme.primaryBlueColor,
+                  color: AppTheme(context).primaryBlueColor,
                   fontFamily: "Cairo",
                   fontSize: Responsive.isDesktop(context) ? 31 : 22,
                   fontWeight: FontWeight.w700,
@@ -129,7 +130,7 @@ class _ReferenceState extends State<Reference> {
 
                 return Container(
                   // width: width * 0.7,
-                  color: AppTheme.WhiteColor,
+                  color: AppTheme(context).WhiteColor,
                   // color: Colors.red,
                   child: Padding(
                     padding: const EdgeInsets.all(20.0),
@@ -153,7 +154,7 @@ class _ReferenceState extends State<Reference> {
                               Text(
                                 "Robert delivers to us, through his unique vendor-independent subscription, a new IT vision and strategy, which allowed us to save on unnecessary investments in equipment and work. Robert is good at analyzing IT problems and wishes and comes with solution scenarios where availability and continuity are guaranteed. It is also very nice that he understands proposals from IT suppliers, can adapt them to our advantage, and explains them in understandable language. The latter in particular is a great pleasure for us. able to better leverage the IT capabilities that are important to our industry. We are thrilled with our new subscription to IT strategy assistance. Highly recommended for any organization without its own IT people.",
                                 style: TextStyle(
-                                    color: AppTheme.primaryBlueColor,
+                                    color: AppTheme(context).primaryBlueColor,
                                     fontFamily: "Cairo",
                                     fontSize: Responsive.isDesktop(context)
                                         ? 17
@@ -177,7 +178,7 @@ class _ReferenceState extends State<Reference> {
                                       Text(
                                         "Renée Neuteboom",
                                         style: TextStyle(
-                                            color: AppTheme.primaryBlueColor,
+                                            color: AppTheme(context).primaryBlueColor,
                                             fontFamily: "Cairo",
                                             fontSize:
                                                 Responsive.isDesktop(context)
@@ -189,7 +190,7 @@ class _ReferenceState extends State<Reference> {
                                       Text(
                                         "Director of Childcare SKDD",
                                         style: TextStyle(
-                                            color: AppTheme.primaryBlueColor,
+                                            color: AppTheme(context).primaryBlueColor,
                                             fontFamily: "Cairo",
                                             fontSize:
                                                 Responsive.isDesktop(context)
@@ -223,6 +224,8 @@ class _ReferenceState extends State<Reference> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 InkWell(
+                  hoverColor: Colors.transparent,
+
                   onTap: () => buttonCarouselController.previousPage(
                       duration: const Duration(milliseconds: 300),
                       curve: Curves.linear),
@@ -231,12 +234,12 @@ class _ReferenceState extends State<Reference> {
                     width: 40,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
-                      border: Border.all(color: AppTheme.primaryBlackColor),
+                      border: Border.all(color: AppTheme(context).primaryBlackColor),
                     ),
                     child: Center(
                       child: Icon(
                         Icons.arrow_back_ios_outlined,
-                        color: AppTheme.primaryBlackColor,
+                        color: AppTheme(context).primaryBlackColor,
                         size: 20,
                       ),
                     ),
@@ -244,6 +247,8 @@ class _ReferenceState extends State<Reference> {
                 ),
                 const SizedBox(width: 20),
                 InkWell(
+                  hoverColor: Colors.transparent,
+
                   onTap: () => buttonCarouselController.nextPage(
                       duration: const Duration(milliseconds: 300),
                       curve: Curves.linear),
@@ -252,12 +257,12 @@ class _ReferenceState extends State<Reference> {
                     width: 40,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
-                      border: Border.all(color: AppTheme.primaryBlackColor),
+                      border: Border.all(color: AppTheme(context).primaryBlackColor),
                     ),
                     child: Center(
                       child: Icon(
                         Icons.arrow_forward_ios_outlined,
-                        color: AppTheme.primaryBlackColor,
+                        color: AppTheme(context).primaryBlackColor,
                         size: 20,
                       ),
                     ),

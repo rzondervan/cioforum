@@ -5,8 +5,9 @@ import 'package:ciofroum_web/widget/footer1.dart';
 import 'package:flutter/material.dart';
 
 class SiteMape extends StatefulWidget {
-   SiteMape({Key? key, required this.clickFooterCallback}) : super(key: key);
+   SiteMape({Key? key, required this.clickFooterCallback,required this.sitemapClick}) : super(key: key);
   ClickFooterCallback clickFooterCallback;
+   SitemapClick sitemapClick;
 
 
   @override
@@ -36,7 +37,7 @@ class _SiteMapeState extends State<SiteMape> {
                     child: Text(
                       "SITEMAP",
                       style: TextStyle(
-                          color: AppTheme.primaryWhiteColor,
+                          color: Color.fromRGBO(225, 225, 225, 1),
                           fontFamily: "Cairo",
                           fontStyle: FontStyle.normal,
                           fontSize: width<600?width*0.08:54,
@@ -58,7 +59,7 @@ class _SiteMapeState extends State<SiteMape> {
                   Text(
                     "Below you will find all pages on this website.",
                     style: TextStyle(
-                        color: AppTheme.primaryBlueColor,
+                        color: AppTheme(context).primaryBlueColor,
                         fontFamily: "Cairo",
                         fontSize: Responsive.isDesktop(context) ?24:18,
                         letterSpacing: 1.0,
@@ -73,53 +74,79 @@ class _SiteMapeState extends State<SiteMape> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+
                         children: [
-                          Text(
-                            "About us",
-                            style: TextStyle(
-                                color: AppTheme.primaryBlueColor,
-                                fontFamily: "Cairo",
-                                fontSize: Responsive.isDesktop(context) ?19:16,
-                                letterSpacing: 1.0,
-                                height: 1.7,
-                                fontWeight: FontWeight.w500,
-                                fontStyle: FontStyle.normal),
+                          InkWell(
+                            hoverColor: Colors.transparent,
+                            onTap:(){
+                           widget.sitemapClick.onsitepage(false,false,true,false,false,false,false,false,false,false,false,false);
+                           },
+                            child: Text(
+                              "About",
+                              style: TextStyle(
+                                  color: AppTheme(context).primaryBlueColor,
+                                  fontFamily: "Cairo",
+                                  fontSize: Responsive.isDesktop(context) ?19:16,
+                                  letterSpacing: 1.0,
+                                  height: 1.7,
+                                  fontWeight: FontWeight.w500,
+                                  fontStyle: FontStyle.normal),
+                            ),
                           ),
                           SizedBox(height: 20),
-                          Text(
-                            "Products",
-                            style: TextStyle(
-                                color: AppTheme.primaryBlueColor,
-                                fontFamily: "Cairo",
-                                fontSize: Responsive.isDesktop(context) ?19:16,
-                                letterSpacing: 1.0,
-                                height: 1.7,
-                                fontWeight: FontWeight.w500,
-                                fontStyle: FontStyle.normal),
+                          InkWell(
+                            hoverColor: Colors.transparent,
+                            onTap:(){
+                              widget.sitemapClick.onsitepage(true,false,false,false,false,false,false,false,false,false,false,false);
+                            },
+                            child: Text(
+                              "Products",
+                              style: TextStyle(
+                                  color: AppTheme(context).primaryBlueColor,
+                                  fontFamily: "Cairo",
+                                  fontSize: Responsive.isDesktop(context) ?19:16,
+                                  letterSpacing: 1.0,
+                                  height: 1.7,
+                                  fontWeight: FontWeight.w500,
+                                  fontStyle: FontStyle.normal),
+                            ),
                           ),
                           SizedBox(height: 20),
-                          Text(
-                            "Blog",
-                            style: TextStyle(
-                                color: AppTheme.primaryBlueColor,
-                                fontFamily: "Cairo",
-                                fontSize: Responsive.isDesktop(context) ?19:16,
-                                letterSpacing: 1.0,
-                                height: 1.7,
-                                fontWeight: FontWeight.w500,
-                                fontStyle: FontStyle.normal),
+                          InkWell(
+                            hoverColor: Colors.transparent,
+                            onTap:(){
+                              widget.sitemapClick.onsitepage(false,true,false,false,false,false,false,false,false,false,false,false);
+                            },
+                            child: Text(
+                              "Blog",
+                              style: TextStyle(
+                                  color: AppTheme(context).primaryBlueColor,
+                                  fontFamily: "Cairo",
+                                  fontSize: Responsive.isDesktop(context) ?19:16,
+                                  letterSpacing: 1.0,
+                                  height: 1.7,
+                                  fontWeight: FontWeight.w500,
+                                  fontStyle: FontStyle.normal),
+                            ),
                           ),
                           SizedBox(height: 20),
-                          Text(
-                            "Contact",
-                            style: TextStyle(
-                                color: AppTheme.primaryBlueColor,
-                                fontFamily: "Cairo",
-                                fontSize: Responsive.isDesktop(context) ?19:16,
-                                letterSpacing: 1.0,
-                                height: 1.7,
-                                fontWeight: FontWeight.w500,
-                                fontStyle: FontStyle.normal),
+                          InkWell(
+                            hoverColor: Colors.transparent,
+                            onTap:(){
+                              widget.sitemapClick.onsitepage(false,false,false,true,false,false,false,false,false,false,false,false);
+                            },
+                            child: Text(
+                              "Contact",
+                              style: TextStyle(
+                                  color: AppTheme(context).primaryBlueColor,
+                                  fontFamily: "Cairo",
+                                  fontSize: Responsive.isDesktop(context) ?19:16,
+                                  letterSpacing: 1.0,
+                                  height: 1.7,
+                                  fontWeight: FontWeight.w500,
+                                  fontStyle: FontStyle.normal),
+                            ),
                           ),
                           SizedBox(height: 55),
 
@@ -128,53 +155,79 @@ class _SiteMapeState extends State<SiteMape> {
                       ),
                       SizedBox(width: 50),
                       Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+
                         children: [
-                          Text(
-                            "Mission",
-                            style: TextStyle(
-                                color: AppTheme.primaryBlueColor,
-                                fontFamily: "Cairo",
-                                fontSize: Responsive.isDesktop(context) ?19:16,
-                                letterSpacing: 1.0,
-                                height: 1.7,
-                                fontWeight: FontWeight.w500,
-                                fontStyle: FontStyle.normal),
+                          InkWell(
+                            hoverColor: Colors.transparent,
+                            onTap:(){
+                              widget.sitemapClick.onsitepage(false,false,false,false,true,false,false,false,false,false,false,false);
+                            },
+                            child: Text(
+                              "Mission",
+                              style: TextStyle(
+                                  color: AppTheme(context).primaryBlueColor,
+                                  fontFamily: "Cairo",
+                                  fontSize: Responsive.isDesktop(context) ?19:16,
+                                  letterSpacing: 1.0,
+                                  height: 1.7,
+                                  fontWeight: FontWeight.w500,
+                                  fontStyle: FontStyle.normal),
+                            ),
                           ),
                           SizedBox(height: 20),
-                          Text(
-                            "Founder",
-                            style: TextStyle(
-                                color: AppTheme.primaryBlueColor,
-                                fontFamily: "Cairo",
-                                fontSize: Responsive.isDesktop(context) ?19:16,
-                                letterSpacing: 1.0,
-                                height: 1.7,
-                                fontWeight: FontWeight.w500,
-                                fontStyle: FontStyle.normal),
+                          InkWell(
+                            hoverColor: Colors.transparent,
+                            onTap:(){
+                              widget.sitemapClick.onsitepage(false,false,false,false,false,true,false,false,false,false,false,false);
+                            },
+                            child: Text(
+                              "Founder",
+                              style: TextStyle(
+                                  color: AppTheme(context).primaryBlueColor,
+                                  fontFamily: "Cairo",
+                                  fontSize: Responsive.isDesktop(context) ?19:16,
+                                  letterSpacing: 1.0,
+                                  height: 1.7,
+                                  fontWeight: FontWeight.w500,
+                                  fontStyle: FontStyle.normal),
+                            ),
                           ),
                           SizedBox(height: 20),
-                          Text(
-                            "Partners",
-                            style: TextStyle(
-                                color: AppTheme.primaryBlueColor,
-                                fontFamily: "Cairo",
-                                fontSize: Responsive.isDesktop(context) ?19:16,
-                                letterSpacing: 1.0,
-                                height: 1.7,
-                                fontWeight: FontWeight.w500,
-                                fontStyle: FontStyle.normal),
+                          InkWell(
+                            hoverColor: Colors.transparent,
+                            onTap:(){
+                              widget.sitemapClick.onsitepage(false,false,false,false,false,false,true,false,false,false,false,false);
+                            },
+                            child: Text(
+                              "Partners",
+                              style: TextStyle(
+                                  color: AppTheme(context).primaryBlueColor,
+                                  fontFamily: "Cairo",
+                                  fontSize: Responsive.isDesktop(context) ?19:16,
+                                  letterSpacing: 1.0,
+                                  height: 1.7,
+                                  fontWeight: FontWeight.w500,
+                                  fontStyle: FontStyle.normal),
+                            ),
                           ),
                           SizedBox(height: 20),
-                          Text(
-                            "References",
-                            style: TextStyle(
-                                color: AppTheme.primaryBlueColor,
-                                fontFamily: "Cairo",
-                                fontSize: Responsive.isDesktop(context) ?19:16,
-                                letterSpacing: 1.0,
-                                height: 1.7,
-                                fontWeight: FontWeight.w500,
-                                fontStyle: FontStyle.normal),
+                          InkWell(
+                            hoverColor: Colors.transparent,
+                            onTap:(){
+                              widget.sitemapClick.onsitepage(false,false,false,false,false,false,false,true,false,false,false,false);
+                            },
+                            child: Text(
+                              "References",
+                              style: TextStyle(
+                                  color: AppTheme(context).primaryBlueColor,
+                                  fontFamily: "Cairo",
+                                  fontSize: Responsive.isDesktop(context) ?19:16,
+                                  letterSpacing: 1.0,
+                                  height: 1.7,
+                                  fontWeight: FontWeight.w500,
+                                  fontStyle: FontStyle.normal),
+                            ),
                           ),
                           SizedBox(height: 55),
 
@@ -183,66 +236,82 @@ class _SiteMapeState extends State<SiteMape> {
                       ),
                       SizedBox(width: 50),
                       Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            "Contact",
-                            style: TextStyle(
-                                color: AppTheme.primaryBlueColor,
-                                fontFamily: "Cairo",
-                                fontSize: Responsive.isDesktop(context) ?19:16,
-                                letterSpacing: 1.0,
-                                height: 1.7,
-                                fontWeight: FontWeight.w500,
-                                fontStyle: FontStyle.normal),
+
+                          InkWell(
+                            hoverColor: Colors.transparent,
+                            onTap:(){
+                              widget.sitemapClick.onsitepage(false,false,false,false,false,false,false,false,true,false,false,false);
+                            },
+                            child: Text(
+                              "Terms and Conditions",
+                              style: TextStyle(
+                                  color: AppTheme(context).primaryBlueColor,
+                                  fontFamily: "Cairo",
+                                  fontSize: Responsive.isDesktop(context) ?19:16,
+                                  letterSpacing: 1.0,
+                                  height: 1.7,
+                                  fontWeight: FontWeight.w500,
+                                  fontStyle: FontStyle.normal),
+                            ),
                           ),
                           SizedBox(height: 20),
-                          Text(
-                            "Terms and Conditions",
-                            style: TextStyle(
-                                color: AppTheme.primaryBlueColor,
-                                fontFamily: "Cairo",
-                                fontSize: Responsive.isDesktop(context) ?19:16,
-                                letterSpacing: 1.0,
-                                height: 1.7,
-                                fontWeight: FontWeight.w500,
-                                fontStyle: FontStyle.normal),
+                          InkWell(
+                            hoverColor: Colors.transparent,
+                            onTap:(){
+                              widget.sitemapClick.onsitepage(false,false,false,false,false,false,false,false,false,true,false,false);
+                            },
+                            child: Text(
+                              "Cookies",
+                              style: TextStyle(
+                                  color: AppTheme(context).primaryBlueColor,
+                                  fontFamily: "Cairo",
+                                  fontSize: Responsive.isDesktop(context) ?19:16,
+                                  letterSpacing: 1.0,
+                                  height: 1.7,
+                                  fontWeight: FontWeight.w500,
+                                  fontStyle: FontStyle.normal),
+                            ),
                           ),
                           SizedBox(height: 20),
-                          Text(
-                            "Cookies",
-                            style: TextStyle(
-                                color: AppTheme.primaryBlueColor,
-                                fontFamily: "Cairo",
-                                fontSize: Responsive.isDesktop(context) ?19:16,
-                                letterSpacing: 1.0,
-                                height: 1.7,
-                                fontWeight: FontWeight.w500,
-                                fontStyle: FontStyle.normal),
+                          InkWell(
+                            hoverColor: Colors.transparent,
+                            onTap:(){
+                              widget.sitemapClick.onsitepage(false,false,false,false,false,false,false,false,false,false,true,false);
+                            },
+                            child: Text(
+                              "site map",
+                              style: TextStyle(
+                                  color: AppTheme(context).primaryBlueColor,
+                                  fontFamily: "Cairo",
+                                  fontSize: Responsive.isDesktop(context) ?19:16,
+                                  letterSpacing: 1.0,
+                                  height: 1.7,
+                                  fontWeight: FontWeight.w500,
+                                  fontStyle: FontStyle.normal),
+                            ),
                           ),
                           SizedBox(height: 20),
-                          Text(
-                            "site map",
-                            style: TextStyle(
-                                color: AppTheme.primaryBlueColor,
-                                fontFamily: "Cairo",
-                                fontSize: Responsive.isDesktop(context) ?19:16,
-                                letterSpacing: 1.0,
-                                height: 1.7,
-                                fontWeight: FontWeight.w500,
-                                fontStyle: FontStyle.normal),
+                          InkWell(
+                            hoverColor: Colors.transparent,
+                            onTap:(){
+                              widget.sitemapClick.onsitepage(false,false,false,false,false,false,false,false,false,false,false,true);
+                            },
+                            child: Text(
+                              "FAQ",
+                              style: TextStyle(
+                                  color: AppTheme(context).primaryBlueColor,
+                                  fontFamily: "Cairo",
+                                  fontSize: Responsive.isDesktop(context) ?19:16,
+                                  letterSpacing: 1.0,
+                                  height: 1.7,
+                                  fontWeight: FontWeight.w500,
+                                  fontStyle: FontStyle.normal),
+                            ),
                           ),
-                          SizedBox(height: 20),
-                          Text(
-                            "FAQ",
-                            style: TextStyle(
-                                color: AppTheme.primaryBlueColor,
-                                fontFamily: "Cairo",
-                                fontSize: Responsive.isDesktop(context) ?19:16,
-                                letterSpacing: 1.0,
-                                height: 1.7,
-                                fontWeight: FontWeight.w500,
-                                fontStyle: FontStyle.normal),
-                          ),
+                          SizedBox(height: 50),
+
 
                         ],
                       ),
@@ -255,7 +324,6 @@ class _SiteMapeState extends State<SiteMape> {
                 ],
               ),
             ),
-            Footer1(context,widget.clickFooterCallback)
 
 
           ],

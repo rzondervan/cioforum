@@ -4,19 +4,22 @@ import 'package:ciofroum_web/constants/themes.dart';
 
 import 'package:ciofroum_web/responsive.dart';
 import 'package:ciofroum_web/screen/privacy.dart';
+import 'package:ciofroum_web/thememode/provider.dart';
 import 'package:ciofroum_web/widget/footer1.dart';
 import 'package:ciofroum_web/widget/product_page.dart';
 import 'package:ciofroum_web/widget/productcarousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 
 class Product extends StatefulWidget {
   ClickProductCallback callback;
   HomeExplorepage callback1;
+  SitemapClick sitemapClick;
 
-  Product({required this.callback,required this.clickFooterCallback,required this.callback1});
+  Product({required this.callback,required this.clickFooterCallback,required this.callback1,required this.sitemapClick});
 
   ClickFooterCallback clickFooterCallback;
   @override
@@ -39,6 +42,8 @@ class _ProductState extends State<Product> {
   Widget build(BuildContext context) {
     final height=MediaQuery.of(context).size.height;
     final width=MediaQuery.of(context).size.width;
+    final themeChange = Provider.of<DarkThemeProvider>(context);
+
     print(width);
 
     return SafeArea(
@@ -60,14 +65,14 @@ class _ProductState extends State<Product> {
                        Text("Privacy and IT services for education",style:  TextStyle(
                         fontSize:Responsive.isDesktop(context)?42:18,
                         fontWeight: FontWeight.w700,
-                        color: AppTheme.primaryWhiteColor,
+                        color:Color.fromRGBO(225, 225, 225, 1),
                         fontFamily: "Cairo",
                         fontStyle: FontStyle.normal,
 
                       ),),
                        SizedBox(height: Responsive.isDesktop(context)?20:10),
                        Text("Vendor independent services for directors and boards of schools and daycare organizations, who want to save on an IT director in salaried employment and/or an external Data Protection Officer.",textAlign: TextAlign.center,style:  TextStyle(
-                        color:AppTheme.primaryWhiteColor,
+                         color:Color.fromRGBO(225, 225, 225, 1),
                         fontSize:Responsive.isDesktop(context)?24:16,
                         fontWeight: FontWeight.w400,
                         fontFamily: "Cairo",
@@ -114,7 +119,7 @@ class _ProductState extends State<Product> {
                                 // height: MediaQuery.of(context).size.width*0.5,
                                 // width: MediaQuery.of(context).size.width*0.6,
                                 decoration: BoxDecoration(
-                                    color: AppTheme.WhiteColor,
+                                    color: AppTheme(context).WhiteColor,
                                   // color:Colors.green,
                                     border: Border.all(
                                         color: const Color.fromRGBO(196,196,196,1)
@@ -133,7 +138,7 @@ class _ProductState extends State<Product> {
                                       ),
                                       const SizedBox(height: 10),
                                       Text(productlist[i].bookname,style:  TextStyle(
-                                          color: AppTheme.primaryBlackColor,
+                                        color: themeChange.darkTheme?Colors.white:Colors.black,
                                           fontWeight: FontWeight.w700,
                                           fontSize: Responsive.isDesktop(context)?20:13,
                                         fontFamily: "Cairo",
@@ -143,7 +148,7 @@ class _ProductState extends State<Product> {
                                         height: 5,
                                       ),
                                       Text(productlist[i].bookdes,style:  TextStyle(
-                                          color: Color.fromRGBO(50,59,75,1),
+                                          color: themeChange.darkTheme?Colors.white:Color.fromRGBO(50,59,75,1),
                                           fontWeight: FontWeight.w500,
                                           fontSize: Responsive.isDesktop(context)?14:10,
                                         fontFamily: "Cairo",
@@ -173,7 +178,7 @@ class _ProductState extends State<Product> {
                       child: Text("Recommendations for Managing Your IT",style: TextStyle(
                           fontSize: Responsive.isDesktop(context)?32:19,
                           fontWeight: FontWeight.w700,
-                          color: Color.fromRGBO(50,59,75,1),
+                          color: themeChange.darkTheme?Colors.white:Color.fromRGBO(50,59,75,1),
                         fontFamily: "Cairo",
                         fontStyle: FontStyle.normal,
 
@@ -194,7 +199,7 @@ class _ProductState extends State<Product> {
                       child: Container(
                         height: 278,
                         width: double.infinity,
-                        color: const Color.fromRGBO(248,244,225,1),
+                        color: themeChange.darkTheme?Colors.black87: Color.fromRGBO(248,244,225,1),
                       ),
                     ),
                     Center(
@@ -226,7 +231,7 @@ class _ProductState extends State<Product> {
                                   // width: 355,
                                   // margin: const EdgeInsets.symmetric(horizontal: 5),
                                   decoration: BoxDecoration(
-                                      color: AppTheme.WhiteColor,
+                                      color: AppTheme(context).WhiteColor,
 
                                       borderRadius: BorderRadius.circular(20)
                                   ),
@@ -246,14 +251,14 @@ class _ProductState extends State<Product> {
                                                 crossAxisAlignment: CrossAxisAlignment.start,
                                                 children: [
                                                   Text(carousellist[index].name,style:  TextStyle(
-                                                      color: AppTheme.primaryBlackColor,
+                                                      color: themeChange.darkTheme?Colors.white:Colors.black,
                                                       fontWeight: FontWeight.w700,
                                                       fontStyle: FontStyle.normal,
                                                       fontSize: Responsive.isDesktop(context)?18:15,
                                                       fontFamily: "Cairo"
                                                   ),),
                                                   Text(carousellist[index].university,style:  TextStyle(
-                                                      color: AppTheme.primaryBlackColor,
+                                                      color: themeChange.darkTheme?Colors.white:Colors.black,
                                                       fontWeight: FontWeight.w400,
                                                       fontStyle: FontStyle.normal,
                                                       fontSize: Responsive.isDesktop(context)?15:12,
@@ -267,7 +272,7 @@ class _ProductState extends State<Product> {
                                         const SizedBox(height: 20),
                                         Expanded(
                                           child: Text(carousellist[index].desc,style:  TextStyle(
-                                            color: Color.fromRGBO(50,50,75,1),
+                                            color: themeChange.darkTheme?Colors.white:Color.fromRGBO(50,50,75,1),
                                             fontWeight: FontWeight.w400,
                                             fontStyle: FontStyle.normal,
                                             fontSize: Responsive.isDesktop(context)?15:11,
@@ -296,7 +301,7 @@ class _ProductState extends State<Product> {
                                   margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
                                   decoration: BoxDecoration(
                                       shape: BoxShape.circle,
-                                      color:  currentPos == entry.key?Color.fromRGBO(139, 190, 43, 1):Color.fromRGBO(50,59,75,0.18)
+                                      color: themeChange.darkTheme?currentPos == entry.key?Colors.white:Colors.white54:currentPos == entry.key?Color.fromRGBO(139, 190, 43, 1):Color.fromRGBO(50,59,75,0.18)
                                           // .withOpacity(currentPos == entry.key ? 0.9 : 0.2)
                                   ),
                                 ),

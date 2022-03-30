@@ -11,9 +11,10 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Contact extends StatefulWidget {
-  Contact({required this.clickFooterCallback});
+  Contact({required this.clickFooterCallback,required this.sitemapClick});
 
   ClickFooterCallback clickFooterCallback;
+  SitemapClick sitemapClick;
   @override
   State<Contact> createState() => _ContactState();
 }
@@ -43,10 +44,10 @@ class _ContactState extends State<Contact> {
               Container(
                 height:height*0.2,
                 width: double.infinity,
-                color: AppTheme.primaryBlueColor,
+                color: AppTheme(context).primaryBlueColor,
                 child: Center(
                   child: Text("Contact Us",style: TextStyle(
-                      color: AppTheme.primaryWhiteColor,
+                      color: AppTheme(context).primaryWhiteColor,
                       fontFamily: "Cairo",
                       fontSize: width<600?30:45,
                       fontWeight: FontWeight.w600,
@@ -59,7 +60,7 @@ class _ContactState extends State<Contact> {
                 child: Container(
                   width: width,
                   decoration: BoxDecoration(
-                      color: AppTheme.WhiteColor,
+                      color: AppTheme(context).WhiteColor,
                       borderRadius: BorderRadius.circular(10)
                   ),
                   child: Column(
@@ -88,7 +89,7 @@ class _ContactState extends State<Contact> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text("CIOforum",style: TextStyle(
-                                  color: AppTheme.primaryBlackColor,
+                                  color: AppTheme(context).primaryBlackColor,
                                   fontFamily: "Cairo",
                                   fontSize: width<600?18:24,
                                   fontWeight: FontWeight.w700,
@@ -102,7 +103,7 @@ class _ContactState extends State<Contact> {
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         Text("Buntlaan 11B3941 MG Doorn Nederland",style: TextStyle(
-                                            color: AppTheme.primaryBlueColor,
+                                            color: AppTheme(context).primaryBlueColor,
                                             fontFamily: "Cairo",
                                             fontSize: width<600?16:19,
                                             fontWeight: FontWeight.w500,
@@ -110,7 +111,7 @@ class _ContactState extends State<Contact> {
                                         ),),
                                         SizedBox(height: 20),
                                         Text("Kvk: 62420186",style: TextStyle(
-                                            color: AppTheme.primaryBlueColor,
+                                            color: AppTheme(context).primaryBlueColor,
                                             fontFamily: "Cairo",
                                             fontSize: width<600?16:19,
                                             fontWeight: FontWeight.w500,
@@ -140,7 +141,7 @@ class _ContactState extends State<Contact> {
                                                 child: Text(
                                                   "rzondervan@cioforum.nl",
                                                   style: TextStyle(
-                                                      color: AppTheme.primaryBlueColor,
+                                                      color: AppTheme(context).primaryBlueColor,
                                                       fontFamily: "Cairo",
                                                       fontSize: width<600?16:19,
                                                       fontWeight: FontWeight.w500,
@@ -167,7 +168,7 @@ class _ContactState extends State<Contact> {
                                               Text(
                                                 "+31 6 20 707 442",
                                                 style: TextStyle(
-                                                    color: AppTheme.primaryBlueColor,
+                                                    color: AppTheme(context).primaryBlueColor,
                                                     fontFamily: "Cairo",
                                                     fontSize: width<600?16:19,
                                                     fontWeight: FontWeight.w500,

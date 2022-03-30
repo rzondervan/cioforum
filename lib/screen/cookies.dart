@@ -1,12 +1,15 @@
 import 'package:ciofroum_web/Homepage.dart';
 import 'package:ciofroum_web/constants/themes.dart';
 import 'package:ciofroum_web/responsive.dart';
+import 'package:ciofroum_web/thememode/provider.dart';
 import 'package:ciofroum_web/widget/footer1.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Cookies extends StatefulWidget {
-   Cookies({Key? key, required this.clickFooterCallback,}) : super(key: key);
+   Cookies({Key? key, required this.clickFooterCallback,required this.sitemapClick}) : super(key: key);
   ClickFooterCallback clickFooterCallback;
+   SitemapClick sitemapClick;
 
 
   @override
@@ -19,6 +22,8 @@ class _CookiesState extends State<Cookies> {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
+    final themeChange = Provider.of<DarkThemeProvider>(context);
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -37,7 +42,7 @@ class _CookiesState extends State<Cookies> {
                     child: Text(
                       "Cookies",
                       style: TextStyle(
-                          color: AppTheme.primaryWhiteColor,
+                          color: Color.fromRGBO(225, 225, 225, 1),
                           fontFamily: "Cairo",
                           fontStyle: FontStyle.normal,
                           fontSize: width<600?width*0.08:54,
@@ -58,7 +63,7 @@ class _CookiesState extends State<Cookies> {
                 children: [
                   Container(
                     // color: Colors.red,
-                    color: const Color.fromRGBO(247, 247, 247, 1),
+                    color: themeChange.darkTheme? Color.fromRGBO(50, 59, 75, 1):Color.fromRGBO(247, 247, 247, 1),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
 
@@ -69,7 +74,7 @@ class _CookiesState extends State<Cookies> {
                             fontSize: Responsive.isDesktop(context) ?24:18,
                             fontStyle: FontStyle.normal,
                             fontFamily: "Cairo",
-                            color: AppTheme.primaryBlackColor,
+                            color: AppTheme(context).primaryBlackColor,
                             letterSpacing: 1
                         ),),
                         Padding(
@@ -85,7 +90,7 @@ class _CookiesState extends State<Cookies> {
                                   fontSize: Responsive.isDesktop(context) ?19:16,
                                   fontStyle: FontStyle.normal,
                                   fontFamily: "Cairo",
-                                  color: AppTheme.primaryBlueColor,
+                                  color: AppTheme(context).primaryBlueColor,
                                   letterSpacing: 1.0,
                                   height: 1.7,
                                 ),
@@ -98,7 +103,7 @@ class _CookiesState extends State<Cookies> {
                                   fontSize: Responsive.isDesktop(context) ?19:16,
                                   fontStyle: FontStyle.normal,
                                   fontFamily: "Cairo",
-                                  color: AppTheme.primaryBlueColor,
+                                  color: AppTheme(context).primaryBlueColor,
                                   letterSpacing: 1.0,
                                   height: 1.7,
                                 ),
@@ -114,7 +119,7 @@ class _CookiesState extends State<Cookies> {
                   Container(
                     width: width,
                     decoration: BoxDecoration(
-                        color: AppTheme.greenlightColor,
+                        color: AppTheme(context).greenlightColor,
                         borderRadius: BorderRadius.circular(10)),
                     child: Padding(
                       padding: const EdgeInsets.all(20.0),
@@ -124,7 +129,7 @@ class _CookiesState extends State<Cookies> {
                           Text(
                             "Outsource your IT director",
                             style: TextStyle(
-                                color: AppTheme.primaryBlueColor,
+                                color: AppTheme(context).primaryBlueColor,
                                 fontFamily: "Cairo",
                                 fontSize: Responsive.isDesktop(context) ?24:18,
                                 letterSpacing: 1,
@@ -138,7 +143,7 @@ class _CookiesState extends State<Cookies> {
                                 text:
                                 'CIOforum offers you a shared IT Director, a Chief Information Officer " CIO " , as a service, an IT sounding board',
                                 style: TextStyle(
-                                    color: AppTheme.primaryBlueColor,
+                                    color: AppTheme(context).primaryBlueColor,
                                     fontFamily: "Cairo",
                                     fontSize: Responsive.isDesktop(context) ?19:16,
                                     letterSpacing: 1.0,
@@ -150,7 +155,7 @@ class _CookiesState extends State<Cookies> {
                                     text:
                                     ' without the overhead of a salaried person .',
                                     style: TextStyle(
-                                        color: AppTheme.primaryBlueColor,
+                                        color: AppTheme(context).primaryBlueColor,
                                         fontFamily: "Cairo",
                                         fontSize: Responsive.isDesktop(context) ?19:16,
                                         letterSpacing: 1.0,
@@ -164,7 +169,7 @@ class _CookiesState extends State<Cookies> {
                           Text(
                             "CIOforum offers subscription forms with variation in quarterly to weekly meetings, where you benefit from first opinion and rapid knowledge building about your organization. ",
                             style: TextStyle(
-                                color: AppTheme.primaryBlueColor,
+                                color: AppTheme(context).primaryBlueColor,
                                 fontFamily: "Cairo",
                                 fontSize: Responsive.isDesktop(context) ?19:16,
                                 letterSpacing: 1.0,

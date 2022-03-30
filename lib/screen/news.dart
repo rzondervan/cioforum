@@ -1,15 +1,18 @@
 import 'package:ciofroum_web/Homepage.dart';
 import 'package:ciofroum_web/constants/themes.dart';
 import 'package:ciofroum_web/responsive.dart';
+import 'package:ciofroum_web/thememode/provider.dart';
 import 'package:ciofroum_web/widget/footer1.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class NewPage extends StatefulWidget {
-  NewPage({required this.clickFooterCallback,required this.clickviewmore});
+  NewPage({required this.clickFooterCallback,required this.clickviewmore,required this.sitemapClick});
 
   ClickFooterCallback clickFooterCallback;
   Homeviewmore clickviewmore;
+  SitemapClick sitemapClick;
   @override
   State<NewPage> createState() => _NewPageState();
 }
@@ -44,6 +47,8 @@ class _NewPageState extends State<NewPage> {
   Widget build(BuildContext context) {
     final height=MediaQuery.of(context).size.height;
     final width=MediaQuery.of(context).size.width;
+    final themeChange = Provider.of<DarkThemeProvider>(context);
+
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -52,10 +57,10 @@ class _NewPageState extends State<NewPage> {
               Container(
                 height:height*0.2,
                 width: double.infinity,
-                color: AppTheme.primaryBlueColor,
+                color: Color.fromRGBO(50, 59, 75, 1),
                 child: Center(
                   child: Text("News",style: TextStyle(
-                    color: AppTheme.primaryWhiteColor,
+                    color: Color.fromRGBO(225, 225, 225, 1),
                     fontFamily: "Cairo",
                       fontSize: width < 600 ? 30 : 45,
                     // fontWeight: FontWeight.w600,
@@ -86,6 +91,7 @@ class _NewPageState extends State<NewPage> {
                                 }
                               },
                               child: Card(
+                                  color: AppTheme(context).WhiteColor,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10)
                                 ),
@@ -109,7 +115,7 @@ class _NewPageState extends State<NewPage> {
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             Text("Highly available internet ...",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 24,
                                                 fontWeight: FontWeight.w400,
@@ -117,7 +123,7 @@ class _NewPageState extends State<NewPage> {
                                             ),),
                                             SizedBox(height: 5),
                                             Text("Exciting holiday",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 17,
                                                 letterSpacing: 1.0,
@@ -128,7 +134,7 @@ class _NewPageState extends State<NewPage> {
                                             SizedBox(height: 10),
 
                                             Text("De kerstvakantieweken waren spannend voor de afdeling ICT, en daarmee voor al... Read more",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 19,
                                                 letterSpacing: 1.0,
@@ -140,7 +146,7 @@ class _NewPageState extends State<NewPage> {
                                             SizedBox(height: 20),
 
                                             Text("REFERENCE - SOURCE: PUBLICATION OF CVO 'T GOOI",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 14,
                                                 letterSpacing: 1.0,
@@ -151,7 +157,7 @@ class _NewPageState extends State<NewPage> {
                                             SizedBox(height: 10),
 
                                             Text("Post On: 02/02/2022",style: TextStyle(
-                                                color: AppTheme.primaryGreenColor,
+                                                color: AppTheme(context).primaryGreenColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 14,
                                                 fontWeight: FontWeight.w400,
@@ -180,6 +186,10 @@ class _NewPageState extends State<NewPage> {
                                 }
                               },
                               child: Card(
+                                  // color: themeChange.darkTheme?Colors.white24:Colors.white,
+                                color: AppTheme(context).WhiteColor,
+
+
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10)
                                 ),
@@ -203,7 +213,7 @@ class _NewPageState extends State<NewPage> {
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             Text("GDPR in childcare ...",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 24,
                                                 fontWeight: FontWeight.w400,
@@ -211,7 +221,7 @@ class _NewPageState extends State<NewPage> {
                                             ),),
                                             SizedBox(height: 5),
                                             Text("What do you need to have arranged as a driver?",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 17,
                                                 letterSpacing: 1.0,
@@ -222,7 +232,7 @@ class _NewPageState extends State<NewPage> {
                                             SizedBox(height: 10),
 
                                             Text("The accompanying 3-minute animation video features... Read more",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 19,
                                                 letterSpacing: 1.0,
@@ -233,7 +243,7 @@ class _NewPageState extends State<NewPage> {
                                             SizedBox(height: 20),
 
                                             Text("Impact of the GDPR in childcare.",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 14,
                                                 letterSpacing: 1.0,
@@ -244,7 +254,7 @@ class _NewPageState extends State<NewPage> {
                                             SizedBox(height: 10),
 
                                             Text("Post On: 02/02/2022",style: TextStyle(
-                                                color: AppTheme.primaryGreenColor,
+                                                color: AppTheme(context).primaryGreenColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 14,
                                                 fontWeight: FontWeight.w400,
@@ -273,6 +283,8 @@ class _NewPageState extends State<NewPage> {
                                 }
                               },
                               child: Card(
+                                color: AppTheme(context).WhiteColor,
+
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10)
                                 ),
@@ -296,7 +308,7 @@ class _NewPageState extends State<NewPage> {
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             Text("AVG at school - dl3 - secure ...",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 24,
                                                 fontWeight: FontWeight.w400,
@@ -304,7 +316,7 @@ class _NewPageState extends State<NewPage> {
                                             ),),
                                             SizedBox(height: 5),
                                             Text("What do you need to know about email?",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 17,
                                                 letterSpacing: 1.0,
@@ -315,7 +327,7 @@ class _NewPageState extends State<NewPage> {
                                             SizedBox(height: 10),
 
                                             Text("The accompanying animation video of almost 2 minutes tells you what you can do wrong with... Read more",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 19,
                                                 letterSpacing: 1.0,
@@ -326,7 +338,7 @@ class _NewPageState extends State<NewPage> {
                                             SizedBox(height: 20),
 
                                             Text("Impact of the GDPR in childcare.",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 14,
                                                 letterSpacing: 1.0,
@@ -337,7 +349,7 @@ class _NewPageState extends State<NewPage> {
                                             SizedBox(height: 10),
 
                                             Text("Post On: 02/02/2022",style: TextStyle(
-                                                color: AppTheme.primaryGreenColor,
+                                                color: AppTheme(context).primaryGreenColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 14,
                                                 fontWeight: FontWeight.w400,
@@ -366,6 +378,8 @@ class _NewPageState extends State<NewPage> {
                                 }
                               },
                               child: Card(
+                                color: AppTheme(context).WhiteColor,
+
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10)
                                 ),
@@ -389,7 +403,7 @@ class _NewPageState extends State<NewPage> {
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             Text("AVG at school - dl2 - the ...",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 24,
                                                 fontWeight: FontWeight.w400,
@@ -397,7 +411,7 @@ class _NewPageState extends State<NewPage> {
                                             ),),
                                             SizedBox(height: 5),
                                             Text("What do you need to know if you work in a school?",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 17,
                                                 letterSpacing: 1.0,
@@ -408,7 +422,7 @@ class _NewPageState extends State<NewPage> {
                                             SizedBox(height: 10),
 
                                             Text("The accompanying 2-minute animation video shows the 5 rules of thumb... Read more",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 19,
                                                 letterSpacing: 1.0,
@@ -419,7 +433,7 @@ class _NewPageState extends State<NewPage> {
                                             SizedBox(height: 20),
 
                                             Text("Impact of the GDPR on school.",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 14,
                                                 letterSpacing: 1.0,
@@ -430,7 +444,7 @@ class _NewPageState extends State<NewPage> {
                                             SizedBox(height: 10),
 
                                             Text("Post On: 02/02/2022",style: TextStyle(
-                                                color: AppTheme.primaryGreenColor,
+                                                color: AppTheme(context).primaryGreenColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 14,
                                                 fontWeight: FontWeight.w400,
@@ -460,6 +474,8 @@ class _NewPageState extends State<NewPage> {
                                 }
                               },
                               child: Card(
+                                color: AppTheme(context).WhiteColor,
+
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10)
                                 ),
@@ -483,7 +499,7 @@ class _NewPageState extends State<NewPage> {
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             Text("GDPR for drivers ...",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 24,
                                                 fontWeight: FontWeight.w400,
@@ -491,7 +507,7 @@ class _NewPageState extends State<NewPage> {
                                             ),),
                                             SizedBox(height: 5),
                                             Text("What do you need to have arranged as a driver?",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 17,
                                                 letterSpacing: 1.0,
@@ -502,7 +518,7 @@ class _NewPageState extends State<NewPage> {
                                             SizedBox(height: 10),
 
                                             Text("The accompanying 3-minute animation video contains obligations... Read more",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 19,
                                                 letterSpacing: 1.0,
@@ -512,7 +528,7 @@ class _NewPageState extends State<NewPage> {
                                             SizedBox(height: 20),
 
                                             Text("Impact of the GDPR on drivers.",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 14,
                                                 letterSpacing: 1.0,
@@ -523,7 +539,7 @@ class _NewPageState extends State<NewPage> {
                                             SizedBox(height: 10),
 
                                             Text("Post On: 02/02/2022",style: TextStyle(
-                                                color: AppTheme.primaryGreenColor,
+                                                color: AppTheme(context).primaryGreenColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 14,
                                                 fontWeight: FontWeight.w400,
@@ -552,14 +568,14 @@ class _NewPageState extends State<NewPage> {
                         child: Container(
                           width: width*0.25,
                           // height: height,
-                          color: Colors.white,
+                          color: AppTheme(context).WhiteColor,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: const EdgeInsets.only(top: 10,right: 10,left: 10),
+                                padding:  EdgeInsets.only(top: 10,right: 10,left: 10),
                                 child: Text("Search",style: TextStyle(
-                                  color: AppTheme.primaryBlackColor,
+                                    color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlackColor,
                                   fontSize: 19,
                                   fontStyle: FontStyle.normal,
                                   fontWeight: FontWeight.w700,
@@ -568,7 +584,7 @@ class _NewPageState extends State<NewPage> {
                               ),
                               SizedBox(height: 10),
                               Padding(
-                                padding: const EdgeInsets.only(top: 10,right: 10,left: 10),
+                                padding:  EdgeInsets.only(top: 10,right: 10,left: 10),
                                 child: Container(
                                   height: 50,
                                   // width: width*0.8,
@@ -595,19 +611,19 @@ class _NewPageState extends State<NewPage> {
                                       ),
 
                                       suffixIcon: Padding(
-                                        padding: const EdgeInsets.all(8.0),
+                                        padding:  EdgeInsets.all(8.0),
                                         child: Container(
                                           height: 40,
                                           width: 40,
                                           decoration: BoxDecoration(
-                                            color: AppTheme.primaryGreenColor,
+                                            color: AppTheme(context).primaryGreenColor,
                                             borderRadius: BorderRadius.circular(10)
                                           ),
                                           child: Icon(Icons.search_rounded,size:16,color: Colors.white,),
                                         ),
                                       ),
                                       hintStyle: TextStyle(
-                                          color: Color.fromRGBO(0,0,0,0.31),
+                                          color: themeChange.darkTheme?Colors.white54: Color.fromRGBO(0,0,0,0.31),
                                           fontSize: 14,
                                           fontStyle: FontStyle.normal,
                                           fontWeight: FontWeight.w300,
@@ -627,7 +643,7 @@ class _NewPageState extends State<NewPage> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text("Recent Posts",style: TextStyle(
-                                        color: AppTheme.primaryBlackColor,
+                                        color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlackColor,
                                         fontSize: 19,
                                         fontStyle: FontStyle.normal,
                                         fontWeight: FontWeight.w700,
@@ -670,7 +686,7 @@ class _NewPageState extends State<NewPage> {
                                                         crossAxisAlignment: CrossAxisAlignment.start,
                                                         children: [
                                                           Text("Highly available internet ...",style: TextStyle(
-                                                              color: AppTheme.primaryBlackColor,
+                                                              color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlackColor,
                                                               fontFamily: "Cairo",
                                                               fontSize: 15,
                                                               letterSpacing: 1.0,
@@ -680,7 +696,7 @@ class _NewPageState extends State<NewPage> {
                                                           ),),
                                                           SizedBox(height: 10),
                                                           Text("De kerstvakantieweken waren spannend voor de afdeling ICT, en daarmee voor al...",style: TextStyle(
-                                                              color: AppTheme.primaryBlackColor,
+                                                              color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlackColor,
                                                               fontFamily: "Cairo",
                                                               fontSize: 12,
                                                               letterSpacing: 1.0,
@@ -728,7 +744,7 @@ class _NewPageState extends State<NewPage> {
                                                         crossAxisAlignment: CrossAxisAlignment.start,
                                                         children: [
                                                           Text("Highly available internet ...",style: TextStyle(
-                                                              color: AppTheme.primaryBlackColor,
+                                                            color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlackColor,
                                                               fontFamily: "Cairo",
                                                               fontSize: 15,
                                                               fontWeight: FontWeight.w400,
@@ -738,7 +754,7 @@ class _NewPageState extends State<NewPage> {
                                                           ),),
                                                           SizedBox(height: 10),
                                                           Text("De kerstvakantieweken waren spannend voor de afdeling ICT, en daarmee voor al...",style: TextStyle(
-                                                              color: AppTheme.primaryBlackColor,
+                                                              color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlackColor,
                                                               fontFamily: "Cairo",
                                                               fontSize: 12,
                                                               letterSpacing: 1.0,
@@ -776,7 +792,7 @@ class _NewPageState extends State<NewPage> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text("Archive",style: TextStyle(
-                                        color: AppTheme.primaryBlackColor,
+                                        color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlackColor,
                                         fontSize: 19,
                                         fontStyle: FontStyle.normal,
                                         fontWeight: FontWeight.w700,
@@ -791,7 +807,7 @@ class _NewPageState extends State<NewPage> {
                                         child: DropdownButtonHideUnderline(
                                           child: DropdownButton(
                                             style: TextStyle(
-                                              color: AppTheme.primaryBlueColor,
+                                                color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlueColor,
                                               fontFamily: "Cairo",
                                               fontWeight: FontWeight.w700,
                                               fontStyle: FontStyle.normal,
@@ -802,7 +818,11 @@ class _NewPageState extends State<NewPage> {
                                             value: dropdownvalue1,
 
                                             // Down Arrow Ico
-                                            icon:  Icon(Icons.keyboard_arrow_down,  color: AppTheme.primaryBlueColor,),
+                                            icon:  Icon(Icons.keyboard_arrow_down,
+                                              color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlueColor,
+
+
+                                            ),
                                             // Array list of items
                                             items: items.map((String items1) {
                                               return DropdownMenuItem(
@@ -848,7 +868,7 @@ class _NewPageState extends State<NewPage> {
                                         child: DropdownButtonHideUnderline(
                                           child: DropdownButton(
                                             style: TextStyle(
-                                                color: AppTheme.primaryBlueColor,
+                                                color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlueColor,
                                                 fontFamily: "Cairo",
                                                 fontWeight: FontWeight.w700,
                                                 fontStyle: FontStyle.normal,
@@ -859,7 +879,9 @@ class _NewPageState extends State<NewPage> {
                                             value: dropdownvalue2,
 
                                             // Down Arrow Ico
-                                            icon:  Icon(Icons.keyboard_arrow_down,  color: AppTheme.primaryBlueColor,size: 25,),
+                                            icon:  Icon(Icons.keyboard_arrow_down,
+                                              color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlueColor,
+                                              size: 25,),
                                             // Array list of items
                                             items: items1.map((String items1) {
                                               return DropdownMenuItem(
@@ -887,7 +909,7 @@ class _NewPageState extends State<NewPage> {
                                         child: DropdownButtonHideUnderline(
                                           child: DropdownButton(
                                             style: TextStyle(
-                                                color: AppTheme.primaryBlueColor,
+                                                color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlueColor,
                                                 fontFamily: "Cairo",
                                                 fontWeight: FontWeight.w700,
                                                 fontStyle: FontStyle.normal,
@@ -898,7 +920,9 @@ class _NewPageState extends State<NewPage> {
                                             value: dropdownvalue3,
 
                                             // Down Arrow Ico
-                                            icon:  Icon(Icons.keyboard_arrow_down,  color: AppTheme.primaryBlueColor,size: 25,),
+                                            icon:  Icon(Icons.keyboard_arrow_down,
+                                              color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlueColor,
+                                              size: 25,),
                                             // Array list of items
                                             items: items2.map((String items1) {
                                               return DropdownMenuItem(
@@ -926,7 +950,7 @@ class _NewPageState extends State<NewPage> {
                                         child: DropdownButtonHideUnderline(
                                           child: DropdownButton(
                                             style: TextStyle(
-                                                color: AppTheme.primaryBlueColor,
+                                                color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlueColor,
                                                 fontFamily: "Cairo",
                                                 fontWeight: FontWeight.w700,
                                                 fontStyle: FontStyle.normal,
@@ -937,7 +961,9 @@ class _NewPageState extends State<NewPage> {
                                             value: dropdownvalue4,
 
                                             // Down Arrow Ico
-                                            icon:  Icon(Icons.keyboard_arrow_down,  color: AppTheme.primaryBlueColor,size: 25,),
+                                            icon:  Icon(Icons.keyboard_arrow_down,
+                                              color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlueColor,
+                                              size: 25,),
                                             // Array list of items
                                             items: items3.map((String items1) {
                                               return DropdownMenuItem(
@@ -976,14 +1002,16 @@ class _NewPageState extends State<NewPage> {
                       Container(
                         width: width*0.9,
                         // height: height,
-                        color: Colors.white,
+                        // color: Colors.white,
+                        color: AppTheme(context).WhiteColor,
+
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
                               padding: const EdgeInsets.only(top: 10,right: 10,left: 10),
                               child: Text("Search",style: TextStyle(
-                                  color: AppTheme.primaryBlackColor,
+                                  color: AppTheme(context).primaryBlackColor,
                                   fontSize: 19,
                                   fontStyle: FontStyle.normal,
                                   fontWeight: FontWeight.w700,
@@ -1024,14 +1052,16 @@ class _NewPageState extends State<NewPage> {
                                           height: 40,
                                           width: 40,
                                           decoration: BoxDecoration(
-                                              color: AppTheme.primaryGreenColor,
+                                              color: AppTheme(context).primaryGreenColor,
                                               borderRadius: BorderRadius.circular(10)
                                           ),
                                           child: Icon(Icons.search_rounded,size:16,color: Colors.white,),
                                         ),
                                       ),
                                       hintStyle: TextStyle(
-                                          color: Color.fromRGBO(0,0,0,0.31),
+                                          // color: Color.fromRGBO(0,0,0,0.31),
+                                          color: themeChange.darkTheme?Colors.white54: Color.fromRGBO(0,0,0,0.31),
+
                                           fontSize: 14,
                                           fontStyle: FontStyle.normal,
                                           fontWeight: FontWeight.w300,
@@ -1051,7 +1081,7 @@ class _NewPageState extends State<NewPage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text("Recent Posts",style: TextStyle(
-                                      color: AppTheme.primaryBlackColor,
+                                      color: AppTheme(context).primaryBlackColor,
                                       fontSize: 19,
                                       fontStyle: FontStyle.normal,
                                       fontWeight: FontWeight.w700,
@@ -1093,7 +1123,7 @@ class _NewPageState extends State<NewPage> {
                                                     crossAxisAlignment: CrossAxisAlignment.start,
                                                     children: [
                                                       Text("Highly available internet ...",style: TextStyle(
-                                                          color: AppTheme.primaryBlackColor,
+                                                          color: AppTheme(context).primaryBlackColor,
                                                           fontFamily: "Cairo",
                                                           fontSize: 16,
                                                           letterSpacing: 1.0,
@@ -1103,7 +1133,7 @@ class _NewPageState extends State<NewPage> {
                                                       ),),
                                                       SizedBox(height: 10),
                                                       Text("De kerstvakantieweken waren spannend voor de afdeling ICT, en daarmee voor al...",style: TextStyle(
-                                                          color: AppTheme.primaryBlackColor,
+                                                          color: AppTheme(context).primaryBlackColor,
                                                           fontFamily: "Cairo",
                                                           fontSize: 14,
                                                           letterSpacing: 1.0,
@@ -1151,7 +1181,7 @@ class _NewPageState extends State<NewPage> {
                                                     crossAxisAlignment: CrossAxisAlignment.start,
                                                     children: [
                                                       Text("Highly available internet ...",style: TextStyle(
-                                                          color: AppTheme.primaryBlackColor,
+                                                          color: AppTheme(context).primaryBlackColor,
                                                           fontFamily: "Cairo",
                                                           fontSize: 16,
                                                           letterSpacing: 1.0,
@@ -1161,7 +1191,7 @@ class _NewPageState extends State<NewPage> {
                                                       ),),
                                                       SizedBox(height: 10),
                                                       Text("De kerstvakantieweken waren spannend voor de afdeling ICT, en daarmee voor al...",style: TextStyle(
-                                                          color: AppTheme.primaryBlackColor,
+                                                          color: AppTheme(context).primaryBlackColor,
                                                           fontFamily: "Cairo",
                                                           fontSize: 14,
                                                           letterSpacing: 1.0,
@@ -1199,7 +1229,7 @@ class _NewPageState extends State<NewPage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text("Archive",style: TextStyle(
-                                      color: AppTheme.primaryBlackColor,
+                                      color: AppTheme(context).primaryBlackColor,
                                       fontSize: 19,
                                       fontStyle: FontStyle.normal,
                                       fontWeight: FontWeight.w700,
@@ -1214,7 +1244,7 @@ class _NewPageState extends State<NewPage> {
                                       child: DropdownButtonHideUnderline(
                                         child: DropdownButton(
                                           style: TextStyle(
-                                              color: AppTheme.primaryBlueColor,
+                                              color: AppTheme(context).primaryBlueColor,
                                               fontFamily: "Cairo",
                                               fontWeight: FontWeight.w700,
                                               fontStyle: FontStyle.normal,
@@ -1225,7 +1255,7 @@ class _NewPageState extends State<NewPage> {
                                           value: dropdownvalue1,
 
                                           // Down Arrow Ico
-                                          icon:  Icon(Icons.keyboard_arrow_down,  color: AppTheme.primaryBlueColor,size: 25,),
+                                          icon:  Icon(Icons.keyboard_arrow_down,  color: AppTheme(context).primaryBlueColor,size: 25,),
                                           // Array list of items
                                           items: items.map((String items1) {
                                             return DropdownMenuItem(
@@ -1271,7 +1301,7 @@ class _NewPageState extends State<NewPage> {
                                       child: DropdownButtonHideUnderline(
                                         child: DropdownButton(
                                           style: TextStyle(
-                                              color: AppTheme.primaryBlueColor,
+                                              color: AppTheme(context).primaryBlueColor,
                                               fontFamily: "Cairo",
                                               fontWeight: FontWeight.w700,
                                               fontStyle: FontStyle.normal,
@@ -1282,7 +1312,7 @@ class _NewPageState extends State<NewPage> {
                                           value: dropdownvalue2,
 
                                           // Down Arrow Ico
-                                          icon:  Icon(Icons.keyboard_arrow_down,  color: AppTheme.primaryBlueColor,size: 25,),
+                                          icon:  Icon(Icons.keyboard_arrow_down,  color: AppTheme(context).primaryBlueColor,size: 25,),
                                           // Array list of items
                                           items: items1.map((String items1) {
                                             return DropdownMenuItem(
@@ -1310,7 +1340,7 @@ class _NewPageState extends State<NewPage> {
                                       child: DropdownButtonHideUnderline(
                                         child: DropdownButton(
                                           style: TextStyle(
-                                              color: AppTheme.primaryBlueColor,
+                                              color: AppTheme(context).primaryBlueColor,
                                               fontFamily: "Cairo",
                                               fontWeight: FontWeight.w700,
                                               fontStyle: FontStyle.normal,
@@ -1321,7 +1351,7 @@ class _NewPageState extends State<NewPage> {
                                           value: dropdownvalue3,
 
                                           // Down Arrow Ico
-                                          icon:  Icon(Icons.keyboard_arrow_down,  color: AppTheme.primaryBlueColor,size: 25,),
+                                          icon:  Icon(Icons.keyboard_arrow_down,  color: AppTheme(context).primaryBlueColor,size: 25,),
                                           // Array list of items
                                           items: items2.map((String items1) {
                                             return DropdownMenuItem(
@@ -1349,7 +1379,7 @@ class _NewPageState extends State<NewPage> {
                                       child: DropdownButtonHideUnderline(
                                         child: DropdownButton(
                                           style: TextStyle(
-                                              color: AppTheme.primaryBlueColor,
+                                              color: AppTheme(context).primaryBlueColor,
                                               fontFamily: "Cairo",
                                               fontWeight: FontWeight.w700,
                                               fontStyle: FontStyle.normal,
@@ -1360,7 +1390,7 @@ class _NewPageState extends State<NewPage> {
                                           value: dropdownvalue4,
 
                                           // Down Arrow Ico
-                                          icon:  Icon(Icons.keyboard_arrow_down,  color: AppTheme.primaryBlueColor,size: 25,),
+                                          icon:  Icon(Icons.keyboard_arrow_down,  color: AppTheme(context).primaryBlueColor,size: 25,),
                                           // Array list of items
                                           items: items3.map((String items1) {
                                             return DropdownMenuItem(
@@ -1408,6 +1438,8 @@ class _NewPageState extends State<NewPage> {
                                 }
                               },
                               child: Card(
+                                  color: AppTheme(context).WhiteColor,
+
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10)
                                 ),
@@ -1431,7 +1463,7 @@ class _NewPageState extends State<NewPage> {
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             Text("Highly available internet ...",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 20,
                                                 letterSpacing: 1.0,
@@ -1441,7 +1473,7 @@ class _NewPageState extends State<NewPage> {
                                             ),),
                                             SizedBox(height: 5),
                                             Text("Exciting holiday",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 15,
                                                 letterSpacing: 1.0,
@@ -1452,7 +1484,7 @@ class _NewPageState extends State<NewPage> {
                                             SizedBox(height: 10),
 
                                             Text("De kerstvakantieweken waren spannend voor de afdeling ICT, en daarmee voor al... Read more",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 15,
                                                 letterSpacing: 1.0,
@@ -1463,7 +1495,7 @@ class _NewPageState extends State<NewPage> {
                                             SizedBox(height: 20),
 
                                             Text("REFERENCE - SOURCE: PUBLICATION OF CVO 'T GOOI",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 12,
                                                 letterSpacing: 1.0,
@@ -1475,7 +1507,7 @@ class _NewPageState extends State<NewPage> {
                                             SizedBox(height: 10),
 
                                             Text("Post On: 02/02/2022",style: TextStyle(
-                                                color: AppTheme.primaryGreenColor,
+                                                color: AppTheme(context).primaryGreenColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.w400,
@@ -1495,6 +1527,7 @@ class _NewPageState extends State<NewPage> {
                             InkWell(
                                 hoverColor: Colors.transparent,
 
+
                               onTap:()async{
                                 final url="https://timesofindia.indiatimes.com/news";
                                 if(await canLaunch(url)){
@@ -1504,6 +1537,8 @@ class _NewPageState extends State<NewPage> {
                                 }
                               },
                               child: Card(
+                                  color: AppTheme(context).WhiteColor,
+
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10)
                                 ),
@@ -1527,7 +1562,7 @@ class _NewPageState extends State<NewPage> {
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             Text("GDPR in childcare ...",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 20,
                                                 letterSpacing: 1.0,
@@ -1537,7 +1572,7 @@ class _NewPageState extends State<NewPage> {
                                             ),),
                                             SizedBox(height: 5),
                                             Text("What do you need to have arranged as a driver?",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 15,
                                                 letterSpacing: 1.0,
@@ -1548,7 +1583,7 @@ class _NewPageState extends State<NewPage> {
                                             SizedBox(height: 10),
 
                                             Text("The accompanying 3-minute animation video features... Read more",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 15,
                                                 letterSpacing: 1.0,
@@ -1558,7 +1593,7 @@ class _NewPageState extends State<NewPage> {
                                             SizedBox(height: 20),
 
                                             Text("Impact of the GDPR in childcare.",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 12,
                                                 letterSpacing: 1.0,
@@ -1569,7 +1604,7 @@ class _NewPageState extends State<NewPage> {
                                             SizedBox(height: 10),
 
                                             Text("Post On: 02/02/2022",style: TextStyle(
-                                                color: AppTheme.primaryGreenColor,
+                                                color: AppTheme(context).primaryGreenColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.w400,
@@ -1598,6 +1633,8 @@ class _NewPageState extends State<NewPage> {
                                 }
                               },
                               child: Card(
+                                  color: AppTheme(context).WhiteColor,
+
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10)
                                 ),
@@ -1621,7 +1658,7 @@ class _NewPageState extends State<NewPage> {
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             Text("AVG at school - dl3 - secure ...",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 20,
                                                 letterSpacing: 1.0,
@@ -1631,7 +1668,7 @@ class _NewPageState extends State<NewPage> {
                                             ),),
                                             SizedBox(height: 5),
                                             Text("What do you need to know about email?",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 15,
                                                 letterSpacing: 1.0,
@@ -1642,7 +1679,7 @@ class _NewPageState extends State<NewPage> {
                                             SizedBox(height: 10),
 
                                             Text("The accompanying animation video of almost 2 minutes tells you what you can do wrong with... Read more",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 15,
                                                 letterSpacing: 1.0,
@@ -1653,7 +1690,7 @@ class _NewPageState extends State<NewPage> {
                                             SizedBox(height: 20),
 
                                             Text("Impact of the GDPR in childcare.",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 12,
                                                 letterSpacing: 1.0,
@@ -1664,7 +1701,7 @@ class _NewPageState extends State<NewPage> {
                                             SizedBox(height: 10),
 
                                             Text("Post On: 02/02/2022",style: TextStyle(
-                                                color: AppTheme.primaryGreenColor,
+                                                color: AppTheme(context).primaryGreenColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.w400,
@@ -1693,6 +1730,8 @@ class _NewPageState extends State<NewPage> {
                                 }
                               },
                               child: Card(
+                                color: AppTheme(context).WhiteColor,
+
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10)
                                 ),
@@ -1716,7 +1755,7 @@ class _NewPageState extends State<NewPage> {
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             Text("AVG at school - dl2 - the ...",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 20,
                                                 letterSpacing: 1.0,
@@ -1726,7 +1765,7 @@ class _NewPageState extends State<NewPage> {
                                             ),),
                                             SizedBox(height: 5),
                                             Text("What do you need to know if you work in a school?",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 15,
                                                 letterSpacing: 1.0,
@@ -1737,7 +1776,7 @@ class _NewPageState extends State<NewPage> {
                                             SizedBox(height: 10),
 
                                             Text("The accompanying 2-minute animation video shows the 5 rules of thumb... Read more",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 15,
                                                 letterSpacing: 1.0,
@@ -1748,7 +1787,7 @@ class _NewPageState extends State<NewPage> {
                                             SizedBox(height: 20),
 
                                             Text("Impact of the GDPR on school.",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 12,
                                                 letterSpacing: 1.0,
@@ -1759,7 +1798,7 @@ class _NewPageState extends State<NewPage> {
                                             SizedBox(height: 10),
 
                                             Text("Post On: 02/02/2022",style: TextStyle(
-                                                color: AppTheme.primaryGreenColor,
+                                                color: AppTheme(context).primaryGreenColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.w400,
@@ -1789,6 +1828,8 @@ class _NewPageState extends State<NewPage> {
                                 }
                               },
                               child: Card(
+                                  color: AppTheme(context).WhiteColor,
+
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10)
                                 ),
@@ -1812,7 +1853,7 @@ class _NewPageState extends State<NewPage> {
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             Text("GDPR for drivers ...",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 20,
                                                 letterSpacing: 1.0,
@@ -1822,7 +1863,7 @@ class _NewPageState extends State<NewPage> {
                                             ),),
                                             SizedBox(height: 5),
                                             Text("What do you need to have arranged as a driver?",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 15,
                                                 letterSpacing: 1.0,
@@ -1833,7 +1874,7 @@ class _NewPageState extends State<NewPage> {
                                             SizedBox(height: 10),
 
                                             Text("The accompanying 3-minute animation video contains obligations... Read more",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 15,
                                                 letterSpacing: 1.0,
@@ -1843,7 +1884,7 @@ class _NewPageState extends State<NewPage> {
                                             SizedBox(height: 20),
 
                                             Text("Impact of the GDPR on drivers.",style: TextStyle(
-                                                color: AppTheme.primaryBlackColor,
+                                                color: AppTheme(context).primaryBlackColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 12,
                                                 letterSpacing: 1.0,
@@ -1854,7 +1895,7 @@ class _NewPageState extends State<NewPage> {
                                             SizedBox(height: 10),
 
                                             Text("Post On: 02/02/2022",style: TextStyle(
-                                                color: AppTheme.primaryGreenColor,
+                                                color: AppTheme(context).primaryGreenColor,
                                                 fontFamily: "Cairo",
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.w400,

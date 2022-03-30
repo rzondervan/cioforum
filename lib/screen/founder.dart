@@ -1,22 +1,27 @@
 import 'package:ciofroum_web/Homepage.dart';
 import 'package:ciofroum_web/constants/themes.dart';
 import 'package:ciofroum_web/responsive.dart';
+import 'package:ciofroum_web/thememode/provider.dart';
 import 'package:ciofroum_web/widget/footer1.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Founder extends StatelessWidget {
 
 
   ClickFooterCallback clickFooterCallback;
+  SitemapClick sitemapClick;
 
-  Founder({required this.clickFooterCallback});
+  Founder({required this.clickFooterCallback,required  this.sitemapClick});
 
 
   @override
   Widget build(BuildContext context) {
     final height=MediaQuery.of(context).size.height;
     final width=MediaQuery.of(context).size.width;
+    final themeChange = Provider.of<DarkThemeProvider>(context);
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -49,7 +54,7 @@ class Founder extends StatelessWidget {
                                     fontSize: Responsive.isDesktop(context)?24:18,
                                     fontStyle: FontStyle.normal,
                                     fontFamily: "Cairo",
-                                    color: AppTheme.primaryBlueColor,
+                                    color: AppTheme(context).primaryBlueColor,
                                     letterSpacing: 7
                                   ),
                                 ),
@@ -61,7 +66,7 @@ class Founder extends StatelessWidget {
                                       fontSize: Responsive.isDesktop(context)?40:24,
                                       fontStyle: FontStyle.normal,
                                       fontFamily: "Cairo",
-                                      color: AppTheme.primaryBlueColor,
+                                      color: AppTheme(context).primaryBlueColor,
                                       letterSpacing: 5
                                   ),
                                 ),
@@ -73,7 +78,7 @@ class Founder extends StatelessWidget {
                                     fontSize: Responsive.isDesktop(context)?19:16,
                                     fontStyle: FontStyle.normal,
                                     fontFamily: "Cairo",
-                                    color: AppTheme.primaryBlueColor,
+                                    color: AppTheme(context).primaryBlueColor,
                                     letterSpacing: 1.0,
                                     height: 1.7,
                                   ),
@@ -92,7 +97,7 @@ class Founder extends StatelessWidget {
                           fontSize: Responsive.isDesktop(context)?19:16,
                           fontStyle: FontStyle.normal,
                           fontFamily: "Cairo",
-                          color: AppTheme.primaryBlueColor,
+                          color: AppTheme(context).primaryBlueColor,
                         letterSpacing: 1.0,
                         height: 1.7,
                       ),),
@@ -102,7 +107,7 @@ class Founder extends StatelessWidget {
                         fontSize: Responsive.isDesktop(context)?19:16,
                         fontStyle: FontStyle.normal,
                         fontFamily: "Cairo",
-                        color: AppTheme.primaryBlueColor,
+                        color: AppTheme(context).primaryBlueColor,
                         letterSpacing: 1.0,
                         height: 1.7,                      ),),
                       Text("I'll take you into a hands-on experience where only the most valuable IT investments are made, taking into account the biggest problems, needs and risks with the fewest resources.",style: TextStyle(
@@ -110,7 +115,7 @@ class Founder extends StatelessWidget {
                           fontSize: Responsive.isDesktop(context)?19:16,
                           fontStyle: FontStyle.normal,
                           fontFamily: "Cairo",
-                          color: AppTheme.primaryBlueColor,
+                          color: AppTheme(context).primaryBlueColor,
                         letterSpacing: 1.0,
                         height: 1.7,                      ),),
                       SizedBox(height: 30),
@@ -126,7 +131,7 @@ class Founder extends StatelessWidget {
                                 Text(
                                   "From advice to implementation",
                                   style: TextStyle(
-                                      color: AppTheme.primaryBlueColor,
+                                      color: AppTheme(context).primaryBlueColor,
                                       fontWeight: FontWeight.w700,
                                       letterSpacing: 1.0,
                                       height: 1.7,
@@ -138,7 +143,7 @@ class Founder extends StatelessWidget {
                                 Text(
                                   "I am most proud of What customers say the successful implementations from my advice to project management.",
                                   style: TextStyle(
-                                      color: AppTheme.primaryBlueColor,
+                                      color: AppTheme(context).primaryBlueColor,
                                       fontWeight: FontWeight.w500,
                                       letterSpacing: 1.0,
                                       height: 1.7,
@@ -173,10 +178,10 @@ class Founder extends StatelessWidget {
                                     child: CircleAvatar(
                                       radius: 30,
                                       backgroundColor:
-                                      AppTheme.primaryGreenColor,
+                                      AppTheme(context).primaryGreenColor,
                                       child: Icon(Icons.play_arrow,
                                           color:
-                                          AppTheme.primaryWhiteColor),
+                                          AppTheme(context).primaryWhiteColor),
                                     ),
                                   )
                                 ],
@@ -191,7 +196,7 @@ class Founder extends StatelessWidget {
                           Text(
                             "From advice to implementation",
                             style: TextStyle(
-                                color: AppTheme.primaryBlueColor,
+                                color: AppTheme(context).primaryBlueColor,
                                 fontWeight: FontWeight.w700,
                                 letterSpacing: 1.0,
                                 height: 1.7,
@@ -203,7 +208,7 @@ class Founder extends StatelessWidget {
                           Text(
                             "I am most proud of What customers say the successful implementations from my advice to project management.",
                             style: TextStyle(
-                                color: AppTheme.primaryBlueColor,
+                                color: AppTheme(context).primaryBlueColor,
                                 fontWeight: FontWeight.w500,
                                 letterSpacing: 1.0,
                                 height: 1.7,
@@ -237,10 +242,10 @@ class Founder extends StatelessWidget {
                                       child: CircleAvatar(
                                         radius: 30,
                                         backgroundColor:
-                                        AppTheme.primaryGreenColor,
+                                        AppTheme(context).primaryGreenColor,
                                         child: Icon(Icons.play_arrow,
                                             color:
-                                            AppTheme.primaryWhiteColor),
+                                            AppTheme(context).primaryWhiteColor),
                                       ),
                                     )
                                   ],
@@ -255,7 +260,7 @@ class Founder extends StatelessWidget {
                       Text(
                         "How do I know what I know",
                         style: TextStyle(
-                            color: AppTheme.primaryBlueColor,
+                            color: AppTheme(context).primaryBlueColor,
                             fontWeight: FontWeight.w700,
                             letterSpacing: 1.0,
                             height: 1.7,
@@ -271,7 +276,7 @@ class Founder extends StatelessWidget {
                             fontSize: Responsive.isDesktop(context)?19:16,
                             fontStyle: FontStyle.normal,
                             fontFamily: "Cairo",
-                            color: AppTheme.primaryBlueColor,
+                            color: AppTheme(context).primaryBlueColor,
                           letterSpacing: 1.0,
                           height: 1.7,
                         ),),
@@ -288,7 +293,7 @@ class Founder extends StatelessWidget {
                                   fontSize: Responsive.isDesktop(context)?19:16,
                                   fontStyle: FontStyle.normal,
                                   fontFamily: "Cairo",
-                                  color: AppTheme.primaryBlueColor,
+                                  color: AppTheme(context).primaryBlueColor,
                                 letterSpacing: 1.0,
                                 height: 1.7,
                               ),),
@@ -299,7 +304,7 @@ class Founder extends StatelessWidget {
                                   fontSize: Responsive.isDesktop(context)?19:16,
                                   fontStyle: FontStyle.normal,
                                   fontFamily: "Cairo",
-                                  color: AppTheme.primaryBlueColor,
+                                  color: AppTheme(context).primaryBlueColor,
                                 letterSpacing: 1.0,
                                 height: 1.7,
                               ),),
@@ -310,7 +315,7 @@ class Founder extends StatelessWidget {
                                   fontSize:Responsive.isDesktop(context)? 19:16,
                                   fontStyle: FontStyle.normal,
                                   fontFamily: "Cairo",
-                                  color: AppTheme.primaryBlueColor,
+                                  color: AppTheme(context).primaryBlueColor,
                                 letterSpacing: 1.0,
                                 height: 1.7,
                               ),),
@@ -321,7 +326,7 @@ class Founder extends StatelessWidget {
                                   fontSize: Responsive.isDesktop(context)?19:16,
                                   fontStyle: FontStyle.normal,
                                   fontFamily: "Cairo",
-                                  color: AppTheme.primaryBlueColor,
+                                  color: AppTheme(context).primaryBlueColor,
                                 letterSpacing: 1.0,
                                 height: 1.7,
                               ),),
@@ -335,7 +340,7 @@ class Founder extends StatelessWidget {
                       Container(
                         width: width,
                         decoration: BoxDecoration(
-                            color: const Color.fromRGBO(230, 255, 249, 1),
+                            color: themeChange.darkTheme?Color.fromRGBO(50, 59, 75, 1): Color.fromRGBO(230, 255, 249, 1),
                             borderRadius: BorderRadius.circular(10)
                         ),
                         child: Padding(
@@ -344,7 +349,7 @@ class Founder extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text("Shared IT Director",style: TextStyle(
-                                  color: AppTheme.primaryBlueColor,
+                                  color: AppTheme(context).primaryBlueColor,
                                   fontFamily: "Cairo",
                                   fontSize:Responsive.isDesktop(context)? 24:18,
                                   letterSpacing: 1,
@@ -356,7 +361,7 @@ class Founder extends StatelessWidget {
                                 text:  TextSpan(
                                     text: 'CIOforum offers you a shared IT Director, a Chief Information Officer " CIO " , as a service, an IT sounding board',
                                     style: TextStyle(
-                                        color: AppTheme.primaryBlueColor,
+                                        color: AppTheme(context).primaryBlueColor,
                                         fontFamily: "Cairo",
                                         fontSize: Responsive.isDesktop(context)?19:16,
                                         letterSpacing: 1.0,
@@ -366,7 +371,7 @@ class Founder extends StatelessWidget {
                                     children: <TextSpan>[
                                       TextSpan(text: ' without the overhead of a salaried person .',
                                         style: TextStyle(
-                                            color: AppTheme.primaryBlueColor,
+                                            color: AppTheme(context).primaryBlueColor,
                                             fontFamily: "Cairo",
                                             fontSize: Responsive.isDesktop(context)?19:16,
                                             letterSpacing: 1.0,
@@ -379,7 +384,7 @@ class Founder extends StatelessWidget {
                               ),
                               const SizedBox(height: 20),
                               Text("CIOforum offers subscription forms with variation in quarterly to weekly meetings, where you benefit from first opinion and rapid knowledge building about your organization. ",style: TextStyle(
-                                  color: AppTheme.primaryBlueColor,
+                                  color: AppTheme(context).primaryBlueColor,
                                   fontFamily: "Cairo",
                                   fontSize: Responsive.isDesktop(context)?19:16,
                                   letterSpacing: 1,
