@@ -175,7 +175,7 @@ Widget Footer1(BuildContext context,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children:  [
                       const Text(
-                        "QUICK LIKES",
+                        "QUICK LINKS",
                         style: TextStyle(
                           fontSize: 19,
                           fontFamily: "Cairo",
@@ -306,7 +306,7 @@ Widget Footer1(BuildContext context,
                     CrossAxisAlignment.start,
                     children:  [
                       Text(
-                        "OTHERS LIKES",
+                        "OTHERS LINKS",
                         style: TextStyle(
                           fontSize: 19,
                           fontFamily: "Cairo",

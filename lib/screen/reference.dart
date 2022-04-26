@@ -35,8 +35,8 @@ class _ReferenceState extends State<Reference> {
     return Scaffold(
       key: _scaffoldKey,
       endDrawer: Responsive.isMobile(context)
-          ? SideDrawer(context:context,homeTabSelected:false,productTabSelected:false,newsTabSelected:false,aboutTabSelected:false,contact:false,menuKey: menuKey): null,
-      appBar:appbar(context,false,false,false,false,false,_scaffoldKey,menuKey),
+          ? SideDrawer(context:context,homeTabSelected:false,productTabSelected:false,newsTabSelected:false,aboutTabSelected:false,contact:false,menuKey: menuKey,mission:false,founder:false,partner:false,reference: true): null,
+      appBar:appbar(context,false,false,false,false,false,_scaffoldKey,menuKey,),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -61,54 +61,57 @@ class _ReferenceState extends State<Reference> {
               width: double.infinity,
               color: AppTheme(context).WhiteColor,
               // color: Colors.red,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "The organizations where CIOforum provides services are",
-                    style: TextStyle(
-                        color: AppTheme(context).primaryBlueColor,
-                        fontFamily: "Cairo",
-                        fontSize: Responsive.isDesktop(context) ?28 : 20,
-                        fontWeight: FontWeight.w700,
-                        fontStyle: FontStyle.normal),
-                  ),
-                  const SizedBox(height: 50),
-                  Wrap(
-                    children: [
-                      Image.network(
-                        "assets/comenius-rgb 1.png",
-                        width: 112,
-                        height: 70,
-                      ),
-                      const SizedBox(width: 20),
-                      Image.network(
-                        "assets/qinas-logo_1.png",
-                        width: 112,
-                        height: 70,
-                      ),
-                      const SizedBox(width: 20),
-                      Image.network(
-                        "assets/erfgooierscollege_1.png",
-                        width: 112,
-                        height: 70,
-                      ),
-                      const SizedBox(width: 20),
-                      Image.network(
-                        "assets/CVO t Gooi RGB 1.png",
-                        width: 112,
-                        height: 70,
-                      ),
-                      const SizedBox(width: 20),
-                      Image.network(
-                        "assets/LC-Logo-Geel-RGB - light theme 1.png",
-                        width: 112,
-                        height: 70,
-                      ),
-                    ],
-                  )
-                ],
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "The organizations where CIOforum provides services are",
+                      style: TextStyle(
+                          color: AppTheme(context).primaryBlueColor,
+                          fontFamily: "Cairo",
+                          fontSize: Responsive.isDesktop(context) ?28 : 20,
+                          fontWeight: FontWeight.w700,
+                          fontStyle: FontStyle.normal),
+                    ),
+                    const SizedBox(height: 50),
+                    Wrap(
+                      children: [
+                        Image.network(
+                          "assets/comenius-rgb 1.png",
+                          width: 112,
+                          height: 70,
+                        ),
+                        const SizedBox(width: 20),
+                        Image.network(
+                          "assets/qinas-logo_1.png",
+                          width: 112,
+                          height: 70,
+                        ),
+                        const SizedBox(width: 20),
+                        Image.network(
+                          "assets/erfgooierscollege_1.png",
+                          width: 112,
+                          height: 70,
+                        ),
+                        const SizedBox(width: 20),
+                        Image.network(
+                          "assets/CVO t Gooi RGB 1.png",
+                          width: 112,
+                          height: 70,
+                        ),
+                        const SizedBox(width: 20),
+                        Image.network(
+                          "assets/LC-Logo-Geel-RGB - light theme 1.png",
+                          width: 112,
+                          height: 70,
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
             ),
             const SizedBox(height: 20),

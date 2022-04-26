@@ -30,8 +30,8 @@ class Founder extends StatelessWidget {
     return Scaffold(
       key: _scaffoldKey,
       endDrawer: Responsive.isMobile(context)
-          ? SideDrawer(context:context,homeTabSelected:false,productTabSelected:false,newsTabSelected:false,aboutTabSelected:false,contact:false,menuKey: menuKey): null,
-      appBar:appbar(context,false,false,false,false,false,_scaffoldKey,menuKey),
+          ? SideDrawer(context:context,homeTabSelected:false,productTabSelected:false,newsTabSelected:false,aboutTabSelected:false,contact:false,menuKey: menuKey,mission:false,founder:true,partner:false,reference: false): null,
+      appBar:appbar(context,false,false,false,false,false,_scaffoldKey,menuKey,),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -81,7 +81,7 @@ class Founder extends StatelessWidget {
                                 ),
                                 const SizedBox(height: 10),
                                 Text(
-                                  "I like to help directors, owners and boards of organizations of 100 or more people, who want to save on having their own IT director in paid employment or mandatory Data Protection Officer (FG/DPO/PO) and want to be sure that their interests come first when collaborating with IT -suppliers.",
+                                  "I like to help directors, owners and boards of organizations of 100 or more people, who want to save on having their own IT director in paid employment or mandatory Data Protection Officer (FG/DPO/PO) and want to be sure that their interests come first when collaborating with IT -suppliers. I believe I can contribute to your success. To help you choose the best solutions, which are not imposed by an IT supplier or internal 'expert'.",
                                   style: TextStyle(
                                     fontWeight: FontWeight.w400,
                                     fontSize: Responsive.isDesktop(context)?19:16,
@@ -118,7 +118,8 @@ class Founder extends StatelessWidget {
                         fontFamily: "Cairo",
                         color: AppTheme(context).primaryBlueColor,
                         letterSpacing: 1.0,
-                        height: 1.7,                      ),),
+                        height: 1.7,
+                      ),),
                       Text("I'll take you into a hands-on experience where only the most valuable IT investments are made, taking into account the biggest problems, needs and risks with the fewest resources.",style: TextStyle(
                           fontWeight: FontWeight.w400,
                           fontSize: Responsive.isDesktop(context)?19:16,
@@ -126,7 +127,8 @@ class Founder extends StatelessWidget {
                           fontFamily: "Cairo",
                           color: AppTheme(context).primaryBlueColor,
                         letterSpacing: 1.0,
-                        height: 1.7,                      ),),
+                        height: 1.7,
+                      ),),
                       SizedBox(height: 30),
                       Responsive.isDesktop(context)?
                       Row(
@@ -236,32 +238,71 @@ class Founder extends StatelessWidget {
                                 throw 'Could not launch $url';
                               }
                             },
-                            child: Center(
-                              child:ClipRRect(
+                            child:  Center(
+                              child: ClipRRect(
                                 borderRadius: BorderRadius.circular(30),
                                 child: Stack(
                                   children: [
-                                    Image.asset(
-                                      "assets/Rectangle_5.png",
-                                      width: 339,
-                                    ),
-                                    Positioned(
-                                      top: 80,
-                                      left: 135,
-                                      child: CircleAvatar(
-                                        radius: 30,
-                                        backgroundColor:
-                                        AppTheme(context).primaryGreenColor,
-                                        child: Icon(Icons.play_arrow,
-                                            color:
-                                            AppTheme(context).primaryWhiteColor),
+                                    Image.asset("assets/Rectangle_5.png",
+                                      width: 400,height: 300,),
+                                    Container(
+                                      width: 400,
+                                      height:300,
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(30),
+                                          color: Colors.transparent
+                                      ),
+                                      child: Center(
+                                        child: CircleAvatar(
+                                          radius: 30,
+                                          backgroundColor:
+                                          AppTheme(context).primaryGreenColor,
+                                          child: Icon(Icons.play_arrow,
+                                              color: AppTheme(context).primaryWhiteColor),
+                                        ),
                                       ),
                                     )
+                                    // Positioned(
+                                    //   top: 90,
+                                    //   left: 160,
+                                    //   child: CircleAvatar(
+                                    //     radius: 30,
+                                    //     backgroundColor:
+                                    //         AppTheme(context).primaryGreenColor,
+                                    //     child: Icon(Icons.play_arrow,
+                                    //         color: AppTheme(context).primaryWhiteColor),
+                                    //   ),
+                                    // )
                                   ],
                                 ),
-                              )
-
+                              ),
                             ),
+                            // child: Center(
+                            //   child:ClipRRect(
+                            //     borderRadius: BorderRadius.circular(30),
+                            //     child: Stack(
+                            //       children: [
+                            //         Image.asset(
+                            //           "assets/Rectangle_5.png",
+                            //           width: 339,
+                            //         ),
+                            //         Positioned(
+                            //           top: 80,
+                            //           left: 135,
+                            //           child: CircleAvatar(
+                            //             radius: 30,
+                            //             backgroundColor:
+                            //             AppTheme(context).primaryGreenColor,
+                            //             child: Icon(Icons.play_arrow,
+                            //                 color:
+                            //                 AppTheme(context).primaryWhiteColor),
+                            //           ),
+                            //         )
+                            //       ],
+                            //     ),
+                            //   )
+                            //
+                            // ),
                           ),
                         ],
                       ),

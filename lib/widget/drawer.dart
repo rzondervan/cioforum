@@ -10,13 +10,17 @@ import 'package:provider/provider.dart';
 
 class SideDrawer extends StatefulWidget {
 
-  SideDrawer({required this.context,required this.homeTabSelected,required this.productTabSelected,required this.newsTabSelected,required this.aboutTabSelected,required this.contact,required this.menuKey});
+  SideDrawer({required this.context,required this.homeTabSelected,required this.productTabSelected,required this.newsTabSelected,required this.aboutTabSelected,required this.contact,required this.menuKey,required this.mission,required this.founder,required this.partner,required this.reference});
   BuildContext? context;
   bool? homeTabSelected;
   bool? productTabSelected;
   bool? newsTabSelected;
   bool? aboutTabSelected;
   bool? contact;
+  bool? mission;
+  bool? founder;
+  bool? partner;
+  bool? reference;
   late GlobalKey menuKey;
 
 
@@ -142,9 +146,9 @@ class _drawerState extends State<SideDrawer> {
                 child: Container(
                   key: menuKey,
                   child: MouseRegion(
-                    onHover: (event) {
-                      showMenus(context,menuKey);
-                    },
+                    // onHover: (event) {
+                    //   showMenus(context,menuKey);
+                    // },
                     child: Padding(
                       padding: const EdgeInsets.all(15.0),
                       child: Text("About",
@@ -222,7 +226,135 @@ class _drawerState extends State<SideDrawer> {
                         fontWeight: FontWeight.w400,
                         fontSize: widget.contact! ? 15 : 18)),
               ),
-            )
+            ),
+            InkWell(
+              hoverColor: Colors.transparent,
+              onTap: () {
+                // Navigator.push(context,MaterialPageRoute(builder: (context)=>NewPage()));
+                Navigator.pushNamed(context,"/mission");
+
+                // setState(() {
+                //   homeTabSelected = false;
+                //   productTabSelected = false;
+                //   newsTabSelected = true;
+                //   aboutTabSelected = false;
+                //   contact=false;
+                //
+                // });
+                // Navigator.pop(context);
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Text("Our Mission",
+                    style: TextStyle(
+                        color: themeChange.darkTheme
+                            ? widget.mission!
+                            ? Color.fromRGBO(139, 190, 43, 1)
+                            : Colors.white
+                            : widget.mission!
+                            ? AppTheme(context).primaryGreenColor
+                            : AppTheme(context).primaryBlueColor,
+                        fontWeight: FontWeight.w400,
+                        fontSize: widget.mission! ? 15 : 18)),
+              ),
+            ),
+            InkWell(
+              hoverColor: Colors.transparent,
+              onTap: () {
+                // Navigator.push(context,MaterialPageRoute(builder: (context)=>NewPage()));
+                Navigator.pushNamed(context,"/founder");
+
+                // setState(() {
+                //   homeTabSelected = false;
+                //   productTabSelected = false;
+                //   newsTabSelected = true;
+                //   aboutTabSelected = false;
+                //   contact=false;
+                //
+                // });
+                // Navigator.pop(context);
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Text("Founder",
+                    style: TextStyle(
+                        color: themeChange.darkTheme
+                            ? widget.founder!
+                            ? Color.fromRGBO(139, 190, 43, 1)
+                            : Colors.white
+                            : widget.founder!
+                            ? AppTheme(context).primaryGreenColor
+                            : AppTheme(context).primaryBlueColor,
+                        fontWeight: FontWeight.w400,
+                        fontSize: widget.founder! ? 15 : 18)),
+              ),
+            ),
+            InkWell(
+              hoverColor: Colors.transparent,
+              onTap: () {
+                // Navigator.push(context,MaterialPageRoute(builder: (context)=>NewPage()));
+                Navigator.pushNamed(context,"/partner");
+
+                // setState(() {
+                //   homeTabSelected = false;
+                //   productTabSelected = false;
+                //   newsTabSelected = true;
+                //   aboutTabSelected = false;
+                //   contact=false;
+                //
+                // });
+                // Navigator.pop(context);
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Text("Partner",
+                    style: TextStyle(
+                        color: themeChange.darkTheme
+                            ? widget.partner!
+                            ? Color.fromRGBO(139, 190, 43, 1)
+                            : Colors.white
+                            : widget.partner!
+                            ? AppTheme(context).primaryGreenColor
+                            : AppTheme(context).primaryBlueColor,
+                        fontWeight: FontWeight.w400,
+                        fontSize: widget.partner! ? 15 : 18)),
+              ),
+            ),
+            InkWell(
+              hoverColor: Colors.transparent,
+              onTap: () {
+                // Navigator.push(context,MaterialPageRoute(builder: (context)=>NewPage()));
+                Navigator.pushNamed(context,"/reference");
+
+                // setState(() {
+                //   homeTabSelected = false;
+                //   productTabSelected = false;
+                //   newsTabSelected = true;
+                //   aboutTabSelected = false;
+                //   contact=false;
+                //
+                // });
+                // Navigator.pop(context);
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Text("Reference",
+                    style: TextStyle(
+                        color: themeChange.darkTheme
+                            ? widget.reference!
+                            ? Color.fromRGBO(139, 190, 43, 1)
+                            : Colors.white
+                            : widget.reference!
+                            ? AppTheme(context).primaryGreenColor
+                            : AppTheme(context).primaryBlueColor,
+                        fontWeight: FontWeight.w400,
+                        fontSize: widget.reference! ? 15 : 18)),
+              ),
+            ),
+
+
+
+
           ],
         ),
       ),

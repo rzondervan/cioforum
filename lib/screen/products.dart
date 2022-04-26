@@ -55,8 +55,8 @@ class _ProductState extends State<Product> {
       child: Scaffold(
         key:_scaffoldKey ,
         endDrawer: Responsive.isMobile(context)
-            ? SideDrawer(context:context,homeTabSelected:false,productTabSelected:true,newsTabSelected:false,aboutTabSelected:false,contact:false,menuKey: menuKey): null,
-        appBar:appbar(context,false,true,false,false,false,_scaffoldKey,menuKey),
+            ? SideDrawer(context:context,homeTabSelected:false,productTabSelected:true,newsTabSelected:false,aboutTabSelected:false,contact:false,menuKey: menuKey,mission:false,founder:false,partner:false,reference: false): null,
+        appBar:appbar(context,false,true,false,false,false,_scaffoldKey,menuKey,),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -72,7 +72,7 @@ class _ProductState extends State<Product> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                        Text("Privacy and IT services for education",style:  TextStyle(
-                        fontSize:Responsive.isDesktop(context)?42:18,
+                        fontSize:Responsive.isDesktop(context)?42:16,
                         fontWeight: FontWeight.w700,
                         color:Color.fromRGBO(225, 225, 225, 1),
                         fontFamily: "Cairo",
@@ -82,7 +82,7 @@ class _ProductState extends State<Product> {
                        SizedBox(height: Responsive.isDesktop(context)?20:10),
                        Text("Vendor independent services for directors and boards of schools and daycare organizations, who want to save on an IT director in salaried employment and/or an external Data Protection Officer.",textAlign: TextAlign.center,style:  TextStyle(
                          color:Color.fromRGBO(225, 225, 225, 1),
-                        fontSize:Responsive.isDesktop(context)?24:16,
+                        fontSize:Responsive.isDesktop(context)?24:14,
                         fontWeight: FontWeight.w400,
                         fontFamily: "Cairo",
                         fontStyle: FontStyle.normal,
@@ -221,7 +221,7 @@ class _ProductState extends State<Product> {
                               itemCount: carousellist.length,
                               carouselController: carouselController,
                               options: CarouselOptions(
-                                  autoPlay: false,
+                                  autoPlay: true,
                                   aspectRatio: 16/9,
                                   viewportFraction: Responsive.isDesktop(context)?0.3:0.85,
                                   enlargeCenterPage: true,

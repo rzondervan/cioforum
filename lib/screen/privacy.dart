@@ -48,8 +48,8 @@ class _PrivacyState extends State<Privacy> {
       child: Scaffold(
         key: _scaffoldKey,
         endDrawer: Responsive.isMobile(context)
-            ? SideDrawer(context:context,homeTabSelected:false,productTabSelected:false,newsTabSelected:false,aboutTabSelected:false,contact:false,menuKey: menuKey): null,
-        appBar:appbar(context,false,false,false,false,false,_scaffoldKey,menuKey),
+            ? SideDrawer(context:context,homeTabSelected:false,productTabSelected:false,newsTabSelected:false,aboutTabSelected:false,contact:false,menuKey: menuKey,mission:false,founder:false,partner:false,reference: false): null,
+        appBar:appbar(context,false,false,false,false,false,_scaffoldKey,menuKey,),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -87,7 +87,8 @@ class _PrivacyState extends State<Privacy> {
               ),
               Container(
                 width: width,
-                // height: 500,
+                height: height*0.9,
+                // height: Responsive.isDesktop(context)?height*0.9:height*0.6,
                 child: Padding(
                   padding:  EdgeInsets.only(left: Responsive.isDesktop(context)?width*0.13:width*0.06,right: Responsive.isDesktop(context)?width*0.13:width*0.06,top: 30,bottom: 30),
                   child:Container(
@@ -184,7 +185,7 @@ class _PrivacyState extends State<Privacy> {
                             child: CarouselSlider.builder(
                               itemCount: carousellist.length,
                               options: CarouselOptions(
-                                  autoPlay: false,
+                                  autoPlay: true,
                                   aspectRatio: 16/9,
                                   viewportFraction: Responsive.isDesktop(context)?0.3:0.85,
                                   enlargeCenterPage: true,
@@ -362,8 +363,10 @@ class _PrivacyState extends State<Privacy> {
                   }
                 },
                 child: Container(
-                  height: Responsive.isDesktop(context)?height*0.08:height*0.06,
-                  width:Responsive.isDesktop(context)? width*0.15:width*0.15,
+                  // height: Responsive.isDesktop(context)?height*0.08:height*0.06,
+                  // width:Responsive.isDesktop(context)? width*0.15:width*0.15,
+                  height: height*0.07,
+                  width: width*0.18,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(Responsive.isDesktop(context)?60:20),
                       color: AppTheme(context).primaryGreenColor
@@ -371,7 +374,7 @@ class _PrivacyState extends State<Privacy> {
                   child: Center(
                     child: Text("Purchase",style: TextStyle(
                       color:Color.fromRGBO(225, 225, 225, 1),
-                      fontSize:Responsive.isDesktop(context)?23:15,
+                      fontSize:Responsive.isDesktop(context)?18:12,
                       fontWeight: FontWeight.w600,
                       fontFamily: "Cairo",
                       fontStyle: FontStyle.normal,

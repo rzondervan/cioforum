@@ -35,8 +35,8 @@ class _PartnerState extends State<Partner> {
       child: Scaffold(
           key: _scaffoldKey,
           endDrawer: Responsive.isMobile(context)
-              ? SideDrawer(context:context,homeTabSelected:false,productTabSelected:false,newsTabSelected:false,aboutTabSelected:false,contact:false,menuKey: menuKey): null,
-          appBar:appbar(context,false,false,false,false,false,_scaffoldKey,menuKey),
+              ? SideDrawer(context:context,homeTabSelected:false,productTabSelected:false,newsTabSelected:false,aboutTabSelected:false,contact:false,menuKey: menuKey,mission:false,founder:false,partner:true,reference: false): null,
+          appBar:appbar(context,false,false,false,false,false,_scaffoldKey,menuKey,),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -768,8 +768,8 @@ class _PartnerState extends State<Partner> {
                             ),
                             SizedBox(height: 20),
                             Container(
-                              height: height*0.06,
-                              width: width*0.15,
+                              height: height*0.07,
+                              width: width*0.18,
                               decoration: BoxDecoration(
                                 color: AppTheme(context).primaryGreenColor,
                                 borderRadius: BorderRadius.circular(10),

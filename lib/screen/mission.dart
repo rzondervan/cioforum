@@ -32,8 +32,8 @@ class _MissionState extends State<Mission> {
       child: Scaffold(
         key: _scaffoldKey,
         endDrawer: Responsive.isMobile(context)
-            ? SideDrawer(context:context,homeTabSelected:false,productTabSelected:false,newsTabSelected:false,aboutTabSelected:false,contact:false,menuKey: menuKey): null,
-        appBar:appbar(context,false,false,false,false,false,_scaffoldKey,menuKey),
+            ? SideDrawer(context:context,homeTabSelected:false,productTabSelected:false,newsTabSelected:false,aboutTabSelected:false,contact:false,menuKey: menuKey,mission:true,founder:false,partner:false,reference: false): null,
+        appBar:appbar(context,false,false,false,false,false,_scaffoldKey,menuKey,),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -93,7 +93,6 @@ class _MissionState extends State<Mission> {
                             const SizedBox(height: 30),
                             Row(
                               children: [
-                                const SizedBox(width: 20),
                                 Expanded(
                                   child: Text(
                                     "Deliver valuable strategic and tactical IT knowledge to directors, owners, directors and other IT managers in an understandable language.",
@@ -112,7 +111,6 @@ class _MissionState extends State<Mission> {
                             const SizedBox(height: 10),
                             Row(
                               children: [
-                                const SizedBox(width: 20),
                                 Expanded(
                                   child: Text(
                                     "Exchanging experiences and benchmarks with peers.",
@@ -131,7 +129,6 @@ class _MissionState extends State<Mission> {
                             const SizedBox(height: 10),
                             Row(
                               children: [
-                                const SizedBox(width: 20),
                                 Expanded(
                                   child: Text(
                                     "Providing independent expertise for organizations from around 100 people, who want to save on an IT director in salaried employment.",
@@ -167,7 +164,7 @@ class _MissionState extends State<Mission> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 30),
+                    const SizedBox(height: 50),
                     Text(
                       "Core values",
                       style: TextStyle(
@@ -323,13 +320,7 @@ class _MissionState extends State<Mission> {
                               const SizedBox(height: 10),
                               Row(
                                 children: [
-                                  const SizedBox(width: 10),
-                                  Image.network(
-                                    "assets/Ellipse_18.png",
-                                    height: 10,
-                                    width: 10,
-                                  ),
-                                  const SizedBox(width: 10),
+
                                   Expanded(
                                     child
                                         : Text(
@@ -350,13 +341,6 @@ class _MissionState extends State<Mission> {
                               const SizedBox(height: 10),
                               Row(
                                 children: [
-                                  const SizedBox(width: 10),
-                                  Image.network(
-                                    "assets/Ellipse_18.png",
-                                    height: 10,
-                                    width: 10,
-                                  ),
-                                  const SizedBox(width: 10),
                                   Expanded(
                                     child: Text(
                                       "Integrity and confidentiality, for example about customer",
@@ -376,13 +360,6 @@ class _MissionState extends State<Mission> {
                               const SizedBox(height: 10),
                               Row(
                                 children: [
-                                  const SizedBox(width: 10),
-                                  Image.network(
-                                    "assets/Ellipse_18.png",
-                                    height: 10,
-                                    width: 10,
-                                  ),
-                                  const SizedBox(width: 10),
                                   Expanded(
                                     child: Text(
                                       "risks and impact.Commitment to sustainability.",
@@ -403,13 +380,17 @@ class _MissionState extends State<Mission> {
                               Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const SizedBox(width: 30),
-                                  Image.network(
-                                    "assets/Ellipse_20.png",
-                                    height: 10,
-                                    width: 10,
-                                  ),
-                                  const SizedBox(width: 10),
+                                  // const SizedBox(width: 20),
+                                  // Align(
+                                  //     alignment: Alignment.bottomCenter,
+                                  //     child: Icon(Icons.circle,size: 10,color: Colors.red,)),
+
+                                  // Image.network(
+                                  //   "assets/Ellipse_20.png",
+                                  //   height: 10,
+                                  //   width: 10,
+                                  // ),
+                                  // const SizedBox(width: 10),
                                   Expanded(
                                     child: Text(
                                       "CIOforum wants to achieve viable and sustainable goals and has therefore moved to the Triodos bank, for example.",
@@ -460,13 +441,13 @@ class _MissionState extends State<Mission> {
                               const SizedBox(height: 10),
                               Row(
                                 children: [
-                                  const SizedBox(width: 10),
-                                  Image.asset(
-                                    "assets/Ellipse_18.png",
-                                    height: 10,
-                                    width: 10,
-                                  ),
-                                  const SizedBox(width: 10),
+                                  // const SizedBox(width: 10),
+                                  // Image.asset(
+                                  //   "assets/Ellipse_18.png",
+                                  //   height: 10,
+                                  //   width: 10,
+                                  // ),
+                                  // const SizedBox(width: 10),
                                   Expanded(
                                     child: Text(
                                       "Independence from suppliers and providers.",
@@ -486,13 +467,13 @@ class _MissionState extends State<Mission> {
                               const SizedBox(height: 10),
                               Row(
                                 children: [
-                                  const SizedBox(width: 10),
-                                  Image.asset(
-                                    "assets/Ellipse_18.png",
-                                    height: 10,
-                                    width: 10,
-                                  ),
-                                  const SizedBox(width: 10),
+                                  // const SizedBox(width: 10),
+                                  // Image.asset(
+                                  //   "assets/Ellipse_18.png",
+                                  //   height: 10,
+                                  //   width: 10,
+                                  // ),
+                                  // const SizedBox(width: 10),
                                   Expanded(
                                     child: Text(
                                       "Integrity and confidentiality, for example about customer",
@@ -512,13 +493,13 @@ class _MissionState extends State<Mission> {
                               const SizedBox(height: 10),
                               Row(
                                 children: [
-                                  const SizedBox(width: 10),
-                                  Image.asset(
-                                    "assets/Ellipse_18.png",
-                                    height: 10,
-                                    width: 10,
-                                  ),
-                                  const SizedBox(width: 10),
+                                  // const SizedBox(width: 10),
+                                  // Image.asset(
+                                  //   "assets/Ellipse_18.png",
+                                  //   height: 10,
+                                  //   width: 10,
+                                  // ),
+                                  // const SizedBox(width: 10),
                                   Expanded(
                                     child: Text(
                                       "risks and impact.Commitment to sustainability.",
@@ -539,13 +520,17 @@ class _MissionState extends State<Mission> {
                               Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const SizedBox(width: 30),
-                                  Image.asset(
-                                    "assets/Ellipse_20.png",
-                                    height: 10,
-                                    width: 10,
-                                  ),
-                                  const SizedBox(width: 10),
+                                  // const SizedBox(width: 20),
+                                  // Icon(Icons.circle,size: 10,color: Colors.red,),
+                                  // Center(
+                                  //   child: Image.asset(
+                                  //     "assets/Ellipse_20.png",
+                                  //     height: 10,
+                                  //     width: 10,
+                                  //     color: Colors.red,
+                                  //   ),
+                                  // ),
+                                  // const SizedBox(width: 10),
                                   Expanded(
                                     child: Text(
                                       "CIOforum wants to achieve viable and sustainable goals and has therefore moved to the Triodos bank, for example.",

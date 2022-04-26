@@ -46,18 +46,18 @@ class _ContactState extends State<Contact> {
       child: Scaffold(
         key: _scaffoldKey,
         endDrawer: Responsive.isMobile(context)
-            ? SideDrawer(context:context,homeTabSelected:false,productTabSelected:false,newsTabSelected:false,aboutTabSelected:false,contact:false,menuKey: menuKey): null,
-        appBar:appbar(context,false,false,false,false,false,_scaffoldKey,menuKey),
+            ? SideDrawer(context:context,homeTabSelected:false,productTabSelected:false,newsTabSelected:false,aboutTabSelected:false,contact:false,menuKey: menuKey,mission:false,founder:false,partner:false,reference: false): null,
+        appBar:appbar(context,false,false,false,false,false,_scaffoldKey,menuKey,),
         body: SingleChildScrollView(
           child: Column(
             children: [
               Container(
                 height:height*0.2,
                 width: double.infinity,
-                color: AppTheme(context).primaryBlueColor,
+                color: Color.fromRGBO(50, 59, 75, 1),
                 child: Center(
                   child: Text("Contact Us",style: TextStyle(
-                      color: AppTheme(context).primaryWhiteColor,
+                      color: Color.fromRGBO(225, 225, 225, 1),
                       fontFamily: "Cairo",
                       fontSize: width<600?30:45,
                       fontWeight: FontWeight.w600,

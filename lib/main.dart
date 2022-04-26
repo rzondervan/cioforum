@@ -18,12 +18,14 @@ import 'package:ciofroum_web/thememode/provider.dart';
 import 'package:ciofroum_web/thememode/style.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
-import 'dart:html';
+import 'package:url_strategy/url_strategy.dart';
+
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 void main()async{
+  setPathUrlStrategy();
   runApp(MyApp());
 }
 
@@ -76,7 +78,6 @@ class _MyAppState extends State<MyApp> {
               },
               theme: Styles.themeData(themeChangeProvider.darkTheme, context),
               home: HomePage(),
-
             );
           },
         ),);

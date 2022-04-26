@@ -31,8 +31,8 @@ class _TermsandConditionsState extends State<TermsandConditions> {
     return Scaffold(
       key: _scaffoldKey,
       endDrawer: Responsive.isMobile(context)
-          ? SideDrawer(context:context,homeTabSelected:false,productTabSelected:false,newsTabSelected:false,aboutTabSelected:false,contact:false,menuKey: menuKey): null,
-      appBar:appbar(context,false,false,false,false,false,_scaffoldKey,menuKey),
+          ? SideDrawer(context:context,homeTabSelected:false,productTabSelected:false,newsTabSelected:false,aboutTabSelected:false,contact:false,menuKey: menuKey,mission:false,founder:false,partner:false,reference: false): null,
+      appBar:appbar(context,false,false,false,false,false,_scaffoldKey,menuKey,),
       body:  SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

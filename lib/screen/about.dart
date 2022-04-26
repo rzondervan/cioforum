@@ -50,13 +50,12 @@ class _AboutState extends State<About> {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     final themeChange = Provider.of<DarkThemeProvider>(context);
-
     return SafeArea(
       child: Scaffold(
         key: _scaffoldKey,
         endDrawer: Responsive.isMobile(context)
-            ? SideDrawer(context:context,homeTabSelected:false,productTabSelected:false,newsTabSelected:false,aboutTabSelected:true,contact:false,menuKey: menuKey,): null,
-        appBar:appbar(context,false,false,false,true,false,_scaffoldKey,menuKey),
+            ? SideDrawer(context:context,homeTabSelected:false,productTabSelected:false,newsTabSelected:false,aboutTabSelected:true,contact:false,menuKey: menuKey,mission:false,founder:false,partner:false,reference: false): null,
+        appBar:appbar(context,false,false,false,true,false,_scaffoldKey,menuKey,),
         body: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -962,7 +961,8 @@ class _AboutState extends State<About> {
                       // height: height,
                       width: width,
                       decoration: BoxDecoration(
-                        color: AppTheme(context).WhiteColor,
+                        // color: Colors.red,
+                        color: themeChange.darkTheme?Color.fromRGBO(50, 59, 75, 1):AppTheme(context).WhiteColor,
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Padding(
@@ -973,94 +973,141 @@ class _AboutState extends State<About> {
                             Text(
                               "Download white paper",
                               style: TextStyle(
-                                  color: themeChange.darkTheme?Colors.white:Colors.black,
+                                  color: AppTheme(context).primaryBlackColor,
                                   fontFamily: "Cairo",
                                   fontSize: Responsive.isDesktop(context) ?24:18,
                                   letterSpacing: 1,
                                   fontWeight: FontWeight.w700,
-                                  fontStyle: FontStyle.normal),
+                                  fontStyle: FontStyle.normal
+                              ),
                             ),
                             SizedBox(height: 20),
-                            Wrap(
-                              spacing:8.0,
-                              runSpacing: 10.0,
-                              alignment: WrapAlignment.center,
-                              // // crossAxisAlignment: WrapCrossAlignment.center,
-                              // runAlignment:WrapAlignment.center,
+                            Container(
+                              height: height*0.07,
+                              width: width*0.18,
+                              decoration: BoxDecoration(
+                                color: AppTheme(context).primaryGreenColor,
+                                borderRadius: BorderRadius.circular(10),
 
-
-
-
-                              children: [
-                                Container(
-                                  height: 52,
-                                  width: 291,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      border: Border.all(
-                                          color: AppTheme(context).greyColor)),
-                                  child: TextFormField(
-                                    decoration: InputDecoration(
-                                        hintText: "First name *",
-                                        border: OutlineInputBorder(
-                                            borderSide: BorderSide.none),
-                                        hintStyle: TextStyle(
-                                            color: themeChange.darkTheme?Colors.white:Colors.black,
-                                            fontFamily: "Cairo",
-                                            fontSize: 19,
-                                            letterSpacing: 1,
-                                            fontWeight: FontWeight.w400,
-                                            fontStyle: FontStyle.normal)),
-                                  ),
-                                ),
-                                SizedBox(width: 20),
-                                Container(
-                                  height: 52,
-                                  width: 291,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      border: Border.all(
-                                          color: AppTheme(context).greyColor)),
-                                  child: TextFormField(
-                                    decoration: InputDecoration(
-                                        hintText: "Email Address",
-                                        border: OutlineInputBorder(
-                                            borderSide: BorderSide.none),
-                                        hintStyle: TextStyle(
-                                            color: themeChange.darkTheme?Colors.white:Colors.black,
-                                            fontFamily: "Cairo",
-                                            fontSize: 19,
-                                            letterSpacing: 1,
-                                            fontWeight: FontWeight.w400,
-                                            fontStyle: FontStyle.normal)),
-                                  ),
-                                ),
-                                SizedBox(width: 20),
-                                Container(
-                                  height: 52,
-                                  width: 142,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      color: AppTheme(context).primaryGreenColor),
-                                  child: Center(
-                                    child: Text(
-                                      "Submit",
-                                      style: TextStyle(
-                                          color: AppTheme(context).primaryWhiteColor,
-                                          fontFamily: "Cairo",
-                                          fontSize: 19,
-                                          letterSpacing: 1,
-                                          fontWeight: FontWeight.w700,
-                                          fontStyle: FontStyle.normal),
-                                    ),
-                                  ),
-                                )
-                              ],
+                              ),
+                              child: Center(
+                                child: Text("Download",style: TextStyle(
+                                    color: AppTheme(context).WhiteColor,
+                                    fontFamily: "Cairo",
+                                    fontSize: Responsive.isDesktop(context) ?19:14,
+                                    fontWeight: FontWeight.w700,
+                                    fontStyle: FontStyle.normal
+                                ),),
+                              ),
                             )
                           ],
                         ),
                       ),
                     )
+
+                    // Container(
+                    //   // height: height,
+                    //   width: width,
+                    //   decoration: BoxDecoration(
+                    //     color: AppTheme(context).WhiteColor,
+                    //     borderRadius: BorderRadius.circular(10),
+                    //   ),
+                    //   child: Padding(
+                    //     padding: const EdgeInsets.all(20.0),
+                    //     child: Column(
+                    //       crossAxisAlignment: CrossAxisAlignment.center,
+                    //       children: [
+                    //         Text(
+                    //           "Download white paper",
+                    //           style: TextStyle(
+                    //               color: themeChange.darkTheme?Colors.white:Colors.black,
+                    //               fontFamily: "Cairo",
+                    //               fontSize: Responsive.isDesktop(context) ?24:18,
+                    //               letterSpacing: 1,
+                    //               fontWeight: FontWeight.w700,
+                    //               fontStyle: FontStyle.normal),
+                    //         ),
+                    //         SizedBox(height: 20),
+                    //         Wrap(
+                    //           spacing:8.0,
+                    //           runSpacing: 10.0,
+                    //           alignment: WrapAlignment.center,
+                    //           // // crossAxisAlignment: WrapCrossAlignment.center,
+                    //           // runAlignment:WrapAlignment.center,
+                    //
+                    //
+                    //
+                    //
+                    //           children: [
+                    //             Container(
+                    //               height: 52,
+                    //               width: 291,
+                    //               decoration: BoxDecoration(
+                    //                   borderRadius: BorderRadius.circular(10),
+                    //                   border: Border.all(
+                    //                       color: AppTheme(context).greyColor)),
+                    //               child: TextFormField(
+                    //                 decoration: InputDecoration(
+                    //                     hintText: "First name *",
+                    //                     border: OutlineInputBorder(
+                    //                         borderSide: BorderSide.none),
+                    //                     hintStyle: TextStyle(
+                    //                         color: themeChange.darkTheme?Colors.white:Colors.black,
+                    //                         fontFamily: "Cairo",
+                    //                         fontSize: 19,
+                    //                         letterSpacing: 1,
+                    //                         fontWeight: FontWeight.w400,
+                    //                         fontStyle: FontStyle.normal)),
+                    //               ),
+                    //             ),
+                    //             SizedBox(width: 20),
+                    //             Container(
+                    //               height: 52,
+                    //               width: 291,
+                    //               decoration: BoxDecoration(
+                    //                   borderRadius: BorderRadius.circular(10),
+                    //                   border: Border.all(
+                    //                       color: AppTheme(context).greyColor)),
+                    //               child: TextFormField(
+                    //                 decoration: InputDecoration(
+                    //                     hintText: "Email Address",
+                    //                     border: OutlineInputBorder(
+                    //                         borderSide: BorderSide.none),
+                    //                     hintStyle: TextStyle(
+                    //                         color: themeChange.darkTheme?Colors.white:Colors.black,
+                    //                         fontFamily: "Cairo",
+                    //                         fontSize: 19,
+                    //                         letterSpacing: 1,
+                    //                         fontWeight: FontWeight.w400,
+                    //                         fontStyle: FontStyle.normal)),
+                    //               ),
+                    //             ),
+                    //             SizedBox(width: 20),
+                    //             Container(
+                    //               height: 52,
+                    //               width: 142,
+                    //               decoration: BoxDecoration(
+                    //                   borderRadius: BorderRadius.circular(10),
+                    //                   color: AppTheme(context).primaryGreenColor),
+                    //               child: Center(
+                    //                 child: Text(
+                    //                   "Submit",
+                    //                   style: TextStyle(
+                    //                       color: AppTheme(context).primaryWhiteColor,
+                    //                       fontFamily: "Cairo",
+                    //                       fontSize: 19,
+                    //                       letterSpacing: 1,
+                    //                       fontWeight: FontWeight.w700,
+                    //                       fontStyle: FontStyle.normal),
+                    //                 ),
+                    //               ),
+                    //             )
+                    //           ],
+                    //         )
+                    //       ],
+                    //     ),
+                    //   ),
+                    // )
                   ],
                 ),
               ),

@@ -59,8 +59,8 @@ class _NewPageState extends State<NewPage> {
       child: Scaffold(
           key:_scaffoldKey,
           endDrawer: Responsive.isMobile(context)
-              ? SideDrawer(context:context,homeTabSelected:false,productTabSelected:false,newsTabSelected:true,aboutTabSelected:false,contact:false,menuKey: menuKey): null,
-          appBar:appbar(context,false,false,true,false,false,_scaffoldKey,menuKey),
+              ? SideDrawer(context:context,homeTabSelected:false,productTabSelected:false,newsTabSelected:true,aboutTabSelected:false,contact:false,menuKey: menuKey,mission:false,founder:false,partner:false,reference: false): null,
+          appBar:appbar(context,false,false,true,false,false,_scaffoldKey,menuKey,),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -79,7 +79,7 @@ class _NewPageState extends State<NewPage> {
                 ),
               ),
               Padding(
-                padding:  EdgeInsets.only(left: Responsive.isDesktop(context)?130:20,right: Responsive.isDesktop(context)?100:20,top: 20,bottom: 20),
+                padding:  EdgeInsets.only(left: Responsive.isDesktop(context)?100:20,right: Responsive.isDesktop(context)?100:20,top: 20,bottom: 20),
                 child: Center(
                   child: Responsive.isDesktop(context)?Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -781,7 +781,8 @@ class _NewPageState extends State<NewPage> {
                                                 ),
                                               ),
                                             );
-                                          }else{
+                                          }
+                                          else{
                                             return Container();
                                           }
 
