@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:ciofroum_web/Homepage.dart';
 import 'package:ciofroum_web/constants/themes.dart';
 import 'package:ciofroum_web/responsive.dart';
@@ -982,22 +984,27 @@ class _AboutState extends State<About> {
                               ),
                             ),
                             SizedBox(height: 20),
-                            Container(
-                              height: height*0.07,
-                              width: width*0.18,
-                              decoration: BoxDecoration(
-                                color: AppTheme(context).primaryGreenColor,
-                                borderRadius: BorderRadius.circular(10),
+                            InkWell(
+                              onTap: (){
+                                downloadFile("assets/pdf_file.pdf");
+                              },
+                              child: Container(
+                                height: height*0.07,
+                                width: width*0.18,
+                                decoration: BoxDecoration(
+                                  color: AppTheme(context).primaryGreenColor,
+                                  borderRadius: BorderRadius.circular(10),
 
-                              ),
-                              child: Center(
-                                child: Text("Download",style: TextStyle(
-                                    color: AppTheme(context).WhiteColor,
-                                    fontFamily: "Cairo",
-                                    fontSize: Responsive.isDesktop(context) ?19:14,
-                                    fontWeight: FontWeight.w700,
-                                    fontStyle: FontStyle.normal
-                                ),),
+                                ),
+                                child: Center(
+                                  child: Text("Download",style: TextStyle(
+                                      color: AppTheme(context).WhiteColor,
+                                      fontFamily: "Cairo",
+                                      fontSize: Responsive.isDesktop(context) ?19:14,
+                                      fontWeight: FontWeight.w700,
+                                      fontStyle: FontStyle.normal
+                                  ),),
+                                ),
                               ),
                             )
                           ],
@@ -1118,6 +1125,18 @@ class _AboutState extends State<About> {
       ),
     );
   }
+
+  downloadFile(url){
+    AnchorElement  anchorElement=AnchorElement(href: url);
+    anchorElement.download=url;
+    anchorElement.setAttribute("download", "pdf_file.pdf");
+    anchorElement.click();
+  }
+  // void downloadFile(String url){
+  //   html.AnchorElement anchorElement =  new html.AnchorElement(href: url);
+  //   anchorElement.download = url;
+  //   anchorElement.click();
+  // }
   //
   // @override
   // void onHover() {

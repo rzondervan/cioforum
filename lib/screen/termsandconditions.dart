@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:ciofroum_web/Homepage.dart';
 import 'package:ciofroum_web/constants/themes.dart';
 import 'package:ciofroum_web/responsive.dart';
@@ -798,13 +800,16 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                           ),
                           SizedBox(height: 20),
                           InkWell(
-                            onTap: ()async{
-                              final url="https://cioforum.nl/cioforum/over-ons/partners/";
-                              if(await canLaunch(url)){
-                                await launch(url);
-                              }else {
-                                throw 'Could not launch $url';
-                              }
+                            // onTap: ()async{
+                            //   final url="https://cioforum.nl/cioforum/over-ons/partners/";
+                            //   if(await canLaunch(url)){
+                            //     await launch(url);
+                            //   }else {
+                            //     throw 'Could not launch $url';
+                            //   }
+                            // },
+                            onTap: (){
+                              downloadFile("assets/assets/pdf_file.pdf");
                             },
                             child: Container(
                               height: height*0.06,
@@ -829,23 +834,20 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                       ),
                     ),
                   )
-
-
-
-
                 ],
               ),
             ),
             Footer1(context)
-
-
-
-
-
           ],
         ),
       ),
     );
+  }
+  downloadFile(url){
+    AnchorElement  anchorElement=AnchorElement(href: url);
+    anchorElement.download="pdf_file";
+    // anchorElement.setAttribute("download", "pdf_file.pdf");
+    anchorElement.click();
   }
 }
 

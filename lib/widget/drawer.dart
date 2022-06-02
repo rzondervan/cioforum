@@ -64,7 +64,9 @@ class _drawerState extends State<SideDrawer> {
                             ? AppTheme(context).primaryGreenColor
                             : AppTheme(context).primaryBlueColor,
                         fontWeight: FontWeight.w400,
-                        fontSize: widget.homeTabSelected! ? 15 : 18)),
+                        // fontSize: widget.homeTabSelected! ? 15 : 18
+                        fontSize:18
+                    )),
               ),
             ),
             // const SizedBox(height: 30),
@@ -102,7 +104,9 @@ class _drawerState extends State<SideDrawer> {
                             ? Color.fromRGBO(139, 190, 43, 1)
                             : Color.fromRGBO(50, 59, 75, 1),
                         fontWeight: FontWeight.w400,
-                        fontSize: widget.productTabSelected! ? 15 : 18)),
+                        // fontSize: widget.productTabSelected! ? 15 : 18
+                        fontSize: 18
+                    )),
               ),
             ),
             // const SizedBox(height: 30),
@@ -134,7 +138,9 @@ class _drawerState extends State<SideDrawer> {
                             ? AppTheme(context).primaryGreenColor
                             : AppTheme(context).primaryBlueColor,
                         fontWeight: FontWeight.w400,
-                        fontSize: widget.newsTabSelected! ? 15 : 18)),
+                        // fontSize: widget.newsTabSelected! ? 15 : 18
+                        fontSize: 18
+                    )),
               ),
             ),
             InkWell(
@@ -161,7 +167,9 @@ class _drawerState extends State<SideDrawer> {
                                   ? AppTheme(context).primaryGreenColor
                                   : AppTheme(context).primaryBlueColor,
                               fontWeight: FontWeight.w400,
-                              fontSize: widget.aboutTabSelected! ? 15 : 18)
+                              // fontSize: widget.aboutTabSelected! ? 15 : 18,
+                              fontSize:  18
+                          )
                       ),
                     ),
                   ),
@@ -224,7 +232,9 @@ class _drawerState extends State<SideDrawer> {
                             ? AppTheme(context).primaryGreenColor
                             : AppTheme(context).primaryBlueColor,
                         fontWeight: FontWeight.w400,
-                        fontSize: widget.contact! ? 15 : 18)),
+                        // fontSize: widget.contact! ? 15 : 18
+                        fontSize: 18
+                    )),
               ),
             ),
             InkWell(
@@ -255,7 +265,9 @@ class _drawerState extends State<SideDrawer> {
                             ? AppTheme(context).primaryGreenColor
                             : AppTheme(context).primaryBlueColor,
                         fontWeight: FontWeight.w400,
-                        fontSize: widget.mission! ? 15 : 18)),
+                        // fontSize: widget.mission! ? 15 : 18
+                        fontSize: 18
+                    )),
               ),
             ),
             InkWell(
@@ -286,7 +298,9 @@ class _drawerState extends State<SideDrawer> {
                             ? AppTheme(context).primaryGreenColor
                             : AppTheme(context).primaryBlueColor,
                         fontWeight: FontWeight.w400,
-                        fontSize: widget.founder! ? 15 : 18)),
+                        // fontSize: widget.founder! ? 15 : 18
+                        fontSize: 18
+                    )),
               ),
             ),
             InkWell(
@@ -317,7 +331,9 @@ class _drawerState extends State<SideDrawer> {
                             ? AppTheme(context).primaryGreenColor
                             : AppTheme(context).primaryBlueColor,
                         fontWeight: FontWeight.w400,
-                        fontSize: widget.partner! ? 15 : 18)),
+                        // fontSize: widget.partner! ? 15 : 18
+                        fontSize: 18
+                    )),
               ),
             ),
             InkWell(
@@ -348,7 +364,9 @@ class _drawerState extends State<SideDrawer> {
                             ? AppTheme(context).primaryGreenColor
                             : AppTheme(context).primaryBlueColor,
                         fontWeight: FontWeight.w400,
-                        fontSize: widget.reference! ? 15 : 18)),
+                        // fontSize: widget.reference! ? 15 : 18
+                        fontSize: 18
+                    )),
               ),
             ),
 

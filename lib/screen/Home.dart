@@ -437,72 +437,70 @@ class _HomePageState extends State<HomePage> {
                                                   color: themeChange.darkTheme?Color.fromRGBO(50, 59, 75, 1):Colors.white,
 
                                                   // width: width,
-                                                  child: Expanded(
-                                                    child: Column(
-                                                      mainAxisSize: MainAxisSize.min,
-                                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                                      children: [
-                                                        Align(
-                                                          alignment: Alignment.topRight,
-                                                          child: InkWell(
-                                                            hoverColor: Colors.transparent,
-                                                            onTap: (){
-                                                              Navigator.pop(context);},
-                                                            child: Container(
-                                                              height: 25,
-                                                              width: 25,
-                                                              decoration: BoxDecoration(
-                                                                borderRadius: BorderRadius.circular(20),
-                                                                border: Border.all(
-                                                                    color: AppTheme(context).primaryGreenColor
-                                                                ),
-
+                                                  child: Column(
+                                                    mainAxisSize: MainAxisSize.min,
+                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                    children: [
+                                                      Align(
+                                                        alignment: Alignment.topRight,
+                                                        child: InkWell(
+                                                          hoverColor: Colors.transparent,
+                                                          onTap: (){
+                                                            Navigator.pop(context);},
+                                                          child: Container(
+                                                            height: 25,
+                                                            width: 25,
+                                                            decoration: BoxDecoration(
+                                                              borderRadius: BorderRadius.circular(20),
+                                                              border: Border.all(
+                                                                  color: AppTheme(context).primaryGreenColor
                                                               ),
-                                                              child: Icon(Icons.clear,color: AppTheme(context).primaryGreenColor,),
+
                                                             ),
+                                                            child: Icon(Icons.clear,color: AppTheme(context).primaryGreenColor,),
                                                           ),
                                                         ),
-                                                        SizedBox(height: 20),
-                                                        Text(
-                                                          "What is the importance of an external DPO?",
-                                                          style: TextStyle(
-                                                              // color: AppTheme(context).primaryBlueColor,
-                                                              color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlueColor,
+                                                      ),
+                                                      SizedBox(height: 20),
+                                                      Text(
+                                                        "What is the importance of an external DPO?",
+                                                        style: TextStyle(
+                                                            // color: AppTheme(context).primaryBlueColor,
+                                                            color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlueColor,
 
-                                                              fontWeight: FontWeight.w700,
-                                                              letterSpacing: 1.0,
-                                                              height: 1.7,
-                                                              fontSize: Responsive.isDesktop(context)?31:25,
-                                                              fontFamily: "Cairo",
-                                                              fontStyle: FontStyle.normal),
-                                                        ),
-                                                        const SizedBox(height: 20),
-                                                        Text(
-                                                          "A DPO is mandatory for schools. GDPR fines are becoming more common and are not a good idea. Fortunately, small fines are now also being handed out, but unfortunately that has also happened for sending an email with recipients in the CC.",
-                                                          style: TextStyle(
-                                                              color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlackColor,
-                                                              fontWeight: FontWeight.w500,
-                                                              letterSpacing: 1.0,
-                                                              height: 1.7,
-                                                              fontSize: Responsive.isDesktop(context)?19:16,
-                                                              fontFamily: "Cairo",
-                                                              fontStyle: FontStyle.normal),
-                                                        ),
-                                                        const SizedBox(height: 20),
-                                                        Text(
-                                                          "De menselijke fout is niet uit te sluiten, en dan is het van belang dat je met een externe FG een privacyraamwerk en pdca-cyclus hebt ingevoerd waarmee je privacybewustzijn kunt aantonen. Dat voorkomt of verlaagd een boete.",
-                                                          style: TextStyle(
-                                                              color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlackColor,
-                                                              fontWeight: FontWeight.w500,
-                                                              letterSpacing: 1.0,
-                                                              height: 1.7,
-                                                              fontSize: Responsive.isDesktop(context)?19:16,
-                                                              fontFamily: "Cairo",
-                                                              fontStyle: FontStyle.normal),
-                                                        ),
+                                                            fontWeight: FontWeight.w700,
+                                                            letterSpacing: 1.0,
+                                                            height: 1.7,
+                                                            fontSize: Responsive.isDesktop(context)?31:25,
+                                                            fontFamily: "Cairo",
+                                                            fontStyle: FontStyle.normal),
+                                                      ),
+                                                      const SizedBox(height: 20),
+                                                      Text(
+                                                        "A DPO is mandatory for schools. GDPR fines are becoming more common and are not a good idea. Fortunately, small fines are now also being handed out, but unfortunately that has also happened for sending an email with recipients in the CC.",
+                                                        style: TextStyle(
+                                                            color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlackColor,
+                                                            fontWeight: FontWeight.w500,
+                                                            letterSpacing: 1.0,
+                                                            height: 1.7,
+                                                            fontSize: Responsive.isDesktop(context)?19:16,
+                                                            fontFamily: "Cairo",
+                                                            fontStyle: FontStyle.normal),
+                                                      ),
+                                                      const SizedBox(height: 20),
+                                                      Text(
+                                                        "De menselijke fout is niet uit te sluiten, en dan is het van belang dat je met een externe FG een privacyraamwerk en pdca-cyclus hebt ingevoerd waarmee je privacybewustzijn kunt aantonen. Dat voorkomt of verlaagd een boete.",
+                                                        style: TextStyle(
+                                                            color: themeChange.darkTheme?Colors.white:AppTheme(context).primaryBlackColor,
+                                                            fontWeight: FontWeight.w500,
+                                                            letterSpacing: 1.0,
+                                                            height: 1.7,
+                                                            fontSize: Responsive.isDesktop(context)?19:16,
+                                                            fontFamily: "Cairo",
+                                                            fontStyle: FontStyle.normal),
+                                                      ),
 
-                                                      ],
-                                                    ),
+                                                    ],
                                                   ),
                                                 ),
                                               );
@@ -775,69 +773,67 @@ class _HomePageState extends State<HomePage> {
                                                   color: themeChange.darkTheme?Color.fromRGBO(50, 59, 75, 1):Colors.white,
 
                                                   // width: width,
-                                                  child: Expanded(
-                                                    child: Column(
-                                                      mainAxisSize: MainAxisSize.min,
-                                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                                      children: [
-                                                        Align(
-                                                          alignment: Alignment.topRight,
-                                                          child: InkWell(
-                                                            onTap: (){
-                                                              Navigator.pop(context);},
-                                                            child: Container(
-                                                              height: 25,
-                                                              width: 25,
-                                                              decoration: BoxDecoration(
-                                                                borderRadius: BorderRadius.circular(20),
-                                                                border: Border.all(
-                                                                    color: AppTheme(context).primaryGreenColor
-                                                                ),
-
+                                                  child: Column(
+                                                    mainAxisSize: MainAxisSize.min,
+                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                    children: [
+                                                      Align(
+                                                        alignment: Alignment.topRight,
+                                                        child: InkWell(
+                                                          onTap: (){
+                                                            Navigator.pop(context);},
+                                                          child: Container(
+                                                            height: 25,
+                                                            width: 25,
+                                                            decoration: BoxDecoration(
+                                                              borderRadius: BorderRadius.circular(20),
+                                                              border: Border.all(
+                                                                  color: AppTheme(context).primaryGreenColor
                                                               ),
-                                                              child: Icon(Icons.clear,color: AppTheme(context).primaryGreenColor,),
+
                                                             ),
+                                                            child: Icon(Icons.clear,color: AppTheme(context).primaryGreenColor,),
                                                           ),
                                                         ),
-                                                        SizedBox(height: 20),
-                                                        Text(
-                                                          "Service 'Shared IT director'",
-                                                          style: TextStyle(
-                                                              color: AppTheme(context).primaryBlueColor,
-                                                              fontWeight: FontWeight.w700,
-                                                              letterSpacing: 1.0,
-                                                              height: 1.7,
-                                                              fontSize: Responsive.isDesktop(context)?31:25,
-                                                              fontFamily: "Cairo",
-                                                              fontStyle: FontStyle.normal),
-                                                        ),
-                                                        const SizedBox(height: 20),
-                                                        Text(
-                                                          "CIOforum also offers a shared IT Director, a Chief Information Officer as a service, an IT sounding board for organizations that are too small for a salaried IT Manager. CIOforum offers subscription forms with a variation in quarterly to weekly meetings where you benefit from rapid knowledge building about your organization via an experienced IT coach.",
-                                                          style: TextStyle(
-                                                              color: AppTheme(context).primaryBlackColor,
-                                                              fontWeight: FontWeight.w500,
-                                                              letterSpacing: 1.0,
-                                                              height: 1.7,
-                                                              fontSize: Responsive.isDesktop(context)?19:16,
-                                                              fontFamily: "Cairo",
-                                                              fontStyle: FontStyle.normal),
-                                                        ),
-                                                        const SizedBox(height: 20),
-                                                        Text(
-                                                          "De menselijke fout is niet uit te sluiten, en dan is het van belang dat je met een externe FG een privacyraamwerk en pdca-cyclus hebt ingevoerd waarmee je privacybewustzijn kunt aantonen. Dat voorkomt of verlaagd een boete.",
-                                                          style: TextStyle(
-                                                              color: AppTheme(context).primaryBlackColor,
-                                                              fontWeight: FontWeight.w500,
-                                                              letterSpacing: 1.0,
-                                                              height: 1.7,
-                                                              fontSize: Responsive.isDesktop(context)?19:16,
-                                                              fontFamily: "Cairo",
-                                                              fontStyle: FontStyle.normal),
-                                                        ),
+                                                      ),
+                                                      SizedBox(height: 20),
+                                                      Text(
+                                                        "Service 'Shared IT director'",
+                                                        style: TextStyle(
+                                                            color: AppTheme(context).primaryBlueColor,
+                                                            fontWeight: FontWeight.w700,
+                                                            letterSpacing: 1.0,
+                                                            height: 1.7,
+                                                            fontSize: Responsive.isDesktop(context)?31:25,
+                                                            fontFamily: "Cairo",
+                                                            fontStyle: FontStyle.normal),
+                                                      ),
+                                                      const SizedBox(height: 20),
+                                                      Text(
+                                                        "CIOforum also offers a shared IT Director, a Chief Information Officer as a service, an IT sounding board for organizations that are too small for a salaried IT Manager. CIOforum offers subscription forms with a variation in quarterly to weekly meetings where you benefit from rapid knowledge building about your organization via an experienced IT coach.",
+                                                        style: TextStyle(
+                                                            color: AppTheme(context).primaryBlackColor,
+                                                            fontWeight: FontWeight.w500,
+                                                            letterSpacing: 1.0,
+                                                            height: 1.7,
+                                                            fontSize: Responsive.isDesktop(context)?19:16,
+                                                            fontFamily: "Cairo",
+                                                            fontStyle: FontStyle.normal),
+                                                      ),
+                                                      const SizedBox(height: 20),
+                                                      Text(
+                                                        "De menselijke fout is niet uit te sluiten, en dan is het van belang dat je met een externe FG een privacyraamwerk en pdca-cyclus hebt ingevoerd waarmee je privacybewustzijn kunt aantonen. Dat voorkomt of verlaagd een boete.",
+                                                        style: TextStyle(
+                                                            color: AppTheme(context).primaryBlackColor,
+                                                            fontWeight: FontWeight.w500,
+                                                            letterSpacing: 1.0,
+                                                            height: 1.7,
+                                                            fontSize: Responsive.isDesktop(context)?19:16,
+                                                            fontFamily: "Cairo",
+                                                            fontStyle: FontStyle.normal),
+                                                      ),
 
-                                                      ],
-                                                    ),
+                                                    ],
                                                   ),
                                                 ),
                                               );

@@ -25,216 +25,226 @@ PreferredSizeWidget appbar(BuildContext context,bool homeTabSelected,bool produc
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
-              child: Row(
-                children: [
-                  // Responsive.isDesktop(context)
-                  SizedBox(
-                    width: width * 0.10,
-                  ),
-                  // : Container(),
-                  Image.asset("assets/image_1.png",
-                      // color: Colors.transparent,
-                      width: Responsive.isDesktop(context) ? 33 : 19,
-                      height: Responsive.isDesktop(context) ? 40 : 23),
-                  const SizedBox(width: 10),
-                  Center(
-                    child: Text(
-                      "CIOFORUM",
-                      style: TextStyle(
-                          color: themeChange.darkTheme
-                              ? Colors.white
-                              : AppTheme(context).primaryBlueColor,
-                          // color: isSwitched?AppTheme(context).primaryWhiteColor:AppTheme(context).primaryBlueColor,
+              child: InkWell(
+                onTap: (){
+                  Navigator.pushNamed(context,"/home");
 
-                          fontWeight: FontWeight.bold,
-                          fontSize: Responsive.isDesktop(context) ? 34 : 19.79,
-                          fontStyle: FontStyle.normal,
-                          fontFamily: "Montserrat"),
+                },
+                child: Row(
+                  children: [
+                    // Responsive.isDesktop(context)
+                    SizedBox(
+                      width: width * 0.10,
                     ),
-                  ),
-                  Responsive.isDesktop(context) ? const Spacer() : const Spacer(),
-                  // Responsive.isDesktop(context)
-                  //     ? SizedBox(width: MediaQuery.of(context).size.width*0.03)
-                  //     : Container(),
-                  Responsive.isDesktop(context)
-                      ? InkWell(
-                    hoverColor: Colors.transparent,
-                    onTap: () {
-                      // Navigator.push(context,MaterialPageRoute(builder: (context)=>HomePage()));
-                      Navigator.pushNamed(context,"/home");
-
-                    },
-                    child: Text("Home",
+                    // : Container(),
+                    Image.asset("assets/image_1.png",
+                        // color: Colors.transparent,
+                        width: Responsive.isDesktop(context) ? 33 : 19,
+                        height: Responsive.isDesktop(context) ? 40 : 23),
+                    const SizedBox(width: 10),
+                    Center(
+                      child: Text(
+                        "CIOFORUM",
                         style: TextStyle(
-                            color: themeChange.darkTheme
-                                ? homeTabSelected
-                                ? AppTheme(context).primaryGreenColor
-                                : Colors.white
-                                : homeTabSelected
-                                ? AppTheme(context).primaryGreenColor
-                                : AppTheme(context).primaryBlueColor,
-                            fontWeight: FontWeight.w400,
-                            fontSize: homeTabSelected ? 15 : 18,
-                            fontStyle: FontStyle.normal,
-                            fontFamily: "Cairo")),
-                  )
-                      : Container(),
-                  Responsive.isDesktop(context)
-                      ? SizedBox(width: width * 0.02)
-                      : Container(),
-                  Responsive.isDesktop(context)
-                      ? InkWell(
-                    hoverColor: Colors.transparent,
-                    onTap: () {
-                      // Navigator.push(context,MaterialPageRoute(builder: (context)=>Product()));
-                      // Navigator.push(context,MaterialPageRoute(builder: (context)=>Product()));
-                      Navigator.pushNamed(context,"/products");
-                    },
-                    child: Text("Products",
-                        style: TextStyle(
-                            color: themeChange.darkTheme
-                                ? productTabSelected
-                                ? AppTheme(context).primaryGreenColor
-                                : Colors.white
-                                : productTabSelected
-                                ? AppTheme(context).primaryGreenColor
-                                : AppTheme(context).primaryBlueColor,
-                            fontWeight: FontWeight.w400,
-                            fontSize: productTabSelected ? 15 : 18,
-                            fontStyle: FontStyle.normal,
-                            fontFamily: "Cairo")),
-                  )
-                      : Container(),
-                  Responsive.isDesktop(context)
-                      ? SizedBox(width: width * 0.02)
-                      : Container(),
-                  Responsive.isDesktop(context)
-                      ? InkWell(
-                    hoverColor: Colors.transparent,
-                    onTap: () {
-                      Navigator.pushNamed(context,"/news");
-                      // Navigator.push(context,MaterialPageRoute(builder: (context)=>NewPage()));
-                    },
-                    child: Text("News",
-                        style: TextStyle(
-                            color: themeChange.darkTheme
-                                ? newsTabSelected
-                                ? AppTheme(context).primaryGreenColor
-                                : Colors.white
-                                : newsTabSelected
-                                ? AppTheme(context).primaryGreenColor
-                                : AppTheme(context).primaryBlueColor,
-                            fontWeight: FontWeight.w400,
-                            fontSize: newsTabSelected ? 15 : 18,
-                            fontStyle: FontStyle.normal,
-                            fontFamily: "Cairo")),
-                  )
-                      : Container(),
-                  Responsive.isDesktop(context)
-                      ? SizedBox(width: width * 0.02)
-                      : Container(),
-                  Responsive.isDesktop(context)
-                      ? InkWell(
-                      hoverColor: Colors.transparent,
-                      // onHover: (_) {
-                      //   showMenus(context);
-                      // },
-                      onTap: () {
-                        // Navigator.push(context,MaterialPageRoute(builder: (context)=>About()));
-                        Navigator.pushNamed(context,"/about");
-
-
-                      },
-                      child: Container(
-                        key: menuKey,
-                        child: MouseRegion(
-                          onHover: (event) {
-                            showMenus(context,menuKey);
-                          },
-                          child: Text("About",
-                              style: TextStyle(
-                                  color: themeChange.darkTheme
-                                      ? aboutTabSelected
-                                      ? AppTheme(context).primaryGreenColor
-                                      : Colors.white
-                                      : aboutTabSelected
-                                      ? AppTheme(context).primaryGreenColor
-                                      : AppTheme(context).primaryBlueColor,
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: aboutTabSelected ? 15 : 18,
-                                  fontStyle: FontStyle.normal,
-                                  fontFamily: "Cairo")),
-                        ),
-                      ))
-                      : Container(),
-                  Responsive.isDesktop(context)
-                      ? SizedBox(width: width * 0.03)
-                      : Container(),
-                  Responsive.isDesktop(context)
-                      ? InkWell(
-                    hoverColor: Colors.transparent,
-                    onTap: () {
-                      // Navigator.push(context,MaterialPageRoute(builder: (context)=>Contact()));
-                      Navigator.pushNamed(context,"/contact");
-                    },
-                    child: Container(
-                        height: 50,
-                        width: 130,
-                        decoration: BoxDecoration(
-                          // color: AppTheme(context).primaryBlueColor,
                             color: themeChange.darkTheme
                                 ? Colors.white
                                 : AppTheme(context).primaryBlueColor,
-                            borderRadius: BorderRadius.circular(50)),
-                        child: Center(
-                          child: Text(
-                            "Contact Us",
-                            style: TextStyle(
-                                color: themeChange.darkTheme
-                                    ? Color.fromRGBO(50, 59, 75, 1)
-                                    : AppTheme(context).primaryWhiteColor,
-                                // color: AppTheme(context).primaryWhiteColor,
-                                fontFamily: "Cairo",
-                                fontStyle: FontStyle.normal,
-                                fontWeight: FontWeight.w400,
-                                fontSize: 18),
+                            // color: isSwitched?AppTheme(context).primaryWhiteColor:AppTheme(context).primaryBlueColor,
+
+                            fontWeight: FontWeight.bold,
+                            fontSize: Responsive.isDesktop(context) ? 34 : 19.79,
+                            fontStyle: FontStyle.normal,
+                            fontFamily: "Montserrat"),
+                      ),
+                    ),
+                    Responsive.isDesktop(context) ? const Spacer() : const Spacer(),
+                    // Responsive.isDesktop(context)
+                    //     ? SizedBox(width: MediaQuery.of(context).size.width*0.03)
+                    //     : Container(),
+                    Responsive.isDesktop(context)
+                        ? InkWell(
+                      hoverColor: Colors.transparent,
+                      onTap: () {
+                        // Navigator.push(context,MaterialPageRoute(builder: (context)=>HomePage()));
+                        Navigator.pushNamed(context,"/home");
+
+                      },
+                      child: Text("Home",
+                          style: TextStyle(
+                              color: themeChange.darkTheme
+                                  ? homeTabSelected
+                                  ? AppTheme(context).primaryGreenColor
+                                  : Colors.white
+                                  : homeTabSelected
+                                  ? AppTheme(context).primaryGreenColor
+                                  : AppTheme(context).primaryBlueColor,
+                              fontWeight: FontWeight.w400,
+                              // fontSize: homeTabSelected ? 15 : 18,
+                              fontSize: 18,
+                              fontStyle: FontStyle.normal,
+                              fontFamily: "Cairo")),
+                    )
+                        : Container(),
+                    Responsive.isDesktop(context)
+                        ? SizedBox(width: width * 0.02)
+                        : Container(),
+                    Responsive.isDesktop(context)
+                        ? InkWell(
+                      hoverColor: Colors.transparent,
+                      onTap: () {
+                        // Navigator.push(context,MaterialPageRoute(builder: (context)=>Product()));
+                        // Navigator.push(context,MaterialPageRoute(builder: (context)=>Product()));
+                        Navigator.pushNamed(context,"/products");
+                      },
+                      child: Text("Products",
+                          style: TextStyle(
+                              color: themeChange.darkTheme
+                                  ? productTabSelected
+                                  ? AppTheme(context).primaryGreenColor
+                                  : Colors.white
+                                  : productTabSelected
+                                  ? AppTheme(context).primaryGreenColor
+                                  : AppTheme(context).primaryBlueColor,
+                              fontWeight: FontWeight.w400,
+                              // fontSize: productTabSelected ? 15 : 18,
+                              fontSize:  18,
+                              fontStyle: FontStyle.normal,
+                              fontFamily: "Cairo")),
+                    )
+                        : Container(),
+                    Responsive.isDesktop(context)
+                        ? SizedBox(width: width * 0.02)
+                        : Container(),
+                    Responsive.isDesktop(context)
+                        ? InkWell(
+                      hoverColor: Colors.transparent,
+                      onTap: () {
+                        Navigator.pushNamed(context,"/news");
+                        // Navigator.push(context,MaterialPageRoute(builder: (context)=>NewPage()));
+                      },
+                      child: Text("News",
+                          style: TextStyle(
+                              color: themeChange.darkTheme
+                                  ? newsTabSelected
+                                  ? AppTheme(context).primaryGreenColor
+                                  : Colors.white
+                                  : newsTabSelected
+                                  ? AppTheme(context).primaryGreenColor
+                                  : AppTheme(context).primaryBlueColor,
+                              fontWeight: FontWeight.w400,
+                              // fontSize: newsTabSelected ? 15 : 18,
+                              fontSize: 18,
+                              fontStyle: FontStyle.normal,
+                              fontFamily: "Cairo")),
+                    )
+                        : Container(),
+                    Responsive.isDesktop(context)
+                        ? SizedBox(width: width * 0.02)
+                        : Container(),
+                    Responsive.isDesktop(context)
+                        ? InkWell(
+                        hoverColor: Colors.transparent,
+                        // onHover: (_) {
+                        //   showMenus(context);
+                        // },
+                        onTap: () {
+                          // Navigator.push(context,MaterialPageRoute(builder: (context)=>About()));
+                          Navigator.pushNamed(context,"/about");
+
+
+                        },
+                        child: Container(
+                          key: menuKey,
+                          child: MouseRegion(
+                            onHover: (event) {
+                              showMenus(context,menuKey);
+                            },
+                            child: Text("About",
+                                style: TextStyle(
+                                    color: themeChange.darkTheme
+                                        ? aboutTabSelected
+                                        ? AppTheme(context).primaryGreenColor
+                                        : Colors.white
+                                        : aboutTabSelected
+                                        ? AppTheme(context).primaryGreenColor
+                                        : AppTheme(context).primaryBlueColor,
+                                    fontWeight: FontWeight.w400,
+                                    // fontSize: aboutTabSelected ? 15 : 18,
+                                    fontSize:  18,
+                                    fontStyle: FontStyle.normal,
+                                    fontFamily: "Cairo")),
                           ),
-                        )),
-                  )
-                      : Container(),
-                  Responsive.isDesktop(context)
-                      ? const SizedBox(width: 60)
-                      : const SizedBox(width: 60),
-                  // homeTabSelected
-                       Image.asset(
-                    "assets/sun_1.png",
-                    color: AppTheme(context).primaryBlueColor,
-                    height: 24,
-                    width: 24,
-                  ),
-                  //     : const SizedBox(
-                  //   width: 20,
-                  // ),
-                  // const Icon(
-                  //   Icons.stream,
-                  //   color: Color.fromRGBO(50, 59, 75, 1),
-                  // ),
-                  Switch(
-                    hoverColor: Colors.transparent,
-                    activeColor: AppTheme(context).primaryGreenColor,
-                    inactiveThumbColor: AppTheme(context).primaryGreenColor,
-                    inactiveTrackColor: Colors.grey.shade200,
-                    // value: isSwitched,
-                    value: themeChange.darkTheme,
-                    onChanged: (value) {
-                      themeChange.darkTheme = value;
-                      // setState(() {
-                      //         isSwitched = value;
-                      //       });
-                    },
-                  )
-                      // : const SizedBox(width: 58),
-                ],
+                        ))
+                        : Container(),
+                    Responsive.isDesktop(context)
+                        ? SizedBox(width: width * 0.03)
+                        : Container(),
+                    Responsive.isDesktop(context)
+                        ? InkWell(
+                      hoverColor: Colors.transparent,
+                      onTap: () {
+                        // Navigator.push(context,MaterialPageRoute(builder: (context)=>Contact()));
+                        Navigator.pushNamed(context,"/contact");
+                      },
+                      child: Container(
+                          height: 50,
+                          width: 130,
+                          decoration: BoxDecoration(
+                            // color: AppTheme(context).primaryBlueColor,
+                              color: themeChange.darkTheme
+                                  ? Colors.white
+                                  : AppTheme(context).primaryBlueColor,
+                              borderRadius: BorderRadius.circular(50)),
+                          child: Center(
+                            child: Text(
+                              "Contact Us",
+                              style: TextStyle(
+                                  color: themeChange.darkTheme
+                                      ? Color.fromRGBO(50, 59, 75, 1)
+                                      : AppTheme(context).primaryWhiteColor,
+                                  // color: AppTheme(context).primaryWhiteColor,
+                                  fontFamily: "Cairo",
+                                  fontStyle: FontStyle.normal,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 18),
+                            ),
+                          )),
+                    )
+                        : Container(),
+                    Responsive.isDesktop(context)
+                        ? const SizedBox(width: 60)
+                        : const SizedBox(width: 60),
+                    // homeTabSelected
+                         Image.asset(
+                      "assets/sun_1.png",
+                      color: AppTheme(context).primaryBlueColor,
+                      height: 24,
+                      width: 24,
+                    ),
+                    //     : const SizedBox(
+                    //   width: 20,
+                    // ),
+                    // const Icon(
+                    //   Icons.stream,
+                    //   color: Color.fromRGBO(50, 59, 75, 1),
+                    // ),
+                    Switch(
+                      hoverColor: Colors.transparent,
+                      activeColor: AppTheme(context).primaryGreenColor,
+                      inactiveThumbColor: AppTheme(context).primaryGreenColor,
+                      inactiveTrackColor: Colors.grey.shade200,
+                      // value: isSwitched,
+                      value: themeChange.darkTheme,
+                      onChanged: (value) {
+                        themeChange.darkTheme = value;
+                        // setState(() {
+                        //         isSwitched = value;
+                        //       });
+                      },
+                    )
+                        // : const SizedBox(width: 58),
+                  ],
+                ),
               ),
             ),
 

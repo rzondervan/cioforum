@@ -1,17 +1,20 @@
-import 'package:ciofroum_web/Homepage.dart';
+import 'dart:html';
+import 'dart:ui';
+
 import 'package:ciofroum_web/constants/themes.dart';
-import 'package:ciofroum_web/footer_view.dart';
 import 'package:ciofroum_web/responsive.dart';
 import 'package:ciofroum_web/thememode/provider.dart';
 import 'package:ciofroum_web/widget/appbar.dart';
 import 'package:ciofroum_web/widget/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../widget/footer1.dart';
 
 
+
+
 class Partner extends StatefulWidget {
+
   // Partner({required this.clickFooterCallback,required this.sitemapClick});
   //
   // ClickFooterCallback clickFooterCallback;
@@ -28,9 +31,6 @@ class _PartnerState extends State<Partner> {
     final width = MediaQuery.of(context).size.width;
     final themeChange = Provider.of<DarkThemeProvider>(context);
     GlobalKey menuKey = GlobalKey();
-
-
-
     return SafeArea(
       child: Scaffold(
           key: _scaffoldKey,
@@ -131,8 +131,7 @@ class _PartnerState extends State<Partner> {
                                       color: AppTheme(context).primaryBlueColor,
                                     letterSpacing: 1.0,
                                     height: 1.7,
-                                  )
-                                  ,
+                                  ),
                                 ),
                               ],
                             ),
@@ -767,22 +766,27 @@ class _PartnerState extends State<Partner> {
                               ),
                             ),
                             SizedBox(height: 20),
-                            Container(
-                              height: height*0.07,
-                              width: width*0.18,
-                              decoration: BoxDecoration(
-                                color: AppTheme(context).primaryGreenColor,
-                                borderRadius: BorderRadius.circular(10),
+                            InkWell(
+                              onTap: (){
+                                downloadFile("assets/pdf_file.pdf");
+                                },
+                              child: Container(
+                                height: height*0.07,
+                                width: width*0.18,
+                                decoration: BoxDecoration(
+                                  color: AppTheme(context).primaryGreenColor,
+                                  borderRadius: BorderRadius.circular(10),
 
-                              ),
-                              child: Center(
-                                child: Text("Download",style: TextStyle(
-                                    color: AppTheme(context).WhiteColor,
-                                    fontFamily: "Cairo",
-                                    fontSize: Responsive.isDesktop(context) ?19:14,
-                                    fontWeight: FontWeight.w700,
-                                    fontStyle: FontStyle.normal
-                                ),),
+                                ),
+                                child: Center(
+                                  child: Text("Download",style: TextStyle(
+                                      color: AppTheme(context).WhiteColor,
+                                      fontFamily: "Cairo",
+                                      fontSize: Responsive.isDesktop(context) ?19:14,
+                                      fontWeight: FontWeight.w700,
+                                      fontStyle: FontStyle.normal
+                                  ),),
+                                ),
                               ),
                             )
                           ],
@@ -802,5 +806,11 @@ class _PartnerState extends State<Partner> {
         )
       ),
     );
+  }
+  downloadFile(url){
+    AnchorElement  anchorElement=AnchorElement(href: url);
+    anchorElement.download=url;
+    anchorElement.setAttribute("download", "pdf_file.pdf");
+    anchorElement.click();
   }
 }

@@ -80,14 +80,15 @@ class _ContactState extends State<Contact> {
                         width: width,
                         // color: Colors.red,
                         child: Responsive.isDesktop(context)?getMap():
-                          GoogleMap(
-                          mapType: MapType.normal,
-                          // zoomControlsEnabled: false,
-                          initialCameraPosition:  CameraPosition(target: const LatLng(30.7238206,76.6339858), zoom: 15),
-                          // onMapCreated: (GoogleMapController controller) {
-                          //   _controller.complete(controller);
-                          // },
-                        ),
+                            Image.network("assets/cioforummap_image.jpeg",fit: BoxFit.cover,)
+                        //   GoogleMap(
+                        //   mapType: MapType.normal,
+                        //   // zoomControlsEnabled: false,
+                        //   initialCameraPosition:  CameraPosition(target: const LatLng(30.7238206,76.6339858), zoom: 15),
+                        //   // onMapCreated: (GoogleMapController controller) {
+                        //   //   _controller.complete(controller);
+                        //   // },
+                        // ),
                       ),
                       Container(
                         // height:height*0.3,

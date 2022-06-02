@@ -398,9 +398,7 @@ Widget Footer1(BuildContext context,
                         onTap: (){
                           // Navigator.push(context,MaterialPageRoute(builder: (context)=>FAQ()));
                           Navigator.pushNamed(context,"/faq");
-
-
-                        },
+                          },
                         // onTap: (){
                         //   clickFooterCallback.onPageOpen(false,false,false,false,false,false,false,false,true);
                         // },
