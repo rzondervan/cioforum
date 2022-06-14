@@ -9,6 +9,8 @@ import 'package:ciofroum_web/widget/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../widget/footer1.dart';
+import 'dart:html' as html;
+
 
 
 
@@ -768,7 +770,8 @@ class _PartnerState extends State<Partner> {
                             SizedBox(height: 20),
                             InkWell(
                               onTap: (){
-                                downloadFile("assets/pdf_file.pdf");
+                                // downloadFile("assets/pdf_file.pdf");
+                                html.window.open("assets/assets/pdf_file.pdf", "pdf_file");
                                 },
                               child: Container(
                                 height: height*0.07,

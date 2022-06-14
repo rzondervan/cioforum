@@ -7,6 +7,8 @@ import 'package:ciofroum_web/widget/appbar.dart';
 import 'package:ciofroum_web/widget/drawer.dart';
 import 'package:ciofroum_web/widget/footer1.dart';
 import 'package:flutter/material.dart';
+import 'dart:html' as html;
+
 import 'package:url_launcher/url_launcher.dart';
 
 
@@ -23,6 +25,7 @@ class TermsandConditions extends StatefulWidget {
 }
 final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 GlobalKey menuKey = GlobalKey();
+
 
 
 class _TermsandConditionsState extends State<TermsandConditions> {
@@ -808,8 +811,16 @@ class _TermsandConditionsState extends State<TermsandConditions> {
                             //     throw 'Could not launch $url';
                             //   }
                             // },
-                            onTap: (){
-                              downloadFile("assets/assets/pdf_file.pdf");
+                            onTap: () async {
+                              // downloadFile("assets/assets/pdf_file.pdf");
+                              // Uint8List bytes = await pdf.save() ;
+                              // final blob = html.Blob([bytes], 'application/pdf');
+                              // final url = html.Url.createObjectUrlFromBlob(blob);
+                              // html.window.open(url, "_blank");
+                              // html.Url.revokeObjectUrl(url);
+                              html.window.open("assets/assets/pdf_file.pdf", "pdf_file");
+
+
                             },
                             child: Container(
                               height: height*0.06,
@@ -843,6 +854,7 @@ class _TermsandConditionsState extends State<TermsandConditions> {
       ),
     );
   }
+
   downloadFile(url){
     AnchorElement  anchorElement=AnchorElement(href: url);
     anchorElement.download="pdf_file";

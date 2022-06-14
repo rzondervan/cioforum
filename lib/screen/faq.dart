@@ -9,6 +9,7 @@ import 'package:ciofroum_web/widget/footer1.dart';
 import 'package:expansion_tile_card/expansion_tile_card.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'dart:html' as html;
 
 
 class FAQ extends StatefulWidget {
@@ -865,7 +866,8 @@ class _FAQState extends State<FAQ> {
                             //   }
                             // },
                             onTap: (){
-                              downloadFile("assets/pdf_file.pdf");
+                              // downloadFile("assets/pdf_file.pdf");
+                              html.window.open("assets/assets/pdf_file.pdf", "pdf_file");
                             },
                             child: Container(
                               height: height*0.06,
